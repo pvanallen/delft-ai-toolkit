@@ -1,7 +1,7 @@
 # Delft AI Toolkit - Version 2
 ## Visual Authoring Toolkit for Smart Things
 
-**This is a new 2.0 version of this project, with a significantly changed architecture. The NodeCanvas system has been replaced with a customize version of [xNode](https://github.com/Siccity/xNode). In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
+**This is a new 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas system has been replaced with a customize version of [xNode](https://github.com/Siccity/xNode). In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
 
 **As of late June 2018, this version is going through significant changes and is not ready for general use. We hope to have a release by the end of July.**
 
