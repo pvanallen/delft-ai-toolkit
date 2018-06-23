@@ -1,0 +1,739 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833e8118763fc48ef814fcb19963c803, type: 3}
+  m_Name: New State Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114048683753446172}
+  - {fileID: 114392952066454682}
+  - {fileID: 114565011817060962}
+  - {fileID: 114704689593081230}
+  - {fileID: 114977953711976372}
+  - {fileID: 114460468400951174}
+  - {fileID: 114592647529588696}
+  current: {fileID: 114565011817060962}
+--- !u!114 &114048683753446172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: ding1 anim
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: -376}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114048683753446172}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114704689593081230}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114048683753446172}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 0
+    moveParams:
+      type: 1
+      time: 1
+      speed: 2
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 2
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 2
+    moveParams:
+      type: 2
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 2
+      time: 1
+      speed: 2
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color: 0,127,127
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 3
+      time: 1
+      speed: 3
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 4
+      time: 1
+      speed: 3
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color: 0,0,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  currentAction: 8
+  repeats: 2
+  currentRepeats: 1
+  random: 0
+  device: 0
+--- !u!114 &114392952066454682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: ding2 anim
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: -8}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114392952066454682}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114704689593081230}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114392952066454682}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 0
+    moveParams:
+      type: 3
+      time: 1
+      speed: 2
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 4
+      time: 1
+      speed: 2
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  currentAction: 2
+  repeats: 3
+  currentRepeats: 1
+  random: 0
+  device: 1
+--- !u!114 &114460468400951174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: stop analog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: 200}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114460468400951174}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114592647529588696}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114460468400951174}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 3
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 1
+      interval: 100
+      port: 0
+  currentAction: 0
+  repeats: 1
+  currentRepeats: 1
+  random: 0
+  device: 3
+--- !u!114 &114565011817060962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: ding3 anim
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 24, y: -280}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114565011817060962}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114704689593081230}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114565011817060962}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 0,127,127
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 0,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 0.5
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 127,0,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 0.5
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 0,0,127
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 0.5
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0.5
+      ledNum: 0
+      color: 255,255,255
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 64,127,20
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  currentAction: 7
+  repeats: 15
+  currentRepeats: 1
+  random: 1
+  device: 2
+--- !u!114 &114592647529588696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: move it
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: 120}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114592647529588696}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114977953711976372}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114592647529588696}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114460468400951174}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 0
+    moveParams:
+      type: 1
+      time: 2
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 2
+      time: 2
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  currentAction: 2
+  repeats: 5
+  currentRepeats: 1
+  random: 0
+  device: 3
+--- !u!114 &114704689593081230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26740a44af00146429981d0aa12f2932, type: 3}
+  m_Name: Delft Toolkit.Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -536, y: -392}
+  ports:
+    keys:
+    - a
+    - b
+    - result
+    - enter
+    - exit
+    values:
+    - _fieldName: a
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: b
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: result
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114048683753446172}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114392952066454682}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114565011817060962}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  a: 28.144014
+  b: 0
+  result: 28.144014
+  sensorDevice: 3
+  matchDingMessage: /num/analogin/0/
+  sensorSource: 0
+  incomingDingMessage: /num/analogin/0/
+  mathType: 0
+--- !u!114 &114977953711976372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: start analog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -504, y: -72}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114977953711976372}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114977953711976372}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114592647529588696}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  actions:
+  - actionType: 3
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  currentAction: 1
+  repeats: 1
+  currentRepeats: 1
+  random: 0
+  device: 3
