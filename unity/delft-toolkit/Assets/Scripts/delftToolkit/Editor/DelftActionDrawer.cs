@@ -31,8 +31,12 @@ public class DelftActionDrawer : PropertyDrawer {
 				pos.x = position.x;
 				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 				pos.width = position.width;
+				EditorGUI.BeginChangeCheck();
 				Color32 col = ParseColor(actionLeds.FindPropertyRelative("color").stringValue);
 				col = EditorGUI.ColorField(pos, col);
+				if (EditorGUI.EndChangeCheck()) {
+					actionLeds.FindPropertyRelative("color").stringValue = col.r + "," + col.g + "," + col.b;
+				}
 			break;
 			case AiGlobals.ActionTypes.delay:
 				SerializedProperty actionDelay = property.FindPropertyRelative("delayParams");
