@@ -14,7 +14,7 @@ namespace DelftToolkit {
 		/// </summary>
 		public override string GetNodeMenuName(System.Type type) {
 			if (type.Namespace == "DelftToolkit") {
-				return base.GetNodeMenuName(type).Replace("Delft Toolkit", "");
+				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "");
 			} else return null;
 		}
 	}
