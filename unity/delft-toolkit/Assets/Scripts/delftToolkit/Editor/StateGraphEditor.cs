@@ -10,7 +10,7 @@ namespace DelftToolkit {
 
 		/// <summary> 
 		/// Overriding GetNodePath lets you control if and how nodes are categorized.
-	    /// In this example we are sorting out all node types that are not in the XNode.Examples namespace.
+		/// In this example we are sorting out all node types that are not in the XNode.Examples namespace.
 		/// </summary>
 		public override string GetNodeMenuName(System.Type type) {
 			if (type.Namespace == "DelftToolkit") {

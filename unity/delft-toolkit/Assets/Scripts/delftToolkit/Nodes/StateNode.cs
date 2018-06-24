@@ -6,5 +6,5 @@ using UnityEngine;
 namespace DelftToolkit {
     public class StateNode : StateNodeBase {
 
-	}
+    }
 }

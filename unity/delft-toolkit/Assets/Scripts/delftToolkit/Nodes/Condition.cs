@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using DelftToolkit;
+using UnityEngine;
 
 namespace DelftToolkit {
     [System.Serializable]
@@ -26,11 +26,11 @@ namespace DelftToolkit {
         public MathType mathType = MathType.Add;
         public enum MathType { Add, Subtract, Multiply, Divide }
 
-		protected override void Init() {
-			base.Init();
+        protected override void Init() {
+            base.Init();
             DingControlPhysical.DingNumPhysicalEvent += handlePhysNumEvent;
             DingControlVirtual.DingNumVirtualEvent += handleVirtNumEvent;
-		}
+        }
 
         void handlePhysNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
             if (sensorSource == AiGlobals.SensorSource.phys) {
@@ -39,21 +39,21 @@ namespace DelftToolkit {
         }
 
         void handleVirtNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-            
+
             if (sensorSource == AiGlobals.SensorSource.virt) {
                 handleNumEvent(device, adrs, val0, val1, val2);
             }
         }
 
         void handleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-            
+
             incomingDingMessage = adrs;
             //UnityEngine.Debug.Log("got virt " + incomingDingMessage + " " + matchDingMessage);
             if (incomingDingMessage == matchDingMessage && sensorDevice == device) {
                 a = val0;
                 GetValue(GetOutputPort("result"));
                 //if (result > 50) {
-                    //node.MoveNext();
+                //node.MoveNext();
                 //}
             } else {
                 //value0 = 0;
@@ -72,10 +72,19 @@ namespace DelftToolkit {
             result = 0f;
             if (port.fieldName == "result")
                 switch (mathType) {
-                    case MathType.Add: default: result = a+b; break;
-                    case MathType.Subtract: result = a - b; break;
-                    case MathType.Multiply: result = a * b; break;
-                    case MathType.Divide: result = a / b; break;
+                    case MathType.Add:
+                    default:
+                        result = a + b;
+                        break;
+                    case MathType.Subtract:
+                        result = a - b;
+                        break;
+                    case MathType.Multiply:
+                        result = a * b;
+                        break;
+                    case MathType.Divide:
+                        result = a / b;
+                        break;
                 }
             //UnityEngine.Debug.Log("last: " + lastResult);
             if (result > 50 && lastResult <= 50) {

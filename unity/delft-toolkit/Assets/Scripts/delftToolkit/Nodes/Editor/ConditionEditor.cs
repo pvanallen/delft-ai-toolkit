@@ -5,15 +5,15 @@ using UnityEngine;
 using XNodeEditor;
 
 namespace DelftToolkit {
-	[CustomNodeEditor(typeof(Condition))]
-	public class ConditionEditor : NodeEditor {
+    [CustomNodeEditor(typeof(Condition))]
+    public class ConditionEditor : NodeEditor {
 
-		public override void OnHeaderGUI() {
+        public override void OnHeaderGUI() {
             //base.OnHeaderGUI();
             GUI.color = Color.white;
             Condition node = target as Condition;
-			StateGraph graph = node.graph as StateGraph;
-			if (graph.current == node) GUI.color = Color.green;
+            StateGraph graph = node.graph as StateGraph;
+            if (graph.current == node) GUI.color = Color.green;
             string title = target.name;
             if (renaming != 0 && Selection.Contains(target)) {
                 int controlID = EditorGUIUtility.GetControlID(FocusType.Keyboard) + 1;
@@ -27,19 +27,18 @@ namespace DelftToolkit {
                     Rename(target.name);
                     renaming = 0;
                 }
-            }
-            else {
+            } else {
                 GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
             }
-			GUI.color = Color.white;
+            GUI.color = Color.white;
             Actions.DingEvent += setAction;
             DingControlPhysical.DingNumPhysicalEvent += handleNumEvent;
             DingControlVirtual.DingNumVirtualEvent += handleNumEvent;
-		}
+        }
 
-		public override void OnBodyGUI() {
-			base.OnBodyGUI();
-			
+        public override void OnBodyGUI() {
+            base.OnBodyGUI();
+
             Condition condition = target as Condition;
             Condition node = target as Condition;
             StateGraph graph = node.graph as StateGraph;
@@ -57,10 +56,10 @@ namespace DelftToolkit {
                 //node.currentAction = 0;
                 node.MoveNext();
             }
-			//if (GUILayout.Button("Continue Graph")) graph.Continue();
-			if (GUILayout.Button("Set as current")) graph.current = node;
+            //if (GUILayout.Button("Continue Graph")) graph.Continue();
+            if (GUILayout.Button("Set as current")) graph.current = node;
 
-		}
+        }
 
         public void setAction(AiGlobals.Devices aDevice, Action anAction) {
             //Debug.LogWarning("Repainting");
@@ -70,5 +69,5 @@ namespace DelftToolkit {
         void handleNumEvent(AiGlobals.Devices devices, string adrs, float val0, float val1, float val2) {
             NodeEditorWindow.current.Repaint();
         }
-	}
+    }
 }

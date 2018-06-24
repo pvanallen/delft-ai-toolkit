@@ -6,9 +6,9 @@ using UnityEngine;
 namespace DelftToolkit {
     [System.Serializable]
     public class Actions : StateNodeBase {
-        
+
         //public List<Action> actions = new List<Action>();
-        public List<Action> actions = new List<Action> {new Action()};
+        public List<Action> actions = new List<Action> { new Action() };
 
         public int currentAction = 0;
         public int repeats = 1;
@@ -20,7 +20,6 @@ namespace DelftToolkit {
 
         public delegate void DingActionEvent(AiGlobals.Devices device, Action action);
         public static event DingActionEvent DingEvent;
-
 
         protected override void Init() {
             currentAction = 0;
@@ -35,7 +34,7 @@ namespace DelftToolkit {
             if (currentAction < actions.Count) {
                 if (DingEvent != null) {
                     if (random) {
-                        currentAction = UnityEngine.Random.Range(0,actions.Count);
+                        currentAction = UnityEngine.Random.Range(0, actions.Count);
                     }
 
                     DingEvent(device, actions[currentAction]);
@@ -62,7 +61,7 @@ namespace DelftToolkit {
                 if (random) {
                     currentAction = actions.Count;
                 } else {
-                    currentAction++; 
+                    currentAction++;
                 }
                 NextAction().RunCoroutine();
             } else {
@@ -86,8 +85,7 @@ namespace DelftToolkit {
             NextAction().RunCoroutine();
         }
 
-        public override void OnExit()
-        {
+        public override void OnExit() {
             //if (stopAtFinish) {
             //if (DingEvent != null) {
             //    //DingEvent(device, AiGlobals.ActionTypes.stop, 0, "test");
@@ -95,7 +93,7 @@ namespace DelftToolkit {
             base.OnExit();
         }
 
-	}
+    }
 
     [Serializable]
     public class Action {

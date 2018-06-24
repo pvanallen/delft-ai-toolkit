@@ -22,15 +22,15 @@ namespace DelftToolkit {
 			base.OnBodyGUI();
 			StateNode node = target as StateNode;
 			StateGraph graph = node.graph as StateGraph;
-			if (GUILayout.Button ("MoveNext Node")) GoNext(node, 3.0f).RunCoroutine ();
+			if (GUILayout.Button("MoveNext Node")) GoNext(node, 3.0f).RunCoroutine();
 			if (GUILayout.Button("Continue Graph")) graph.Continue();
 			if (GUILayout.Button("Set as current")) graph.current = node;
 		}
 
-		public IEnumerator GoNext(StateNode node, float delay ) {
-			node.Finish (delay).RunCoroutine ();
-			yield return new WaitForSeconds(delay+0.01f);
-			NodeEditorWindow.current.Repaint ();
+		public IEnumerator GoNext(StateNode node, float delay) {
+			node.Finish(delay).RunCoroutine();
+			yield return new WaitForSeconds(delay + 0.01f);
+			NodeEditorWindow.current.Repaint();
 		}
 	}
 }

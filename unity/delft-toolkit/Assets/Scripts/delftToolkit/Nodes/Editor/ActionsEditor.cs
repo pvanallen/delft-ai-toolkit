@@ -5,19 +5,19 @@ using UnityEngine;
 using XNodeEditor;
 
 namespace DelftToolkit {
-	[CustomNodeEditor(typeof(Actions))]
-	public class ActionsEditor : NodeEditor {
+    [CustomNodeEditor(typeof(Actions))]
+    public class ActionsEditor : NodeEditor {
 
         bool showPosition = false;
 
-		public override void OnHeaderGUI() {
+        public override void OnHeaderGUI() {
             //base.OnHeaderGUI();
-			GUI.color = Color.white;
-			Actions node = target as Actions;
-			StateGraph graph = node.graph as StateGraph;
-			if (graph.current == node) GUI.color = Color.green;
-			//string title = target.name;
-			//GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
+            GUI.color = Color.white;
+            Actions node = target as Actions;
+            StateGraph graph = node.graph as StateGraph;
+            if (graph.current == node) GUI.color = Color.green;
+            //string title = target.name;
+            //GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
             string title = target.name;
             if (renaming != 0 && Selection.Contains(target)) {
                 int controlID = GUIUtility.GetControlID(FocusType.Keyboard) + 1;
@@ -34,13 +34,13 @@ namespace DelftToolkit {
             } else {
                 GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
             }
-			GUI.color = Color.white;
+            GUI.color = Color.white;
             Actions.DingEvent += setAction;
-		}
+        }
 
-		public override void OnBodyGUI() {
-                    
-			//base.OnBodyGUI();
+        public override void OnBodyGUI() {
+
+            //base.OnBodyGUI();
             GUI.color = Color.white;
             Actions node = target as Actions;
             StateGraph graph = node.graph as StateGraph;
@@ -48,7 +48,7 @@ namespace DelftToolkit {
             NodeEditorGUILayout.PortField(target.GetInputPort("enter"), GUILayout.Width(30));
             EditorGUILayout.Space();
             EditorGUILayout.Space();
-            node.device = (AiGlobals.Devices)EditorGUILayout.EnumPopup(node.device, GUILayout.Width(50));
+            node.device = (AiGlobals.Devices) EditorGUILayout.EnumPopup(node.device, GUILayout.Width(50));
             EditorGUILayout.Space();
             EditorGUILayout.Space();
             NodeEditorGUILayout.PortField(target.GetOutputPort("exit"), GUILayout.Width(26));
@@ -79,7 +79,7 @@ namespace DelftToolkit {
                     i--;
                 }
                 if (node.currentAction == i) GUI.color = Color.cyan;
-                node.actions[i].actionType = (AiGlobals.ActionTypes)EditorGUILayout.EnumPopup(node.actions[i].actionType, GUILayout.Width(42) );
+                node.actions[i].actionType = (AiGlobals.ActionTypes) EditorGUILayout.EnumPopup(node.actions[i].actionType, GUILayout.Width(42));
                 switch (node.actions[i].actionType) {
                     case AiGlobals.ActionTypes.move:
                         ActionMove actionMove = node.actions[i].moveParams;
@@ -103,7 +103,7 @@ namespace DelftToolkit {
                         break;
                     case AiGlobals.ActionTypes.analogin:
                         ActionAnalogIn actionAnalogIn = node.actions[i].analoginParams;
-                        actionAnalogIn.type = (AiGlobals.ActionAnalogInTypes)EditorGUILayout.EnumPopup(actionAnalogIn.type, GUILayout.Width(60));
+                        actionAnalogIn.type = (AiGlobals.ActionAnalogInTypes) EditorGUILayout.EnumPopup(actionAnalogIn.type, GUILayout.Width(60));
                         actionAnalogIn.interval = EditorGUILayout.IntField(actionAnalogIn.interval, GUILayout.Width(24));
                         actionAnalogIn.port = EditorGUILayout.IntField(actionAnalogIn.port, GUILayout.Width(24));
                         break;
@@ -130,17 +130,15 @@ namespace DelftToolkit {
                 node.currentRepeats = 1;
                 node.NextAction().RunCoroutine();
             }
-			//if (GUILayout.Button("Continue Graph")) graph.Continue();
-			if (GUILayout.Button("Set as current")) graph.current = node;
+            //if (GUILayout.Button("Continue Graph")) graph.Continue();
+            if (GUILayout.Button("Set as current")) graph.current = node;
+        }
 
-		}
-
-		//public IEnumerator GoNext(Actions node, float delay ) {
-		//	node.Finish (delay).RunCoroutine ();
-		//	yield return new WaitForSeconds(delay+0.01f);
-		//	NodeEditorWindow.current.Repaint ();
-		//}
-
+        //public IEnumerator GoNext(Actions node, float delay ) {
+        //	node.Finish (delay).RunCoroutine ();
+        //	yield return new WaitForSeconds(delay+0.01f);
+        //	NodeEditorWindow.current.Repaint ();
+        //}
 
         //public void Awake()
         //{
@@ -162,5 +160,5 @@ namespace DelftToolkit {
         public override int GetWidth() {
             return 220;
         }
-	}
+    }
 }
