@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace DelftToolkit {
-    [System.Serializable]
+    [NodeWidth(270)]
     public class Actions : StateNodeBase {
 
         //public List<Action> actions = new List<Action>();

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Rotorz.ReorderableList;
 using UnityEditor;
 using UnityEngine;
 using XNodeEditor;
@@ -72,48 +73,10 @@ namespace DelftToolkit {
             EditorGUILayout.Space();
             GUILayout.EndVertical();
 
-            for (int i = 0; i < node.actions.Count; i++) {
-                GUILayout.BeginHorizontal();
-                if (GUILayout.Button("-", GUILayout.Width(20))) {
-                    node.actions.RemoveAt(i);
-                    i--;
-                }
-                if (node.currentAction == i) GUI.color = Color.cyan;
-                node.actions[i].actionType = (AiGlobals.ActionTypes) EditorGUILayout.EnumPopup(node.actions[i].actionType, GUILayout.Width(42));
-                switch (node.actions[i].actionType) {
-                    case AiGlobals.ActionTypes.move:
-                        ActionMove actionMove = node.actions[i].moveParams;
-                        actionMove.type = (AiGlobals.ActionMoveTypes) EditorGUILayout.EnumPopup(actionMove.type, GUILayout.Width(60));
-                        actionMove.time = EditorGUILayout.FloatField(actionMove.time, GUILayout.Width(24));
-                        actionMove.speed = EditorGUILayout.FloatField(actionMove.speed, GUILayout.Width(24));
-                        break;
-                    case AiGlobals.ActionTypes.leds:
-                        ActionLed actionLeds = node.actions[i].ledParams;
-                        actionLeds.type = (AiGlobals.ActionLedTypes) EditorGUILayout.EnumPopup(actionLeds.type, GUILayout.Width(60));
-                        actionLeds.time = EditorGUILayout.FloatField(actionLeds.time, GUILayout.Width(24));
-                        actionLeds.ledNum = EditorGUILayout.IntField(actionLeds.ledNum, GUILayout.Width(24));
-                        GUILayout.EndHorizontal();
-                        GUILayout.BeginHorizontal();
-                        actionLeds.color = EditorGUILayout.TextField(actionLeds.color, GUILayout.Width(100));
-                        break;
-                    case AiGlobals.ActionTypes.delay:
-                        ActionDelay actionDelay = node.actions[i].delayParams;
-                        actionDelay.time = EditorGUILayout.FloatField(actionDelay.time, GUILayout.Width(24));
-                        //actionStopAll.type = (AiGlobals.ActionStopAllTypes) EditorGUILayout.EnumPopup(actionStopAll.type, GUILayout.Width(50));
-                        break;
-                    case AiGlobals.ActionTypes.analogin:
-                        ActionAnalogIn actionAnalogIn = node.actions[i].analoginParams;
-                        actionAnalogIn.type = (AiGlobals.ActionAnalogInTypes) EditorGUILayout.EnumPopup(actionAnalogIn.type, GUILayout.Width(60));
-                        actionAnalogIn.interval = EditorGUILayout.IntField(actionAnalogIn.interval, GUILayout.Width(24));
-                        actionAnalogIn.port = EditorGUILayout.IntField(actionAnalogIn.port, GUILayout.Width(24));
-                        break;
-                }
-                //node.actions[i].seconds = EditorGUILayout.FloatField(node.actions[i].seconds, GUILayout.Width(25) );
+            SerializedProperty p = serializedObject.FindProperty("actions");
+            Rotorz.ReorderableList.ReorderableListGUI.Title("Actions");
+            Rotorz.ReorderableList.ReorderableListGUI.ListField(p);
 
-                //NodeEditorGUILayout.PortField(new GUIContent(), target.GetOutputPort(dialogue.answers[i].portName), GUILayout.Width(-4));
-                GUI.color = Color.white;
-                GUILayout.EndHorizontal();
-            }
             GUILayout.BeginHorizontal();
             EditorGUILayout.Space();
             if (GUILayout.Button("+", GUILayout.Width(25))) {
@@ -155,10 +118,6 @@ namespace DelftToolkit {
         public void setAction(AiGlobals.Devices aDevice, Action anAction) {
             //Debug.LogWarning("Repainting");
             NodeEditorWindow.current.Repaint();
-        }
-
-        public override int GetWidth() {
-            return 220;
         }
     }
 }
