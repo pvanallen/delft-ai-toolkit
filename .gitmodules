@@ -1,0 +1,3 @@
+[submodule "unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/xNode"]
+	path = unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/xNode
+	url = git@github.com:Siccity/xNode.git
