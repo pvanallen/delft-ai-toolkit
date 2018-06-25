@@ -12,31 +12,11 @@ namespace DelftToolkit {
         bool showPosition = false;
 
         public override void OnHeaderGUI() {
-            //base.OnHeaderGUI();
             GUI.color = Color.white;
-            Actions node = target as Actions;
-            StateGraph graph = node.graph as StateGraph;
-            if (graph.current == node) GUI.color = Color.green;
-            //string title = target.name;
-            //GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-            string title = target.name;
-            if (renaming != 0 && Selection.Contains(target)) {
-                int controlID = GUIUtility.GetControlID(FocusType.Keyboard) + 1;
-                if (renaming == 1) {
-                    GUIUtility.keyboardControl = controlID;
-                    EditorGUIUtility.editingTextField = true;
-                    renaming = 2;
-                }
-                target.name = EditorGUILayout.TextField(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-                if (!EditorGUIUtility.editingTextField) {
-                    Rename(target.name);
-                    renaming = 0;
-                }
-            } else {
-                GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-            }
+            StateGraph graph = target.graph as StateGraph;
+            if (graph.current == target) GUI.color = Color.green;
+            base.OnHeaderGUI();
             GUI.color = Color.white;
-            Actions.DingEvent += setAction;
         }
 
         public override void OnBodyGUI() {
@@ -97,6 +77,12 @@ namespace DelftToolkit {
             if (GUILayout.Button("Set as current")) graph.current = node;
         }
 
+        [InitializeOnLoadMethod]
+        private static void ASDF() {
+            Actions.DingEvent -= SetAction;
+            Actions.DingEvent += SetAction;
+        }
+
         //public IEnumerator GoNext(Actions node, float delay ) {
         //	node.Finish (delay).RunCoroutine ();
         //	yield return new WaitForSeconds(delay+0.01f);
@@ -115,7 +101,7 @@ namespace DelftToolkit {
         //    ActionNode.DingEvent -= setAction;
         //}
 
-        public void setAction(AiGlobals.Devices aDevice, Action anAction) {
+        public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
             //Debug.LogWarning("Repainting");
             NodeEditorWindow.current.Repaint();
         }
