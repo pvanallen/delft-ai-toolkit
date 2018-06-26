@@ -10,7 +10,8 @@ namespace DelftToolkit {
     public class ActionsEditor : NodeEditor {
 
         bool showPosition = false;
-
+        DelftActionListAdaptor actionListAdaptor;
+        
         public override void OnHeaderGUI() {
             GUI.color = Color.white;
             StateGraph graph = target.graph as StateGraph;
@@ -20,6 +21,7 @@ namespace DelftToolkit {
         }
 
         public override void OnBodyGUI() {
+            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor((target as Actions).actions);
 
             //base.OnBodyGUI();
             GUI.color = Color.white;
@@ -55,7 +57,7 @@ namespace DelftToolkit {
 
             SerializedProperty p = serializedObject.FindProperty("actions");
             Rotorz.ReorderableList.ReorderableListGUI.Title("Actions");
-            Rotorz.ReorderableList.ReorderableListGUI.ListField(p);
+            Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 
             GUILayout.BeginHorizontal();
             EditorGUILayout.Space();
