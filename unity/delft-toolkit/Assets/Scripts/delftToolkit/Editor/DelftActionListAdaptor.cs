@@ -44,7 +44,7 @@ namespace DelftToolkit {
 		}
 
 		public override void DrawItem(Rect position, int index) {
-			Action shoppingItem = List[index];
+			Action delftAction = List[index];
 
 			int controlID = GUIUtility.GetControlID(FocusType.Passive);
 
@@ -54,7 +54,7 @@ namespace DelftToolkit {
 					if (totalItemPosition.Contains(Event.current.mousePosition)) {
 						// Select this list item.
 						s_SelectedList = this;
-						s_SelectedItem = shoppingItem;
+						s_SelectedItem = delftAction;
 					}
 
 					// Calculate rectangle of draggable area of the list item.
@@ -66,7 +66,7 @@ namespace DelftToolkit {
 					if (Event.current.button == 0 && draggableRect.Contains(Event.current.mousePosition)) {
 						// Select this list item.
 						s_SelectedList = this;
-						s_SelectedItem = shoppingItem;
+						s_SelectedItem = delftAction;
 
 						// Lock onto this control whilst left mouse button is held so
 						// that we can start a drag-and-drop operation when user drags.
@@ -85,7 +85,7 @@ namespace DelftToolkit {
 						// inadvertently starting a drag-and-drop operation.
 						if (Vector2.Distance(s_MouseDownPosition, Event.current.mousePosition) >= MouseDragThresholdInPixels) {
 							// Prepare data that will represent the item.
-							var item = new DraggedItem(this, index, shoppingItem);
+							var item = new DraggedItem(this, index, delftAction);
 
 							// Start drag-and-drop operation with the Unity API.
 							DragAndDrop.PrepareStartDrag();
@@ -95,7 +95,7 @@ namespace DelftToolkit {
 							DragAndDrop.paths = new string[0];
 
 							DragAndDrop.SetGenericData(DraggedItem.TypeName, item);
-							DragAndDrop.StartDrag(shoppingItem.actionType.ToString());
+							DragAndDrop.StartDrag(delftAction.actionType.ToString());
 						}
 
 						// Use this event so that the host window gets repainted with
@@ -105,9 +105,65 @@ namespace DelftToolkit {
 					break;
 
 				case EventType.Repaint:
-					EditorStyles.label.Draw(position, shoppingItem.actionType.ToString(), false, false, false, false);
+					{
+						Rect pos = new Rect(position.x, position.y, 50, EditorGUIUtility.singleLineHeight);
+						EditorGUI.EnumPopup(pos, delftAction.actionType);
+
+						switch (delftAction.actionType) {
+							case AiGlobals.ActionTypes.move:
+								DrawNextProperty(ref pos, 70);
+								delftAction.moveParams.type = (AiGlobals.ActionMoveTypes) EditorGUI.EnumPopup(pos, delftAction.moveParams.type);
+								DrawNextProperty(ref pos, 30);
+								delftAction.moveParams.time = EditorGUI.FloatField(pos, delftAction.moveParams.time);
+								DrawNextProperty(ref pos, 30);
+								delftAction.moveParams.speed = EditorGUI.FloatField(pos, delftAction.moveParams.speed);
+								break;
+							case AiGlobals.ActionTypes.leds:
+								DrawNextProperty(ref pos, 70);
+								delftAction.ledParams.type = (AiGlobals.ActionLedTypes) EditorGUI.EnumPopup(pos, delftAction.ledParams.type);
+								DrawNextProperty(ref pos, 30);
+								delftAction.ledParams.time = EditorGUI.FloatField(pos, delftAction.ledParams.time);
+								DrawNextProperty(ref pos, 30);
+								delftAction.ledParams.ledNum = EditorGUI.IntField(pos, delftAction.ledParams.ledNum);
+								pos.x = position.x;
+								pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+								pos.width = position.width;
+								EditorGUI.BeginChangeCheck();
+								Color32 col = ParseColor(delftAction.ledParams.color);
+								col = EditorGUI.ColorField(pos, col);
+								if (EditorGUI.EndChangeCheck()) {
+									delftAction.ledParams.color = col.r + "," + col.g + "," + col.b;
+								}
+								break;
+							case AiGlobals.ActionTypes.delay:
+								DrawNextProperty(ref pos, 30);
+								delftAction.delayParams.time = EditorGUI.FloatField(pos, delftAction.delayParams.time);
+								break;
+							case AiGlobals.ActionTypes.analogin:
+								DrawNextProperty(ref pos, 70);
+								delftAction.analoginParams.type = (AiGlobals.ActionAnalogInTypes) EditorGUI.EnumPopup(pos, delftAction.analoginParams.type);
+								DrawNextProperty(ref pos, 30);
+								delftAction.analoginParams.interval = EditorGUI.IntField(pos, delftAction.analoginParams.interval);
+								DrawNextProperty(ref pos, 30);
+								delftAction.analoginParams.port = EditorGUI.IntField(pos, delftAction.analoginParams.port);
+								break;
+						}
+					}
 					break;
 			}
+		}
+
+		private void DrawNextProperty(ref Rect pos, float width) {
+			pos.x += pos.width + 2;
+			pos.width = width;
+		}
+
+		private Color32 ParseColor(string s) {
+			string[] s_rgb = s.Split(',');
+			if (s_rgb.Length != 3) return Color.white;
+			byte[] c_rgb = new byte[3];
+			for (int i = 0; i < 3; i++) byte.TryParse(s_rgb[i], out c_rgb[i]);
+			return new Color32(c_rgb[0], c_rgb[1], c_rgb[2], 255);
 		}
 
 		public bool CanDropInsert(int insertionIndex) {
@@ -135,6 +191,10 @@ namespace DelftToolkit {
 					s_SelectedList = this;
 				}
 			}
+		}
+
+		public override float GetItemHeight(int index) {
+			return EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing;
 		}
 	}
 }
