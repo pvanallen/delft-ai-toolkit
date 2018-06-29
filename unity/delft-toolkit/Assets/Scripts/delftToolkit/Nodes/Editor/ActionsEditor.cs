@@ -53,6 +53,7 @@ namespace DelftToolkit {
             EditorGUILayout.Space();
             GUILayout.EndVertical();
 
+
             SerializedProperty p = serializedObject.FindProperty("actions");
             Rotorz.ReorderableList.ReorderableListGUI.Title("Actions");
             Rotorz.ReorderableList.ReorderableListGUI.ListField(p);
@@ -75,35 +76,6 @@ namespace DelftToolkit {
             }
             //if (GUILayout.Button("Continue Graph")) graph.Continue();
             if (GUILayout.Button("Set as current")) graph.current = node;
-        }
-
-        [InitializeOnLoadMethod]
-        private static void ASDF() {
-            Actions.DingEvent -= SetAction;
-            Actions.DingEvent += SetAction;
-        }
-
-        //public IEnumerator GoNext(Actions node, float delay ) {
-        //	node.Finish (delay).RunCoroutine ();
-        //	yield return new WaitForSeconds(delay+0.01f);
-        //	NodeEditorWindow.current.Repaint ();
-        //}
-
-        //public void Awake()
-        //{
-        //    Debug.LogWarning("onEnable");
-        //    ActionNode.DingEvent += setAction;
-        //}
-
-        //public void OnDestroy()
-        //{
-        //    Debug.LogWarning("onDisable");
-        //    ActionNode.DingEvent -= setAction;
-        //}
-
-        public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
-            //Debug.LogWarning("Repainting");
-            NodeEditorWindow.current.Repaint();
         }
     }
 }

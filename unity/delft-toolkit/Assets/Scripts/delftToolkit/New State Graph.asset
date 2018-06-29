@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 114977953711976372}
   - {fileID: 114460468400951174}
   - {fileID: 114592647529588696}
-  current: {fileID: 114565011817060962}
+  current: {fileID: 114392952066454682}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,24 +58,6 @@ MonoBehaviour:
       _connectionType: 0
       _dynamic: 0
   actions:
-  - actionType: 0
-    moveParams:
-      type: 1
-      time: 1
-      speed: 2
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: 0
-      color: 127,127,0
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 20
-      port: 0
   - actionType: 1
     moveParams:
       type: 2
@@ -86,6 +68,24 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: -1
+      color: 127,127,0
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+  - actionType: 0
+    moveParams:
+      type: 1
+      time: 1
+      speed: 2
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
       color: 127,127,0
     delayParams:
       type: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 8
+  currentAction: 0
   repeats: 2
   currentRepeats: 1
   random: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: ding2 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: -8}
+  position: {x: -184, y: 136}
   ports:
     keys:
     - enter
@@ -281,7 +281,43 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 2
+  - actionType: 0
+    moveParams:
+      type: 3
+      time: 1
+      speed: 2
+      easing: 0
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 
+    delayParams:
+      type: 0
+      time: 0
+    analoginParams:
+      type: 0
+      interval: 0
+      port: 0
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 0
+      speed: 0
+      easing: 0
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 
+    delayParams:
+      type: 0
+      time: 0
+    analoginParams:
+      type: 0
+      interval: 0
+      port: 0
+  currentAction: 0
   repeats: 3
   currentRepeats: 1
   random: 0
@@ -298,7 +334,7 @@ MonoBehaviour:
   m_Name: stop analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: 200}
+  position: {x: -200, y: 440}
   ports:
     keys:
     - enter
@@ -359,7 +395,7 @@ MonoBehaviour:
   m_Name: ding3 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 24, y: -280}
+  position: {x: 72, y: -360}
   ports:
     keys:
     - enter
@@ -511,7 +547,25 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 7
+  - actionType: 0
+    moveParams:
+      type: 0
+      time: 0
+      speed: 0
+      easing: 0
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color: 
+    delayParams:
+      type: 0
+      time: 0
+    analoginParams:
+      type: 0
+      interval: 0
+      port: 0
+  currentAction: 0
   repeats: 15
   currentRepeats: 1
   random: 1
@@ -528,7 +582,7 @@ MonoBehaviour:
   m_Name: move it
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -456, y: 120}
+  position: {x: -504, y: 216}
   ports:
     keys:
     - enter
@@ -593,7 +647,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 2
+  currentAction: 0
   repeats: 5
   currentRepeats: 1
   random: 0
@@ -668,9 +722,9 @@ MonoBehaviour:
       _direction: 1
       _connectionType: 0
       _dynamic: 0
-  a: 28.144014
+  a: 23.450672
   b: 0
-  result: 28.144014
+  result: 23.450672
   sensorDevice: 3
   matchDingMessage: /num/analogin/0/
   sensorSource: 0
@@ -732,7 +786,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 1
+  currentAction: 0
   repeats: 1
   currentRepeats: 1
   random: 0

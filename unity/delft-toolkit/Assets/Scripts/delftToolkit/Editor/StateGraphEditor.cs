@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using XNode;
 using XNodeEditor;
@@ -17,5 +18,16 @@ namespace DelftToolkit {
 				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "");
 			} else return null;
 		}
+
+        [InitializeOnLoadMethod]
+        private static void initEvents() {
+            Actions.DingEvent -= SetAction;
+            Actions.DingEvent += SetAction;
+        }
+
+        public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
+            //Debug.LogWarning("Repainting");
+            NodeEditorWindow.current.Repaint();
+        }
 	}
 }
