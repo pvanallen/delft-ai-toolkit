@@ -13,7 +13,7 @@ namespace DelftToolkit {
             GUI.color = Color.white;
             Condition node = target as Condition;
             StateGraph graph = node.graph as StateGraph;
-            if (graph.current == node) GUI.color = Color.green;
+            if (node.active) GUI.color = Color.green;
             string title = target.name;
             if (renaming != 0 && Selection.Contains(target)) {
                 int controlID = EditorGUIUtility.GetControlID(FocusType.Keyboard) + 1;
@@ -52,12 +52,12 @@ namespace DelftToolkit {
             }
 
             if (GUILayout.Button("Start Actions")) {
-                graph.current = node;
+                node.active = true;
                 //node.currentAction = 0;
                 node.MoveNext();
             }
             //if (GUILayout.Button("Continue Graph")) graph.Continue();
-            if (GUILayout.Button("Set as current")) graph.current = node;
+            if (GUILayout.Button("Set as current")) node.active = true;
 
         }
 

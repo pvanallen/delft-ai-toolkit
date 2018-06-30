@@ -14,8 +14,8 @@ namespace DelftToolkit {
         
         public override void OnHeaderGUI() {
             GUI.color = Color.white;
-            StateGraph graph = target.graph as StateGraph;
-            if (graph.current == target) GUI.color = Color.green;
+            Actions node = target as Actions;
+            if (node.active) GUI.color = Color.green;
             base.OnHeaderGUI();
             GUI.color = Color.white;
         }
@@ -72,13 +72,13 @@ namespace DelftToolkit {
 
             //node.seconds = GUILayout.HorizontalSlider(node.seconds, 0, 10);
             if (GUILayout.Button("Start Actions")) {
-                graph.current = node;
+                node.active = true;
                 node.currentAction = 0;
                 node.currentRepeats = 1;
                 node.NextAction().RunCoroutine();
             }
             //if (GUILayout.Button("Continue Graph")) graph.Continue();
-            if (GUILayout.Button("Set as current")) graph.current = node;
+            if (GUILayout.Button("Activate")) node.active = true;
         }
     }
 }

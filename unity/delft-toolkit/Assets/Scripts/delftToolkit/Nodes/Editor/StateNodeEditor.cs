@@ -12,7 +12,7 @@ namespace DelftToolkit {
 			GUI.color = Color.white;
 			StateNode node = target as StateNode;
 			StateGraph graph = node.graph as StateGraph;
-			if (graph.current == node) GUI.color = Color.green;
+			if (node.active) GUI.color = Color.green;
 			string title = target.name;
 			GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(40));
 			GUI.color = Color.white;
@@ -23,8 +23,7 @@ namespace DelftToolkit {
 			StateNode node = target as StateNode;
 			StateGraph graph = node.graph as StateGraph;
 			if (GUILayout.Button("MoveNext Node")) GoNext(node, 3.0f).RunCoroutine();
-			if (GUILayout.Button("Continue Graph")) graph.Continue();
-			if (GUILayout.Button("Set as current")) graph.current = node;
+			if (GUILayout.Button("Set as current")) node.active = true;;
 		}
 
 		public IEnumerator GoNext(StateNode node, float delay) {
