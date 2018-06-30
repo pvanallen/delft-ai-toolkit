@@ -84,15 +84,6 @@ namespace DelftToolkit {
             currentRepeats = 1;
             NextAction().RunCoroutine();
         }
-
-        public override void OnExit() {
-            //if (stopAtFinish) {
-            //if (DingEvent != null) {
-            //    //DingEvent(device, AiGlobals.ActionTypes.stop, 0, "test");
-            //}
-            base.OnExit();
-        }
-
     }
 
     [Serializable]
@@ -133,5 +124,4 @@ namespace DelftToolkit {
         public int interval = 20; // milliseconds
         public int port = 0;
     }
-
 }

@@ -6,19 +6,12 @@ using XNode;
 namespace DelftToolkit {
 	[CreateAssetMenu(fileName = "New State Graph", menuName = "delft Toolkit")]
 	public class StateGraph : NodeGraph {
-
-		// The current "active" node
-		public StateNodeBase current;
-        //public StateNodeEditor NodeEditorWindow;
-
-		public void Continue() {
-			current.MoveNext();
+		/// <summary> Enumerate through all StatNodeBase nodes where active == true </summary>
+		public IEnumerator<StateNodeBase> ActiveNodes() {
+			for (int i = 0; i < nodes.Count; i++) {
+				StateNodeBase node = nodes[i] as StateNodeBase;
+				if (node != null && node.active) yield return node;
+			}
 		}
-
-        //public void UpdateWindow() {
-        //    current.Repaint();
-        //}
-
-
 	}
 }

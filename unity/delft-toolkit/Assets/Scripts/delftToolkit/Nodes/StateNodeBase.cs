@@ -8,13 +8,14 @@ namespace DelftToolkit {
 	[CreateNodeMenu("")]
 	public class StateNodeBase : Node {
 
+		public bool active;
 		[Input] public Empty enter;
 		[Output] public Empty exit;
 
 		public void MoveNext() {
 			StateGraph fmGraph = graph as StateGraph;
 
-			if (fmGraph.current != this) {
+			if (active != this) {
 				Debug.LogWarning("Node isn't active");
 				return;
 			}
@@ -35,18 +36,14 @@ namespace DelftToolkit {
 
 		public virtual void OnEnter() {
 			StateGraph fmGraph = graph as StateGraph;
-			fmGraph.current = this;
+			active = true;
 			Debug.LogWarning("New Node starting");
 			//MyNodeEditor.NodeEditorWindow.current.Repaint();
 		}
 
-		public virtual void OnExit() {
-			MoveNext();
-		}
-
 		public IEnumerator Finish(float delay) {
 			yield return new WaitForSeconds(delay);
-			OnExit();
+			MoveNext();
 		}
 
 		[Serializable]
