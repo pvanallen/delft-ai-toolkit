@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using DelftToolkit;
+using UnityEngine;
 
 public class DingControlVirtual : DingControlBase {
 
@@ -14,8 +14,8 @@ public class DingControlVirtual : DingControlBase {
     public delegate void DingStringEvent(AiGlobals.Devices device, string oscMessage, string val);
     public static event DingStringEvent DingStrVirtualEvent;
 
-	public override void handleAction() {
-		//base.handleAction();
+    public override void handleAction() {
+        //base.handleAction();
         switch (action.actionType) {
             case AiGlobals.ActionTypes.move:
                 //Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.moveParams.type.ToString());
@@ -44,9 +44,9 @@ public class DingControlVirtual : DingControlBase {
         }
         // ensure this event gets processed before the next one comes in
         Update();
-	}
+    }
 
-	public override void Update () {
+    public override void Update() {
         // hand sending virtual sensor data
         if (sendSensors) {
             // very crude implementation
@@ -86,7 +86,7 @@ public class DingControlVirtual : DingControlBase {
                     switch (action.ledParams.type) {
                         case AiGlobals.ActionLedTypes.set:
                             //this.GetComponent<Renderer>().material.color = new Color(0.236f, 0.0f, 0.5f);
-                            GetComponent<Renderer>().material.color = new Color(hexToFloat(action.ledParams.color,0), hexToFloat(action.ledParams.color, 1), hexToFloat(action.ledParams.color, 2));
+                            GetComponent<Renderer>().material.color = new Color(hexToFloat(action.ledParams.color, 0), hexToFloat(action.ledParams.color, 1), hexToFloat(action.ledParams.color, 2));
                             break;
                         case AiGlobals.ActionLedTypes.allOff:
                             this.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
@@ -101,11 +101,14 @@ public class DingControlVirtual : DingControlBase {
                     break;
             }
         }
-	}
+    }
 
     public float hexToFloat(string color, int element) {
         string[] elements = color.Split(',');
-        float hex = float.Parse(elements[element]);
-        return (1f / 255f) * hex;
+        float hex;
+        if (float.TryParse(elements[element], out hex)) {
+            return (1f / 255f) * hex;
+        } else Debug.LogWarning("Attempt to parse string '" + elements[element] + "' to float failed");
+        return 0f;
     }
 }
