@@ -6,38 +6,43 @@ using UnityEngine;
 namespace DelftToolkit {
 	public class DelftActionListAdaptor : GenericListAdaptor<Action>, IReorderableListDropTarget {
 
-		private const float MouseDragThresholdInPixels = 0.6f;
+		private const float mouseDragThreshold = 0.6f;
 
 		// Static reference to the list adaptor of the selected item.
-		private static DelftActionListAdaptor s_SelectedList;
+		private static DelftActionListAdaptor selectedList;
 		// Static reference limits selection to one item in one list.
-		private static Action s_SelectedItem;
+		private static Action selectedItem;
 		// Position in GUI where mouse button was anchored before dragging occurred.
-		private static Vector2 s_MouseDownPosition;
+		private static Vector2 startDrag;
 
-		// Holds data representing the item that is being dragged.
+		private Actions node;
+
+		/// <summary> Holds data representing the item that is being dragged. </summary>
 		private class DraggedItem {
-
 			public static readonly string TypeName = typeof(DraggedItem).FullName;
 
-			public readonly DelftActionListAdaptor SourceListAdaptor;
-			public readonly int Index;
-			public readonly Action ShoppingItem;
+			public readonly DelftActionListAdaptor sourceListAdaptor;
+			public readonly int index;
+			public readonly Action shoppingItem;
 
 			public DraggedItem(DelftActionListAdaptor sourceList, int index, Action shoppingItem) {
-				SourceListAdaptor = sourceList;
-				Index = index;
-				ShoppingItem = shoppingItem;
+				sourceListAdaptor = sourceList;
+				this.index = index;
+				this.shoppingItem = shoppingItem;
 			}
-
 		}
 
-		public DelftActionListAdaptor(IList<Action> list) : base(list, null, 16f) { }
+		public DelftActionListAdaptor(IList<Action> list, Actions node) : base(list, null, EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing) {
+			this.node = node;
+		}
 
 		public override void DrawItemBackground(Rect position, int index) {
-			if (this == s_SelectedList && List[index] == s_SelectedItem) {
+			bool selected = selectedList == this && selectedItem == List[index];
+			bool active = index == node.currentAction;
+			if (selected || active) {
 				Color restoreColor = GUI.color;
-				GUI.color = ReorderableListStyles.SelectionBackgroundColor;
+				if (selected) GUI.color = ReorderableListStyles.SelectionBackgroundColor;
+				else if (active) GUI.color = new Color(1f, 0.5f, 0.0f, 0.5f);
 				GUI.DrawTexture(position, EditorGUIUtility.whiteTexture);
 				GUI.color = restoreColor;
 			}
@@ -48,13 +53,58 @@ namespace DelftToolkit {
 
 			int controlID = GUIUtility.GetControlID(FocusType.Passive);
 
+			{
+				Rect pos = new Rect(position.x, position.y, 50, EditorGUIUtility.singleLineHeight);
+				delftAction.actionType = (AiGlobals.ActionTypes) EditorGUI.EnumPopup(pos, delftAction.actionType);
+
+				switch (delftAction.actionType) {
+					case AiGlobals.ActionTypes.move:
+						DrawNextProperty(ref pos, 70);
+						delftAction.moveParams.type = (AiGlobals.ActionMoveTypes) EditorGUI.EnumPopup(pos, delftAction.moveParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.moveParams.time = EditorGUI.FloatField(pos, delftAction.moveParams.time);
+						DrawNextProperty(ref pos, 30);
+						delftAction.moveParams.speed = EditorGUI.FloatField(pos, delftAction.moveParams.speed);
+						break;
+					case AiGlobals.ActionTypes.leds:
+						DrawNextProperty(ref pos, 70);
+						delftAction.ledParams.type = (AiGlobals.ActionLedTypes) EditorGUI.EnumPopup(pos, delftAction.ledParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.ledParams.time = EditorGUI.FloatField(pos, delftAction.ledParams.time);
+						DrawNextProperty(ref pos, 30);
+						delftAction.ledParams.ledNum = EditorGUI.IntField(pos, delftAction.ledParams.ledNum);
+						pos.x = position.x;
+						pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+						pos.width = position.width;
+						EditorGUI.BeginChangeCheck();
+						Color32 col = ParseColor(delftAction.ledParams.color);
+						col = EditorGUI.ColorField(pos, col);
+						if (EditorGUI.EndChangeCheck()) {
+							delftAction.ledParams.color = col.r + "," + col.g + "," + col.b;
+						}
+						break;
+					case AiGlobals.ActionTypes.delay:
+						DrawNextProperty(ref pos, 30);
+						delftAction.delayParams.time = EditorGUI.FloatField(pos, delftAction.delayParams.time);
+						break;
+					case AiGlobals.ActionTypes.analogin:
+						DrawNextProperty(ref pos, 70);
+						delftAction.analoginParams.type = (AiGlobals.ActionAnalogInTypes) EditorGUI.EnumPopup(pos, delftAction.analoginParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.analoginParams.interval = EditorGUI.IntField(pos, delftAction.analoginParams.interval);
+						DrawNextProperty(ref pos, 30);
+						delftAction.analoginParams.port = EditorGUI.IntField(pos, delftAction.analoginParams.port);
+						break;
+				}
+			}
+
 			switch (Event.current.GetTypeForControl(controlID)) {
 				case EventType.MouseDown:
 					Rect totalItemPosition = ReorderableListGUI.CurrentItemTotalPosition;
 					if (totalItemPosition.Contains(Event.current.mousePosition)) {
 						// Select this list item.
-						s_SelectedList = this;
-						s_SelectedItem = delftAction;
+						selectedList = this;
+						selectedItem = delftAction;
 					}
 
 					// Calculate rectangle of draggable area of the list item.
@@ -65,13 +115,13 @@ namespace DelftToolkit {
 
 					if (Event.current.button == 0 && draggableRect.Contains(Event.current.mousePosition)) {
 						// Select this list item.
-						s_SelectedList = this;
-						s_SelectedItem = delftAction;
+						selectedList = this;
+						selectedItem = delftAction;
 
 						// Lock onto this control whilst left mouse button is held so
 						// that we can start a drag-and-drop operation when user drags.
 						GUIUtility.hotControl = controlID;
-						s_MouseDownPosition = Event.current.mousePosition;
+						startDrag = Event.current.mousePosition;
 						Event.current.Use();
 					}
 					break;
@@ -83,7 +133,7 @@ namespace DelftToolkit {
 						// Begin drag-and-drop operation when the user drags the mouse
 						// pointer across the threshold. This threshold helps to avoid
 						// inadvertently starting a drag-and-drop operation.
-						if (Vector2.Distance(s_MouseDownPosition, Event.current.mousePosition) >= MouseDragThresholdInPixels) {
+						if (Vector2.Distance(startDrag, Event.current.mousePosition) >= mouseDragThreshold) {
 							// Prepare data that will represent the item.
 							var item = new DraggedItem(this, index, delftAction);
 
@@ -101,53 +151,6 @@ namespace DelftToolkit {
 						// Use this event so that the host window gets repainted with
 						// each mouse movement.
 						Event.current.Use();
-					}
-					break;
-
-				case EventType.Repaint:
-					{
-						Rect pos = new Rect(position.x, position.y, 50, EditorGUIUtility.singleLineHeight);
-						EditorGUI.EnumPopup(pos, delftAction.actionType);
-
-						switch (delftAction.actionType) {
-							case AiGlobals.ActionTypes.move:
-								DrawNextProperty(ref pos, 70);
-								delftAction.moveParams.type = (AiGlobals.ActionMoveTypes) EditorGUI.EnumPopup(pos, delftAction.moveParams.type);
-								DrawNextProperty(ref pos, 30);
-								delftAction.moveParams.time = EditorGUI.FloatField(pos, delftAction.moveParams.time);
-								DrawNextProperty(ref pos, 30);
-								delftAction.moveParams.speed = EditorGUI.FloatField(pos, delftAction.moveParams.speed);
-								break;
-							case AiGlobals.ActionTypes.leds:
-								DrawNextProperty(ref pos, 70);
-								delftAction.ledParams.type = (AiGlobals.ActionLedTypes) EditorGUI.EnumPopup(pos, delftAction.ledParams.type);
-								DrawNextProperty(ref pos, 30);
-								delftAction.ledParams.time = EditorGUI.FloatField(pos, delftAction.ledParams.time);
-								DrawNextProperty(ref pos, 30);
-								delftAction.ledParams.ledNum = EditorGUI.IntField(pos, delftAction.ledParams.ledNum);
-								pos.x = position.x;
-								pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-								pos.width = position.width;
-								EditorGUI.BeginChangeCheck();
-								Color32 col = ParseColor(delftAction.ledParams.color);
-								col = EditorGUI.ColorField(pos, col);
-								if (EditorGUI.EndChangeCheck()) {
-									delftAction.ledParams.color = col.r + "," + col.g + "," + col.b;
-								}
-								break;
-							case AiGlobals.ActionTypes.delay:
-								DrawNextProperty(ref pos, 30);
-								delftAction.delayParams.time = EditorGUI.FloatField(pos, delftAction.delayParams.time);
-								break;
-							case AiGlobals.ActionTypes.analogin:
-								DrawNextProperty(ref pos, 70);
-								delftAction.analoginParams.type = (AiGlobals.ActionAnalogInTypes) EditorGUI.EnumPopup(pos, delftAction.analoginParams.type);
-								DrawNextProperty(ref pos, 30);
-								delftAction.analoginParams.interval = EditorGUI.IntField(pos, delftAction.analoginParams.interval);
-								DrawNextProperty(ref pos, 30);
-								delftAction.analoginParams.port = EditorGUI.IntField(pos, delftAction.analoginParams.port);
-								break;
-						}
 					}
 					break;
 			}
@@ -180,21 +183,17 @@ namespace DelftToolkit {
 				var draggedItem = DragAndDrop.GetGenericData(DraggedItem.TypeName) as DraggedItem;
 
 				// Are we just reordering within the same list?
-				if (draggedItem.SourceListAdaptor == this) {
-					Move(draggedItem.Index, insertionIndex);
+				if (draggedItem.sourceListAdaptor == this) {
+					Move(draggedItem.index, insertionIndex);
 				} else {
 					// Nope, we are moving the item!
-					List.Insert(insertionIndex, draggedItem.ShoppingItem);
-					draggedItem.SourceListAdaptor.Remove(draggedItem.Index);
+					List.Insert(insertionIndex, draggedItem.shoppingItem);
+					draggedItem.sourceListAdaptor.Remove(draggedItem.index);
 
 					// Ensure that the item remains selected at its new location!
-					s_SelectedList = this;
+					selectedList = this;
 				}
 			}
-		}
-
-		public override float GetItemHeight(int index) {
-			return EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing;
 		}
 	}
 }

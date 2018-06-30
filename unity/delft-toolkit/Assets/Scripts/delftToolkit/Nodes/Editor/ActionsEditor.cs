@@ -21,12 +21,13 @@ namespace DelftToolkit {
         }
 
         public override void OnBodyGUI() {
-            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor((target as Actions).actions);
+            Actions node = target as Actions;
+            StateGraph graph = node.graph as StateGraph;
+
+            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
 
             //base.OnBodyGUI();
             GUI.color = Color.white;
-            Actions node = target as Actions;
-            StateGraph graph = node.graph as StateGraph;
             GUILayout.BeginHorizontal();
             NodeEditorGUILayout.PortField(target.GetInputPort("enter"), GUILayout.Width(30));
             EditorGUILayout.Space();

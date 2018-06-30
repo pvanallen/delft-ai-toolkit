@@ -7,9 +7,9 @@ namespace DelftToolkit {
     [NodeWidth(270)]
     public class Actions : StateNodeBase {
 
-        //public List<Action> actions = new List<Action>();
         public List<Action> actions = new List<Action> { new Action() };
 
+        /// <summary> Current action index </summary>
         public int currentAction = 0;
         public int repeats = 1;
         public int currentRepeats = 1;
