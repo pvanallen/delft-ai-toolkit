@@ -48,6 +48,14 @@ public class DelftActionDrawer : PropertyDrawer {
 				DrawNextProperty(ref pos, actionAnalogIn, "interval", 30);
 				DrawNextProperty(ref pos, actionAnalogIn, "port", 30);
 			break;
+            case AiGlobals.ActionTypes.speak:
+                SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
+                DrawNextProperty(ref pos, actionSpeak, "type", 70);
+                DrawNextProperty(ref pos, actionSpeak, "time", 30);
+                pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                pos.x = 8;
+                DrawNextProperty(ref pos, actionSpeak, "text", 186);
+                break;
 		}
 
 		EditorGUI.EndProperty();

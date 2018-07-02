@@ -13,7 +13,7 @@ public class AiGlobals : MonoBehaviour {
 	}
 
     public enum ActionTypes {
-        move, leds, delay, analogin
+        move, leds, delay, analogin, speak
     }
 
     public enum ActionMoveTypes {
@@ -30,6 +30,10 @@ public class AiGlobals : MonoBehaviour {
 
     public enum ActionAnalogInTypes {
         start, stop
+    }
+
+    public enum ActionSpeakTypes {
+        voice
     }
 
 	public enum Devices{

@@ -102,6 +102,7 @@ namespace DelftToolkit {
         public ActionLed ledParams = new ActionLed();
         public ActionDelay delayParams = new ActionDelay();
         public ActionAnalogIn analoginParams = new ActionAnalogIn();
+        public ActionSpeak speakParams = new ActionSpeak();
     }
 
     [Serializable]
@@ -132,6 +133,13 @@ namespace DelftToolkit {
         public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
         public int interval = 20; // milliseconds
         public int port = 0;
+    }
+
+    [Serializable]
+    public class ActionSpeak {
+        public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.voice;
+        public int time = 2; 
+        public string text = "Hello World";
     }
 
 }
