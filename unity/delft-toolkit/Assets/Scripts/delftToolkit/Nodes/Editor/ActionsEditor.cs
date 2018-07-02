@@ -61,14 +61,14 @@ namespace DelftToolkit {
             Rotorz.ReorderableList.ReorderableListGUI.Title("Actions");
             Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 
-            GUILayout.BeginHorizontal();
-            EditorGUILayout.Space();
-            if (GUILayout.Button("+", GUILayout.Width(25))) {
-                Debug.LogWarning("start add new action");
-                node.actions.Add(new Action());
-                Debug.LogWarning("add new action");
-            }
-            GUILayout.EndHorizontal();
+            //GUILayout.BeginHorizontal();
+            //EditorGUILayout.Space();
+            //if (GUILayout.Button("+", GUILayout.Width(25))) {
+            //    Debug.LogWarning("start add new action");
+            //    node.actions.Add(new Action());
+            //    Debug.LogWarning("add new action");
+            //}
+            //GUILayout.EndHorizontal();
 
             //node.seconds = GUILayout.HorizontalSlider(node.seconds, 0, 10);
             if (GUILayout.Button("Start Actions")) {
