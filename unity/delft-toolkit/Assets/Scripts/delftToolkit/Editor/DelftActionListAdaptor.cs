@@ -42,7 +42,7 @@ namespace DelftToolkit {
 			if (selected || active) {
 				Color restoreColor = GUI.color;
 				if (selected) GUI.color = ReorderableListStyles.SelectionBackgroundColor;
-				else if (active) GUI.color = new Color(1f, 0.5f, 0.0f, 0.5f);
+                else if (active) GUI.color = new Color(0.5764705882f, 0.7725490142f, 0.8549019548f, 1.0f);
 				GUI.DrawTexture(position, EditorGUIUtility.whiteTexture);
 				GUI.color = restoreColor;
 			}
