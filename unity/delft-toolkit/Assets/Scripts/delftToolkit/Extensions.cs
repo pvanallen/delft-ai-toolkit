@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ public static class Extensions {
 			coroutineRunner.gameObject.hideFlags = HideFlags.DontSaveInEditor | HideFlags.HideInHierarchy | HideFlags.HideInInspector | HideFlags.NotEditable | HideFlags.DontSaveInBuild;
 		}
 		return coroutineRunner.StartCoroutine(ienum);
+	}
+
+	public static IEnumerator WaitAndDo(this Action action, float delay) {
+		yield return new WaitForSeconds(delay);
+		action();
 	}
 
 	/// <summary> Converts color to format "byte, byte, byte" </summary>

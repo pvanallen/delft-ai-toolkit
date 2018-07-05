@@ -22,14 +22,9 @@ namespace DelftToolkit {
 			base.OnBodyGUI();
 			StateNode node = target as StateNode;
 			StateGraph graph = node.graph as StateGraph;
-			if (GUILayout.Button("MoveNext Node")) GoNext(node, 3.0f).RunCoroutine();
+			// Why do we wait 3 seconds here?
+			if (GUILayout.Button("MoveNext Node")) Extensions.WaitAndDo(node.MoveNext, 3.0f).RunCoroutine();
 			if (GUILayout.Button("Set as current")) node.active = true;;
-		}
-
-		public IEnumerator GoNext(StateNode node, float delay) {
-			node.Finish(delay).RunCoroutine();
-			yield return new WaitForSeconds(delay + 0.01f);
-			NodeEditorWindow.current.Repaint();
 		}
 	}
 }

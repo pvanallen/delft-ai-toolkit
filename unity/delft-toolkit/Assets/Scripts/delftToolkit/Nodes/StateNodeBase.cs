@@ -8,7 +8,7 @@ namespace DelftToolkit {
 	[CreateNodeMenu("")]
 	public class StateNodeBase : Node {
 
-		public bool active;
+		[NonSerialized] public bool active;
 		[Input] public Empty enter;
 		[Output] public Empty exit;
 
@@ -35,15 +35,7 @@ namespace DelftToolkit {
 		}
 
 		public virtual void OnEnter() {
-			StateGraph fmGraph = graph as StateGraph;
 			active = true;
-			Debug.LogWarning("New Node starting");
-			//MyNodeEditor.NodeEditorWindow.current.Repaint();
-		}
-
-		public IEnumerator Finish(float delay) {
-			yield return new WaitForSeconds(delay);
-			MoveNext();
 		}
 
 		[Serializable]
