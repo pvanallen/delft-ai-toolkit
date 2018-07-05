@@ -108,8 +108,7 @@ namespace DelftToolkit {
         public AiGlobals.ActionLedTypes type = AiGlobals.ActionLedTypes.set;
         public float time = 0;
         public int ledNum = 0;
-        //public int brightness = 255;
-        public string color = "127,127,0";
+        public Color32 color = new Color32(127, 127, 0, 255);
     }
 
     [Serializable]

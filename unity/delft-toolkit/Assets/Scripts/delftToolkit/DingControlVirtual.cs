@@ -86,7 +86,7 @@ public class DingControlVirtual : DingControlBase {
                     switch (action.ledParams.type) {
                         case AiGlobals.ActionLedTypes.set:
                             //this.GetComponent<Renderer>().material.color = new Color(0.236f, 0.0f, 0.5f);
-                            GetComponent<Renderer>().material.color = new Color(hexToFloat(action.ledParams.color, 0), hexToFloat(action.ledParams.color, 1), hexToFloat(action.ledParams.color, 2));
+                            GetComponent<Renderer>().material.color = action.ledParams.color;
                             break;
                         case AiGlobals.ActionLedTypes.allOff:
                             this.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
@@ -101,14 +101,5 @@ public class DingControlVirtual : DingControlBase {
                     break;
             }
         }
-    }
-
-    public float hexToFloat(string color, int element) {
-        string[] elements = color.Split(',');
-        float hex;
-        if (float.TryParse(elements[element], out hex)) {
-            return (1f / 255f) * hex;
-        } else Debug.LogWarning("Attempt to parse string '" + elements[element] + "' to float failed");
-        return 0f;
     }
 }

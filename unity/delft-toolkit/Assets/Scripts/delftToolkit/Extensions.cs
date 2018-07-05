@@ -13,4 +13,9 @@ public static class Extensions {
 		}
 		return coroutineRunner.StartCoroutine(ienum);
 	}
+
+	/// <summary> Converts color to format "byte, byte, byte" </summary>
+	public static string ToCSV(this Color32 color) {
+		return color.r + "," + color.g + "," + color.b;
+	}
 }

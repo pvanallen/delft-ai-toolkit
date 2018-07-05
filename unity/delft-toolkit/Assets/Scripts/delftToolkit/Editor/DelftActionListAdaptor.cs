@@ -77,11 +77,7 @@ namespace DelftToolkit {
 						pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 						pos.width = position.width;
 						EditorGUI.BeginChangeCheck();
-						Color32 col = ParseColor(delftAction.ledParams.color);
-						col = EditorGUI.ColorField(pos, col);
-						if (EditorGUI.EndChangeCheck()) {
-							delftAction.ledParams.color = col.r + "," + col.g + "," + col.b;
-						}
+						delftAction.ledParams.color = EditorGUI.ColorField(pos, delftAction.ledParams.color);
 						break;
 					case AiGlobals.ActionTypes.delay:
 						DrawNextProperty(ref pos, 30);

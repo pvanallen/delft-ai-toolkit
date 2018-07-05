@@ -106,7 +106,7 @@ public class DingControlPhysical : DingControlBase {
                 string ledType = action.ledParams.type.ToString();
                 float ledTime = action.ledParams.time;
                 int ledNum = action.ledParams.ledNum;
-                string ledColor = action.ledParams.color;
+                string ledColor = action.ledParams.color.ToCSV();
                 //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.ledParams.type.ToString());
                 oscValues.AddRange(new object[] { ledType, ledTime, ledNum, ledColor });
                 break;
