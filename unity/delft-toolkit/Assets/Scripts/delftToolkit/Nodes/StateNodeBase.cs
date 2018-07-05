@@ -12,31 +12,37 @@ namespace DelftToolkit {
 		[Input] public Empty enter;
 		[Output] public Empty exit;
 
-		public void MoveNext() {
-			StateGraph fmGraph = graph as StateGraph;
+		public override object GetValue(NodePort port) {
+			return null;
+		}
 
+		public virtual void Exit() {
 			if (active != this) {
-				Debug.LogWarning("Node isn't active");
+				Debug.LogWarning("Exiting from a non-active node. Aborted.");
 				return;
 			}
 
+			active = false;
+
+			OnExit();
 			NodePort exitPort = GetOutputPort("exit");
 
-			if (!exitPort.IsConnected) {
-				Debug.LogWarning("Node isn't connected");
-				return;
-			}
-
-			StateNodeBase node = exitPort.Connection.node as StateNodeBase;
-			for (int i = 0; i < exitPort.ConnectionCount; i++) {
-				StateNodeBase nextNode = exitPort.GetConnection(i).node as StateNodeBase;
-				if (nextNode != null) nextNode.OnEnter();
+			if (exitPort.IsConnected) {
+				for (int i = 0; i < exitPort.ConnectionCount; i++) {
+					StateNodeBase nextNode = exitPort.GetConnection(i).node as StateNodeBase;
+					if (nextNode != null) nextNode.Enter();
+				}
 			}
 		}
 
-		public virtual void OnEnter() {
+		public virtual void OnExit() { }
+
+		public virtual void Enter() {
 			active = true;
+			OnEnter();
 		}
+
+		public virtual void OnEnter() { }
 
 		[Serializable]
 		public class Empty { }

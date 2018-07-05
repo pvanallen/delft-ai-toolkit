@@ -19,7 +19,6 @@ MonoBehaviour:
   - {fileID: 114977953711976372}
   - {fileID: 114460468400951174}
   - {fileID: 114592647529588696}
-  current: {fileID: 114392952066454682}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +31,7 @@ MonoBehaviour:
   m_Name: ding1 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: -376}
+  position: {x: -200, y: -456}
   ports:
     keys:
     - enter
@@ -68,7 +67,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: -1
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4286793843
     delayParams:
       type: 0
       time: 1
@@ -86,7 +87,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -104,7 +107,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -122,7 +127,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -140,7 +147,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: -1
-      color: 0,127,127
+      color:
+        serializedVersion: 2
+        rgba: 4286119702
     delayParams:
       type: 0
       time: 1
@@ -158,7 +167,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -176,7 +187,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -194,7 +207,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: -1
-      color: 0,0,0
+      color:
+        serializedVersion: 2
+        rgba: 4286131567
     delayParams:
       type: 0
       time: 1
@@ -202,9 +217,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 0
   repeats: 2
-  currentRepeats: 1
   random: 0
   device: 0
 --- !u!114 &114392952066454682
@@ -255,7 +268,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -273,7 +288,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -291,7 +308,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 0
@@ -309,7 +328,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 
+      color:
+        serializedVersion: 2
+        rgba: 4294954661
     delayParams:
       type: 0
       time: 0
@@ -317,9 +338,7 @@ MonoBehaviour:
       type: 0
       interval: 0
       port: 0
-  currentAction: 0
   repeats: 3
-  currentRepeats: 1
   random: 0
   device: 1
 --- !u!114 &114460468400951174
@@ -370,7 +389,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -378,9 +399,7 @@ MonoBehaviour:
       type: 1
       interval: 100
       port: 0
-  currentAction: 0
   repeats: 1
-  currentRepeats: 1
   random: 0
   device: 3
 --- !u!114 &114565011817060962
@@ -395,7 +414,7 @@ MonoBehaviour:
   m_Name: ding3 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 72, y: -360}
+  position: {x: 168, y: -264}
   ports:
     keys:
     - enter
@@ -431,7 +450,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4290562788
     delayParams:
       type: 0
       time: 1
@@ -449,7 +470,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 0,127,127
+      color:
+        serializedVersion: 2
+        rgba: 4294961408
     delayParams:
       type: 0
       time: 1
@@ -467,7 +490,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 0,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4294967295
     delayParams:
       type: 0
       time: 1
@@ -485,7 +510,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 127,0,0
+      color:
+        serializedVersion: 2
+        rgba: 4284045823
     delayParams:
       type: 0
       time: 1
@@ -503,7 +530,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 0,0,127
+      color:
+        serializedVersion: 2
+        rgba: 4283826303
     delayParams:
       type: 0
       time: 1
@@ -521,7 +550,9 @@ MonoBehaviour:
       type: 0
       time: 0.5
       ledNum: 0
-      color: 255,255,255
+      color:
+        serializedVersion: 2
+        rgba: 4286204415
     delayParams:
       type: 0
       time: 1
@@ -539,7 +570,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 64,127,20
+      color:
+        serializedVersion: 2
+        rgba: 4278190207
     delayParams:
       type: 0
       time: 1
@@ -557,7 +590,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 0
@@ -565,9 +600,7 @@ MonoBehaviour:
       type: 0
       interval: 0
       port: 0
-  currentAction: 0
-  repeats: 15
-  currentRepeats: 1
+  repeats: 150
   random: 1
   device: 2
 --- !u!114 &114592647529588696
@@ -621,7 +654,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -639,7 +674,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -647,9 +684,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 0
   repeats: 5
-  currentRepeats: 1
   random: 0
   device: 3
 --- !u!114 &114704689593081230
@@ -664,37 +699,19 @@ MonoBehaviour:
   m_Name: Delft Toolkit.Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -536, y: -392}
+  position: {x: -696, y: -424}
   ports:
     keys:
-    - a
-    - b
-    - result
+    - value
     - enter
     - exit
     values:
-    - _fieldName: a
+    - _fieldName: value
       _node: {fileID: 114704689593081230}
       _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
-      _connectionType: 0
-      _dynamic: 0
-    - _fieldName: b
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _dynamic: 0
-    - _fieldName: result
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
       _connectionType: 0
       _dynamic: 0
     - _fieldName: enter
@@ -722,14 +739,11 @@ MonoBehaviour:
       _direction: 1
       _connectionType: 0
       _dynamic: 0
-  a: 23.450672
-  b: 0
-  result: 23.450672
+  value: 62.95
   sensorDevice: 3
   matchDingMessage: /num/analogin/0/
   sensorSource: 0
   incomingDingMessage: /num/analogin/0/
-  mathType: 0
 --- !u!114 &114977953711976372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +756,7 @@ MonoBehaviour:
   m_Name: start analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -504, y: -72}
+  position: {x: -856, y: -40}
   ports:
     keys:
     - enter
@@ -778,7 +792,9 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
-      color: 127,127,0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
     delayParams:
       type: 0
       time: 1
@@ -786,8 +802,6 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  currentAction: 0
   repeats: 1
-  currentRepeats: 1
   random: 0
   device: 3

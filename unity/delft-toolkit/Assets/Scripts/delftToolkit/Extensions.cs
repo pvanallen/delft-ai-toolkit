@@ -15,6 +15,10 @@ public static class Extensions {
 		return coroutineRunner.StartCoroutine(ienum);
 	}
 
+	public static void StopCoroutine(this Coroutine coroutine) {
+		coroutineRunner.StopCoroutine(coroutine);
+	}
+
 	public static IEnumerator WaitAndDo(this Action action, float delay) {
 		yield return new WaitForSeconds(delay);
 		action();

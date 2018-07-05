@@ -2,72 +2,33 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using XNode;
 using XNodeEditor;
 
 namespace DelftToolkit {
     [CustomNodeEditor(typeof(Condition))]
-    public class ConditionEditor : NodeEditor {
+    public class ConditionEditor : StateNodeBaseEditor {
 
-        public override void OnHeaderGUI() {
-            //base.OnHeaderGUI();
-            GUI.color = Color.white;
-            Condition node = target as Condition;
-            StateGraph graph = node.graph as StateGraph;
-            if (node.active) GUI.color = Color.green;
-            string title = target.name;
-            if (renaming != 0 && Selection.Contains(target)) {
-                int controlID = EditorGUIUtility.GetControlID(FocusType.Keyboard) + 1;
-                if (renaming == 1) {
-                    EditorGUIUtility.keyboardControl = controlID;
-                    EditorGUIUtility.editingTextField = true;
-                    renaming = 2;
-                }
-                target.name = EditorGUILayout.TextField(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-                if (!EditorGUIUtility.editingTextField) {
-                    Rename(target.name);
-                    renaming = 0;
-                }
-            } else {
-                GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-            }
-            GUI.color = Color.white;
-            Actions.DingEvent += setAction;
-            DingControlPhysical.DingNumPhysicalEvent += handleNumEvent;
-            DingControlVirtual.DingNumVirtualEvent += handleNumEvent;
-        }
+        private Condition node { get { return _node != null ? _node : _node = target as Condition; } }
+        private Condition _node;
 
         public override void OnBodyGUI() {
-            base.OnBodyGUI();
+            GUI.color = Color.white;
+            NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
 
-            Condition condition = target as Condition;
-            Condition node = target as Condition;
-            StateGraph graph = node.graph as StateGraph;
+            // Draw value port as slider
 
-            EditorGUI.BeginChangeCheck();
-            node.a = GUILayout.HorizontalSlider(node.a, 0, 1023);
-            node.result = EditorGUILayout.FloatField(node.result, GUILayout.Width(25));
+            // Get port
+            NodePort port = node.GetInputPort("value");
+            // Draw slider
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("value"));
+            EditorGUILayout.LabelField("Test condition triggers when value > 50");
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorDevice"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("matchDingMessage"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("incomingDingMessage"));
 
-            if (EditorGUI.EndChangeCheck()) {
-                node.GetValue(node.GetOutputPort("result"));
-            }
-
-            if (GUILayout.Button("Start Actions")) {
-                node.active = true;
-                //node.currentAction = 0;
-                node.MoveNext();
-            }
-            //if (GUILayout.Button("Continue Graph")) graph.Continue();
-            if (GUILayout.Button("Set as current")) node.active = true;
-
-        }
-
-        public void setAction(AiGlobals.Devices aDevice, Action anAction) {
-            //Debug.LogWarning("Repainting");
-            NodeEditorWindow.current.Repaint();
-        }
-
-        void handleNumEvent(AiGlobals.Devices devices, string adrs, float val0, float val1, float val2) {
-            NodeEditorWindow.current.Repaint();
+            DrawFooterGUI();
         }
     }
 }

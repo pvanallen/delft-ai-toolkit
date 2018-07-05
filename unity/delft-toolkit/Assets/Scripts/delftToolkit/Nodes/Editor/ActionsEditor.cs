@@ -7,78 +7,44 @@ using XNodeEditor;
 
 namespace DelftToolkit {
     [CustomNodeEditor(typeof(Actions))]
-    public class ActionsEditor : NodeEditor {
+    public class ActionsEditor : StateNodeBaseEditor {
 
-        bool showPosition = false;
-        DelftActionListAdaptor actionListAdaptor;
-        
-        public override void OnHeaderGUI() {
-            GUI.color = Color.white;
-            Actions node = target as Actions;
-            if (node.active) GUI.color = Color.green;
-            base.OnHeaderGUI();
-            GUI.color = Color.white;
-        }
+		private Actions node { get { return _node != null ? _node : _node = target as Actions; } }
+		private Actions _node;
+        private bool showPosition = false;
+        private DelftActionListAdaptor actionListAdaptor;
 
         public override void OnBodyGUI() {
-            Actions node = target as Actions;
-            StateGraph graph = node.graph as StateGraph;
-
-            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
-
-            //base.OnBodyGUI();
             GUI.color = Color.white;
-            GUILayout.BeginHorizontal();
-            NodeEditorGUILayout.PortField(target.GetInputPort("enter"), GUILayout.Width(30));
-            EditorGUILayout.Space();
-            EditorGUILayout.Space();
-            node.device = (AiGlobals.Devices) EditorGUILayout.EnumPopup(node.device, GUILayout.Width(50));
-            EditorGUILayout.Space();
-            EditorGUILayout.Space();
-            NodeEditorGUILayout.PortField(target.GetOutputPort("exit"), GUILayout.Width(26));
-            GUILayout.EndHorizontal();
+			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
+
+            Rect rect = GUILayoutUtility.GetLastRect();
+            rect.x += (rect.width * 0.5f) - 25;
+            rect.width = 50;
+            node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
 
             showPosition = EditorGUILayout.Foldout(showPosition, "More", true);
             if (showPosition) {
                 GUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("repeat", GUILayout.Width(40));
-                node.currentRepeats = EditorGUILayout.IntField(node.currentRepeats, GUILayout.Width(22));
-                EditorGUILayout.LabelField("of", GUILayout.Width(15));
-                node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(22));
+                EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
+                node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(33));
                 EditorGUILayout.Space();
-                EditorGUILayout.LabelField("random", GUILayout.Width(45));
+                EditorGUILayout.LabelField("Random:", GUILayout.Width(60));
                 node.random = EditorGUILayout.Toggle(node.random);
                 GUILayout.EndHorizontal();
             }
 
-            GUILayout.BeginVertical();
-            EditorGUILayout.Space();
-            EditorGUILayout.Space();
-            GUILayout.EndVertical();
-
-
+            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
             SerializedProperty p = serializedObject.FindProperty("actions");
-            Rotorz.ReorderableList.ReorderableListGUI.Title("Actions");
+
+            string title = "Actions";
+            if (Application.isPlaying) {
+                title = "Actions ("+node.repeatCount+"/"+node.repeats+" repeats)";
+            }
+            Rotorz.ReorderableList.ReorderableListGUI.Title(title);
             Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 
-            //GUILayout.BeginHorizontal();
-            //EditorGUILayout.Space();
-            //if (GUILayout.Button("+", GUILayout.Width(25))) {
-            //    Debug.LogWarning("start add new action");
-            //    node.actions.Add(new Action());
-            //    Debug.LogWarning("add new action");
-            //}
-            //GUILayout.EndHorizontal();
-
-            //node.seconds = GUILayout.HorizontalSlider(node.seconds, 0, 10);
-            if (GUILayout.Button("Start Actions")) {
-                node.active = true;
-                node.currentAction = 0;
-                node.currentRepeats = 1;
-                node.NextAction().RunCoroutine();
-            }
-            //if (GUILayout.Button("Continue Graph")) graph.Continue();
-            if (GUILayout.Button("Activate")) node.active = true;
+            DrawFooterGUI();
         }
     }
 }

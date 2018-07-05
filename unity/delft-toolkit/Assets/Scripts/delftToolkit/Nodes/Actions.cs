@@ -9,11 +9,14 @@ namespace DelftToolkit {
 
         public List<Action> actions = new List<Action> { new Action() };
 
-        /// <summary> Current action index </summary>
-        public int currentAction = 0;
+        /// <summary> How many times should we repeat the actions list </summary>
         public int repeats = 1;
-        public int currentRepeats = 1;
+        /// <summary> If true, will pick a random action from the list instead of looping through it </summary>
         public bool random = false;
+        /// <summary> How many times have we repeated so far </summary>
+        public int repeatCount { get; private set; }
+        /// <summary> Current action index </summary>
+        public int currentAction { get; private set; }
         public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 
         private Action actionStopAll = new Action();
@@ -22,10 +25,7 @@ namespace DelftToolkit {
         public static event DingActionEvent DingEvent;
 
         protected override void Init() {
-            currentAction = 0;
-            currentRepeats = 1;
             actionStopAll.moveParams.time = 0;
-            //name = "Action";
         }
 
         public IEnumerator NextAction() {
@@ -65,10 +65,10 @@ namespace DelftToolkit {
                 }
                 NextAction().RunCoroutine();
             } else {
-                currentRepeats++;
-                if (currentRepeats > repeats) {
-                    currentRepeats = 1;
-                    MoveNext();
+                repeatCount++;
+                if (repeatCount == repeats) {
+                    repeatCount = 0;
+                    Exit();
                 } else {
                     currentAction = 0;
                     NextAction().RunCoroutine();
@@ -78,10 +78,14 @@ namespace DelftToolkit {
 
         }
 
+        public override void OnExit() {
+
+        }
+
         public override void OnEnter() {
             base.OnEnter();
             currentAction = 0;
-            currentRepeats = 1;
+            repeatCount = 0;
             NextAction().RunCoroutine();
         }
     }
