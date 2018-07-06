@@ -6,45 +6,45 @@ using UnityEngine;
 using XNodeEditor;
 
 namespace DelftToolkit {
-    [CustomNodeEditor(typeof(Actions))]
-    public class ActionsEditor : StateNodeBaseEditor {
+	[CustomNodeEditor(typeof(Actions))]
+	public class ActionsEditor : StateNodeBaseEditor {
 
 		private Actions node { get { return _node != null ? _node : _node = target as Actions; } }
 		private Actions _node;
-        private bool showPosition = false;
-        private DelftActionListAdaptor actionListAdaptor;
+		private bool showPosition = false;
+		private DelftActionListAdaptor actionListAdaptor;
 
-        public override void OnBodyGUI() {
-            GUI.color = Color.white;
+		public override void OnBodyGUI() {
+			GUI.color = Color.white;
 			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
 
-            Rect rect = GUILayoutUtility.GetLastRect();
-            rect.x += (rect.width * 0.5f) - 25;
-            rect.width = 50;
-            node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
+			Rect rect = GUILayoutUtility.GetLastRect();
+			rect.x += (rect.width * 0.5f) - 25;
+			rect.width = 50;
+			node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
 
-            showPosition = EditorGUILayout.Foldout(showPosition, "More", true);
-            if (showPosition) {
-                GUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
-                node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(33));
-                EditorGUILayout.Space();
-                EditorGUILayout.LabelField("Random:", GUILayout.Width(60));
-                node.random = EditorGUILayout.Toggle(node.random);
-                GUILayout.EndHorizontal();
-            }
+			showPosition = EditorGUILayout.Foldout(showPosition, "More", true);
+			if (showPosition) {
+				GUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
+				node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(33));
+				EditorGUILayout.Space();
+				EditorGUILayout.LabelField("Random:", GUILayout.Width(60));
+				node.random = EditorGUILayout.Toggle(node.random);
+				GUILayout.EndHorizontal();
+			}
 
-            if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
-            SerializedProperty p = serializedObject.FindProperty("actions");
+			if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
+			SerializedProperty p = serializedObject.FindProperty("actions");
 
-            string title = "Actions";
-            if (Application.isPlaying) {
-                title = "Actions ("+node.repeatCount+"/"+node.repeats+" repeats)";
-            }
-            Rotorz.ReorderableList.ReorderableListGUI.Title(title);
-            Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
+			string title = "Actions";
+			if (Application.isPlaying) {
+				title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
+			}
+			Rotorz.ReorderableList.ReorderableListGUI.Title(title);
+			Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 
-            DrawFooterGUI();
-        }
-    }
+			DrawFooterGUI();
+		}
+	}
 }

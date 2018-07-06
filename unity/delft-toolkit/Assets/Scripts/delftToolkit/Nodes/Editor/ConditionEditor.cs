@@ -6,29 +6,29 @@ using XNode;
 using XNodeEditor;
 
 namespace DelftToolkit {
-    [CustomNodeEditor(typeof(Condition))]
-    public class ConditionEditor : StateNodeBaseEditor {
+	[CustomNodeEditor(typeof(Condition))]
+	public class ConditionEditor : StateNodeBaseEditor {
 
-        private Condition node { get { return _node != null ? _node : _node = target as Condition; } }
-        private Condition _node;
+		private Condition node { get { return _node != null ? _node : _node = target as Condition; } }
+		private Condition _node;
 
-        public override void OnBodyGUI() {
-            GUI.color = Color.white;
-            NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
+		public override void OnBodyGUI() {
+			GUI.color = Color.white;
+			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
 
-            // Draw value port as slider
+			// Draw value port as slider
 
-            // Get port
-            NodePort port = node.GetInputPort("value");
-            // Draw slider
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("value"));
-            EditorGUILayout.LabelField("Test condition triggers when value > 50");
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorDevice"));
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("matchDingMessage"));
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("incomingDingMessage"));
+			// Get port
+			NodePort port = node.GetInputPort("value");
+			// Draw slider
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("value"));
+			EditorGUILayout.LabelField("Test condition triggers when value > 50");
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorDevice"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("matchDingMessage"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("incomingDingMessage"));
 
-            DrawFooterGUI();
-        }
-    }
+			DrawFooterGUI();
+		}
+	}
 }

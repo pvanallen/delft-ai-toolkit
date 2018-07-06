@@ -19,19 +19,19 @@ namespace DelftToolkit {
 			} else return null;
 		}
 
-        [InitializeOnLoadMethod]
-        private static void initEvents() {
-            Actions.DingEvent -= SetAction;
-            Actions.DingEvent += SetAction;
+		[InitializeOnLoadMethod]
+		private static void initEvents() {
+			Actions.DingEvent -= SetAction;
+			Actions.DingEvent += SetAction;
 			DingControlPhysical.DingNumPhysicalEvent -= HandleNumEvent;
 			DingControlPhysical.DingNumPhysicalEvent += HandleNumEvent;
 			DingControlVirtual.DingNumVirtualEvent -= HandleNumEvent;
 			DingControlVirtual.DingNumVirtualEvent += HandleNumEvent;
-        }
+		}
 
-        public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
-            NodeEditorWindow.current.Repaint();
-        }
+		public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
+			NodeEditorWindow.current.Repaint();
+		}
 
 		public static void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
 			NodeEditorWindow.current.Repaint();
