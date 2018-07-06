@@ -5,10 +5,10 @@ using DelftToolkit;
 using UnityEngine;
 
 namespace DelftToolkit {
-    [NodeWidth(270)]
+    [NodeWidth(270)][NodeTint(255, 255, 0)]
     public class Condition : StateNodeBase {
         // Adding [Input] or [Output] is all you need to do to register a field as a valid port on your node 
-        [Range(0,1023)][Input] public float value;
+        [Range(0, 1023)][Input] public float value;
 
         public AiGlobals.Devices sensorDevice = AiGlobals.Devices.ding1;
         public string matchDingMessage = "/num/analogin/0/";
@@ -28,7 +28,7 @@ namespace DelftToolkit {
         }
 
         public override void OnExit() {
-            tick.StopCoroutine();
+            if (tick != null) tick.StopCoroutine();
         }
 
         IEnumerator Tick() {

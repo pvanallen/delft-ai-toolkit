@@ -22,7 +22,6 @@ namespace DelftToolkit {
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
 			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
-			base.OnBodyGUI();
 			DrawFooterGUI();
 		}
 

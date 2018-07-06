@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace DelftToolkit {
-    [NodeWidth(270)]
+    [NodeWidth(270)][NodeTint(0f,1f,1f)]
     public class Actions : StateNodeBase {
 
         public List<Action> actions = new List<Action> { new Action() };

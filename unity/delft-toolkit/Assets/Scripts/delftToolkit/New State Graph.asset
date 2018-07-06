@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 114977953711976372}
   - {fileID: 114460468400951174}
   - {fileID: 114592647529588696}
+  - {fileID: 114207532407730270}
+  - {fileID: 114381683518996606}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,7 +33,7 @@ MonoBehaviour:
   m_Name: ding1 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -200, y: -456}
+  position: {x: -376, y: -552}
   ports:
     keys:
     - enter
@@ -220,6 +222,80 @@ MonoBehaviour:
   repeats: 2
   random: 0
   device: 0
+--- !u!114 &114207532407730270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860db4b59e484b64a900b33bf0be1064, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -920, y: -552}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114207532407730270}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114207532407730270}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114704689593081230}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+--- !u!114 &114381683518996606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860db4b59e484b64a900b33bf0be1064, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -856, y: -8}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114381683518996606}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114381683518996606}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114977953711976372}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
 --- !u!114 &114392952066454682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +308,7 @@ MonoBehaviour:
   m_Name: ding2 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -184, y: 136}
+  position: {x: 248, y: -552}
   ports:
     keys:
     - enter
@@ -353,7 +429,7 @@ MonoBehaviour:
   m_Name: stop analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -200, y: 440}
+  position: {x: -72, y: -8}
   ports:
     keys:
     - enter
@@ -414,7 +490,7 @@ MonoBehaviour:
   m_Name: ding3 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 168, y: -264}
+  position: {x: -56, y: -552}
   ports:
     keys:
     - enter
@@ -600,7 +676,7 @@ MonoBehaviour:
       type: 0
       interval: 0
       port: 0
-  repeats: 150
+  repeats: 20
   random: 1
   device: 2
 --- !u!114 &114592647529588696
@@ -615,7 +691,7 @@ MonoBehaviour:
   m_Name: move it
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -504, y: 216}
+  position: {x: -392, y: -8}
   ports:
     keys:
     - enter
@@ -684,7 +760,7 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
-  repeats: 5
+  repeats: 3
   random: 0
   device: 3
 --- !u!114 &114704689593081230
@@ -696,10 +772,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26740a44af00146429981d0aa12f2932, type: 3}
-  m_Name: Delft Toolkit.Condition
+  m_Name: Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -696, y: -424}
+  position: {x: -744, y: -552}
   ports:
     keys:
     - value
@@ -718,7 +794,10 @@ MonoBehaviour:
       _node: {fileID: 114704689593081230}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 114207532407730270}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
@@ -731,15 +810,19 @@ MonoBehaviour:
         node: {fileID: 114048683753446172}
         reroutePoints: []
       - fieldName: enter
-        node: {fileID: 114392952066454682}
-        reroutePoints: []
-      - fieldName: enter
         node: {fileID: 114565011817060962}
-        reroutePoints: []
+        reroutePoints:
+        - {x: -384, y: -560}
+        - {x: -128, y: -560}
+      - fieldName: enter
+        node: {fileID: 114392952066454682}
+        reroutePoints:
+        - {x: -384, y: -576}
+        - {x: 192, y: -576}
       _direction: 1
       _connectionType: 0
       _dynamic: 0
-  value: 62.95
+  value: 26.38587
   sensorDevice: 3
   matchDingMessage: /num/analogin/0/
   sensorSource: 0
@@ -756,7 +839,7 @@ MonoBehaviour:
   m_Name: start analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -856, y: -40}
+  position: {x: -712, y: -8}
   ports:
     keys:
     - enter
@@ -766,7 +849,10 @@ MonoBehaviour:
       _node: {fileID: 114977953711976372}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 114381683518996606}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
