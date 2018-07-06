@@ -28,58 +28,62 @@ namespace DelftToolkit {
             actionStopAll.moveParams.time = 0;
         }
 
-        public IEnumerator NextAction() {
-            float delayTime = 0;
+		public IEnumerator NextAction() {
+			float delayTime = 0;
+			if (active) {
+				if (currentAction < actions.Count) {
+					if (DingEvent != null) {
+						if (random) {
+							currentAction = UnityEngine.Random.Range(0, actions.Count);
+						}
 
-            if (currentAction < actions.Count) {
-                if (DingEvent != null) {
-                    if (random) {
-                        currentAction = UnityEngine.Random.Range(0, actions.Count);
-                    }
+						DingEvent(device, actions[currentAction]);
 
-                    DingEvent(device, actions[currentAction]);
+						switch (actions[currentAction].actionType) {
+							case AiGlobals.ActionTypes.move:
+								delayTime = actions[currentAction].moveParams.time;
+								break;
+							case AiGlobals.ActionTypes.leds:
+								delayTime = actions[currentAction].ledParams.time;
+								break;
+							case AiGlobals.ActionTypes.delay:
+								delayTime = actions[currentAction].delayParams.time;
+								break;
+						}
 
-                    switch (actions[currentAction].actionType) {
-                        case AiGlobals.ActionTypes.move:
-                            delayTime = actions[currentAction].moveParams.time;
-                            break;
-                        case AiGlobals.ActionTypes.leds:
-                            delayTime = actions[currentAction].ledParams.time;
-                            break;
-                        case AiGlobals.ActionTypes.delay:
-                            delayTime = actions[currentAction].delayParams.time;
-                            break;
-                    }
+						if (delayTime > 0) {
+							yield return new WaitForSeconds(delayTime);
+							if (actions[currentAction].actionType == AiGlobals.ActionTypes.move) {
+								DingEvent(device, actionStopAll);
+							}
+						}
+					}
+					if (active) {
+						if (random) {
+							currentAction = actions.Count;
+						} else {
+							currentAction++;
+						}
+						NextAction().RunCoroutine();
+					}
+				} else {
+					repeatCount++;
+					if (repeatCount >= repeats) {
 
-                    if (delayTime > 0) {
-                        yield return new WaitForSeconds(delayTime);
-                        if (actions[currentAction].actionType == AiGlobals.ActionTypes.move) {
-                            DingEvent(device, actionStopAll);
-                        }
-                    }
-                }
-                if (random) {
-                    currentAction = actions.Count;
-                } else {
-                    currentAction++;
-                }
-                NextAction().RunCoroutine();
-            } else {
-                repeatCount++;
-                if (repeatCount == repeats) {
-                    repeatCount = 0;
-                    Exit();
-                } else {
-                    currentAction = 0;
-                    NextAction().RunCoroutine();
-                }
+						Exit();
+					} else {
+						currentAction = 0;
+						NextAction().RunCoroutine();
+					}
 
-            }
+				}
 
-        }
+			}
+		}
 
         public override void OnExit() {
-
+			repeatCount = 0;
+			currentAction = 0;
         }
 
         public override void OnEnter() {
