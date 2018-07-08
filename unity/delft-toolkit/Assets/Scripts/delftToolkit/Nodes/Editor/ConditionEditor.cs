@@ -26,7 +26,11 @@ namespace DelftToolkit {
 			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorDevice"));
 			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("matchDingMessage"));
 			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
-			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("incomingDingMessage"));
+			EditorGUILayout.LabelField("Incoming Ding Message:");
+			string msg = node.incomingDingMessage;
+			EditorGUI.indentLevel++;
+			EditorGUILayout.SelectableLabel(msg);
+			EditorGUI.indentLevel--;
 
 			DrawFooterGUI();
 		}
