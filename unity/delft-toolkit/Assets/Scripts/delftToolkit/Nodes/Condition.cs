@@ -10,7 +10,7 @@ namespace DelftToolkit {
 		// Adding [Input] or [Output] is all you need to do to register a field as a valid port on your node 
 		[Range(0, 1023)][Input] public float value;
 
-		public AiGlobals.Devices sensorDevice = AiGlobals.Devices.ding1;
+		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 		public string matchDingMessage = "/num/analogin/0/";
 		public AiGlobals.SensorSource sensorSource = AiGlobals.SensorSource.virt;
 		public string incomingDingMessage = "";
@@ -57,7 +57,7 @@ namespace DelftToolkit {
 
 			incomingDingMessage = adrs;
 			//UnityEngine.Debug.Log("got virt " + incomingDingMessage + " " + matchDingMessage);
-			if (incomingDingMessage == matchDingMessage && sensorDevice == device) {
+			if (incomingDingMessage == matchDingMessage && this.device == device) {
 				value = val0;
 				//GetValue(GetOutputPort("result"));
 				//if (result > 50) {

@@ -19,8 +19,8 @@ namespace DelftToolkit {
 			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
 
 			Rect rect = GUILayoutUtility.GetLastRect();
-			rect.x += (rect.width * 0.5f) - 25;
-			rect.width = 50;
+			rect.x += (rect.width * 0.5f) - 50;
+			rect.width = 100;
 			node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
 
 			showPosition = EditorGUILayout.Foldout(showPosition, "More", true);
