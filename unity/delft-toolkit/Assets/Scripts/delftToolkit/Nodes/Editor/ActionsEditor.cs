@@ -41,8 +41,10 @@ namespace DelftToolkit {
 			if (Application.isPlaying) {
 				title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 			}
-			Rotorz.ReorderableList.ReorderableListGUI.Title(title);
-			Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
+			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
+			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title)) {
+				Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
+			}
 
 			DrawFooterGUI();
 		}
