@@ -7,38 +7,30 @@ using UnityEngine;
 namespace DelftToolkit {
 	[NodeWidth(270)][NodeTint(255, 255, 0)]
 	public class Condition : StateNodeBase {
-		// Adding [Input] or [Output] is all you need to do to register a field as a valid port on your node 
-		[Range(0, 1023)][Input] public float value;
+		public enum ValueType {
+			Vector3,
+			X,
+			Y,
+			Z,
+			String
+		}
 
 		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
-		public string matchDingMessage = "/num/analogin/0/";
 		public AiGlobals.SensorSource sensorSource = AiGlobals.SensorSource.virt;
-		public string incomingDingMessage = "";
+		public ValueType valueType = ValueType.X;
+		[Tooltip("Read signals matching message signature. (only exact match supported)")]
+		public string messageFilter = "/num/analogin/0/";
+		public int conditionValue = 50;
 
-		private Coroutine tick;
+		/// <summary> The last signal we received </summary>
+		public DingSignal unfilteredSignal;
+		/// <summary> The last signal we received which passed the filter </summary>
+		public DingSignal filteredSignal;
 
 		protected override void Init() {
 			base.Init();
 			DingControlPhysical.DingNumPhysicalEvent += HandlePhysNumEvent;
 			DingControlVirtual.DingNumVirtualEvent += HandleVirtNumEvent;
-		}
-
-		public override void OnEnter() {
-			tick = Tick().RunCoroutine();
-		}
-
-		public override void OnExit() {
-			if (tick != null) tick.StopCoroutine();
-		}
-
-		IEnumerator Tick() {
-			while (true) {
-				if (value > 50) {
-					Exit();
-					break;
-				}
-				yield return null;
-			}
 		}
 
 		void HandlePhysNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
@@ -54,19 +46,49 @@ namespace DelftToolkit {
 		}
 
 		void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-
-			incomingDingMessage = adrs;
-			//UnityEngine.Debug.Log("got virt " + incomingDingMessage + " " + matchDingMessage);
-			if (incomingDingMessage == matchDingMessage && this.device == device) {
-				value = val0;
-				//GetValue(GetOutputPort("result"));
-				//if (result > 50) {
-				//node.MoveNext();
-				//}
-			} else {
-				//value0 = 0;
+			unfilteredSignal = new DingSignal(device, adrs, new Vector3(val0, val1, val2));
+			if (messageFilter == adrs && this.device == device) {
+				filteredSignal = unfilteredSignal;
+				if (!active) return;
+				if (filteredSignal.isValid) {
+					float val = GetSignalValue(filteredSignal);
+					if (val > conditionValue) Exit();
+				}
 			}
-			//UnityEngine.Debug.Log("DING DATA Condition (" + adrs + "): " + val0);
+		}
+
+		public float GetSignalValue(DingSignal signal) {
+			switch (valueType) {
+				case ValueType.String:
+					string str;
+					if (signal.TryGetValue(out str)) {
+						return str.Length; // Exit if string length exceeds 10
+					} else {
+						Debug.LogWarning("Value mismatch. Expected string, got " + signal.value.GetType());
+					}
+					break;
+				case ValueType.X:
+				case ValueType.Y:
+				case ValueType.Z:
+				case ValueType.Vector3:
+					Vector3 vec;
+					if (signal.TryGetValue(out vec)) {
+						switch (valueType) {
+							case ValueType.X:
+								return vec.x;
+							case ValueType.Y:
+								return vec.y;
+							case ValueType.Z:
+								return vec.z;
+							case ValueType.Vector3:
+								return vec.magnitude;
+						}
+					} else {
+						Debug.LogWarning("Value mismatch. Expected Vector3, got " + signal.value.GetType());
+					}
+					break;
+			}
+			return 0;
 		}
 	}
 }
