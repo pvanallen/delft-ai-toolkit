@@ -11,7 +11,6 @@ namespace DelftToolkit {
 
 		private Actions node { get { return _node != null ? _node : _node = target as Actions; } }
 		private Actions _node;
-		private bool showPosition = false;
 		private DelftActionListAdaptor actionListAdaptor;
 
 		public override void OnBodyGUI() {
@@ -23,26 +22,23 @@ namespace DelftToolkit {
 			rect.width = 100;
 			node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
 
-			showPosition = EditorGUILayout.Foldout(showPosition, "More", true);
-			if (showPosition) {
-				GUILayout.BeginHorizontal();
-				EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
-				node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(33));
-				EditorGUILayout.Space();
-				EditorGUILayout.LabelField("Random:", GUILayout.Width(60));
-				node.random = EditorGUILayout.Toggle(node.random);
-				GUILayout.EndHorizontal();
-			}
+			GUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
+			node.repeats = EditorGUILayout.IntField(node.repeats, GUILayout.Width(33));
+			EditorGUILayout.Space();
+			EditorGUILayout.LabelField("Random:", GUILayout.Width(60));
+			node.random = EditorGUILayout.Toggle(node.random);
+			GUILayout.EndHorizontal();
 
-			if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
 			SerializedProperty p = serializedObject.FindProperty("actions");
 
 			string title = "Actions";
-			if (Application.isPlaying) {
-				title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
-			}
+			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
+
 			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
+
 			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title)) {
+				if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
 				Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 			}
 
