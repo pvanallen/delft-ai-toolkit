@@ -14,7 +14,7 @@ namespace DelftToolkit {
 
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
-			NodeEditorGUILayout.PortPair(target.GetInputPort("enter"), target.GetOutputPort("exit"));
+			NodeEditorGUILayout.PortField(target.GetInputPort("enter"));
 
 			Rect rect = GUILayoutUtility.GetLastRect();
 			rect.x += (rect.width * 0.5f) - 50;
@@ -28,12 +28,12 @@ namespace DelftToolkit {
 			// Draw slider
 			SerializedProperty valueTypeProperty = serializedObject.FindProperty("valueType");
 			NodeEditorGUILayout.PropertyField(valueTypeProperty);
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
 			SerializedProperty msgFltrProperty = serializedObject.FindProperty("messageFilter");
 			GUIContent msgFltrContent = new GUIContent(msgFltrProperty.displayName, msgFltrProperty.tooltip);
 			EditorGUILayout.LabelField(msgFltrContent);
 			msgFltrContent.text = "";
 			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("messageFilter"), msgFltrContent);
-			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sensorSource"));
 			EditorGUILayout.Separator();
 
 			if (Application.isPlaying) {
@@ -52,31 +52,44 @@ namespace DelftToolkit {
 				EditorGUI.indentLevel--;
 				EditorGUILayout.EndVertical();
 			}
+			Condition.ValueType valType = (Condition.ValueType) valueTypeProperty.enumValueIndex;
 
-			EditorGUILayout.BeginVertical("Box");
-			EditorGUILayout.LabelField("Condition", EditorStyles.boldLabel);
-			string valName = "n";
-			if (Application.isPlaying && node.filteredSignal.isValid) {
-				float val = node.GetSignalValue(node.filteredSignal);
-				EditorGUILayout.Slider(val, 0, 1023);
-				valName = val.ToString();
-			} else {
-				switch ((Condition.ValueType) valueTypeProperty.enumValueIndex) {
-					case Condition.ValueType.X:
-					case Condition.ValueType.Y:
-					case Condition.ValueType.Z:
-					valName = "n";
-					break;
-					case Condition.ValueType.Vector3:
-					valName = "magnitude";
-					break;
-					case Condition.ValueType.String:
-					valName = "char count";
-					break;
-				}
+			EditorGUILayout.LabelField("Input value", EditorStyles.boldLabel);
+			switch (valType) {
+				case Condition.ValueType.String:
+				string s;
+				if (node.filteredSignal.isValid && node.filteredSignal.TryGetValue(out s)) EditorGUILayout.SelectableLabel(s);
+				else EditorGUILayout.LabelField("--");
+				break;
+
+				case Condition.ValueType.X:
+				case Condition.ValueType.Y:
+				case Condition.ValueType.Z:
+				case Condition.ValueType.Vector3:
+				Vector3 v;
+				if (node.filteredSignal.isValid && node.filteredSignal.TryGetValue(out v)) {
+				float val = 0;
+				if (valType == Condition.ValueType.X) val = v.x;
+				else if (valType == Condition.ValueType.Y) val = v.y;
+				else if (valType == Condition.ValueType.Z) val = v.z;
+				else if (valType == Condition.ValueType.Vector3) val = v.magnitude;
+				EditorGUILayout.Slider(val, 0f, 1023f);
+				} else EditorGUILayout.LabelField("--");
+				break;
 			}
-			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("conditionValue"), new GUIContent(valName + " >"));
-			EditorGUILayout.EndVertical();
+
+			EditorGUILayout.LabelField("Triggers", EditorStyles.boldLabel);
+			switch (valType) {
+				case Condition.ValueType.String:
+					NodeEditorGUILayout.InstancePortList("stringConditions", typeof(StateNodeBase.Empty), serializedObject);
+					break;
+				case Condition.ValueType.X:
+				case Condition.ValueType.Y:
+				case Condition.ValueType.Z:
+				case Condition.ValueType.Vector3:
+					NodeEditorGUILayout.InstancePortList("floatConditions", typeof(StateNodeBase.Empty), serializedObject);
+					break;
+			}
 
 			DrawFooterGUI();
 		}

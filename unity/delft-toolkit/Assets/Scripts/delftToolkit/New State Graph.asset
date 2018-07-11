@@ -44,7 +44,7 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
+      - fieldName: floatConditions 0
         node: {fileID: 114704689593081230}
         reroutePoints: []
       _direction: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
+      - fieldName: floatConditions 0
         node: {fileID: 114704689593081230}
         reroutePoints: []
       _direction: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exit
+      - fieldName: floatConditions 0
         node: {fileID: 114704689593081230}
         reroutePoints: []
       _direction: 0
@@ -780,6 +780,12 @@ MonoBehaviour:
     keys:
     - enter
     - exit
+    - stringConditions 0
+    - stringConditions 1
+    - stringConditions 2
+    - stringConditions 3
+    - stringConditions 4
+    - floatConditions 0
     values:
     - _fieldName: enter
       _node: {fileID: 114704689593081230}
@@ -796,28 +802,101 @@ MonoBehaviour:
       _node: {fileID: 114704689593081230}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114048683753446172}
-        reroutePoints: []
-      - fieldName: enter
-        node: {fileID: 114392952066454682}
-        reroutePoints:
-        - {x: -384, y: -576}
-        - {x: 208, y: -576}
-      - fieldName: enter
-        node: {fileID: 114565011817060962}
-        reroutePoints:
-        - {x: -384, y: -560}
-        - {x: -128, y: -560}
+      connections: []
       _direction: 1
       _connectionType: 0
       _dynamic: 0
+    - _fieldName: stringConditions 0
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: stringConditions 1
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: stringConditions 2
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: stringConditions 3
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: stringConditions 4
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+    - _fieldName: floatConditions 0
+      _node: {fileID: 114704689593081230}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114565011817060962}
+        reroutePoints:
+        - {x: -368, y: -560}
+        - {x: -128, y: -560}
+      - fieldName: enter
+        node: {fileID: 114392952066454682}
+        reroutePoints:
+        - {x: -368, y: -576}
+        - {x: 192, y: -576}
+      - fieldName: enter
+        node: {fileID: 114048683753446172}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
   device: 3
   sensorSource: 0
   valueType: 1
   messageFilter: /num/analogin/0/
-  conditionValue: 208
+  floatConditions:
+  - compareType: 2
+    floatValA: 153.76923
+    floatValB: 304.76923
+    inverse: 0
+  stringConditions:
+  - compareType: 2
+    stringVal: 
+    intVal: 0
+    inverse: 0
+  - compareType: 0
+    stringVal: 
+    intVal: 0
+    inverse: 0
+  - compareType: 0
+    stringVal: 
+    intVal: 0
+    inverse: 0
+  - compareType: 2
+    stringVal: 
+    intVal: 0
+    inverse: 0
+  - compareType: 0
+    stringVal: 
+    intVal: 0
+    inverse: 0
 --- !u!114 &114977953711976372
 MonoBehaviour:
   m_ObjectHideFlags: 0
