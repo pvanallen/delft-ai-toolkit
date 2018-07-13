@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 namespace DelftToolkit {
 	public class SignalLogWindow : EditorWindow {
 
-		private List<DingSignal> sensors = new List<DingSignal>();
+		private List<DingSignal> signals = new List<DingSignal>();
 		private float scrollPos;
+		private float lastMaxScroll;
+		private int dingFilter = -1;
+		private string messageFilter = "";
 
 		[MenuItem("Delft Toolkit/Signal Log")]
 		public static void Init() {
@@ -16,9 +21,8 @@ namespace DelftToolkit {
 		}
 
 		private void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-			sensors.Add(new DingSignal(device, adrs, new Vector3(val0, val1, val2)));
-			if (sensors.Count > 1000) sensors.RemoveAt(0);
-			else scrollPos += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+			signals.Add(new DingSignal(device, adrs, new Vector3(val0, val1, val2)));
+			if (signals.Count > 1000) signals.RemoveAt(0);
 			Repaint();
 		}
 
@@ -28,11 +32,32 @@ namespace DelftToolkit {
 			DingControlVirtual.DingNumVirtualEvent -= HandleNumEvent;
 			DingControlVirtual.DingNumVirtualEvent += HandleNumEvent;
 
+			GUILayout.BeginHorizontal();
+			string[] devices = new string[] { "All" }.Concat(Enum.GetNames(typeof(AiGlobals.Devices))).ToArray();
+			dingFilter = EditorGUILayout.Popup("Device filter", dingFilter, devices);
+			messageFilter = EditorGUILayout.TextField("Message filter", messageFilter);
+			GUILayout.EndHorizontal();
+
 			scrollPos = EditorGUILayout.BeginScrollView(new Vector2(0, scrollPos)).y;
-			for (int i = 0; i < sensors.Count; i++) {
-				EditorGUILayout.LabelField(sensors[i].ToString());
+
+			int count = 0;
+			for (int i = 0; i < signals.Count; i++) {
+				if (dingFilter != 0 && signals[i].device != (AiGlobals.Devices) dingFilter - 1) continue;
+				if (!string.IsNullOrEmpty(messageFilter) && !signals[i].oscMessage.Filter(messageFilter)) continue;
+				EditorGUILayout.LabelField(signals[i].ToString());
+				count++;
 			}
+
 			EditorGUILayout.EndScrollView();
+			float maxScroll = GetLastScrollViewMaxScroll(count);
+			if (scrollPos >= lastMaxScroll) scrollPos = maxScroll + EditorGUIUtility.standardVerticalSpacing;
+			lastMaxScroll = maxScroll;
+		}
+
+		private float GetLastScrollViewMaxScroll(int items) {
+			float lineHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+			Rect rect = GUILayoutUtility.GetLastRect();
+			return (lineHeight * items) - rect.height;
 		}
 	}
 }

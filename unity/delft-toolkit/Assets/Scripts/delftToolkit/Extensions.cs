@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public static class Extensions {
@@ -27,5 +28,11 @@ public static class Extensions {
 	/// <summary> Converts color to format "byte, byte, byte" </summary>
 	public static string ToCSV(this Color32 color) {
 		return color.r + "," + color.g + "," + color.b;
+	}
+
+	/// <summary> Filter string using * as wildcard </summary>
+	public static bool Filter(this string src, string filter) {
+		string regular = "^.*" + Regex.Escape(filter).Replace("\\*", ".*") + ".*$";
+		return Regex.IsMatch(src, regular);
 	}
 }
