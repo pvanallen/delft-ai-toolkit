@@ -24,8 +24,6 @@ namespace DelftToolkit {
 
 		public FloatCondition[] floatConditions = new FloatCondition[0];
 		public StringCondition[] stringConditions = new StringCondition[0];
-		/// <summary> The last signal we received </summary>
-		public DingSignal unfilteredSignal;
 		/// <summary> The last signal we received which passed the filter </summary>
 		public DingSignal filteredSignal;
 
@@ -48,9 +46,8 @@ namespace DelftToolkit {
 		}
 
 		void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-			unfilteredSignal = new DingSignal(device, adrs, new Vector3(val0, val1, val2));
 			if (messageFilter == adrs && this.device == device) {
-				filteredSignal = unfilteredSignal;
+				filteredSignal = new DingSignal(device, adrs, new Vector3(val0, val1, val2));;
 				if (!active) return;
 				if (filteredSignal.isValid) {
 					switch (valueType) {

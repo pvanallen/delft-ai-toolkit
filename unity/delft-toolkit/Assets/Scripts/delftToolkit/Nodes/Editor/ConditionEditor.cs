@@ -38,13 +38,7 @@ namespace DelftToolkit {
 
 			if (Application.isPlaying) {
 				EditorGUILayout.BeginVertical("Box");
-				EditorGUILayout.LabelField("Last signal (unfiltered)", EditorStyles.boldLabel);
-				EditorGUILayout.LabelField("Incoming Ding Message:");
-				EditorGUI.indentLevel++;
-				if (node.unfilteredSignal.isValid) EditorGUILayout.SelectableLabel(node.unfilteredSignal.device + ":" + node.unfilteredSignal.oscMessage + "\n" + node.unfilteredSignal.value.ToString());
-				else EditorGUILayout.LabelField("--");
-				EditorGUI.indentLevel--;
-				EditorGUILayout.LabelField("Last signal (filtered)", EditorStyles.boldLabel);
+				EditorGUILayout.LabelField("Last signal", EditorStyles.boldLabel);
 				EditorGUILayout.LabelField("Incoming Ding Message:");
 				EditorGUI.indentLevel++;
 				if (node.filteredSignal.isValid) EditorGUILayout.SelectableLabel(node.filteredSignal.device + ":" + node.filteredSignal.oscMessage + "\n" + node.filteredSignal.value.ToString());
