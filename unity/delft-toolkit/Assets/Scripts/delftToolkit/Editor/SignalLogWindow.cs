@@ -20,17 +20,15 @@ namespace DelftToolkit {
 			window.Show();
 		}
 
-		private void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
-			signals.Add(new DingSignal(device, adrs, new Vector3(val0, val1, val2)));
+		private void HandleSignalEvent(DingSignal signal) {
+			signals.Add(signal);
 			if (signals.Count > 1000) signals.RemoveAt(0);
 			Repaint();
 		}
 
 		private void OnGUI() {
-			DingControlPhysical.DingNumPhysicalEvent -= HandleNumEvent;
-			DingControlPhysical.DingNumPhysicalEvent += HandleNumEvent;
-			DingControlVirtual.DingNumVirtualEvent -= HandleNumEvent;
-			DingControlVirtual.DingNumVirtualEvent += HandleNumEvent;
+			DingSignal.onSignalEvent -= HandleSignalEvent;
+			DingSignal.onSignalEvent += HandleSignalEvent;
 
 			GUILayout.BeginHorizontal();
 			string[] devices = new string[] { "All" }.Concat(Enum.GetNames(typeof(AiGlobals.Devices))).ToArray();

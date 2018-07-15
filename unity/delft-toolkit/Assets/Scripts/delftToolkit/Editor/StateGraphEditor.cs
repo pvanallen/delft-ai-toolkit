@@ -15,7 +15,7 @@ namespace DelftToolkit {
 		/// </summary>
 		public override string GetNodeMenuName(System.Type type) {
 			if (type.Namespace == "DelftToolkit") {
-				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "Create/");
+				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "Create/").Replace("Node","");
 			} else return null;
 		}
 
@@ -23,17 +23,15 @@ namespace DelftToolkit {
 		private static void initEvents() {
 			Actions.DingEvent -= SetAction;
 			Actions.DingEvent += SetAction;
-			DingControlPhysical.DingNumPhysicalEvent -= HandleNumEvent;
-			DingControlPhysical.DingNumPhysicalEvent += HandleNumEvent;
-			DingControlVirtual.DingNumVirtualEvent -= HandleNumEvent;
-			DingControlVirtual.DingNumVirtualEvent += HandleNumEvent;
+			DingSignal.onSignalEvent -= HandleSignalEvent;
+			DingSignal.onSignalEvent += HandleSignalEvent;
 		}
 
 		public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
 			NodeEditorWindow.current.Repaint();
 		}
 
-		public static void HandleNumEvent(AiGlobals.Devices device, string adrs, float val0, float val1, float val2) {
+		public static void HandleSignalEvent(DingSignal signal) {
 			NodeEditorWindow.current.Repaint();
 		}
 	}

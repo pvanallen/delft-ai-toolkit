@@ -15,12 +15,13 @@ MonoBehaviour:
   - {fileID: 114048683753446172}
   - {fileID: 114392952066454682}
   - {fileID: 114565011817060962}
-  - {fileID: 114704689593081230}
   - {fileID: 114977953711976372}
   - {fileID: 114460468400951174}
   - {fileID: 114592647529588696}
   - {fileID: 114207532407730270}
   - {fileID: 114381683518996606}
+  - {fileID: 114544003638072202}
+  - {fileID: 0}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,7 +34,7 @@ MonoBehaviour:
   m_Name: ding1 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -376, y: -552}
+  position: {x: -424, y: -552}
   ports:
     keys:
     - enter
@@ -44,8 +45,8 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: floatConditions 0
-        node: {fileID: 114704689593081230}
+      - fieldName: conditions 0
+        node: {fileID: 114544003638072202}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -920, y: -552}
+  position: {x: -888, y: -552}
   ports:
     keys:
     - enter
@@ -254,7 +255,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114704689593081230}
+        node: {fileID: 114544003638072202}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -840, y: -8}
+  position: {x: -888, y: -184}
   ports:
     keys:
     - enter
@@ -308,7 +309,7 @@ MonoBehaviour:
   m_Name: ding2 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 248, y: -552}
+  position: {x: 216, y: -552}
   ports:
     keys:
     - enter
@@ -319,8 +320,8 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: floatConditions 0
-        node: {fileID: 114704689593081230}
+      - fieldName: conditions 0
+        node: {fileID: 114544003638072202}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -429,7 +430,7 @@ MonoBehaviour:
   m_Name: stop analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: -8}
+  position: {x: -104, y: -184}
   ports:
     keys:
     - enter
@@ -478,6 +479,76 @@ MonoBehaviour:
   repeats: 1
   random: 0
   device: 3
+--- !u!114 &114544003638072202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1bd68c5b9fb7746bd309dff4e647e0, type: 3}
+  m_Name: Float Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -744, y: -584}
+  ports:
+    keys:
+    - enter
+    - exit
+    - conditions 0
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114544003638072202}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114207532407730270}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114544003638072202}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: conditions 0
+      _node: {fileID: 114544003638072202}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114048683753446172}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114565011817060962}
+        reroutePoints:
+        - {x: -416, y: -560}
+        - {x: -160, y: -560}
+      - fieldName: enter
+        node: {fileID: 114392952066454682}
+        reroutePoints:
+        - {x: -416, y: -576}
+        - {x: 160, y: -576}
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 1
+  filter:
+    device: 3
+    source: 0
+    messageFilter: /vec/analogin/0/:x
+  overrideValue: 0
+  conditions:
+  - compareType: 0
+    floatValA: 209
+    floatValB: 252
+    inverse: 0
+  _value: 196.29048
 --- !u!114 &114565011817060962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +561,7 @@ MonoBehaviour:
   m_Name: ding3 anim
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: -552}
+  position: {x: -104, y: -552}
   ports:
     keys:
     - enter
@@ -501,8 +572,8 @@ MonoBehaviour:
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: floatConditions 0
-        node: {fileID: 114704689593081230}
+      - fieldName: conditions 0
+        node: {fileID: 114544003638072202}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -691,7 +762,7 @@ MonoBehaviour:
   m_Name: move it
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -376, y: -8}
+  position: {x: -424, y: -184}
   ports:
     keys:
     - enter
@@ -763,140 +834,6 @@ MonoBehaviour:
   repeats: 3
   random: 0
   device: 3
---- !u!114 &114704689593081230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26740a44af00146429981d0aa12f2932, type: 3}
-  m_Name: Condition
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -744, y: -552}
-  ports:
-    keys:
-    - enter
-    - exit
-    - stringConditions 0
-    - stringConditions 1
-    - stringConditions 2
-    - stringConditions 3
-    - stringConditions 4
-    - floatConditions 0
-    values:
-    - _fieldName: enter
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: exit
-        node: {fileID: 114207532407730270}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 0
-    - _fieldName: stringConditions 0
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-    - _fieldName: stringConditions 1
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-    - _fieldName: stringConditions 2
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-    - _fieldName: stringConditions 3
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-    - _fieldName: stringConditions 4
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-    - _fieldName: floatConditions 0
-      _node: {fileID: 114704689593081230}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114565011817060962}
-        reroutePoints:
-        - {x: -368, y: -560}
-        - {x: -128, y: -560}
-      - fieldName: enter
-        node: {fileID: 114392952066454682}
-        reroutePoints:
-        - {x: -368, y: -576}
-        - {x: 192, y: -576}
-      - fieldName: enter
-        node: {fileID: 114048683753446172}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 1
-  device: 3
-  sensorSource: 0
-  valueType: 1
-  messageFilter: /num/analogin/0/
-  floatConditions:
-  - compareType: 2
-    floatValA: 153.76923
-    floatValB: 304.76923
-    inverse: 0
-  stringConditions:
-  - compareType: 2
-    stringVal: 
-    intVal: 0
-    inverse: 0
-  - compareType: 0
-    stringVal: 
-    intVal: 0
-    inverse: 0
-  - compareType: 0
-    stringVal: 
-    intVal: 0
-    inverse: 0
-  - compareType: 2
-    stringVal: 
-    intVal: 0
-    inverse: 0
-  - compareType: 0
-    stringVal: 
-    intVal: 0
-    inverse: 0
 --- !u!114 &114977953711976372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,7 +846,7 @@ MonoBehaviour:
   m_Name: start analog
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -696, y: -8}
+  position: {x: -744, y: -184}
   ports:
     keys:
     - enter
