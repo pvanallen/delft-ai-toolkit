@@ -77,6 +77,12 @@ namespace DelftToolkit {
 				break;
 
 				case FloatCondition.Condition.CompareType.Range:
+				Rect aRect = new Rect(compareValueRect.x, compareValueRect.y, 40, compareValueRect.height);
+				Rect bRect = new Rect(compareValueRect.x + compareValueRect.width -40, compareValueRect.y, 40, compareValueRect.height);
+				compareValueRect.x += 42;
+				compareValueRect.width -= 84;
+				valA = EditorGUI.FloatField(aRect, valA);
+				valB = EditorGUI.FloatField(bRect, valB);
 				EditorGUI.MinMaxSlider(compareValueRect, GUIContent.none, ref valA, ref valB, 0f, 1023f);
 				break;
 			}
