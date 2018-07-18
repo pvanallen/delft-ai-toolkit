@@ -49,6 +49,8 @@ namespace DelftToolkit {
 	[CustomPropertyDrawer(typeof(FloatCondition.Condition))]
 	public class FloatConditionDrawer : PropertyDrawer {
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+			property.serializedObject.Update();
+
 			EditorGUI.BeginProperty(position, label, property);
 
 			EditorGUI.BeginChangeCheck();
