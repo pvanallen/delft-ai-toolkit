@@ -30,14 +30,12 @@ namespace DelftToolkit {
 			node.random = EditorGUILayout.Toggle(node.random);
 			GUILayout.EndHorizontal();
 
-			SerializedProperty p = serializedObject.FindProperty("actions");
-
 			string title = "Actions";
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 
 			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
 
-			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title)) {
+			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title, DelftStyles.foldoutNoHighlight)) {
 				if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
 				Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
 			}
