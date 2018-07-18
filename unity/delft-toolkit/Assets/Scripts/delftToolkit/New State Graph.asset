@@ -21,7 +21,6 @@ MonoBehaviour:
   - {fileID: 114207532407730270}
   - {fileID: 114381683518996606}
   - {fileID: 114544003638072202}
-  - {fileID: 0}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,13 +541,12 @@ MonoBehaviour:
     device: 3
     source: 0
     messageFilter: /vec/analogin/0/:x
-  overrideValue: 0
   conditions:
   - compareType: 0
     floatValA: 209
     floatValB: 252
     inverse: 0
-  _value: 196.29048
+  _value: 465
 --- !u!114 &114565011817060962
 MonoBehaviour:
   m_ObjectHideFlags: 0

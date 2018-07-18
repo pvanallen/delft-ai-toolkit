@@ -14,14 +14,17 @@ namespace DelftToolkit {
 			// Draw label
 			EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
+
+
+			position = EditorGUI.IndentedRect(position);
+			// Calculate rects
+			Rect deviceRect = new Rect(position.x, position.y, position.width / 2, EditorGUIUtility.singleLineHeight);
+			Rect sourceRect = new Rect(deviceRect.x + deviceRect.width, position.y, deviceRect.width, EditorGUIUtility.singleLineHeight);
+			Rect filterRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing, position.width, EditorGUIUtility.singleLineHeight);
+
 			// Don't make child fields be indented
 			var indent = EditorGUI.indentLevel;
 			EditorGUI.indentLevel = 0;
-
-			// Calculate rects
-			Rect deviceRect = new Rect(position.x + position.width / 3, position.y, position.width / 3, EditorGUIUtility.singleLineHeight);
-			Rect sourceRect = new Rect(deviceRect.x + deviceRect.width, position.y, deviceRect.width, EditorGUIUtility.singleLineHeight);
-			Rect filterRect = new Rect(position.x + position.width / 3, position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing, position.width / 3 * 2, EditorGUIUtility.singleLineHeight);
 
 			// Draw fields - passs GUIContent.none to each so they are drawn without labels
 			EditorGUI.PropertyField(deviceRect, property.FindPropertyRelative("device"), GUIContent.none);

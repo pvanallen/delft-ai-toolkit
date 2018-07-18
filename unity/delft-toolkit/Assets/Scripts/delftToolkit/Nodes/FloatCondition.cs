@@ -20,7 +20,7 @@ namespace DelftToolkit {
 			float value;
 			if (filter.TryExtractValue<float>(signal, out value)) {
 				this.signal = signal;
-				if (!overrideValue) this.value = value;
+				this.value = value;
 			}
 		}
 

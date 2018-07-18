@@ -12,9 +12,7 @@ namespace DelftToolkit {
 		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, "/num/analogin/0/");
 		[Tooltip("Read signals matching message signature. (only exact match supported)")]
 		/// <summary> The last signal we received which passed the filter </summary>
-		public DingSignal signal;
-		/// <summary> If true, allow user to input value instead of signals </summary>
-		public bool overrideValue;
+		[NonSerialized] public DingSignal signal;
 
 		protected override void Init() {
 			base.Init();

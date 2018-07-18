@@ -11,6 +11,7 @@ namespace DelftToolkit {
 
 		private FloatCondition node { get { return _node != null ? _node : _node = target as FloatCondition; } }
 		private FloatCondition _node;
+		private bool expandLastSignal = false;
 
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
@@ -20,24 +21,24 @@ namespace DelftToolkit {
 			NodePort port = node.GetInputPort("value");
 			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
 			GUIContent filterContent = new GUIContent(filterProperty.displayName, filterProperty.tooltip);
-			NodeEditorGUILayout.PropertyField(filterProperty);
-			EditorGUILayout.Separator();
+			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterProperty.displayName, DelftStyles.foldoutNoHighlight)) {
+				EditorGUI.indentLevel++;
+				NodeEditorGUILayout.PropertyField(filterProperty, GUIContent.none);
+				EditorGUI.indentLevel--;
+			}
 
-			if (Application.isPlaying) {
-				EditorGUILayout.BeginVertical("Box");
-				EditorGUILayout.LabelField("Last signal", EditorStyles.boldLabel);
+			if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
+				EditorGUI.indentLevel++;
 				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + "\n" + node.signal.value.ToString());
 				else EditorGUILayout.LabelField("Missing or incorrect data type");
-				EditorGUILayout.EndVertical();
+				EditorGUI.indentLevel--;
 			}
 
 			// Input value
-			EditorGUILayout.LabelField("Input value", EditorStyles.boldLabel);
-			node.overrideValue = EditorGUILayout.Toggle("Override Value", node.overrideValue);
-			EditorGUI.BeginDisabledGroup(!node.overrideValue);
-			if (node.overrideValue) node.value = EditorGUILayout.Slider(node.value, 0f, 1023f);
-			else EditorGUILayout.Slider(node.value, 0f, 1023f);
-			EditorGUI.EndDisabledGroup();
+			EditorGUI.BeginChangeCheck();
+			float val = node.value;
+			val = EditorGUILayout.Slider(val, 0f, 1023f);
+			if (EditorGUI.EndChangeCheck()) node.value = val;
 
 			EditorGUILayout.LabelField("Triggers", EditorStyles.boldLabel);
 			NodeEditorGUILayout.InstancePortList("conditions", typeof(StateNodeBase.Empty), serializedObject);
@@ -80,7 +81,7 @@ namespace DelftToolkit {
 
 				case FloatCondition.Condition.CompareType.Range:
 				Rect aRect = new Rect(compareValueRect.x, compareValueRect.y, 40, compareValueRect.height);
-				Rect bRect = new Rect(compareValueRect.x + compareValueRect.width -40, compareValueRect.y, 40, compareValueRect.height);
+				Rect bRect = new Rect(compareValueRect.x + compareValueRect.width - 40, compareValueRect.y, 40, compareValueRect.height);
 				compareValueRect.x += 42;
 				compareValueRect.width -= 84;
 				valA = EditorGUI.FloatField(aRect, valA);

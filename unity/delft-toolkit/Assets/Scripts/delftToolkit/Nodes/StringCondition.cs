@@ -20,7 +20,7 @@ namespace DelftToolkit {
 			string value;
 			if (filter.TryExtractValue<string>(signal, out value)) {
 				this.signal = signal;
-				if (!overrideValue) this.value = value;
+				this.value = value;
 			}
 		}
 
