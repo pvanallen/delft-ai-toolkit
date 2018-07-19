@@ -8,12 +8,6 @@ public class DingControlVirtual : DingControlBase {
     public bool sendSensors = false;
     public int analoginPort = 0;
 
-    public delegate void DingNumberEvent(AiGlobals.Devices device, string oscMessage, float val0, float val1, float val2);
-    public static event DingNumberEvent DingNumVirtualEvent;
-
-    public delegate void DingStringEvent(AiGlobals.Devices device, string oscMessage, string val);
-    public static event DingStringEvent DingStrVirtualEvent;
-
     public override void handleAction() {
         //base.handleAction();
         switch (action.actionType) {
@@ -50,12 +44,13 @@ public class DingControlVirtual : DingControlBase {
         // hand sending virtual sensor data
         if (sendSensors) {
             // very crude implementation
-            if (DingNumVirtualEvent != null) {
+            if (DelftToolkit.DingSignal.onSignalEvent != null) {
                 float x = transform.position.x * 100.0f;
                 float y = transform.position.y * 100.0f;
                 float z = transform.position.z * 100.0f;
                 //print("sending xyz " + z);
-                DingNumVirtualEvent(thisDevice, "/num/analogin/0/", z, x, y);
+                DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/vec/analogin/0/", new Vector3(z, x, y));
+                DelftToolkit.DingSignal.onSignalEvent(signal);
             }
         }
 
@@ -86,7 +81,7 @@ public class DingControlVirtual : DingControlBase {
                     switch (action.ledParams.type) {
                         case AiGlobals.ActionLedTypes.set:
                             //this.GetComponent<Renderer>().material.color = new Color(0.236f, 0.0f, 0.5f);
-                            GetComponent<Renderer>().material.color = new Color(hexToFloat(action.ledParams.color, 0), hexToFloat(action.ledParams.color, 1), hexToFloat(action.ledParams.color, 2));
+                            GetComponent<Renderer>().material.color = action.ledParams.color;
                             break;
                         case AiGlobals.ActionLedTypes.allOff:
                             this.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
@@ -101,14 +96,5 @@ public class DingControlVirtual : DingControlBase {
                     break;
             }
         }
-    }
-
-    public float hexToFloat(string color, int element) {
-        string[] elements = color.Split(',');
-        float hex;
-        if (float.TryParse(elements[element], out hex)) {
-            return (1f / 255f) * hex;
-        } else Debug.LogWarning("Attempt to parse string '" + elements[element] + "' to float failed");
-        return 0f;
     }
 }

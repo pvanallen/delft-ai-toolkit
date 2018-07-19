@@ -2,11 +2,11 @@
 // communicates by Bluetooth to the robot
 //
 
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 using UnityOSC;
 
 public class DingControlPhysical : DingControlBase {
@@ -15,21 +15,12 @@ public class DingControlPhysical : DingControlBase {
     public int OutGoingPort = 8001;
     public int InComingPort = 3333;
 
-
     private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
 
 	private const string OSC_SERVER_CLIENT = "DelftDingOSC";
 
-    // set up events for data received from the device
-    public delegate void DingNumberEvent(AiGlobals.Devices device, string oscMessage, float val0, float val1, float val2);
-    public static event DingNumberEvent DingNumPhysicalEvent;
-
-    public delegate void DingStringEvent(AiGlobals.Devices device, string oscMessage, string val);
-    public static event DingStringEvent DingStrPhysicalEvent;
-
     private long lastOscMessageIn = 0;
-
 
     // Script initialization
     void Awake() { 
@@ -67,17 +58,23 @@ public class DingControlPhysical : DingControlBase {
                     //
                     string address = item.Value.packets[msgIndex].Address;
                     if (address.StartsWith("/num/")) {
-                        float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
-                        float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
-                        float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
-                        //print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
-                        if (DingNumPhysicalEvent != null)
-                            DingNumPhysicalEvent(thisDevice, address, value0, value1, value2);
-                    } else if (address.StartsWith("/str/")) {
-                        string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
-                        //print("sending Event" + address + value);
-                        if (DingStrPhysicalEvent != null)
-                            DingStrPhysicalEvent(thisDevice, address, value);
+						float value = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + value);
+						if (DelftToolkit.DingSignal.onSignalEvent != null)
+							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
+					}
+					if (address.StartsWith("/vec/")) {
+						float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+						float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
+						float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
+						if (DelftToolkit.DingSignal.onSignalEvent != null)
+							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, new Vector3(value0, value1, value2)));
+					} else if (address.StartsWith("/str/")) {
+						string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
+						//print("sending Event" + address + value);
+						if (DelftToolkit.DingSignal.onSignalEvent != null)
+							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
                     }
                 }
                 lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
@@ -106,7 +103,7 @@ public class DingControlPhysical : DingControlBase {
                 string ledType = action.ledParams.type.ToString();
                 float ledTime = action.ledParams.time;
                 int ledNum = action.ledParams.ledNum;
-                string ledColor = action.ledParams.color;
+                string ledColor = action.ledParams.color.ToCSV();
                 //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.ledParams.type.ToString());
                 oscValues.AddRange(new object[] { ledType, ledTime, ledNum, ledColor });
                 break;

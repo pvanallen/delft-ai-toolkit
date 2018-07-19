@@ -15,19 +15,24 @@ namespace DelftToolkit {
 		/// </summary>
 		public override string GetNodeMenuName(System.Type type) {
 			if (type.Namespace == "DelftToolkit") {
-				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "");
+				return base.GetNodeMenuName(type).Replace("Delft Toolkit/", "Create/").Replace("Node","");
 			} else return null;
 		}
 
-        [InitializeOnLoadMethod]
-        private static void initEvents() {
-            Actions.DingEvent -= SetAction;
-            Actions.DingEvent += SetAction;
-        }
+		[InitializeOnLoadMethod]
+		private static void initEvents() {
+			Actions.DingEvent -= SetAction;
+			Actions.DingEvent += SetAction;
+			DingSignal.onSignalEvent -= HandleSignalEvent;
+			DingSignal.onSignalEvent += HandleSignalEvent;
+		}
 
-        public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
-            //Debug.LogWarning("Repainting");
-            NodeEditorWindow.current.Repaint();
-        }
+		public static void SetAction(AiGlobals.Devices aDevice, Action anAction) {
+			NodeEditorWindow.current.Repaint();
+		}
+
+		public static void HandleSignalEvent(DingSignal signal) {
+			NodeEditorWindow.current.Repaint();
+		}
 	}
 }
