@@ -35,7 +35,7 @@ public class DelftActionDrawer : PropertyDrawer {
 				Color32 col = ParseColor(actionLeds.FindPropertyRelative("color").stringValue);
 				col = EditorGUI.ColorField(pos, col);
 				if (EditorGUI.EndChangeCheck()) {
-					actionLeds.FindPropertyRelative("color").stringValue = col.r + "," + col.g + "," + col.b;
+				actionLeds.FindPropertyRelative("color").stringValue = col.r + "," + col.g + "," + col.b;
 				}
 			break;
 			case AiGlobals.ActionTypes.delay:
@@ -48,14 +48,14 @@ public class DelftActionDrawer : PropertyDrawer {
 				DrawNextProperty(ref pos, actionAnalogIn, "interval", 30);
 				DrawNextProperty(ref pos, actionAnalogIn, "port", 30);
 			break;
-            case AiGlobals.ActionTypes.speak:
-                SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
-                DrawNextProperty(ref pos, actionSpeak, "type", 70);
-                DrawNextProperty(ref pos, actionSpeak, "time", 30);
-                pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-                pos.x = 8;
-                DrawNextProperty(ref pos, actionSpeak, "text", 186);
-                break;
+			case AiGlobals.ActionTypes.speak:
+				SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
+				DrawNextProperty(ref pos, actionSpeak, "type", 70);
+				DrawNextProperty(ref pos, actionSpeak, "time", 30);
+				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+				pos.x = 8;
+				DrawNextProperty(ref pos, actionSpeak, "text", 186);
+			break;
 		}
 
 		EditorGUI.EndProperty();
@@ -66,7 +66,7 @@ public class DelftActionDrawer : PropertyDrawer {
 		if (s_rgb.Length != 3) return Color.white;
 		byte[] c_rgb = new byte[3];
 		for (int i = 0; i < 3; i++) byte.TryParse(s_rgb[i], out c_rgb[i]);
-		return new Color32(c_rgb[0],c_rgb[1],c_rgb[2], 255);
+		return new Color32(c_rgb[0], c_rgb[1], c_rgb[2], 255);
 	}
 
 	private void DrawNextProperty(ref Rect pos, SerializedProperty property, string relative, float width) {

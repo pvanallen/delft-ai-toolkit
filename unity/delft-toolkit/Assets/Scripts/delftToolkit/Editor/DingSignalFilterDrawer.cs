@@ -14,8 +14,6 @@ namespace DelftToolkit {
 			// Draw label
 			EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
-
-
 			position = EditorGUI.IndentedRect(position);
 			// Calculate rects
 			Rect deviceRect = new Rect(position.x, position.y, position.width / 2, EditorGUIUtility.singleLineHeight);

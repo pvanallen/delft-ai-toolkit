@@ -11,53 +11,53 @@ using UnityOSC;
 
 public class DingControlPhysical : DingControlBase {
 
-    public string TargetAddr = "127.0.0.1";
-    public int OutGoingPort = 8001;
-    public int InComingPort = 3333;
+	public string TargetAddr = "127.0.0.1";
+	public int OutGoingPort = 8001;
+	public int InComingPort = 3333;
 
-    private Dictionary<string, ServerLog> servers;
+	private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
 
 	private const string OSC_SERVER_CLIENT = "DelftDingOSC";
 
-    private long lastOscMessageIn = 0;
+	private long lastOscMessageIn = 0;
 
-    // Script initialization
-    void Awake() { 
+	// Script initialization
+	void Awake() {
 		// using awake so that it happens before oscCentral initializes in Start()
 
-        //OSCHandler.Instance.Init(); //init OSC
+		//OSCHandler.Instance.Init(); //init OSC
 		OSCHandler.Instance.Init(OSC_SERVER_CLIENT, TargetAddr, OutGoingPort, InComingPort);
-        servers = new Dictionary<string, ServerLog>();
-		clients = new Dictionary<string, ClientLog> ();
+		servers = new Dictionary<string, ServerLog>();
+		clients = new Dictionary<string, ClientLog>();
 	}
 
-    public override void Update() {
-        OSCHandler.Instance.UpdateLogs();
+	public override void Update() {
+		OSCHandler.Instance.UpdateLogs();
 
-        servers = OSCHandler.Instance.Servers;
+		servers = OSCHandler.Instance.Servers;
 
-        foreach (KeyValuePair<string, ServerLog> item in servers) {
-            // get the most recent NEW OSC message received
-            if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
+		foreach (KeyValuePair<string, ServerLog> item in servers) {
+			// get the most recent NEW OSC message received
+			if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
 
-                // count back until we find the matching timestamp
-                int lastMsgIndex = item.Value.packets.Count - 1;
-                while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
-                    lastMsgIndex--;
-                }
+				// count back until we find the matching timestamp
+				int lastMsgIndex = item.Value.packets.Count - 1;
+				while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
+					lastMsgIndex--;
+				}
 
-                // set how many messages are queued up
-                int msgsQd = 1;
-                if (item.Value.packets.Count > 1) { // not the first item
-                    msgsQd = item.Value.packets.Count - lastMsgIndex - 1;
-                }
+				// set how many messages are queued up
+				int msgsQd = 1;
+				if (item.Value.packets.Count > 1) { // not the first item
+					msgsQd = item.Value.packets.Count - lastMsgIndex - 1;
+				}
 
-                // print the queued messages
-                for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
-                    //
-                    string address = item.Value.packets[msgIndex].Address;
-                    if (address.StartsWith("/num/")) {
+				// print the queued messages
+				for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
+					//
+					string address = item.Value.packets[msgIndex].Address;
+					if (address.StartsWith("/num/")) {
 						float value = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
 						//print(OSC_SERVER_CLIENT + ": " + address + " " + value);
 						if (DelftToolkit.DingSignal.onSignalEvent != null)
@@ -75,58 +75,57 @@ public class DingControlPhysical : DingControlBase {
 						//print("sending Event" + address + value);
 						if (DelftToolkit.DingSignal.onSignalEvent != null)
 							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
-                    }
-                }
-                lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
-            }
-        }
-    }
+					}
+				}
+				lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
+			}
+		}
+	}
 
-	public override void handleAction () {
+	public override void handleAction() {
 		//base.Update ();
 		List<object> oscValues = new List<object>();
 
-        string oscString = "/" + action.actionType + "/";
+		string oscString = "/" + action.actionType + "/";
 
-        //base.handleAction();
-        switch (action.actionType)
-        {
-            case AiGlobals.ActionTypes.move:
-                string moveType = action.moveParams.type.ToString();
-                float moveTime = action.moveParams.time;
-                float moveSpeed = action.moveParams.speed;
-                string moveEasing = action.moveParams.easing.ToString();
-                //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
-                oscValues.AddRange(new object[] { moveType, moveTime, moveSpeed, moveEasing });
-                break;
-            case AiGlobals.ActionTypes.leds:
-                string ledType = action.ledParams.type.ToString();
-                float ledTime = action.ledParams.time;
-                int ledNum = action.ledParams.ledNum;
-                string ledColor = action.ledParams.color.ToCSV();
-                //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.ledParams.type.ToString());
-                oscValues.AddRange(new object[] { ledType, ledTime, ledNum, ledColor });
-                break;
-            case AiGlobals.ActionTypes.delay:
-                //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.delayParams.type.ToString());
-                string delayType = action.delayParams.type.ToString();
-                float delayTime = action.delayParams.time;
-                oscValues.AddRange(new object[] { delayType, delayTime });
-                break;
-            case AiGlobals.ActionTypes.analogin:
-                string analoginType = action.analoginParams.type.ToString();
-                int analoginInterval = action.analoginParams.interval;
-                int analoginPort = action.analoginParams.port;
-                //Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.analoginParams.type.ToString());
-                oscValues.AddRange(new object[] { analoginType, analoginInterval, analoginPort });
-                break;
-            default:
-                Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);
-                break;
-        }
-        if (oscValues != null) {
-            OSCHandler.Instance.SendMessageToClient(OSC_SERVER_CLIENT, oscString, oscValues);
-        }
-    }
+		//base.handleAction();
+		switch (action.actionType) {
+			case AiGlobals.ActionTypes.move:
+				string moveType = action.moveParams.type.ToString();
+				float moveTime = action.moveParams.time;
+				float moveSpeed = action.moveParams.speed;
+				string moveEasing = action.moveParams.easing.ToString();
+				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
+				oscValues.AddRange(new object[] { moveType, moveTime, moveSpeed, moveEasing });
+				break;
+			case AiGlobals.ActionTypes.leds:
+				string ledType = action.ledParams.type.ToString();
+				float ledTime = action.ledParams.time;
+				int ledNum = action.ledParams.ledNum;
+				string ledColor = action.ledParams.color.ToCSV();
+				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.ledParams.type.ToString());
+				oscValues.AddRange(new object[] { ledType, ledTime, ledNum, ledColor });
+				break;
+			case AiGlobals.ActionTypes.delay:
+				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.delayParams.type.ToString());
+				string delayType = action.delayParams.type.ToString();
+				float delayTime = action.delayParams.time;
+				oscValues.AddRange(new object[] { delayType, delayTime });
+				break;
+			case AiGlobals.ActionTypes.analogin:
+				string analoginType = action.analoginParams.type.ToString();
+				int analoginInterval = action.analoginParams.interval;
+				int analoginPort = action.analoginParams.port;
+				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.analoginParams.type.ToString());
+				oscValues.AddRange(new object[] { analoginType, analoginInterval, analoginPort });
+				break;
+			default:
+				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);
+				break;
+		}
+		if (oscValues != null) {
+			OSCHandler.Instance.SendMessageToClient(OSC_SERVER_CLIENT, oscString, oscValues);
+		}
+	}
 
 }

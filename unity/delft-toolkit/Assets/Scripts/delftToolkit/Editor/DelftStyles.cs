@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-
 namespace DelftToolkit {
 	/// <summary> Utility class for storing various GUI styles used by Delft Toolkit </summary>
 	public static class DelftStyles {

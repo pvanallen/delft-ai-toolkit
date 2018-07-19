@@ -15,7 +15,7 @@ namespace DelftToolkit {
 		}
 
 		public bool Match(DingSignal signal) {
-			return signal.device == device && signal.source == source && signal.oscMessage.Filter(messageFilter.Split(':')[0]);
+			return signal.device == device && signal.source == source && signal.oscMessage.Filter(messageFilter.Split(':') [0]);
 		}
 
 		public Type GetExpectedType() {

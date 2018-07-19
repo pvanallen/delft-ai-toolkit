@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 using UnityOSC;
 
 public class DingDataPhysical : MonoBehaviour {
@@ -27,11 +27,11 @@ public class DingDataPhysical : MonoBehaviour {
 
 		//OSCHandler.Instance.Init(); //init OSC
 		//OSCHandler.Instance.Init(OSC_SERVER_CLIENT, TargetAddr, OutGoingPort, InComingPort);
-        OSCHandler.Instance.CreateServer("DingDataServer",InComingPort);
+		OSCHandler.Instance.CreateServer("DingDataServer", InComingPort);
 		servers = new Dictionary<string, ServerLog>();
 	}
 
-	void Update () {
+	void Update() {
 
 		OSCHandler.Instance.UpdateLogs();
 
@@ -43,7 +43,7 @@ public class DingDataPhysical : MonoBehaviour {
 
 				// count back until we find the matching timestamp
 				int lastMsgIndex = item.Value.packets.Count - 1;
-				while (lastMsgIndex > 0 && item.Value.packets [lastMsgIndex].TimeStamp != lastOscMessageIn) {
+				while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
 					lastMsgIndex--;
 				}
 
@@ -56,19 +56,19 @@ public class DingDataPhysical : MonoBehaviour {
 				// print the queued messages
 				for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
 					//
-					string address = item.Value.packets [msgIndex].Address;
-					if (address.StartsWith ("/num/")) {
-						float value0 = item.Value.packets [msgIndex].Data.Count > 0 ? float.Parse (item.Value.packets [msgIndex].Data [0].ToString ()) : 0.0f;
-						float value1 = item.Value.packets [msgIndex].Data.Count > 1 ? float.Parse (item.Value.packets [msgIndex].Data [1].ToString ()) : 0.0f;
-						float value2 = item.Value.packets [msgIndex].Data.Count > 2 ? float.Parse (item.Value.packets [msgIndex].Data [2].ToString ()) : 0.0f;
+					string address = item.Value.packets[msgIndex].Address;
+					if (address.StartsWith("/num/")) {
+						float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+						float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
+						float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
 						if (DingNumEvent != null)
-							DingNumEvent (address, value0, value1, value2);
-					} else if (address.StartsWith ("/str/")) {
-						
-						string value = item.Value.packets [msgIndex].Data.Count > 0 ? item.Value.packets [msgIndex].Data [0].ToString () : "null";
-						print ("sending Event" + address + value);
+							DingNumEvent(address, value0, value1, value2);
+					} else if (address.StartsWith("/str/")) {
+
+						string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
+						print("sending Event" + address + value);
 						if (DingStrEvent != null)
-							DingStrEvent (address, value);
+							DingStrEvent(address, value);
 					}
 					//print(OSC_SERVER + ": " + address + " " + value0 + " " + value1 + " " + value2);
 				}
