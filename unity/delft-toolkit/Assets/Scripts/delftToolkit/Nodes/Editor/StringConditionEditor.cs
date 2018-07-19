@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -50,6 +51,19 @@ namespace DelftToolkit {
 	[CustomPropertyDrawer(typeof(StringCondition.Condition))]
 	public class StringConditionDrawer : PropertyDrawer {
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+			property.serializedObject.Update();
+
+			int elementIndex;
+			string[] pathParts = property.propertyPath.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
+			if (pathParts.Length >= 2 && int.TryParse(pathParts[1], out elementIndex)) {
+				StringCondition node = property.serializedObject.targetObject as StringCondition;
+				if (node && node.conditions.Length > elementIndex) {
+					if (node.conditions[elementIndex].lastState) GUI.color = Color.green;
+				}
+			}
+			GUI.Box(position, "");
+			GUI.color = Color.white;
+
 			EditorGUI.BeginProperty(position, label, property);
 
 			EditorGUI.BeginChangeCheck();

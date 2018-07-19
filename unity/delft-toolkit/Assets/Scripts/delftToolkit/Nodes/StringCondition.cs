@@ -11,7 +11,7 @@ namespace DelftToolkit {
 		public Condition[] conditions = new Condition[0];
 		public string value {
 			get { return _value; }
-			set { _value = value; if (active) CheckConditions(); }
+			set { _value = value; CheckConditions(); }
 		}
 
 		[SerializeField] private string _value;
@@ -25,9 +25,10 @@ namespace DelftToolkit {
 		}
 
 		protected override void CheckConditions() {
+			bool deactivate = false;
 			for (int i = 0; i < conditions.Length; i++) {
-				if (conditions[i].Evaluate(value)) {
-					active = false;
+				// We evaluate first because we want the lastState in the condition to update regardless of 'active'
+				if (conditions[i].Evaluate(value) && active) {
 					NodePort triggerPort = GetOutputPort("conditions " + i);
 					if (triggerPort.IsConnected) {
 						for (int k = 0; k < triggerPort.ConnectionCount; k++) {
@@ -35,8 +36,10 @@ namespace DelftToolkit {
 							if (nextNode != null) nextNode.Enter();
 						}
 					}
+					deactivate = true;
 				}
 			}
+			if (deactivate) active = false;
 		}
 
 		[Serializable] public struct Condition {
@@ -44,9 +47,10 @@ namespace DelftToolkit {
 			public CompareType compareType;
 			public string strVal;
 			public bool inverse;
+			[NonSerialized] public bool lastState;
 
 			public bool Evaluate(string test) {
-				return EvaluateInternal(test) != inverse;
+				return lastState = EvaluateInternal(test) != inverse;
 			}
 
 			private bool EvaluateInternal(string test) {
