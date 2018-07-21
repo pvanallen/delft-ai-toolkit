@@ -43,3 +43,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Blender work files
+*.blend
