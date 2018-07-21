@@ -19,6 +19,8 @@ namespace DelftToolkit {
 		public int currentAction { get; private set; }
 		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 
+		[Tooltip("ValueIn lets you define a variable string to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
+		[Input] public string valueIn;
 		private Action actionStopAll = new Action();
 
 		public delegate void DingActionEvent(AiGlobals.Devices device, Action action);
@@ -101,6 +103,7 @@ namespace DelftToolkit {
 		public ActionLed ledParams = new ActionLed();
 		public ActionDelay delayParams = new ActionDelay();
 		public ActionAnalogIn analoginParams = new ActionAnalogIn();
+
 	}
 
 	[Serializable]
