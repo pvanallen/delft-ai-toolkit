@@ -39,6 +39,7 @@ namespace DelftToolkit {
 			EditorGUI.BeginChangeCheck();
 			float val = node.value;
 			val = EditorGUILayout.Slider(val, 0f, 1023f);
+			NodeEditorGUILayout.AddPortField(node.GetOutputPort("valueOut"));
 			if (EditorGUI.EndChangeCheck()) node.value = val;
 
 			EditorGUILayout.LabelField("Triggers", EditorStyles.boldLabel);

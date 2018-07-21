@@ -30,6 +30,8 @@ namespace DelftToolkit {
 			node.random = EditorGUILayout.Toggle(node.random);
 			GUILayout.EndHorizontal();
 
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("valueIn"), true);
+
 			string title = "Actions";
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 

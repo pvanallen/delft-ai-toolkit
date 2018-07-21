@@ -9,9 +9,15 @@ namespace DelftToolkit {
 	[NodeWidth(270)][NodeTint(255, 255, 0)]
 	public class StringCondition : ConditionBase {
 		public Condition[] conditions = new Condition[0];
+		[Output] public string valueOut;
 		public string value {
 			get { return _value; }
 			set { _value = value; CheckConditions(); }
+		}
+
+		public override object GetValue(NodePort port) {
+			if (port.fieldName == "valueOut") return value;
+			else return base.GetValue(port);
 		}
 
 		[SerializeField] private string _value;
