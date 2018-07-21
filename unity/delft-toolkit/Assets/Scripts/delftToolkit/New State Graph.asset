@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 114207532407730270}
   - {fileID: 114381683518996606}
   - {fileID: 114544003638072202}
+  - {fileID: 114839771158157016}
 --- !u!114 &114048683753446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +55,10 @@ MonoBehaviour:
       _node: {fileID: 114048683753446172}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114839771158157016}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _dynamic: 0
@@ -546,7 +550,7 @@ MonoBehaviour:
     floatValA: 209
     floatValB: 252
     inverse: 0
-  _value: 465
+  _value: 23.715511
 --- !u!114 &114565011817060962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +836,43 @@ MonoBehaviour:
   repeats: 3
   random: 0
   device: 3
+--- !u!114 &114839771158157016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652f3d2b2124209438bcff00daa2ad6a, type: 3}
+  m_Name: Restart
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -104, y: -392}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114839771158157016}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114048683753446172}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114839771158157016}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
 --- !u!114 &114977953711976372
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,6 +44,28 @@ namespace DelftToolkit {
 
 		public virtual void OnEnter() { }
 
+		public virtual StateNodeBase GetPreviousNode() {
+			NodePort otherPort = GetInputPort("enter").Connection;
+			if (otherPort != null) return otherPort.node as StateNodeBase;
+			else return null;
+		}
+
+		public virtual StateNodeBase GetFirstNode() {
+			StateNodeBase node = this;
+			HashSet<StateNodeBase> visited = new HashSet<StateNodeBase>() { this };
+			while (true) {
+				StateNodeBase prevNode = node.GetPreviousNode();
+				if (prevNode == null) return node;
+				else if (visited.Contains(prevNode)) {
+					Debug.LogWarning("Node tree forms a loop! Can't get first node.", node);
+					return null;
+				} else {
+					node = prevNode;
+					visited.Add(node);
+				}
+			}
+		}
+
 		[Serializable]
 		public class Empty { }
 	}
