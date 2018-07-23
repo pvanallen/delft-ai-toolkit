@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Rotorz.ReorderableList;
 using UnityEditor;
 using UnityEngine;
+using XNode;
 using XNodeEditor;
 
 namespace DelftToolkit {
@@ -30,7 +31,15 @@ namespace DelftToolkit {
 			node.random = EditorGUILayout.Toggle(node.random);
 			GUILayout.EndHorizontal();
 
-			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("valueIn"), true);
+			// Display the valueIn port.
+			NodePort valueInPort = node.GetInputPort("valueIn");
+			if (valueInPort.IsConnected) {
+				// Display an uneditable input value if connected
+				EditorGUI.BeginDisabledGroup(true);
+				EditorGUILayout.TextField(serializedObject.FindProperty("valueIn").displayName, valueInPort.GetInputValue<string>());
+				EditorGUI.EndDisabledGroup();
+				NodeEditorGUILayout.AddPortField(valueInPort);
+			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("valueIn"), valueInPort, true);
 
 			string title = "Actions";
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
