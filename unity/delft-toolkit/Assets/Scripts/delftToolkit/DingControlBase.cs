@@ -12,6 +12,7 @@ public class DingControlBase : MonoBehaviour {
 	protected Action action = null;
 
 	void OnEnable() {
+		Actions.DingEvent -= setAction;
 		Actions.DingEvent += setAction;
 		//Condition.DingEvent += setAction;
 	}

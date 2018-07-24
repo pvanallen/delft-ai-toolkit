@@ -91,33 +91,60 @@ public class DingControlPhysical : DingControlBase {
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
-				string moveType = action.moveParams.type.ToString();
-				float moveTime = action.moveParams.time;
-				float moveSpeed = action.moveParams.speed;
-				string moveEasing = action.moveParams.easing.ToString();
 				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
-				oscValues.AddRange(new object[] { moveType, moveTime, moveSpeed, moveEasing });
+				oscValues.AddRange(new object[] {
+					action.moveParams.type.ToString(),
+					action.moveParams.time,
+					action.moveParams.speed,
+					action.moveParams.easing.ToString()
+				});
 				break;
 			case AiGlobals.ActionTypes.leds:
-				string ledType = action.ledParams.type.ToString();
-				float ledTime = action.ledParams.time;
-				int ledNum = action.ledParams.ledNum;
-				string ledColor = action.ledParams.color.ToCSV();
-				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.ledParams.type.ToString());
-				oscValues.AddRange(new object[] { ledType, ledTime, ledNum, ledColor });
+				oscValues.AddRange(new object[] {
+					action.ledParams.type.ToString(),
+					action.ledParams.time,
+					action.ledParams.ledNum,
+					action.ledParams.color.ToCSV()
+				});
 				break;
 			case AiGlobals.ActionTypes.delay:
-				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.delayParams.type.ToString());
-				string delayType = action.delayParams.type.ToString();
-				float delayTime = action.delayParams.time;
-				oscValues.AddRange(new object[] { delayType, delayTime });
+				oscValues.AddRange(new object[] {
+					action.delayParams.type.ToString(),
+					action.delayParams.time
+				});
 				break;
 			case AiGlobals.ActionTypes.analogin:
-				string analoginType = action.analoginParams.type.ToString();
-				int analoginInterval = action.analoginParams.interval;
-				int analoginPort = action.analoginParams.port;
-				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.analoginParams.type.ToString());
-				oscValues.AddRange(new object[] { analoginType, analoginInterval, analoginPort });
+				oscValues.AddRange(new object[] {
+					action.analoginParams.type.ToString(),
+					action.analoginParams.interval,
+					action.analoginParams.port
+				});
+				break;
+			case AiGlobals.ActionTypes.servo:
+				oscValues.AddRange(new object[] { 
+					action.servoParams.type.ToString(),
+					action.servoParams.angle,
+					action.servoParams.port,
+					action.servoParams.varspeed,
+					action.moveParams.easing.ToString()
+				});
+				break;
+			case AiGlobals.ActionTypes.speak:
+				oscValues.AddRange(new object[] { 
+					action.speakParams.type.ToString(),
+					action.speakParams.utterance
+				});
+				break;
+			case AiGlobals.ActionTypes.listen:
+				oscValues.AddRange(new object[] { 
+					action.listenParams.type.ToString(),
+					action.listenParams.duration
+				});
+				break;
+			case AiGlobals.ActionTypes.recognize:
+				oscValues.AddRange(new object[] { 
+					action.recognizeParams.type.ToString()
+				});
 				break;
 			default:
 				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);

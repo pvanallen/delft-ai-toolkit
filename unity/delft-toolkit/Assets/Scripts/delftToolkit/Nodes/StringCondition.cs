@@ -60,13 +60,14 @@ namespace DelftToolkit {
 			}
 
 			private bool EvaluateInternal(string test) {
+				test = test.ToLower();
 				switch (compareType) {
 					case CompareType.StartsWith:
-						return test.StartsWith(strVal);
+						return test.StartsWith(strVal.ToLower());
 					case CompareType.EndsWith:
-						return test.EndsWith(strVal);
+						return test.EndsWith(strVal.ToLower());
 					case CompareType.Contains:
-						return test.Contains(strVal);
+						return test.Contains(strVal.ToLower());
 					default:
 						return false;
 				}

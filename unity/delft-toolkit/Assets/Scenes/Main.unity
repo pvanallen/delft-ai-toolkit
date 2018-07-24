@@ -662,13 +662,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086877484}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0935fdee413e469f8e60fe154d65a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisDevice: 0
   speedAdj: 1
-  TargetAddr: 10.0.1.15
+  TargetAddr: 10.0.1.200
   OutGoingPort: 5005
   InComingPort: 5006

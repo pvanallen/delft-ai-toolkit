@@ -91,6 +91,39 @@ namespace DelftToolkit {
 						DrawNextProperty(ref pos, 30);
 						delftAction.analoginParams.port = EditorGUI.IntField(pos, delftAction.analoginParams.port);
 						break;
+					case AiGlobals.ActionTypes.servo:
+						DrawNextProperty(ref pos, 70);
+						delftAction.servoParams.type = (AiGlobals.ActionServoTypes)EditorGUI.EnumPopup(pos, delftAction.servoParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.servoParams.time = EditorGUI.FloatField(pos, delftAction.servoParams.time);
+						DrawNextProperty(ref pos, 30);
+						delftAction.servoParams.angle = EditorGUI.IntField(pos, delftAction.servoParams.angle);
+						pos.x = 9;
+						pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+						DrawNextProperty(ref pos, 30);
+						delftAction.servoParams.port = EditorGUI.IntField(pos, delftAction.servoParams.port);
+						break;
+					case AiGlobals.ActionTypes.speak:
+						DrawNextProperty(ref pos, 70);
+						delftAction.speakParams.type = (AiGlobals.ActionSpeakTypes)EditorGUI.EnumPopup(pos, delftAction.speakParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.speakParams.time = EditorGUI.FloatField(pos, delftAction.speakParams.time);
+						pos.x = 9;
+						pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+						DrawNextProperty(ref pos, position.width);
+						delftAction.speakParams.utterance = EditorGUI.TextField(pos, delftAction.speakParams.utterance);
+						break;
+					case AiGlobals.ActionTypes.listen:
+						DrawNextProperty(ref pos, 70);
+						delftAction.listenParams.type = (AiGlobals.ActionListenTypes)EditorGUI.EnumPopup(pos, delftAction.listenParams.type);
+						DrawNextProperty(ref pos, 30);
+						delftAction.listenParams.duration = EditorGUI.IntField(pos, delftAction.listenParams.duration);
+						break;
+					case AiGlobals.ActionTypes.recognize:
+						DrawNextProperty(ref pos, 70);
+						delftAction.recognizeParams.type = (AiGlobals.ActionRecognizeTypes)EditorGUI.EnumPopup(pos, delftAction.recognizeParams.type);
+						break;
+
 				}
 			}
 

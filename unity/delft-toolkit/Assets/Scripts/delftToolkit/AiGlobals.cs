@@ -16,7 +16,11 @@ public class AiGlobals : MonoBehaviour {
 		leds,
 		delay,
 		analogin,
-		speak
+		servo,
+		speak,
+		listen,
+		chat,
+		recognize
 	}
 
 	public enum ActionMoveTypes {
@@ -25,9 +29,9 @@ public class AiGlobals : MonoBehaviour {
 		backward,
 		turnRight,
 		turnLeft
-		};
+	};
 
-		public enum ActionLedTypes {
+	public enum ActionLedTypes {
 		set,
 		blink,
 		allOff
@@ -42,8 +46,29 @@ public class AiGlobals : MonoBehaviour {
 		stop
 	}
 
+	public enum ActionServoTypes {
+		immediate,
+		varspeed
+	}
+
 	public enum ActionSpeakTypes {
+		male,
+		female
+	}
+
+	public enum ActionListenTypes {
+		timed,
+		auto
+	}
+
+	public enum ActionChatTypes {
+		standard,
 		voice
+	}
+
+	public enum ActionRecognizeTypes {
+		one,
+		multiple
 	}
 
 	public enum Devices {
@@ -51,9 +76,9 @@ public class AiGlobals : MonoBehaviour {
 		ding2,
 		ding3,
 		ding4
-		};
+	};
 
-		public enum Easing {
+	public enum Easing {
 		none,
 		easeIn,
 		easeOut,

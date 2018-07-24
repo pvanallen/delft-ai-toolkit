@@ -51,6 +51,12 @@ namespace DelftToolkit {
 							case AiGlobals.ActionTypes.delay:
 								delayTime = actions[currentAction].delayParams.time;
 								break;
+							case AiGlobals.ActionTypes.servo:
+								delayTime = actions[currentAction].servoParams.time;
+								break;
+							case AiGlobals.ActionTypes.speak:
+								delayTime = actions[currentAction].speakParams.time;
+								break;
 						}
 
 						if (delayTime > 0) {
@@ -103,6 +109,10 @@ namespace DelftToolkit {
 		public ActionLed ledParams = new ActionLed();
 		public ActionDelay delayParams = new ActionDelay();
 		public ActionAnalogIn analoginParams = new ActionAnalogIn();
+		public ActionServo servoParams = new ActionServo();
+		public ActionSpeak speakParams = new ActionSpeak();
+		public ActionListen listenParams = new ActionListen();
+		public ActionRecognize recognizeParams = new ActionRecognize();
 
 	}
 
@@ -133,5 +143,35 @@ namespace DelftToolkit {
 		public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		public int interval = 20; // milliseconds
 		public int port = 0;
+	}
+	[Serializable]
+	public class ActionServo {
+		public AiGlobals.ActionServoTypes type = AiGlobals.ActionServoTypes.immediate;
+		public float time = 1;
+		public int angle = 90; // degrees 0 - 180
+		public int port = 9; // typically 9 & 10
+		public int varspeed = 127; // 0-255
+		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
+	}
+	[Serializable]
+	public class ActionSpeak {
+		public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
+		public float time = 1;
+		public string utterance = "Hello World";
+	}
+	[Serializable]
+	public class ActionListen {
+		public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
+		public int duration = 3;
+	}
+	[Serializable]
+	public class ActionChat {
+		public AiGlobals.ActionChatTypes type = AiGlobals.ActionChatTypes.voice;
+		public float time = 1;
+		public string text = "Hello";
+	}
+	[Serializable]
+	public class ActionRecognize {
+		public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.multiple;
 	}
 }
