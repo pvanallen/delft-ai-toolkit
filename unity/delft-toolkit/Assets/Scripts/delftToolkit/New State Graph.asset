@@ -52,7 +52,10 @@ MonoBehaviour:
       _node: {fileID: 114048683753446172}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: conditions 0
+        node: {fileID: 114544003638072202}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
@@ -84,7 +87,7 @@ MonoBehaviour:
       easing: 3
     ledParams:
       type: 0
-      time: 0
+      time: 1
       ledNum: -1
       color:
         serializedVersion: 2
@@ -112,6 +115,42 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4280506304
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
   - actionType: 4
     moveParams:
       type: 0
@@ -170,8 +209,8 @@ MonoBehaviour:
       port: 0
     servoParams:
       type: 0
-      time: 1
-      angle: 90
+      time: 0
+      angle: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -256,6 +295,42 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278190080
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
   - actionType: 4
     moveParams:
       type: 0
@@ -278,7 +353,7 @@ MonoBehaviour:
       port: 0
     servoParams:
       type: 0
-      time: 1
+      time: 0
       angle: 180
       port: 9
       varspeed: 127
@@ -305,150 +380,6 @@ MonoBehaviour:
       color:
         serializedVersion: 2
         rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 20
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-    listenParams:
-      type: 0
-      duration: 3
-    recognizeParams:
-      type: 1
-  - actionType: 1
-    moveParams:
-      type: 0
-      time: 1
-      speed: 1
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4286119702
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 20
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-    listenParams:
-      type: 0
-      duration: 3
-    recognizeParams:
-      type: 1
-  - actionType: 0
-    moveParams:
-      type: 3
-      time: 1
-      speed: 3
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 20
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-    listenParams:
-      type: 0
-      duration: 3
-    recognizeParams:
-      type: 1
-  - actionType: 0
-    moveParams:
-      type: 4
-      time: 1
-      speed: 3
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 20
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-    listenParams:
-      type: 0
-      duration: 3
-    recognizeParams:
-      type: 1
-  - actionType: 1
-    moveParams:
-      type: 0
-      time: 1
-      speed: 1
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4286131567
     delayParams:
       type: 0
       time: 1
@@ -788,10 +719,7 @@ MonoBehaviour:
       _node: {fileID: 114207532407730270}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114544003638072202}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _dynamic: 0
@@ -1110,9 +1038,45 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
   - actionType: 0
     moveParams:
-      type: 3
+      type: 1
       time: 1
       speed: 2
       easing: 0
@@ -1146,30 +1110,66 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
-  - actionType: 1
+  - actionType: 0
     moveParams:
-      type: 0
-      time: 0
-      speed: 0
-      easing: 0
+      type: 2
+      time: 1
+      speed: 1
+      easing: 3
     ledParams:
       type: 0
       time: 0
       ledNum: 0
       color:
         serializedVersion: 2
-        rgba: 4294954661
+        rgba: 4278222719
     delayParams:
       type: 0
-      time: 0
+      time: 1
     analoginParams:
       type: 0
-      interval: 0
+      interval: 20
       port: 0
     servoParams:
       type: 0
       time: 1
-      angle: 0
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
+  - actionType: 1
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color:
+        serializedVersion: 2
+        rgba: 4280090751
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
       port: 9
       varspeed: 127
       easing: 3
@@ -1579,10 +1579,7 @@ MonoBehaviour:
       _node: {fileID: 114544003638072202}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: exit
-        node: {fileID: 114207532407730270}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
@@ -1609,6 +1606,9 @@ MonoBehaviour:
         reroutePoints:
         - {x: -416, y: -576}
         - {x: 160, y: -576}
+      - fieldName: enter
+        node: {fileID: 114048683753446172}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _dynamic: 1
@@ -1626,11 +1626,11 @@ MonoBehaviour:
     messageFilter: /vec/analogin/0/:x
   conditions:
   - compareType: 0
-    floatValA: 209
-    floatValB: 252
+    floatValA: 303
+    floatValB: 729
     inverse: 0
   valueOut: 0
-  _value: 25.309109
+  _value: 454
 --- !u!114 &114565011817060962
 MonoBehaviour:
   m_ObjectHideFlags: 0

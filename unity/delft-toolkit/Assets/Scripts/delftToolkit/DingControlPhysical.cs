@@ -12,8 +12,8 @@ using UnityOSC;
 public class DingControlPhysical : DingControlBase {
 
 	public string TargetAddr = "127.0.0.1";
-	public int OutGoingPort = 8001;
-	public int InComingPort = 3333;
+	public int OutGoingPort = 5005;
+	public int InComingPort = 5006;
 
 	private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
