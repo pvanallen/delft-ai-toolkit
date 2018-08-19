@@ -3,7 +3,7 @@
 
 **This is a new 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas system has been replaced with a customize version of [xNode](https://github.com/Siccity/xNode). In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
 
-**As of late June 2018, this version is going through significant changes and is not ready for general use. We hope to have a release by the end of July.**
+**As of August 2018, this version is going through significant changes. While usable now, many more changes are coming. We hope to have a more stable release by October.
 
 ### Description
 
@@ -19,16 +19,19 @@ The goal of this project is to develop an authoring system approach that enables
 * [Process Blog](http://ai-toolkit.tumblr.com)
 
 The system currently has two parts:
-* Control System running on a PC
-  * Visual Authoring System, Unity3D
+* Authoring & Control System running on a computer
+  * Visual Authoring with nodes, Unity3D
 * Robot
   * Raspberry Pi
   * Arduino
   * Motors, sensors, microphone, camera, etc.
 
-Each of these has a codebase, and includes a range of libraries. **We are now using a modified version of the open source [xNode Unity asset](https://github.com/Siccity/xNode).** ~~In particular, the Unity system is based on the [NodeCanvas](http://nodecanvas.paradoxnotion.com) paid asset for Unity3D, and provides the foundation for the visual authoring of behavior trees. My hope is to eventually make this part of the system free in some way.~~
+Each of these has a codebase, and includes a range of libraries. **We are now using a modified version of the open source [xNode Unity asset](https://github.com/Siccity/xNode), and no longer using [NodeCanvas](http://nodecanvas.paradoxnotion.com).**
 
-# The below is currently out of date, and needs to be revised to confrom to the new architecture. Stay Tuned.
+**Hardware Architecture**
+![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
+
+# The below is currently out of date, and needs to be revised to conform to the new architecture. Stay Tuned.
 
 ## Starting the system
 1. **Power robot**: Power on the Arduino and Raspberry Pi (RPi)
