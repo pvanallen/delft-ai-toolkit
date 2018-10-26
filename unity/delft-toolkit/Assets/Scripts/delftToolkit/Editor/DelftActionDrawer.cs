@@ -111,16 +111,6 @@ public class DelftActionDrawer : PropertyDrawer {
 	}
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-
-		/*switch ((AiGlobals.ActionTypes) property.FindPropertyRelative("actionType").enumValueIndex) {
-			case AiGlobals.ActionTypes.move:
-				//{}
-				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
-				DrawNextProperty(ref pos, actionMove, "type", 70);
-				DrawNextProperty(ref pos, actionMove, "time", 30);
-				DrawNextProperty(ref pos, actionMove, "speed", 30);
-				break;
-		}*/
 		return EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing + EditorGUIUtility.standardVerticalSpacing;
 	}
 }
