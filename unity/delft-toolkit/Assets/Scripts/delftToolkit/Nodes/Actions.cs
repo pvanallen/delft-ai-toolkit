@@ -7,6 +7,7 @@ namespace DelftToolkit {
 	[NodeWidth(270)][NodeTint(0f, 1f, 1f)]
 	public class Actions : StateNodeBase {
 
+		[Input(instancePortList = true)]
 		public List<Action> actions = new List<Action> { new Action() };
 
 		/// <summary> How many times should we repeat the actions list </summary>

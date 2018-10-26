@@ -18,11 +18,12 @@ public class DelftActionDrawer : PropertyDrawer {
 
 		switch ((AiGlobals.ActionTypes) actionType.enumValueIndex) {
 			case AiGlobals.ActionTypes.move:
+				//{}
 				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
 				DrawNextProperty(ref pos, actionMove, "type", 70);
 				DrawNextProperty(ref pos, actionMove, "time", 30);
 				DrawNextProperty(ref pos, actionMove, "speed", 30);
-			break;
+				break;
 			case AiGlobals.ActionTypes.leds:
 				SerializedProperty actionLeds = property.FindPropertyRelative("ledParams");
 				DrawNextProperty(ref pos, actionLeds, "type", 70);
@@ -32,30 +33,59 @@ public class DelftActionDrawer : PropertyDrawer {
 				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 				pos.width = position.width;
 				EditorGUI.BeginChangeCheck();
-				Color32 col = ParseColor(actionLeds.FindPropertyRelative("color").stringValue);
+				Color32 col = actionLeds.FindPropertyRelative("color").colorValue;
 				col = EditorGUI.ColorField(pos, col);
 				if (EditorGUI.EndChangeCheck()) {
-				actionLeds.FindPropertyRelative("color").stringValue = col.r + "," + col.g + "," + col.b;
+					actionLeds.FindPropertyRelative("color").colorValue = col;
 				}
-			break;
+				break;
 			case AiGlobals.ActionTypes.delay:
 				SerializedProperty actionDelay = property.FindPropertyRelative("delayParams");
 				DrawNextProperty(ref pos, actionDelay, "time", 30);
-			break;
+				break;
 			case AiGlobals.ActionTypes.analogin:
 				SerializedProperty actionAnalogIn = property.FindPropertyRelative("analoginParams");
 				DrawNextProperty(ref pos, actionAnalogIn, "type", 70);
 				DrawNextProperty(ref pos, actionAnalogIn, "interval", 30);
 				DrawNextProperty(ref pos, actionAnalogIn, "port", 30);
-			break;
+				break;
+			case AiGlobals.ActionTypes.servo:
+				SerializedProperty actionServo = property.FindPropertyRelative("servoParams");
+				DrawNextProperty(ref pos, actionServo, "type", 70);
+				DrawNextProperty(ref pos, actionServo, "time", 30);
+				DrawNextProperty(ref pos, actionServo, "angle", 30);
+				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+				pos.x = 8;
+				DrawNextProperty(ref pos, actionServo, "port", 30);
+				break;
 			case AiGlobals.ActionTypes.speak:
 				SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
 				DrawNextProperty(ref pos, actionSpeak, "type", 70);
 				DrawNextProperty(ref pos, actionSpeak, "time", 30);
 				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
 				pos.x = 8;
-				DrawNextProperty(ref pos, actionSpeak, "text", 186);
-			break;
+				DrawNextProperty(ref pos, actionSpeak, "utterance", pos.width);
+				break;
+			case AiGlobals.ActionTypes.chat:
+				SerializedProperty actionChat = property.FindPropertyRelative("chatParams");
+				DrawNextProperty(ref pos, actionChat, "type", 70);
+				DrawNextProperty(ref pos, actionChat, "time", 30);
+				pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+				pos.x = 8;
+				DrawNextProperty(ref pos, actionChat, "text", pos.width);
+				break;
+			case AiGlobals.ActionTypes.listen:
+				SerializedProperty actionListen = property.FindPropertyRelative("listenParams");
+				DrawNextProperty(ref pos, actionListen, "type", 70);
+				DrawNextProperty(ref pos, actionListen, "duration", 30);
+				break;
+			case AiGlobals.ActionTypes.recognize:
+				SerializedProperty actionRecognize = property.FindPropertyRelative("recognizeParams");
+				DrawNextProperty(ref pos, actionRecognize, "type", 70);
+				break;
+			default:
+				EditorGUI.LabelField(pos, "ActionType not supported: " + (AiGlobals.ActionTypes) actionType.enumValueIndex);
+				break;
 		}
 
 		EditorGUI.EndProperty();
@@ -70,12 +100,27 @@ public class DelftActionDrawer : PropertyDrawer {
 	}
 
 	private void DrawNextProperty(ref Rect pos, SerializedProperty property, string relative, float width) {
+		SerializedProperty relativeProp = property.FindPropertyRelative(relative);
+		if (relativeProp == null) {
+			Debug.LogWarning("Relative property not found (" + relative + ")");
+			return;
+		}
 		pos.x += pos.width + 2;
 		pos.width = width;
-		EditorGUI.PropertyField(pos, property.FindPropertyRelative(relative), new GUIContent());
+		EditorGUI.PropertyField(pos, relativeProp, new GUIContent());
 	}
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-		return EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing;
+
+		/*switch ((AiGlobals.ActionTypes) property.FindPropertyRelative("actionType").enumValueIndex) {
+			case AiGlobals.ActionTypes.move:
+				//{}
+				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
+				DrawNextProperty(ref pos, actionMove, "type", 70);
+				DrawNextProperty(ref pos, actionMove, "time", 30);
+				DrawNextProperty(ref pos, actionMove, "speed", 30);
+				break;
+		}*/
+		return EditorGUIUtility.singleLineHeight * 2 + EditorGUIUtility.standardVerticalSpacing + EditorGUIUtility.standardVerticalSpacing;
 	}
 }

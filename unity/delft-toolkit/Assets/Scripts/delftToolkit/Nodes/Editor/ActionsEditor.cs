@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Rotorz.ReorderableList;
 using UnityEditor;
 using UnityEngine;
 using XNode;
@@ -12,7 +11,6 @@ namespace DelftToolkit {
 
 		private Actions node { get { return _node != null ? _node : _node = target as Actions; } }
 		private Actions _node;
-		private DelftActionListAdaptor actionListAdaptor;
 
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
@@ -47,8 +45,7 @@ namespace DelftToolkit {
 			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
 
 			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title, DelftStyles.foldoutNoHighlight)) {
-				if (actionListAdaptor == null) actionListAdaptor = new DelftActionListAdaptor(node.actions, node);
-				Rotorz.ReorderableList.ReorderableListGUI.ListField(actionListAdaptor);
+				NodeEditorGUILayout.PropertyField(actionsProperty);
 			}
 
 			DrawFooterGUI();
