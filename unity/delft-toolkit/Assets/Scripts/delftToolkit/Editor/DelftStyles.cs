@@ -2,10 +2,22 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using XNodeEditor;
 
 namespace DelftToolkit {
 	/// <summary> Utility class for storing various GUI styles used by Delft Toolkit </summary>
 	public static class DelftStyles {
+		private static GUIStyle _activeNodeBody;
+		public static GUIStyle activeNodeBody {
+			get {
+				if (_activeNodeBody == null) {
+					_activeNodeBody = new GUIStyle(NodeEditorResources.styles.nodeBody);
+					_activeNodeBody.normal.background = Resources.Load<Texture2D>("xnode_node_active");
+				}
+				return _activeNodeBody;
+			}
+		}
+
 		private static GUIStyle _labelNoHighlight;
 		public static GUIStyle labelNoHighlight {
 			get {

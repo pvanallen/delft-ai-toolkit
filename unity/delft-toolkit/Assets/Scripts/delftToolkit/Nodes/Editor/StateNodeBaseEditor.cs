@@ -25,6 +25,11 @@ namespace DelftToolkit {
 			DrawFooterGUI();
 		}
 
+		public override GUIStyle GetBodyStyle() {
+			if (node.active) return DelftStyles.activeNodeBody;
+			return base.GetBodyStyle();
+		}
+
 		public void DrawFooterGUI() {
 			if (node.active) {
 				if (GUILayout.Button("Continue")) {
