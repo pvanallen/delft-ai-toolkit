@@ -12,6 +12,11 @@ namespace DelftToolkit {
 		private StateNodeBase _node;
 
 		public override void OnHeaderGUI() {
+			// Draw info icon
+			GUI.color = new Color(1, 1, 1, 0.2f);
+			GUI.Label(new Rect(GetWidth() - 22, 8, 14, 14), "i", DelftStyles.infoIcon);
+
+			// Draw header name
 			GUI.color = Color.white;
 			StateNodeBase node = target as StateNodeBase;
 			if (node.active) GUI.color = Color.green;
