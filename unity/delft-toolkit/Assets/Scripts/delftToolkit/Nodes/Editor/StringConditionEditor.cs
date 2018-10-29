@@ -10,6 +10,7 @@ namespace DelftToolkit {
 	[CustomNodeEditor(typeof(StringCondition))]
 	public class StringConditionEditor : StateNodeBaseEditor {
 
+		protected override string description { get { return "An arbitrary condition taking a string argument"; } }
 		private StringCondition node { get { return _node != null ? _node : _node = target as StringCondition; } }
 		private StringCondition _node;
 		private bool expandLastSignal = false;

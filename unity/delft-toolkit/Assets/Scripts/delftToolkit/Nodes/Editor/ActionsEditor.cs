@@ -9,6 +9,7 @@ namespace DelftToolkit {
 	[CustomNodeEditor(typeof(Actions))]
 	public class ActionsEditor : StateNodeBaseEditor {
 
+		protected override string description { get { return "Plays a list of configurable actions"; } }
 		private Actions node { get { return _node != null ? _node : _node = target as Actions; } }
 		private Actions _node;
 
