@@ -8,8 +8,14 @@ namespace DelftToolkit {
 	[CreateAssetMenu(fileName = "New State Graph", menuName = "delft Toolkit")]
 	public class StateGraph : NodeGraph {
 
+		/// <summary> Called when the graph exits </summary>
+		public System.Action onExit;
+		/// <summary> Is the graph currently running? </summary>
+		public bool running { get; private set; }
+
 		[ContextMenu("Run")]
 		public void Run() {
+			running = true;
 			IEnumerable<Start> startNodes = nodes.FindAll(x => x is Start).Select(x => x as Start);
 			foreach (Start startNode in startNodes) {
 				startNode.Enter();
@@ -22,6 +28,12 @@ namespace DelftToolkit {
 				StateNodeBase node = nodes[i] as StateNodeBase;
 				if (node != null && node.active) yield return node;
 			}
+		}
+
+		[ContextMenu("Exit")]
+		public void Exit() {
+			running = false;
+			if (onExit != null) onExit();
 		}
 	}
 }
