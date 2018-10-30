@@ -4,19 +4,17 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
+	/// <summary> Play another graph and continue when that graph reaches an Exit node </summary>
 	public class SubGraph : StateNodeBase {
-
 		public StateGraph subGraph;
 
-		// Use this for initialization
-		protected override void Init() {
-			base.Init();
-
+		protected override void OnEnter() {
+			subGraph.onExit += Exit;
+			subGraph.Run();
 		}
 
-		// Return the correct value of an output port when requested
-		public override object GetValue(NodePort port) {
-			return null; // Replace this
+		protected override void OnExit() {
+			subGraph.onExit -= Exit;
 		}
 	}
 }

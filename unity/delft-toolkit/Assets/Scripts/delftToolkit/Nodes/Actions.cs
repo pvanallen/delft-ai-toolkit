@@ -90,13 +90,12 @@ namespace DelftToolkit {
 			}
 		}
 
-		public override void OnExit() {
+		protected override void OnExit() {
 			repeatCount = 0;
 			currentAction = 0;
 		}
 
-		public override void OnEnter() {
-			base.OnEnter();
+		protected override void OnEnter() {
 			currentAction = 0;
 			repeatCount = 0;
 			NextAction().RunCoroutine();

@@ -15,6 +15,16 @@ namespace DelftToolkit {
 			set { _value = value; CheckConditions(); }
 		}
 
+#region Events
+		protected override void OnExit() {
+			return;
+		}
+
+		protected override void OnEnter() {
+			return;
+		}
+#endregion
+
 		public override object GetValue(NodePort port) {
 			if (port.fieldName == "valueOut") return value;
 			else return base.GetValue(port);
