@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using XNode;
 using XNodeEditor;
@@ -43,13 +44,28 @@ namespace DelftToolkit {
 			string title = "Actions";
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 
+			// Actions list
+			NodeEditorGUILayout.onCreateReorderableList += OnCreateReorderableList;
 			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
-
 			if (actionsProperty.isExpanded = EditorGUILayout.Foldout(actionsProperty.isExpanded, title, DelftStyles.foldoutNoHighlight)) {
 				NodeEditorGUILayout.PropertyField(actionsProperty);
 			}
+			NodeEditorGUILayout.onCreateReorderableList -= OnCreateReorderableList;
 
+			// Footer
 			DrawFooterGUI();
+		}
+
+		private void OnCreateReorderableList(ReorderableList list) {
+			list.drawElementCallback =
+				(Rect rect, int index, bool isActive, bool isFocused) => {
+					XNode.NodePort port = node.GetPort("actions " + index);
+					SerializedProperty itemData = serializedObject.FindProperty("actions").GetArrayElementAtIndex(index);
+					if (node.currentAction == index) EditorGUI.DrawRect(rect, Color.gray);
+					EditorGUI.PropertyField(rect, itemData);
+					Vector2 pos = rect.position + (port.IsOutput ? new Vector2(rect.width + 6, 0) : new Vector2(-36, 0));
+					NodeEditorGUILayout.PortField(pos, port);
+				};
 		}
 	}
 }

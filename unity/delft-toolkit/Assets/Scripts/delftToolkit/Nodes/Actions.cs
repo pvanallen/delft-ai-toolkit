@@ -17,7 +17,8 @@ namespace DelftToolkit {
 		/// <summary> How many times have we repeated so far </summary>
 		public int repeatCount { get; private set; }
 		/// <summary> Current action index </summary>
-		public int currentAction { get; private set; }
+		public int currentAction { get { return _currentAction; } }
+		private int _currentAction = -1;
 		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 
 		[Tooltip("ValueIn lets you define a variable string to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
@@ -37,7 +38,7 @@ namespace DelftToolkit {
 				if (currentAction < actions.Count) {
 					if (DingEvent != null) {
 						if (random) {
-							currentAction = UnityEngine.Random.Range(0, actions.Count);
+							_currentAction = UnityEngine.Random.Range(0, actions.Count);
 						}
 
 						DingEvent(device, actions[currentAction]);
@@ -69,19 +70,18 @@ namespace DelftToolkit {
 					}
 					if (active) {
 						if (random) {
-							currentAction = actions.Count;
+							_currentAction = actions.Count;
 						} else {
-							currentAction++;
+							_currentAction++;
 						}
 						NextAction().RunCoroutine();
 					}
 				} else {
 					repeatCount++;
 					if (repeatCount >= repeats) {
-
 						Exit();
 					} else {
-						currentAction = 0;
+						_currentAction = 0;
 						NextAction().RunCoroutine();
 					}
 
@@ -92,11 +92,11 @@ namespace DelftToolkit {
 
 		protected override void OnExit() {
 			repeatCount = 0;
-			currentAction = 0;
+			_currentAction = -1;
 		}
 
 		protected override void OnEnter() {
-			currentAction = 0;
+			_currentAction = 0;
 			repeatCount = 0;
 			NextAction().RunCoroutine();
 		}
@@ -144,6 +144,7 @@ namespace DelftToolkit {
 		public int interval = 20; // milliseconds
 		public int port = 0;
 	}
+
 	[Serializable]
 	public class ActionServo {
 		public AiGlobals.ActionServoTypes type = AiGlobals.ActionServoTypes.immediate;
@@ -153,23 +154,27 @@ namespace DelftToolkit {
 		public int varspeed = 127; // 0-255
 		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
+
 	[Serializable]
 	public class ActionSpeak {
 		public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
 		public float time = 1;
 		public string utterance = "Hello World";
 	}
+
 	[Serializable]
 	public class ActionListen {
 		public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
 		public int duration = 3;
 	}
+
 	[Serializable]
 	public class ActionChat {
 		public AiGlobals.ActionChatTypes type = AiGlobals.ActionChatTypes.voice;
 		public float time = 1;
 		public string text = "Hello";
 	}
+
 	[Serializable]
 	public class ActionRecognize {
 		public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.multiple;
