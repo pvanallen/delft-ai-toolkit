@@ -113,65 +113,85 @@ namespace DelftToolkit {
 		public ActionSpeak speakParams = new ActionSpeak();
 		public ActionListen listenParams = new ActionListen();
 		public ActionRecognize recognizeParams = new ActionRecognize();
+		public ActionChat chatParams = new ActionChat();
 
 	}
 
 	[Serializable]
 	public class ActionMove {
 		public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.stop;
+		[Tooltip("Time (Seconds)")]
 		public float time = 1;
+		[Tooltip("Speed")]
 		public float speed = 1;
+		[Tooltip("Easing")]
 		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
 
 	[Serializable]
 	public class ActionLed {
 		public AiGlobals.ActionLedTypes type = AiGlobals.ActionLedTypes.set;
+		[Tooltip("Time (Seconds)")]
 		public float time = 0;
+		[Tooltip("Led Num")]
 		public int ledNum = 0;
+		[Tooltip("Color")]
 		public Color32 color = new Color32(127, 127, 0, 255);
 	}
 
 	[Serializable]
 	public class ActionDelay {
 		public AiGlobals.ActionDelayTypes type = AiGlobals.ActionDelayTypes.pause;
+		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 	}
 
 	[Serializable]
 	public class ActionAnalogIn {
 		public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
+		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 20; // milliseconds
+		[Tooltip("Port (Typically 9-10)")]
 		public int port = 0;
 	}
 
 	[Serializable]
 	public class ActionServo {
 		public AiGlobals.ActionServoTypes type = AiGlobals.ActionServoTypes.immediate;
+		[Tooltip("Time (Seconds)")]
 		public float time = 1;
+		[Tooltip("Angle (Degrees 0-180)")]
 		public int angle = 90; // degrees 0 - 180
+		[Tooltip("Port (Typically 9-10)")]
 		public int port = 9; // typically 9 & 10
+		[Tooltip("Speed (0-255)")]
 		public int varspeed = 127; // 0-255
+		[Tooltip("Easting")]
 		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
 
 	[Serializable]
 	public class ActionSpeak {
 		public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
+		[Tooltip("Time (Seconds)")]
 		public float time = 1;
+		[Tooltip("Utterance")]
 		public string utterance = "Hello World";
 	}
 
 	[Serializable]
 	public class ActionListen {
 		public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
+		[Tooltip("Duration (Milliseconds)")]
 		public int duration = 3;
 	}
 
 	[Serializable]
 	public class ActionChat {
 		public AiGlobals.ActionChatTypes type = AiGlobals.ActionChatTypes.voice;
+		[Tooltip("Time (Seconds)")]
 		public float time = 1;
+		[Tooltip("Text")]
 		public string text = "Hello";
 	}
 

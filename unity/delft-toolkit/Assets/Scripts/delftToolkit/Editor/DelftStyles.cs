@@ -7,6 +7,18 @@ using XNodeEditor;
 namespace DelftToolkit {
     /// <summary> Utility class for storing various GUI styles used by Delft Toolkit </summary>
     public static class DelftStyles {
+        private static Texture _speedIcon;
+        public static Texture speedIcon { get { return _speedIcon != null ? _speedIcon : _speedIcon = Resources.Load<Texture2D>("delfticon_speed"); } }
+
+        private static Texture _portIcon;
+        public static Texture portIcon { get { return _portIcon != null ? _portIcon : _portIcon = Resources.Load<Texture2D>("delfticon_port"); } }
+
+        private static Texture _timeIcon;
+        public static Texture timeIcon { get { return _timeIcon != null ? _timeIcon : _timeIcon = Resources.Load<Texture2D>("delfticon_time"); } }
+
+        private static Texture _angleIcon;
+        public static Texture angleIcon { get { return _angleIcon != null ? _angleIcon : _angleIcon = Resources.Load<Texture2D>("delfticon_angle"); } }
+
         private static GUIStyle _infoIcon;
         public static GUIStyle infoIcon {
             get {

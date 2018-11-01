@@ -51,6 +51,8 @@ namespace DelftToolkit {
 				NodeEditorGUILayout.PropertyField(actionsProperty);
 			}
 			NodeEditorGUILayout.onCreateReorderableList -= OnCreateReorderableList;
+			serializedObject.ApplyModifiedProperties();
+			serializedObject.Update();
 
 			// Footer
 			DrawFooterGUI();
