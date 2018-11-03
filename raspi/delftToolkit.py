@@ -89,6 +89,21 @@ def reconize_loop(q, e, flags):
     client.send_message("/str/recognize/", match_results)
     print("Obj recognition: " + match_results)
 
+def reconize_loop_opencv(q, e, flags):
+
+  FLAGS = flags
+  camera = picamera.PiCamera()
+  obj.take_picture_recognize.picture_being_taken= False
+  client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
+  obj.obj_init(FLAGS)
+  e.set() # notify main process that model intialization is done
+  while True:
+    option = q.get()
+    match_results = obj.take_picture_recognize(FLAGS, camera)
+    #time.sleep(0.1)
+    client.send_message("/str/recognize/", match_results)
+    print("Obj recognition: " + match_results)
+
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:

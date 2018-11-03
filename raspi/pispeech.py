@@ -79,6 +79,7 @@ def speech2text(duration):
 
   #Check if the amplitude is high enough
   #---------------------------------------
+  print("time.strftime("%Y-%m-%d %H:%M:%S ") + checking audio...")
   cmd = 'sox ' + speech_file + ' -n stat'
   p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
   soxOutput = p.stdout.read()
