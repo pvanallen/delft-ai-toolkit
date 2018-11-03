@@ -56,14 +56,16 @@ cd /home/pi/tutorials/image/imagenet
 python3 delftToolkit.py --server_ip 10.0.1.15
 ```
 
+
      * In the above command, change the server_ip IP address to that of your computer. The software will take a minute or two to finish setting up the object recognition models.
 
    * **Unity3D**:
      * Open the "delft-toolkit" project in Unity3D
-     * In the Hierarchy, click on the "Main Camera" and then open the "Canvas" tab
+     * In the Hierarchy, open the main scene
+     * In the Graphs directory, double click on the toolkit visual graph you are currently using (or one of the example graphs)
+     * If you are using the robot hardware, click on the simulated robot in the Hierarchy, and enable the "Physical Ding" script. If you are not using the physical robot, keep this script unchecked and inactive.
      * Click on the Play button
      * Click on the 3D window (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, try this)
-     * Note that the Unity project may crash if the Node process is not already running when you Play.
 
 ## Installing The software
 
@@ -75,8 +77,7 @@ python3 delftToolkit.py --server_ip 10.0.1.15
    * Install delftToolkit.ino on your Arduino
 1. **RPi**: Burn the RPi image to your SD card
    * Set up your WiFi
-   * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your networ
-   * **npm install**
+   * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your network
 1. **Unity3D**:
    * Install NodeCanvas in the toolkit Project if it is not there
    * Click on the Project tab, and double click the "Main" scene
