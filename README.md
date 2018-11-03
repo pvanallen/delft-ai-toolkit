@@ -1,13 +1,13 @@
 # Delft AI Toolkit - Version 2
 ## Visual Authoring Toolkit for Smart Things
 
-**This is a new 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas system has been replaced with a customize version of [xNode](https://github.com/Siccity/xNode). In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
+**This is a new 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas node system has been replaced with [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project. In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
 
-**As of August 2018, this version is going through significant changes. While usable now, many more changes are coming. We hope to have a more stable release by October.
+**As of November 2018, this version is going through significant changes. We hope to have a more stable release by the end of 2018. At that time, we'll post a RasPi image that's ready to go to use with the toolkit. 
 
 ### Description
 
-The Delft Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning and behavior trees to create smart behavior in autonomous devices.
+The Delft Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
 
 ![system diagram](https://i0.wp.com/www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
@@ -20,27 +20,24 @@ The goal of this project is to develop an authoring system approach that enables
 
 The system currently has two parts:
 * Authoring & Control System running on a computer
-  * Visual Authoring with nodes, Unity3D
-* Robot
+  * Visual Authoring with nodes in the Unity3D authoring environment
+* Robot/Device
   * Raspberry Pi
-  * Arduino
-  * Motors, sensors, microphone, camera, etc.
+  * Arduino (we may transition to the Adafruit Crikit for RPi once it comes out and we have a chance to evaluate it)
+  * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
-Each of these has a codebase, and includes a range of libraries. **We are now using a modified version of the open source [xNode Unity asset](https://github.com/Siccity/xNode), and no longer using [NodeCanvas](http://nodecanvas.paradoxnotion.com).**
+Each of these has a codebase, and includes a range of libraries. **We are now using and funding a new version of the open source [xNode Unity asset](https://github.com/Siccity/xNode), and no longer using [NodeCanvas](http://nodecanvas.paradoxnotion.com).**
 
 **Hardware Architecture**
 ![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
 
-# The below is currently out of date, and needs to be revised to conform to the new architecture. Stay Tuned.
+# The below is currently being revised and is not complete. Stay Tuned.
 
 ## Starting the system
 1. **Power robot**: Power on the Arduino and Raspberry Pi (RPi)
-   * **Adapters**:
-     * **Arduino**: Connect a USB cable from computer to Arduino
-     * **RPi**: Connect a wall power adapter to the micro-usb connector
    * **Batteries**:
-     * **Arduino**: Turn on the 9V battery
-     * **Motors**: Turn on the AA battery pack
+     * **Arduino** Powered by the USB cable from the RPi
+     * **Motors**: Turn on the 6V AA battery pack
      * **RPi**: Connect the fast charging USB battery to the micro USB connector
 1. **Login to RPi**: Open a terminal app on your computer and login to the RPi by typing:
    * **ssh pi@delftbt0.local** (change the last digit to match your setup)
@@ -50,25 +47,17 @@ Each of these has a codebase, and includes a range of libraries. **We are now us
      * **PC**: See https://www.windowscentral.com/4-easy-ways-find-your-pc-ip-address-windows-10-s
    * **RPi**: On the command line, type the command: **ifconfig** In the output section for "wlan0" you'll see the IP address
 1. **Start software**: In the following order
-   * **Arduino**: Power on the device
-   * **RPi**:
-     *  In the terminal connected to the RPi, type:
+   * **Motors**: Power on the AA battery pack
+   * **RPi**: Power and boot the RPi
+     *  In the terminal, connect to the RPi and start the toolkit software
 ```
 ssh pi@delftbt0.local
 cd /home/pi/tutorials/image/imagenet
-python3 raspi-ding-server.py --server_ip 10.0.1.15
+python3 delftToolkit.py --server_ip 10.0.1.15
 ```
 
-     * In the above command, change the IP address to that of your computer. The software will take a minute or two to finish setting up the TensorFlow model.
-   * **Node.js**:
-     * Open a new terminal window/tab, and type the following:
-```
-cd /Users/Yourname/directoryWhereYouPutIt
-node hub 10.0.1.28 delftbt0
-```
+     * In the above command, change the server_ip IP address to that of your computer. The software will take a minute or two to finish setting up the object recognition models.
 
-     * The easiest way to do the "**cd**" command is to select the directory in the finder, and drag it into the temrinal window to get the path.
-     * In the "**node**" command, change the IP address to that of your RPi, and the last digit of "delftbot0" to number of your setup.
    * **Unity3D**:
      * Open the "delft-toolkit" project in Unity3D
      * In the Hierarchy, click on the "Main Camera" and then open the "Canvas" tab
@@ -77,21 +66,16 @@ node hub 10.0.1.28 delftbt0
      * Note that the Unity project may crash if the Node process is not already running when you Play.
 
 ## Installing The software
-Currently for my students -- some details may not be fully worked out
 
-1. **Install dependencies**: [Unity3D](https://store.unity.com), [NodeCanvas](https://assetstore.unity.com/packages/tools/visual-scripting/nodecanvas-14914), [Arduino IDE](https://www.arduino.cc/en/Main/Software), [Node.js](https://nodejs.org/en/), (Mac) [Xcode](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) and accept dependencies
+1. **Install dependencies**: [Unity3D](https://store.unity.com)
 1. **Download the toolkit software** and place on your computer drive
-   * Software from github
-   * Disk image for [RPi](https://www.dropbox.com/s/f79kt8v7ear3i1z/delftbot_backup.img?dl=0)
+   * Unity project and Arduino code from github [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2)
+   * Disk image for [RPi]() NEW VERSION NOT YET AVAILABLE
 1. **Arduino**:
-   * Edit arduino-aitoolkit.ino to change the BLE local name if you will have more than one robot running at a time.
-   * Install the arduino-aitoolkit.ino on your Arduino
+   * Install delftToolkit.ino on your Arduino
 1. **RPi**: Burn the RPi image to your SD card
    * Set up your WiFi
-   * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your network
-1. **Node.js**:
-   * Open Xcode and accept the license terms
-   * Open a terminal window and CD into the nodejs folder, and run
+   * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your networ
    * **npm install**
 1. **Unity3D**:
    * Install NodeCanvas in the toolkit Project if it is not there
