@@ -49,15 +49,13 @@ Each of these has a codebase, and includes a range of libraries. **We are now us
 1. **Start software**: In the following order
    * **Motors**: Power on the AA battery pack
    * **RPi**: Power and boot the RPi
-     *  In the terminal, connect to the RPi and start the toolkit software
+     *  In the terminal, connect to the RPi and start the toolkit software. In the below, change the server_ip IP address to that of your computer. After launching delfToolkit.py the software will take a minute or two to finish setting up the object recognition models.
 ```
 ssh pi@delftbt0.local
 cd /home/pi/tutorials/image/imagenet
 python3 delftToolkit.py --server_ip 10.0.1.15
+
 ```
-
-
-     * In the above command, change the server_ip IP address to that of your computer. The software will take a minute or two to finish setting up the object recognition models.
 
    * **Unity3D**:
      * Open the "delft-toolkit" project in Unity3D
