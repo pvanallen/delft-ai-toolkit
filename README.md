@@ -54,9 +54,7 @@ Each of these has a codebase, and includes a range of libraries. **We are now us
 ssh pi@delftbt0.local
 cd /home/pi/tutorials/image/imagenet
 python3 delftToolkit.py --server_ip 10.0.1.15
-
 ```
-
    * **Unity3D**:
      * Open the "delft-toolkit" project in Unity3D
      * In the Hierarchy, open the main scene
