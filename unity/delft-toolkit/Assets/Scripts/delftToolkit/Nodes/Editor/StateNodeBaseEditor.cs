@@ -6,12 +6,18 @@ using XNodeEditor;
 
 namespace DelftToolkit {
 	[CustomNodeEditor(typeof(StateNodeBase))]
-	public class StateNodeBaseEditor : NodeEditor {
+	public abstract class StateNodeBaseEditor : NodeEditor {
 
 		private StateNodeBase node { get { return _node != null ? _node : _node = target as StateNodeBase; } }
 		private StateNodeBase _node;
+		protected abstract string description { get; }
 
 		public override void OnHeaderGUI() {
+			// Draw info icon
+			GUI.color = new Color(1, 1, 1, 0.2f);
+			GUI.Label(new Rect(GetWidth() - 22, 8, 14, 14), new GUIContent("i", description), DelftStyles.infoIcon);
+
+			// Draw header name
 			GUI.color = Color.white;
 			StateNodeBase node = target as StateNodeBase;
 			if (node.active) GUI.color = Color.green;

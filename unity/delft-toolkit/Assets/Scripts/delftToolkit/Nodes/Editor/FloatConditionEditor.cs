@@ -10,6 +10,7 @@ namespace DelftToolkit {
 	[CustomNodeEditor(typeof(FloatCondition))]
 	public class FloatConditionEditor : StateNodeBaseEditor {
 
+		protected override string description { get { return "An arbitrary condition taking a float argument"; } }
 		private FloatCondition node { get { return _node != null ? _node : _node = target as FloatCondition; } }
 		private FloatCondition _node;
 		private bool expandLastSignal = false;

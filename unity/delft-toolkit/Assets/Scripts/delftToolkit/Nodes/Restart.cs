@@ -7,7 +7,7 @@ namespace DelftToolkit {
 	/// <summary> Restart Node </summary>
 	[NodeWidth(104)]
 	public class Restart : StateNodeBase {
-		public override void OnEnter() {
+		protected override void OnEnter() {
 			active = false;
 			StateNodeBase firstNode = GetFirstNode();
 			if (firstNode is Start) {
@@ -15,6 +15,10 @@ namespace DelftToolkit {
 			} else {
 				Debug.LogWarning("First node not recognized as Start node. Can't reset.", firstNode);
 			}
+		}
+
+		protected override void OnExit() {
+			return;
 		}
 	}
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
-	/// <summary> Start Node </summary>
+	/// <summary> Exit Node </summary>
 	[NodeWidth(104)]
-	public class Start : StateNodeBase {
+	public class Exit : StateNodeBase {
 		protected override void OnEnter() {
-			Exit();
+			StateGraph stateGraph = graph as StateGraph;
+			if (stateGraph != null) stateGraph.Exit();
+			else Debug.LogWarning("Graph isn't a Delft StateGraph");
 		}
 
 		protected override void OnExit() {

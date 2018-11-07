@@ -5,18 +5,23 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
-	[CreateNodeMenu("")]
-	public class StateNodeBase : Node {
+	public abstract class StateNodeBase : Node {
 
 		[NonSerialized] public bool active;
 		[Input] public Empty enter;
 		[Output] public Empty exit;
 
+#region Public methods
 		public override object GetValue(NodePort port) {
 			return null;
 		}
 
-		public virtual void Exit() {
+		public void Enter() {
+			active = true;
+			OnEnter();
+		}
+
+		public void Exit() {
 			if (active != this) {
 				Debug.LogWarning("Exiting from a non-active node. Aborted.");
 				return;
@@ -35,22 +40,13 @@ namespace DelftToolkit {
 			}
 		}
 
-		public virtual void OnExit() { }
-
-		public virtual void Enter() {
-			active = true;
-			OnEnter();
-		}
-
-		public virtual void OnEnter() { }
-
-		public virtual StateNodeBase GetPreviousNode() {
+		public StateNodeBase GetPreviousNode() {
 			NodePort otherPort = GetInputPort("enter").Connection;
 			if (otherPort != null) return otherPort.node as StateNodeBase;
 			else return null;
 		}
 
-		public virtual StateNodeBase GetFirstNode() {
+		public StateNodeBase GetFirstNode() {
 			StateNodeBase node = this;
 			HashSet<StateNodeBase> visited = new HashSet<StateNodeBase>() { this };
 			while (true) {
@@ -65,7 +61,13 @@ namespace DelftToolkit {
 				}
 			}
 		}
+#endregion
 
+#region Events
+		protected abstract void OnExit();
+
+		protected abstract void OnEnter();
+#endregion
 		[Serializable]
 		public class Empty { }
 	}

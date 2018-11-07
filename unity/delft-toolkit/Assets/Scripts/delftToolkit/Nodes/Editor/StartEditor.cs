@@ -8,6 +8,7 @@ namespace DelftToolkit {
 	[CustomNodeEditor(typeof(Start))]
 	public class StartEditor : StateNodeBaseEditor {
 
+		protected override string description { get { return "Sends an initial signal when the graph starts playback"; } }
 		private Start node { get { return _node != null ? _node : _node = target as Start; } }
 		private Start _node;
 

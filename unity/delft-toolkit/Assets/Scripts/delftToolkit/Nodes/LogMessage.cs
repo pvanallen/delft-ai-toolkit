@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
 
 namespace DelftToolkit {
-	/// <summary> Start Node </summary>
-	[NodeWidth(104)]
-	public class Start : StateNodeBase {
+	[CreateNodeMenu("Create/Debug/LogMessage")]
+	public class LogMessage : StateNodeBase {
+		[Input, TextArea] public string message;
+
 		protected override void OnEnter() {
+			Debug.Log(GetInputValue("message", message), this);
 			Exit();
 		}
 
