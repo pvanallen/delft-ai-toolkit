@@ -21,6 +21,8 @@ namespace DelftToolkit {
 		private int _currentAction = -1;
 		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 
+		/// <summary> Used only for storing the expanded state of the actions list. </summary>
+		[SerializeField, HideInInspector] private bool expanded;
 		[Tooltip("ValueIn lets you define a variable string to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
 		[Input] public string valueIn;
 		private Action actionStopAll = new Action();
