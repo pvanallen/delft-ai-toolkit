@@ -60,7 +60,7 @@ namespace DelftToolkit {
 
 		[Serializable] public struct Condition {
 			public enum CompareType { Gtr, Lss, Range }
-			public CompareType compareType;
+			[NodeEnum] public CompareType compareType;
 			public float floatValA;
 			public float floatValB;
 			public bool inverse;

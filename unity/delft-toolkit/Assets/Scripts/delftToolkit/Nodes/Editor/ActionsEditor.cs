@@ -21,7 +21,7 @@ namespace DelftToolkit {
 			Rect rect = GUILayoutUtility.GetLastRect();
 			rect.x += (rect.width * 0.5f) - 50;
 			rect.width = 100;
-			node.device = (AiGlobals.Devices) EditorGUI.EnumPopup(rect, node.device);
+			EditorGUI.PropertyField(rect, serializedObject.FindProperty("device"), GUIContent.none);
 
 			GUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Repeats:", GUILayout.Width(60));
@@ -80,8 +80,8 @@ namespace DelftToolkit {
 					if (node.currentAction == index) EditorGUI.DrawRect(rect, Color.gray);
 					EditorGUI.PropertyField(rect, itemData);
 					Vector2 pos = rect.position + (port.IsOutput ? new Vector2(rect.width + 6, 0) : new Vector2(-36, 0));
-						serializedObject.ApplyModifiedProperties();
-						serializedObject.Update();
+					serializedObject.ApplyModifiedProperties();
+					serializedObject.Update();
 					NodeEditorGUILayout.PortField(pos, port);
 				};
 			list.elementHeightCallback =
