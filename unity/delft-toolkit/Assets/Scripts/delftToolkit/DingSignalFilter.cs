@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace DelftToolkit {
 	[Serializable] public struct DingSignalFilter {
-		public AiGlobals.Devices device;
-		public AiGlobals.SensorSource source;
+		[NodeEnum] public AiGlobals.Devices device;
+		[NodeEnum] public AiGlobals.SensorSource source;
 		public string messageFilter;
 
 		/// <summary> Constructor </summary>

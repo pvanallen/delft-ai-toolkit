@@ -19,6 +19,7 @@ namespace DelftToolkit {
 		/// <summary> Current action index </summary>
 		public int currentAction { get { return _currentAction; } }
 		private int _currentAction = -1;
+		[NodeEnum]
 		public AiGlobals.Devices device = AiGlobals.Devices.ding1;
 
 		/// <summary> Used only for storing the expanded state of the actions list. </summary>
@@ -106,7 +107,7 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class Action {
-		public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.move;
+		[NodeEnum] public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.move;
 		public ActionMove moveParams = new ActionMove();
 		public ActionLed ledParams = new ActionLed();
 		public ActionDelay delayParams = new ActionDelay();
@@ -121,18 +122,18 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionMove {
-		public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.stop;
+		[NodeEnum] public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.stop;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Speed")]
 		public float speed = 1;
 		[Tooltip("Easing")]
-		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
+		[NodeEnum] public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
 
 	[Serializable]
 	public class ActionLed {
-		public AiGlobals.ActionLedTypes type = AiGlobals.ActionLedTypes.set;
+		[NodeEnum] public AiGlobals.ActionLedTypes type = AiGlobals.ActionLedTypes.set;
 		[Tooltip("Time (Seconds)")]
 		public float time = 0;
 		[Tooltip("Led Num")]
@@ -143,14 +144,14 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionDelay {
-		public AiGlobals.ActionDelayTypes type = AiGlobals.ActionDelayTypes.pause;
+		[NodeEnum] public AiGlobals.ActionDelayTypes type = AiGlobals.ActionDelayTypes.pause;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 	}
 
 	[Serializable]
 	public class ActionAnalogIn {
-		public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
+		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 20; // milliseconds
 		[Tooltip("Port (Typically 9-10)")]
@@ -159,7 +160,7 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionServo {
-		public AiGlobals.ActionServoTypes type = AiGlobals.ActionServoTypes.immediate;
+		[NodeEnum] public AiGlobals.ActionServoTypes type = AiGlobals.ActionServoTypes.immediate;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Angle (Degrees 0-180)")]
@@ -169,12 +170,12 @@ namespace DelftToolkit {
 		[Tooltip("Speed (0-255)")]
 		public int varspeed = 127; // 0-255
 		[Tooltip("Easting")]
-		public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
+		[NodeEnum] public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
 
 	[Serializable]
 	public class ActionSpeak {
-		public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
+		[NodeEnum] public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Utterance")]
@@ -183,14 +184,14 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionListen {
-		public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
+		[NodeEnum] public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
 		[Tooltip("Duration (Milliseconds)")]
 		public int duration = 3;
 	}
 
 	[Serializable]
 	public class ActionChat {
-		public AiGlobals.ActionChatTypes type = AiGlobals.ActionChatTypes.voice;
+		[NodeEnum] public AiGlobals.ActionChatTypes type = AiGlobals.ActionChatTypes.voice;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Text")]
@@ -199,6 +200,6 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionRecognize {
-		public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.multiple;
+		[NodeEnum] public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.multiple;
 	}
 }

@@ -58,7 +58,7 @@ namespace DelftToolkit {
 
 		[Serializable] public struct Condition {
 			public enum CompareType { StartsWith, EndsWith, Contains }
-			public CompareType compareType;
+			[NodeEnum] public CompareType compareType;
 			public string strVal;
 			public bool inverse;
 			[NonSerialized] public bool lastState;
