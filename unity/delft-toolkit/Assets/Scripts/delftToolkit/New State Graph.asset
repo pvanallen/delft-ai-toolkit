@@ -218,6 +218,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -254,6 +258,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -290,6 +298,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -326,6 +338,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 1
@@ -362,6 +378,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -398,6 +418,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -434,6 +458,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -470,6 +498,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 2
@@ -506,9 +538,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 2
   random: 0
   device: 0
+  expanded: 0
   valueIn: 
 --- !u!114 &114152658209251188
 MonoBehaviour:
@@ -756,6 +793,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -792,6 +833,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 8
     moveParams:
       type: 0
@@ -828,9 +873,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 0
+  expanded: 0
   valueIn: 
 --- !u!114 &114207532407730270
 MonoBehaviour:
@@ -862,7 +912,10 @@ MonoBehaviour:
       _node: {fileID: 114207532407730270}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114544003638072202}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _dynamic: 0
@@ -992,6 +1045,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 6
     moveParams:
       type: 0
@@ -1028,6 +1085,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -1064,9 +1125,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 0
+  expanded: 0
   valueIn: 
 --- !u!114 &114381683518996606
 MonoBehaviour:
@@ -1098,7 +1164,10 @@ MonoBehaviour:
       _node: {fileID: 114381683518996606}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114977953711976372}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _dynamic: 0
@@ -1255,6 +1324,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 4
@@ -1291,6 +1364,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -1327,6 +1404,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 1
@@ -1363,6 +1444,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 2
@@ -1399,6 +1484,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -1435,9 +1524,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 3
   random: 0
   device: 1
+  expanded: 0
   valueIn: 
 --- !u!114 &114424316540012974
 MonoBehaviour:
@@ -1562,6 +1656,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -1598,6 +1696,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 4
     moveParams:
       type: 0
@@ -1634,9 +1736,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 0
+  expanded: 0
   valueIn: 
 --- !u!114 &114460468400951174
 MonoBehaviour:
@@ -1741,9 +1848,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 3
+  expanded: 0
   valueIn: 
 --- !u!114 &114542420882848572
 MonoBehaviour:
@@ -1858,6 +1970,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 5
     moveParams:
       type: 0
@@ -1894,9 +2010,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 0
+  expanded: 0
   valueIn: 
 --- !u!114 &114544003638072202
 MonoBehaviour:
@@ -1922,7 +2043,10 @@ MonoBehaviour:
       _node: {fileID: 114544003638072202}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 114207532407730270}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
@@ -2150,6 +2274,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2186,6 +2314,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2222,6 +2354,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2258,6 +2394,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2294,6 +2434,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2330,6 +2474,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 1
     moveParams:
       type: 0
@@ -2366,6 +2514,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 0
@@ -2402,9 +2554,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 20
   random: 1
   device: 2
+  expanded: 0
   valueIn: 
 --- !u!114 &114592647529588696
 MonoBehaviour:
@@ -2522,6 +2679,10 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   - actionType: 0
     moveParams:
       type: 2
@@ -2558,9 +2719,14 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 3
   random: 0
   device: 3
+  expanded: 0
   valueIn: 
 --- !u!114 &114839771158157016
 MonoBehaviour:
@@ -2693,7 +2859,10 @@ MonoBehaviour:
       _node: {fileID: 114977953711976372}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 114381683518996606}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _dynamic: 0
@@ -2771,7 +2940,12 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
   repeats: 1
   random: 0
   device: 3
+  expanded: 1
   valueIn: 
