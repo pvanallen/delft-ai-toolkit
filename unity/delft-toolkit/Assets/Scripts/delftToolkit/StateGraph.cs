@@ -35,5 +35,11 @@ namespace DelftToolkit {
 			running = false;
 			if (onExit != null) onExit();
 		}
+
+		public void DrawGUI() {
+			for (int i = 0; i < nodes.Count; i++) {
+				if (nodes[i] is ExposedValue) (nodes[i] as ExposedValue).DrawGUI();
+			}
+		}
 	}
 }

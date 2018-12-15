@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DelftToolkit {
 	/// <summary> Pause Node. Pauses until "continue" is clicked </summary>
-	[CreateNodeMenu("Create/Debug/Pause"), NodeWidth(104)]
+	[CreateNodeMenu("Debug/Pause"), NodeWidth(104)]
 	public class Pause : StateNodeBase {
 
 		protected override void OnEnter() {

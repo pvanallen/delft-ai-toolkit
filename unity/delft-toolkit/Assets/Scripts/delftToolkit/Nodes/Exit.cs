@@ -5,7 +5,7 @@ using XNode;
 
 namespace DelftToolkit {
 	/// <summary> Exit Node </summary>
-	[NodeWidth(104)]
+	[NodeWidth(104), CreateNodeMenu("Graph Control/Exit")]
 	public class Exit : StateNodeBase {
 		protected override void OnEnter() {
 			StateGraph stateGraph = graph as StateGraph;

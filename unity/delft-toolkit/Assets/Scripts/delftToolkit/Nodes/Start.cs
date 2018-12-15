@@ -5,7 +5,7 @@ using XNode;
 
 namespace DelftToolkit {
 	/// <summary> Start Node </summary>
-	[NodeWidth(104)]
+	[NodeWidth(104), CreateNodeMenu("Graph Control/Start")]
 	public class Start : StateNodeBase {
 		protected override void OnEnter() {
 			Exit();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace DelftToolkit {
-	[CreateNodeMenu("Create/Debug/LogMessage")]
+	[CreateNodeMenu("Debug/LogMessage")]
 	public class LogMessage : StateNodeBase {
 		[Input, TextArea] public string message;
 
