@@ -6,7 +6,7 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
-	[NodeWidth(270)][NodeTint(255, 255, 0)]
+	[NodeWidth(270), NodeTint(255, 255, 0), CreateNodeMenu("Conditions/String")]
 	public class StringCondition : ConditionBase {
 		public Condition[] conditions = new Condition[0];
 		[Output] public string valueOut;

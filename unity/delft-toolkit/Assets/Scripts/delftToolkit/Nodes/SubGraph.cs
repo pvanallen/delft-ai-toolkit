@@ -5,6 +5,7 @@ using XNode;
 
 namespace DelftToolkit {
 	/// <summary> Play another graph and continue when that graph reaches an Exit node </summary>
+	[CreateNodeMenu("Graph Control/Sub Graph")]
 	public class SubGraph : StateNodeBase {
 		public StateGraph subGraph;
 

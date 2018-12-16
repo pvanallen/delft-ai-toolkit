@@ -5,7 +5,7 @@ using XNode;
 
 namespace DelftToolkit {
 	/// <summary> Restart Node </summary>
-	[NodeWidth(104)]
+	[NodeWidth(104), CreateNodeMenu("Graph Control/Restart")]
 	public class Restart : StateNodeBase {
 		protected override void OnEnter() {
 			active = false;
