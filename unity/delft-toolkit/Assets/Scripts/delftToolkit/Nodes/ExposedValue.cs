@@ -10,6 +10,8 @@ namespace DelftToolkit {
 		public override object GetValue(NodePort port) {
 			return value;
 		}
+
+		public abstract void SetValue(T value);
 	}
 
 	public abstract class ExposedValue : Node {

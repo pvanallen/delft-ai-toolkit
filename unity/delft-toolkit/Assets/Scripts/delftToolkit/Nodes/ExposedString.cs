@@ -10,5 +10,9 @@ namespace DelftToolkit {
 		protected override void DrawGUI(Rect position) {
 			value = GUILayout.TextField(value);
 		}
+
+		public override void SetValue(string value) {
+			this.value = value;
+		}
 	}
 }

@@ -15,5 +15,9 @@ namespace DelftToolkit {
 				if (float.TryParse(stringValue, out newVal)) value = newVal;
 			}
 		}
+
+		public override void SetValue(float value) {
+			this.value = value;
+		}
 	}
 }
