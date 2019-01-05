@@ -22,8 +22,8 @@ namespace DelftToolkit {
 			// Get port
 			NodePort port = node.GetInputPort("value");
 			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
-			GUIContent filterContent = new GUIContent(filterProperty.displayName, filterProperty.tooltip);
-			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterProperty.displayName, DelftStyles.foldoutNoHighlight)) {
+			GUIContent filterContent = new GUIContent("Incoming signal filter", filterProperty.tooltip);
+			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
 				NodeEditorGUILayout.PropertyField(filterProperty, GUIContent.none);
 				EditorGUI.indentLevel--;
