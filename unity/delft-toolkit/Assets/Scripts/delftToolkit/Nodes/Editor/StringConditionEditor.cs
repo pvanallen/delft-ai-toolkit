@@ -44,7 +44,7 @@ namespace DelftToolkit {
 			if (EditorGUI.EndChangeCheck()) node.value = val;
 
 			EditorGUILayout.LabelField("Triggers", EditorStyles.boldLabel);
-			NodeEditorGUILayout.InstancePortList("conditions", typeof(StateNodeBase.Empty), serializedObject);
+			NodeEditorGUILayout.InstancePortList("conditions", typeof(StateNodeBase.Empty), serializedObject, XNode.NodePort.IO.Input, XNode.Node.ConnectionType.Multiple);
 
 			DrawFooterGUI();
 		}
