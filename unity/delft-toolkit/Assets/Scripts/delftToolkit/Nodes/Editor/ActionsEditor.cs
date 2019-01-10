@@ -45,10 +45,7 @@ namespace DelftToolkit {
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 
 			// Actions list
-			NodeEditorGUILayout.onCreateReorderableList += OnCreateReorderableList;
-			SerializedProperty actionsProperty = serializedObject.FindProperty("actions");
-			NodeEditorGUILayout.PropertyField(actionsProperty);
-			NodeEditorGUILayout.onCreateReorderableList -= OnCreateReorderableList;
+			NodeEditorGUILayout.InstancePortList("actions", typeof(Action), serializedObject, NodePort.IO.Input, Node.ConnectionType.Override, OnCreateReorderableList);
 			serializedObject.ApplyModifiedProperties();
 			serializedObject.Update();
 
