@@ -25,7 +25,11 @@ namespace DelftToolkit {
 			GUIContent filterContent = new GUIContent("Incoming signal filter", filterProperty.tooltip);
 			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
+				EditorGUI.BeginChangeCheck();
 				NodeEditorGUILayout.PropertyField(filterProperty, GUIContent.none);
+				if (EditorGUI.EndChangeCheck()) {
+					serializedObject.ApplyModifiedProperties();
+				}
 				EditorGUI.indentLevel--;
 			}
 
