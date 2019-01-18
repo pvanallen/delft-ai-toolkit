@@ -270,7 +270,7 @@ public class OSCHandler : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(string.Format("Can't send OSC messages to {0}. Client doesn't exist.", clientId));
+			Debug.Log(string.Format("Can't send OSC messages to {0}. Client doesn't exist.", clientId));
 		}
 	}
 	
