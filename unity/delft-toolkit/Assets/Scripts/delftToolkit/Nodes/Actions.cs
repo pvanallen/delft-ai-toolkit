@@ -39,6 +39,8 @@ namespace DelftToolkit {
 			float delayTime = 0;
 			if (active) {
 				if (currentAction < actions.Count) {
+					if (currentAction == 0)
+						yield return new WaitForSeconds(0.0001f);
 					if (DingEvent != null) {
 						if (random) {
 							_currentAction = UnityEngine.Random.Range(0, actions.Count);
