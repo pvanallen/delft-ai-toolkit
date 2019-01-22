@@ -9,11 +9,10 @@ namespace DelftToolkit {
 	public class Restart : StateNodeBase {
 		protected override void OnEnter() {
 			active = false;
-			StateNodeBase firstNode = GetFirstNode();
-			if (firstNode is Start) {
-				(firstNode as Start).Enter();
-			} else {
-				Debug.LogWarning("First node not recognized as Start node. Can't reset.", firstNode);
+			foreach (StateNodeBase rootNode in GetRootNodes()) {
+				if (rootNode is Start) {
+					(rootNode as Start).Enter();
+				}
 			}
 		}
 
