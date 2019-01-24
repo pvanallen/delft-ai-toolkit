@@ -39,21 +39,21 @@ namespace DelftToolkit {
 		}
 
 		protected override void CheckConditions() {
-			bool deactivate = false;
+			// Store the active state because we want to evaluate all conditions, not just the first one
+			bool activeCache = active;
 			for (int i = 0; i < conditions.Length; i++) {
 				// We evaluate first because we want the lastState in the condition to update regardless of 'active'
-				if (conditions[i].Evaluate(value) && active) {
+				if (conditions[i].Evaluate(value) && activeCache) {
 					NodePort triggerPort = GetOutputPort("conditions " + i);
 					if (triggerPort.IsConnected) {
 						for (int k = 0; k < triggerPort.ConnectionCount; k++) {
 							StateNodeBase nextNode = triggerPort.GetConnection(k).node as StateNodeBase;
+							active = false;
 							if (nextNode != null) nextNode.Enter();
 						}
 					}
-					deactivate = true;
 				}
 			}
-			if (deactivate) active = false;
 		}
 
 		[Serializable] public struct Condition {

@@ -17,6 +17,8 @@ namespace DelftToolkit {
 		}
 
 		public void Enter() {
+			// Ignore when node is already active.
+			if (active) return;
 			active = true;
 			OnEnter();
 		}
