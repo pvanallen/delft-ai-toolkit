@@ -19,8 +19,9 @@ import multiprocessing
 import socket
 
 # import my libraries
-import pirecognize as obj
-import pispeech as sp
+import classify_pic_once as rec
+import speech as sp
+import play_wav as pw
 
 FLAGS = None
 
@@ -33,7 +34,7 @@ speak_phrase = "hello world"
 listen_task = False
 listen_duration = 2
 
-
+default_recognize_model = "squeezenet"
 
 def name_val(arr, name):
   if name in arr:
@@ -53,54 +54,42 @@ def osc_loop():
   # blocks on this
   server.serve_forever()
 
-def speak_loop(q):
+def audio_output_loop(q):
   while True:
-    speak_phrase = q.get()
-    print(speak_phrase)
-    sp.speak(speak_phrase)
+    command = q.get()
+    type, arg = command.split("-")
+    if type == "speak":
+      sp.speak(arg)
+      print("Speaking... " + arg)
+    elif type == "playsound":
+      pw.play(arg)
+      #print("Playing... " + arg)
 
 def listen_loop(q):
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
   while True:
     duration = q.get()
-    sp.speak("Speak")
-    time.sleep(0.1)
+    #sp.speak("Speak")
+    #time.sleep(0.1)
     transcription = sp.speech2text(duration).replace("'","")
     if (transcription != ""):
-      #sp.speak(transcription)
       client.send_message("/str/speech2text/", transcription)
     else:
       print("no transcription")
-      #sp.speak("no transcription")
       client.send_message("/str/speech2text/", "no transcription")
 
-def reconize_loop(q, e, flags):
-
-  FLAGS = flags
+def reconize_loop(q, e, FLAGS, model):
+  #obj.take_picture_recognize.picture_being_taken= False
   camera = picamera.PiCamera()
-  obj.take_picture_recognize.picture_being_taken= False
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
-  obj.obj_init(FLAGS)
+  print("server: " + FLAGS.server_ip)
+  print("initializing recognition model...")
+  rec.init(camera, model)
   e.set() # notify main process that model intialization is done
   while True:
-    option = q.get()
-    match_results = obj.take_picture_recognize(FLAGS, camera)
-    #time.sleep(0.1)
-    client.send_message("/str/recognize/", match_results)
-    print("Obj recognition: " + match_results)
-
-def reconize_loop_opencv(q, e, flags):
-
-  FLAGS = flags
-  camera = picamera.PiCamera()
-  obj.take_picture_recognize.picture_being_taken= False
-  client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
-  obj.obj_init(FLAGS)
-  e.set() # notify main process that model intialization is done
-  while True:
-    option = q.get()
-    match_results = obj.take_picture_recognize(FLAGS, camera)
-    #time.sleep(0.1)
+    new_model = q.get()
+    match_results = rec.run_inference_on_image(new_model)
+    time.sleep(0.08)
     client.send_message("/str/recognize/", match_results)
     print("Obj recognition: " + match_results)
 
@@ -117,7 +106,7 @@ def get_ip():
     return IP
 
 def move_cb(adr, type, time, speed, easing):
-  #print("move: " + type + " " + str(time) + " " + str(speed) + " " +  easing)
+  print("move: " + type + " " + str(time) + " " + str(speed) + " " +  easing)
   arduinoStr = '{},{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
@@ -150,19 +139,18 @@ def delay_cb(adr, type, time):
   if ser != None: ser.write(arduinoStr.encode())
 
 def analogin_cb(adr, type, interval, port):
-  #print("delay: " + type + " " +  str(time))
-  arduinoStr = '{},{},{},{},{}\n'.format(
+  print("analogin: " + type + " interval: " +  str(interval) + " port: " + str(port))
+  arduinoStr = '{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
     interval,
-    port,
-    name_val(easings, easing)
+    port
   )
-  print(arduinoStr)
+  #print(arduinoStr)
   if ser != None: ser.write(arduinoStr.encode())
 
 def servo_cb(adr, type, angle, port, varspeed, easing):
-  #print("servo: " + type + " " +  str(angle) + "port: " + str(port))
+  print("servo: " + type + " " +  str(angle) + " port: " + str(port))
   arduinoStr = '{},{},{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
@@ -177,16 +165,19 @@ def servo_cb(adr, type, angle, port, varspeed, easing):
 def listen_cb(adr, type, duration):
   listen_q.put(duration)
 
-def speak_cb(adr, type, utterance):
-  speak_q.put(utterance)
+def play_sound_cb(adr, filename, time):
+  audio_output_q.put("playsound-" + filename)
 
-def recognize_cb(adr, type):
-  recognize_q.put(type)
+def speak_cb(adr, type, utterance):
+  audio_output_q.put("speak-" + utterance)
+
+def recognize_cb(adr, type, model):
+  print("received cmd recognize: " + adr + " " + type + " " + model)
+  recognize_q.put(model)
 
 def main(_):
   global ser
   count = 0.0;
-  #recognize_q.put("test")
   # handle incoming messages from Arduino
   while True:
     if ser != None:
@@ -195,19 +186,19 @@ def main(_):
         line = ser.readline().decode("utf-8")
         vals = line.split(' ')
         if vals[0] == "/num/analogIn/0/":
-          builder = osc_message_builder.OscMessageBuilder(address=vals[0])
+          builder = osc_message_builder.OscMessageBuilder(address="/num/analogin/0/")
           builder.add_arg(float(vals[1]))
           builder.add_arg(float(vals[2]))
           builder.add_arg(float(vals[3]))
           msg = builder.build()
           client.send(msg)
         else:
-          print (line)
+          print ("unknown Arduino message:" + line)
     else:
       # send fake numbers
       count += 1
       if count > 100: count = 0
-      builder = osc_message_builder.OscMessageBuilder(address="/num/analogIn/0")
+      builder = osc_message_builder.OscMessageBuilder(address="/num/analogin/0/")
       builder.add_arg(count)
       builder.add_arg(count + 1)
       builder.add_arg(count + 2)
@@ -237,24 +228,6 @@ if __name__ == '__main__':
       help='serial port name for the arduino'
   )
 
-  parser.add_argument(
-      '--model_dir',
-      type=str,
-      default='/home/pi/inception',
-      help="""\
-      Path to classify_image_graph_def.pb,
-      imagenet_synset_to_human_label_map.txt, and
-      imagenet_2012_challenge_label_map_proto.pbtxt.\
-      """
-  )
-
-  parser.add_argument(
-      '--num_top_predictions',
-      type=int,
-      default=5,
-      help='Display this many predictions.'
-  )
-
   FLAGS, unparsed = parser.parse_known_args()
 
   # set up handlers for incoming OSC messages
@@ -267,7 +240,9 @@ if __name__ == '__main__':
   dispatcher.map("/speak/", speak_cb)
   dispatcher.map("/listen/", listen_cb)
   dispatcher.map("/recognize/", recognize_cb)
+  dispatcher.map("/playSound/", play_sound_cb)
 
+  # setup USB Port for connection to Arduino
   try:
     ser = serial.Serial(FLAGS.usb, baudrate=115200,
                     parity=serial.PARITY_NONE,
@@ -297,32 +272,32 @@ if __name__ == '__main__':
   recognition_ready_e = multiprocessing.Event()
 
   # Queues for multiprocessing
-  speak_q = multiprocessing.Queue()
+  audio_output_q = multiprocessing.Queue()
   listen_q = multiprocessing.Queue()
   recognize_q = multiprocessing.Queue()
 
   # launch processes
-  speak_process = multiprocessing.Process(name='speak_process',
-                               target=speak_loop,
-                               args=(speak_q,))
+  audio_output_process = multiprocessing.Process(name='audio_output_process',
+                               target=audio_output_loop,
+                               args=(audio_output_q,))
 
   listen_process = multiprocessing.Process(name='listen_process',
                                target=listen_loop,
                                args=(listen_q,))
 
-  recognize_process = multiprocessing.Process(name='listen_process',
+  recognize_process = multiprocessing.Process(name='recognize_process',
                                target=reconize_loop,
-                               args=(recognize_q,recognition_ready_e,FLAGS))
+                               args=(recognize_q,recognition_ready_e,FLAGS, default_recognize_model))
 
   recognize_process.start()
-  speak_process.start()
+  audio_output_process.start()
   listen_process.start()
 
-  # wait for tensorflow init to finish before waiting for commands
+  # wait for model init to finish before waiting for commands
   recognition_ready_e.wait()
 
   print("Delft Toolkit Initializaiton Complete")
-  speak_q.put("Hello")
+  audio_output_q.put("speak-Hello")
 
   # set up OSC client
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)

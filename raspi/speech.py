@@ -9,13 +9,6 @@ import sys
 from six.moves import urllib
 
 import time
-from pythonosc import dispatcher
-from pythonosc import osc_server
-from pythonosc import osc_message_builder
-from pythonosc import udp_client
-
-from threading import Thread
-import socket
 
 # speech to text
 import sys
@@ -41,8 +34,7 @@ from google.cloud.speech import types
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google-credentials.json"
 
 def speak(phrase):
-  print("Speaking...")
-  os.system("pico2wave -w speaknow.wav '" + phrase + "' && sox speaknow.wav -c 2 speaknowstereo.wav && aplay -Dhw:1 speaknowstereo.wav" )
+  os.system("pico2wave -w audio/speaknow.wav '" + phrase + "' && sox audio/speaknow.wav -c 2 audio/speaknowstereo.wav && aplay -Dhw:1 audio/speaknowstereo.wav" )
 
 def isAudioPlaying():
 
@@ -64,7 +56,7 @@ def isAudioPlaying():
 
 def speech2text(duration):
 
-  speech_file = 'speech2text.flac'
+  speech_file = 'audio/speech2text.flac'
 
   #Do nothing if audio is playing
   #------------------------------------
@@ -79,7 +71,6 @@ def speech2text(duration):
 
   #Check if the amplitude is high enough
   #---------------------------------------
-  print("time.strftime("%Y-%m-%d %H:%M:%S ") + checking audio...")
   cmd = 'sox ' + speech_file + ' -n stat'
   p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
   soxOutput = p.stdout.read()

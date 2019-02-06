@@ -33,6 +33,7 @@ namespace DelftToolkit {
 
 		protected override void Init() {
 			actionStopAll.moveParams.time = 0;
+			actionStopAll.moveParams.type = AiGlobals.ActionMoveTypes.stop;
 		}
 
 		public IEnumerator NextAction() {
@@ -62,6 +63,9 @@ namespace DelftToolkit {
 							case AiGlobals.ActionTypes.speak:
 								delayTime = actions[currentAction].speakParams.time;
 								break;
+							case AiGlobals.ActionTypes.playSound:
+								delayTime = actions[currentAction].playSoundParams.time;
+								break;
 						}
 
 						if (delayTime > 0) {
@@ -69,6 +73,9 @@ namespace DelftToolkit {
 							if (actions[currentAction].actionType == AiGlobals.ActionTypes.move) {
 								DingEvent(device, actionStopAll);
 							}
+						} else {
+							// always have a very short delay for OSC to settle
+							yield return new WaitForSeconds(0.02f);
 						}
 					}
 					if (active) {
@@ -117,12 +124,13 @@ namespace DelftToolkit {
 		public ActionListen listenParams = new ActionListen();
 		public ActionRecognize recognizeParams = new ActionRecognize();
 		public ActionChat chatParams = new ActionChat();
+		public ActionPlaySound playSoundParams = new ActionPlaySound();
 
 	}
 
 	[Serializable]
 	public class ActionMove {
-		[NodeEnum] public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.stop;
+		[NodeEnum] public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.forward;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Speed")]
@@ -137,7 +145,7 @@ namespace DelftToolkit {
 		[Tooltip("Time (Seconds)")]
 		public float time = 0;
 		[Tooltip("Led Num")]
-		public int ledNum = 0;
+		public int ledNum = -1;
 		[Tooltip("Color")]
 		public Color32 color = new Color32(127, 127, 0, 255);
 	}
@@ -153,7 +161,7 @@ namespace DelftToolkit {
 	public class ActionAnalogIn {
 		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
-		public int interval = 20; // milliseconds
+		public int interval = 50; // milliseconds
 		[Tooltip("Port (Typically 9-10)")]
 		public int port = 0;
 	}
@@ -186,7 +194,7 @@ namespace DelftToolkit {
 	public class ActionListen {
 		[NodeEnum] public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
 		[Tooltip("Duration (Milliseconds)")]
-		public int duration = 3;
+		public int duration = 1;
 	}
 
 	[Serializable]
@@ -200,6 +208,14 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionRecognize {
-		[NodeEnum] public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.multiple;
+		[NodeEnum] public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.one;
+		[NodeEnum] public AiGlobals.ActionRecognizeModels model = AiGlobals.ActionRecognizeModels.googlenet;
+	}
+
+	[Serializable]
+	public class ActionPlaySound {
+		[NodeEnum] public AiGlobals.UISoundFiles type = AiGlobals.UISoundFiles.ClickPopTwoPart;
+		[Tooltip("Time (Seconds)")]
+		public float time = 0.5f;
 	}
 }
