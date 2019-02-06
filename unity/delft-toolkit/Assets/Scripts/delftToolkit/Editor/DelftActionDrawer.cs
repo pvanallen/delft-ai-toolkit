@@ -13,7 +13,7 @@ public class DelftActionDrawer : PropertyDrawer {
 		EditorGUI.BeginProperty(position, label, property);
 
 		SerializedProperty actionType = property.FindPropertyRelative("actionType");
-		Rect pos = new Rect(position.x, position.y, 60, EditorGUIUtility.singleLineHeight);
+		Rect pos = new Rect(position.x, position.y, 75, EditorGUIUtility.singleLineHeight);
 		EditorGUI.PropertyField(pos, actionType, new GUIContent());
 		pos.x += pos.width + 2;
 		EditorGUIUtility.labelWidth = 20;
@@ -77,7 +77,14 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				SerializedProperty actionRecognize = property.FindPropertyRelative("recognizeParams");
-				DrawNextProperty(ref pos, actionRecognize, "type", 70, GUIContent.none);
+				//DrawNextProperty(ref pos, actionRecognize, "type", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionRecognize, "model", 70, GUIContent.none);
+				break;
+			case AiGlobals.ActionTypes.playSound:
+				SerializedProperty actionPlaySound = property.FindPropertyRelative("playSoundParams");
+				DrawNextProperty(ref pos, actionPlaySound, "type", 130, GUIContent.none);
+				NextLine(ref pos);
+				DrawNextProperty(ref pos, actionPlaySound, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				break;
 			default:
 				EditorGUI.LabelField(pos, "ActionType not supported: " + (AiGlobals.ActionTypes) actionType.enumValueIndex);
