@@ -26,7 +26,7 @@ namespace DelftToolkit {
 			}
 		}
 
-		protected abstract void HandleSignalEvent(DingSignal sigal);
+		protected abstract void HandleSignalEvent(DingSignal signal);
 
 		protected abstract void CheckConditions();
 	}
