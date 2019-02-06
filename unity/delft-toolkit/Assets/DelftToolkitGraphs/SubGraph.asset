@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: Log Message
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 152, y: -360}
+  position: {x: 136, y: -184}
   ports:
     keys:
     - message
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: Exit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 152, y: -184}
+  position: {x: 136, y: -8}
   ports:
     keys:
     - enter
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: -184}
+  position: {x: -168, y: -8}
   ports:
     keys:
     - actions
@@ -176,7 +176,7 @@ MonoBehaviour:
   actions:
   - actionType: 0
     moveParams:
-      type: 0
+      type: 1
       time: 1
       speed: 1
       easing: 3
@@ -210,9 +210,18 @@ MonoBehaviour:
       duration: 3
     recognizeParams:
       type: 1
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 18
+      time: 0.5
   repeats: 1
   random: 0
   device: 0
+  expanded: 1
   valueIn: 
 --- !u!114 &114643210153194924
 MonoBehaviour:
@@ -226,7 +235,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -328, y: -184}
+  position: {x: -344, y: -8}
   ports:
     keys:
     - enter
@@ -266,7 +275,7 @@ MonoBehaviour:
   m_Name: Log Message
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: -360}
+  position: {x: -168, y: -184}
   ports:
     keys:
     - message
