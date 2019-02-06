@@ -17,6 +17,8 @@ namespace DelftToolkit {
 		}
 
 		public void Enter() {
+			// Ignore when node is already active.
+			if (active) return;
 			active = true;
 			OnEnter();
 		}
@@ -40,26 +42,30 @@ namespace DelftToolkit {
 			}
 		}
 
-		public StateNodeBase GetPreviousNode() {
-			NodePort otherPort = GetInputPort("enter").Connection;
-			if (otherPort != null) return otherPort.node as StateNodeBase;
-			else return null;
+		public IEnumerable<StateNodeBase> GetPreviousNodes() {
+			NodePort enterPort = GetInputPort("enter");
+			int connectionCount = enterPort.ConnectionCount;
+			NodePort[] otherPorts = new NodePort[connectionCount];
+			for (int i = 0; i < connectionCount; i++) {
+				NodePort otherPort = enterPort.GetConnection(i);
+				if (otherPort != null) yield return otherPort.node as StateNodeBase;
+			}
 		}
 
-		public StateNodeBase GetFirstNode() {
-			StateNodeBase node = this;
-			HashSet<StateNodeBase> visited = new HashSet<StateNodeBase>() { this };
-			while (true) {
-				StateNodeBase prevNode = node.GetPreviousNode();
-				if (prevNode == null) return node;
-				else if (visited.Contains(prevNode)) {
-					Debug.LogWarning("Node tree forms a loop! Can't get first node.", node);
-					return null;
-				} else {
-					node = prevNode;
-					visited.Add(node);
+		public IEnumerable<StateNodeBase> GetRootNodes(HashSet<StateNodeBase> visited = null) {
+			if (visited == null) visited = new HashSet<StateNodeBase>();
+			visited.Add(this);
+
+			int parentNodeCount = 0;
+			foreach (StateNodeBase parentNode in this.GetPreviousNodes()) {
+				parentNodeCount++;
+				if (parentNode == null) continue;
+				if (visited.Contains(parentNode)) continue;
+				foreach (StateNodeBase rootNode in parentNode.GetRootNodes(visited)) {
+					yield return rootNode;
 				}
 			}
+			if (parentNodeCount == 0) yield return this;
 		}
 #endregion
 
