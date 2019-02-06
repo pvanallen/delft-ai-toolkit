@@ -4,8 +4,14 @@
 # node stuff
 node_modules/
 
-# python stuff
-/raspi/secrets.py
+# python/ai stuff
+/raspi/google-credentials.json
+/raspi/models/
+/raspi/labels/
+/raspi/audio/
+*.caffemodel
+*.prototxt
+.remote-sync.json
 
 # unity stuff
 /unity/delft-toolkit/[Ll]ibrary/
