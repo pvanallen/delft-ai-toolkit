@@ -13,14 +13,15 @@ public class AiGlobals : MonoBehaviour {
 
 	public enum ActionTypes {
 		move,
-		leds,
-		delay,
-		analogin,
 		servo,
+		leds,
+		playSound,
+		analogin,
+		delay,
 		speak,
 		listen,
+		recognize,
 		chat,
-		recognize
 	}
 
 	public enum ActionMoveTypes {
@@ -70,6 +71,13 @@ public class AiGlobals : MonoBehaviour {
 		one,
 		multiple
 	}
+	public enum ActionRecognizeModels {
+		squeezenet,
+		alexnet,
+		googlenet,
+		inception,
+		rcnn
+	}
 
 	public enum Devices {
 		ding1,
@@ -88,6 +96,65 @@ public class AiGlobals : MonoBehaviour {
 	public enum SensorSource {
 		virt,
 		phys
+	}
+
+	public enum UISoundFiles {
+		BasicClickWooden,
+		BeepSpaceButton,
+		BlipPop,
+		BlipSqueak,
+		BonkClickWDenyFeel,
+		BootSound,
+		ButtonCasualEvent,
+		ButtonConfirmSpacey,
+		ButtonDenySpacey,
+		ButtonSpaceyConfirm,
+		CasualDeathLoose,
+		Click,
+		ClickBasic,
+		ClickCasual,
+		ClickHeavy,
+		ClickHigher,
+		ClickMetalTing,
+		ClickPop,
+		ClickPopTwoPart,
+		ClickWithTwoParts,
+		ClickWooden1,
+		ClickWooden2,
+		ComputerBeep1,
+		ComputerBeep2,
+		ConfirmClickSpacey,
+		FlourishSpacey1,
+		FlourishSpacey2,
+		LooseDenyCasual1,
+		LooseDenyCasual2,
+		PingBing,
+		PingSoundRicochet,
+		PopClick,
+		QuickUiOrEventDeep,
+		RolloverLow,
+		SpaceDrill,
+		SpaceSwooshBrighter,
+		SpaceSwooshDarker,
+		Spacey1UpPowerUp,
+		SpaceyCricketClick,
+		SpaceyDrillQuick,
+		SpaceyLoose,
+		SpaceyQuick1,
+		SpaceyQuick2,
+		SpaceyRicochet,
+		SpaceySmoothCricketClick,
+		SpaceyTeleportRip,
+		SpaceyTeleportRip2,
+		TeleportCasual,
+		TeleportDarker,
+		TeleportHigh,
+		TeleportMorphy,
+		TeleportSlurp,
+		TeleportSpaceMorph,
+		TeleportSpacey,
+		TeleportStaticky,
+		WinSpacey
 	}
 
 	public static string GetCompareString(StringCompare cm) {
