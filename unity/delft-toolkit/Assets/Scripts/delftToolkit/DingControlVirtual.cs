@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DelftToolkit;
 using UnityEngine;
@@ -7,18 +8,27 @@ public class DingControlVirtual : DingControlBase {
 
 	public bool sendSensors = false;
 	public int analoginPort = 0;
+
+	// servos
 	public Transform body;
 	public Transform yawJoint;
 	public Transform pitchJoint;
-
 	private float yawTarget;
 	private float pitchTarget;
 	private float servoSpeed = 4;
 
+	// move motors
+	private AiGlobals.ActionMoveTypes moveType = AiGlobals.ActionMoveTypes.stop;
+	private float moveSpeed = 1;
+	public AiGlobals.Easing moveEasing = AiGlobals.Easing.easeInOut;
+
+	// keyboard 
+	private Array allKeyCodes;
+
 	void Awake() {
 		yawTarget = yawJoint.localEulerAngles.z;
 		pitchTarget = pitchJoint.localEulerAngles.y;
-
+		allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
 	}
 
 	public override void handleAction() {
@@ -26,6 +36,9 @@ public class DingControlVirtual : DingControlBase {
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
 				//Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.moveParams.type.ToString());
+				moveType = action.moveParams.type;
+				moveSpeed = action.moveParams.speed;
+				moveEasing = action.moveParams.easing;
 				break;
 			case AiGlobals.ActionTypes.leds:
 				switch (action.ledParams.type) {
@@ -67,6 +80,10 @@ public class DingControlVirtual : DingControlBase {
 					//if (pitchTarget >= 360) pitchTarget = pitchTarget - 360;
 				}
 				break;
+			case AiGlobals.ActionTypes.playSound:
+				AudioSource audio = gameObject.AddComponent<AudioSource>();
+    			audio.PlayOneShot ((AudioClip)Resources.Load ("ui_sounds/" + action.playSoundParams.type));
+				break;
 			default:
 				//Debug.LogWarning("DING-VIRTUAL unknown type: " + action.actionType);
 				break;
@@ -80,50 +97,67 @@ public class DingControlVirtual : DingControlBase {
 		if (sendSensors) {
 			// very crude implementation
 			if (DelftToolkit.DingSignal.onSignalEvent != null) {
-				float x = transform.position.x * 100.0f;
-				float y = transform.position.y * 100.0f;
-				float z = transform.position.z * 100.0f;
+				// float x = transform.position.x * 100.0f;
+				// float y = transform.position.y * 100.0f;
+				// float z = transform.position.z * 100.0f;
 				//print("sending xyz " + z);
-				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/vec/analogin/0/", new Vector3(z, x, y));
-				DelftToolkit.DingSignal.onSignalEvent(signal);
+				//DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/vec/analogin/0/", new Vector3(z, x, y));
+				//DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/0/", z);
+				RaycastHit hit;
+        		Ray forwardRay = new Ray(transform.position, -Vector3.up);
+
+				//Cast a ray straight forwards.
+				float distance = -1;
+				Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        		if (Physics.Raycast(transform.position, fwd, out hit))
+            		//print("Found an object - distance: " + hit.distance);
+					// make it similar to what comes out of the arduino
+					distance = 1023 - (hit.distance * 100);
+				
+				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/0/", distance);
+				if (DelftToolkit.DingSignal.onSignalEvent != null)
+					DelftToolkit.DingSignal.onSignalEvent(signal);
 			}
 		}
+
+		// watch keyboard
+		foreach (KeyCode currentKey in allKeyCodes) {
+            if (Input.GetKeyDown(currentKey)) {
+				
+				if (DelftToolkit.DingSignal.onSignalEvent != null) {
+					print(currentKey);
+					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/keydown/", currentKey.ToString());
+					DelftToolkit.DingSignal.onSignalEvent(signal);
+				}
+			}  
+		}
+
 
 		// handle servo position
 		moveYaw();
 		movePitch();
 
-		if (action != null) {
-			switch (action.actionType) {
-				case AiGlobals.ActionTypes.move:
-					float moveAmount = action.moveParams.speed * speedAdj * Time.deltaTime;
-					switch (action.moveParams.type) {
-						case AiGlobals.ActionMoveTypes.stop:
-							break;
-						case AiGlobals.ActionMoveTypes.forward:
-							transform.position += transform.forward * moveAmount;
-							break;
-						case AiGlobals.ActionMoveTypes.backward:
-							transform.position -= transform.forward * moveAmount;
-							break;
-						case AiGlobals.ActionMoveTypes.turnRight:
-							transform.Rotate(Vector3.up, 100f * moveAmount);
-							break;
-						case AiGlobals.ActionMoveTypes.turnLeft:
-							transform.Rotate(Vector3.up, -1 * 100f * moveAmount);
-							break;
-						default:
-							break;
-					}
-					break;
-				case AiGlobals.ActionTypes.leds:
-					break;
-				case AiGlobals.ActionTypes.delay:
-					break;
-				default:
-					break;
-			}
-		}
+		// change this to use separate vars for move and movetype if move active
+		
+		float moveAmount = moveSpeed * speedAdj * Time.deltaTime;
+		switch (moveType) {
+			case AiGlobals.ActionMoveTypes.stop:
+				break;
+			case AiGlobals.ActionMoveTypes.forward:
+				transform.position += transform.forward * moveAmount;
+				break;
+			case AiGlobals.ActionMoveTypes.backward:
+				transform.position -= transform.forward * moveAmount;
+				break;
+			case AiGlobals.ActionMoveTypes.turnRight:
+				transform.Rotate(Vector3.up, 100f * moveAmount);
+				break;
+			case AiGlobals.ActionMoveTypes.turnLeft:
+				transform.Rotate(Vector3.up, -1 * 100f * moveAmount);
+				break;
+			default:
+				break;
+		}			
 	}
 
 	private void moveYaw() {
