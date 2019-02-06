@@ -62,7 +62,7 @@ short colorB = 127;
 // NeoPixel setup
 //
 #define NEOPIN 6
-#define NUMPIXELS 16
+#define NUMPIXELS 12
 //Adafruit_NeoPixel pixel = Adafruit_NeoPixel(NUMPIXELS, NEOPIN, NEO_GRB + NEO_KHZ800 );
 Adafruit_NeoPixel pixel = Adafruit_NeoPixel(NUMPIXELS, NEOPIN, NEO_RGBW + NEO_KHZ800 );
 
