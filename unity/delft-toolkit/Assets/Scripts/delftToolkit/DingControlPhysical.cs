@@ -38,9 +38,10 @@ public class DingControlPhysical : DingControlBase {
 		servers = OSCHandler.Instance.Servers;
 
 		foreach (KeyValuePair<string, ServerLog> item in servers) {
+			//print(item.Value.packets.Count);
 			// get the most recent NEW OSC message received
 			if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
-
+				
 				// count back until we find the matching timestamp
 				int lastMsgIndex = item.Value.packets.Count - 1;
 				while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
@@ -72,10 +73,11 @@ public class DingControlPhysical : DingControlBase {
 							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, new Vector3(value0, value1, value2)));
 					} else if (address.StartsWith("/str/")) {
 						string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
-						//print("sending Event" + address + value);
+						//print("Received Event" + address + value);
 						if (DelftToolkit.DingSignal.onSignalEvent != null)
 							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
 					}
+					//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
 				}
 				lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
 			}
@@ -143,7 +145,14 @@ public class DingControlPhysical : DingControlBase {
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				oscValues.AddRange(new object[] { 
-					action.recognizeParams.type.ToString()
+					action.recognizeParams.type.ToString(),
+					action.recognizeParams.model.ToString()
+				});
+				break;
+			case AiGlobals.ActionTypes.playSound:
+				oscValues.AddRange(new object[] {
+					action.playSoundParams.type.ToString(),
+					action.playSoundParams.time,
 				});
 				break;
 			default:
