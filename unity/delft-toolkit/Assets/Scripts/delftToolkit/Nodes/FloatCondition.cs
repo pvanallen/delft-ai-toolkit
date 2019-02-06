@@ -46,7 +46,7 @@ namespace DelftToolkit {
 				// We evaluate first because we want the lastState in the condition to update regardless of 'active'
 				if (conditions[i].Evaluate(value) && active) {
 					NodePort triggerPort = GetOutputPort("conditions " + i);
-  					if (triggerPort.IsConnected) {
+					if (triggerPort.IsConnected) {
 						for (int k = 0; k < triggerPort.ConnectionCount; k++) {
 							StateNodeBase nextNode = triggerPort.GetConnection(k).node as StateNodeBase;
 							if (nextNode != null) nextNode.Enter();
