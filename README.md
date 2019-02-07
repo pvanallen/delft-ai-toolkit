@@ -1,27 +1,27 @@
 # Delft AI Toolkit - Version 2
 ## Visual Authoring Toolkit for Smart Things
 
-**This is a new 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas node system has been replaced with [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project. In addition, the system now communicates directly with the Raspberry Pi (instead of using node.js and bluetooth).**
+**As of February 2019, this version is nearing a usable release, which should be out by the end of February 2019. At that time, we'll post a RasPi image that's ready to go to use with the toolkit.**
 
-**As of February 2019, this version is nearing a usable release, which should be out by the end of February. At that time, we'll post a RasPi image that's ready to go to use with the toolkit.
+This is a 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas node system has been replaced with [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ### Description
 
-The Delft Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
-
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
-The goal of this project is to develop an authoring system approach that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
+The Delft AI Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
 
+The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
+
+### External Documents
 * [Overall Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 * [Process Blog](http://ai-toolkit.tumblr.com)
 
-The system has two parts:
+### System Components
 * Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
 * Robot/Device
-  * Raspberry Pi
-  * Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it)
+  * Raspberry Pi + Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it - this would elminate the need for the Arduino)
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
 Each of these has a codebase, and includes a range of libraries. **We are using and helping create an improved version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
@@ -65,13 +65,11 @@ The physical robot is currently based on a simple robot platform from Adafruit w
      ssh pi@delftbt0.local
      ```
      * **Password** - The password for the standard toolkit disk image is "adventures"
-     * **Get the RPi IP Address** - Once logged in, copy and save the IP address of the RPi by typing:
+     * **Get the RPi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
 
      ```bash
     ifconfig
     ```
-
-     You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
      * **Logout** - of the RPI by typing
 
      ```bash
@@ -101,12 +99,11 @@ The physical robot is currently based on a simple robot platform from Adafruit w
      ```
      * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello."
 
-     * **IMPORTANT: Powering off the RPi procedure**: Before you disconnect the power from the RPi, you must properly shut it down with the following:
+     * **IMPORTANT: Powering off the RPi Procedure**: Before you disconnect the power from the RPi, you must properly shut it down with the following command. Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi.
 
      ```bash
      sudo poweroff
      ```
-     Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi
 
 1. **Start the software running in Unity**
 
