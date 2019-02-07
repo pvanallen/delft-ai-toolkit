@@ -86,14 +86,14 @@ The physical robot is currently based on a simple robot platform from Adafruit w
      * In the terminal app log in to the RPi over WiFi by typing:
 
      ```bash
-ssh pi@10.4.27.47 (replace this IP address with the one you got from ifconfig above)
-```
+     ssh pi@10.4.27.47 # replace this IP address with the one you got from ifconfig above
+     ```
 
      * Once logged in, change directory to the delft-ai-toolkit directory:
 
      ```bash
-cd delft-ai-toolkit
-```
+     cd delft-ai-toolkit
+     ```
      * Get the IP address of your computer by opening Network Preferences
      Start the software, putting the IP address of your computer at the end for --server_ip:
 
@@ -103,10 +103,10 @@ cd delft-ai-toolkit
      * The software will take a little time to start up. When it finishes, the robot will say "Hello."
        * NOTE: Before you disconnect the battery from the RPi, you must properly shut it down with the following:
 
-     ```bash
-     sudo poweroff
-     ```
-       * Wait for 10 seconds, after the power off, then it's safe to unplug the power from the RPi
+       ```bash
+       sudo poweroff
+       ```
+       * Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi
 
 1. **Start the software running in Unity**
 
