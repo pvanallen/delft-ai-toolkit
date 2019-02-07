@@ -2,9 +2,9 @@
 
 ### Setting the input data source
 There are several things you need to set for the node receive the data it will evaluate
-* The robot you are listening to (e.g. ding1)
-* Whether the data is coming form the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
-* The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of source you want.
+* **Robot ID** - The robot you are listening to (e.g. ding1)
+* **Virtual or Physical Robot** - Whether the data is coming form the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
+* **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of source you want.
 
 
 ``` bash
