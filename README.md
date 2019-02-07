@@ -9,7 +9,7 @@
 
 The Delft Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
 
-![system diagram](https://i0.wp.com/www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
+![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
 The goal of this project is to develop an authoring system approach that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
@@ -21,7 +21,7 @@ The system currently has two parts:
   * Visual Authoring with nodes in the Unity3D authoring environment
 * Robot/Device
   * Raspberry Pi
-  * Arduino (we may transition to the Adafruit Crikit for RPi once it comes out and we have a chance to evaluate it)
+  * Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it)
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
 Each of these has a codebase, and includes a range of libraries. **We are using and funding a new version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
@@ -32,46 +32,95 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 # The below is currently being revised and is not complete. Stay Tuned.
 
 ## Starting the system
-1. **Power robot**: Power on the Arduino and Raspberry Pi (RPi)
-   * **Batteries**:
+1. **Power robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
+     * **Motors**: Turn on the 6V AA battery pack (you can leave this off to disable the servos and wheel motors, or to save the batteries. The robot will work fine other than the motors)
      * **Arduino** Powered by the USB cable from the RPi
-     * **Motors**: Turn on the 6V AA battery pack
-     * **RPi**: Connect the USB battery to the micro USB connector
-1. **Login to RPi**: Open a terminal app on your computer and login to the RPi by typing:
-   * **ssh pi@delftbt0.local** (change the delftbt end digit to match your setup)
-1. **Get IP addresses**:
-   * **Computer**
-     * **Mac**: Hold the option key down, and click on your Wifi toolbar icon.
-     * **PC**: See https://www.windowscentral.com/4-easy-ways-find-your-pc-ip-address-windows-10-s
-   * **RPi**: On the command line, type the command: **ifconfig** In the output section for "wlan0" you'll see the IP address
-1. **Start software**: In the following order
-   * **Motors**: Power on the AA battery pack
-   * **RPi**: Power and boot the RPi
-     *  In the terminal, connect to the RPi and start the toolkit software. In the below, change the server_ip IP address to that of your computer. After launching delfToolkit.py the software will take a minute or two to finish setting up the object recognition models.
+     * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the micro USB connector
+
+1. **Get the IP address of the robot**
+     * Hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you'll need an adapter: USB-C (Links to an external site.)Links to an external site., Thunderbolt (Links to an external site.)Links to an external site.)
+     * Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed it to something other than delfbt0.
+
+     ``` ssh pi@delftbt0.local
+     ```
+
+     * The password for the standard toolkit disk image is "adventures"
+     * Once logged in, copy and save the IP address of the RPi by typing:
+
+     ``` ifconfig
+     ```
+
+     * You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
+     * Logout of the RPI by typing
+
+     ``` exit
+     ```
+
+     * Disconnect the ethernet cable
+
+1. **Start the Delft Toolkit software on the RPi**
+
+     * If you are using the motors, turn on the 6V battery pack (or save the batteries for now, and turn the battery pack on when you are ready)
+     * In the terminal app log in to the RPi over WiFi by typing:
+
+     ```ssh pi@10.4.27.47 (replace this IP address with the one you got from ifconfig above)
+     ```
+
+     * Once logged in, change directory to the delft-ai-toolkit directory:
+
+     ```cd delft-ai-toolkit
+     ```
+     * Get the IP address of your computer by opening Network Preferences
+     Start the software, putting the IP address of your computer at the end for --server_ip:
+
+     ```python3 delft_toolkit.py --server_ip 10.4.18.109
+     ```
+     * The software will take a little time to start up. When it finishes, the robot will say "Hello."
+       * NOTE: Before you disconnect the battery from the RPi, you must properly shut it down with the following:
+
+     ```sudo poweroff
+     ```
+       * Wait for 10 seconds, after the power off, then it's safe to unplug the power from the RPi
+
+1. **Start the software running in Unity**
+
+      * Open the "delft-toolkit" project in Unity3D (we've tested in version 2018.2.x)
+      * In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
+      * In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
+      * If you are using the physical robot (the toolkit will work fine without the robot)
+        * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, enable the "Ding Control Physical" script. If you are not using the physical robot, keep this script unchecked and inactive.
+        * Still in the inspector at "Ding Control Physical," paste in the IP address of the robot where it says "Target Addr"
+        * <img src="docs/DingControlPhysical-IP.png" width="254">
+      * Click on the Unity **Play** button
+      * In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
+      * Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
+
+
+## Robot Command Line Essentials ##
+
 ```
-ssh pi@delftbt0.local OR ssh pi@10.0.1.20 (i.e. the IP address of the RasPi)
-cd delft-ai-toolkit/ (from the home directory)
+# login to the RPi via ethernet
+ssh pi@delftbt0.local
+# get the IP address of the RPi from the wlan0 section
+ifconfig
+# login to the RPi via WiFi, change the example IP to that RPi
+ssh pi@10.4.27.47
+# change to the toolkit software directory
+cd delft-ai-toolkit
+# start the RPi software, change the example IP to that of the computer running Unity
 python3 delft_toolkit.py --server_ip 10.4.18.109
+# shutdown before disconnecting the power, then wait for 10 seconds
+sudo poweroff
 ```
-   * **Unity3D**:
-     * Open the "delft-toolkit" project in Unity3D
-     * In the Hierarchy, open the main scene
-     * In the DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (or one of the example graphs)
-     * If you are using the robot hardware, click on the simulated robot in the Hierarchy (e.g. ding1), and enable the "DingControlPhysical" script. If you are not using the physical robot, keep this script unchecked and inactive.
-     * In the inspector for DingControlPhysical, put the IP address of your RPi, so Unity can communicate with the robot
-     * Click on the Unity Play button
-     * Click on the 3D window (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click it)
 
 ## Installing The software
 
-1. **Install dependencies**: [Unity3D](https://store.unity.com)
+1. **Install [Unity3D](https://store.unity.com)
 1. **Download the toolkit software** and place on your computer
    * Unity project and Arduino code from github [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2)
    * Disk image for [RPi]() NEW VERSION NOT YET AVAILABLE
 1. **Arduino**:
-   * Install delftToolkit.ino on your Arduino
+   * Install delftToolkit.ino on your Arduino with the Arduino IDE
 1. **RPi**: Burn the RPi image to your SD card
    * Set up your WiFi
    * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your network
-1. **Unity3D**:
-   * Click on the Project tab, and double click the "Main" scene
