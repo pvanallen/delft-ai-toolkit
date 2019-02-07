@@ -7,6 +7,7 @@ using UnityEngine;
 public class DingControlVirtual : DingControlBase {
 
 	public bool sendSensors = false;
+	public bool recognize = false;
 	public int analoginPort = 0;
 
 	// servos
@@ -84,6 +85,10 @@ public class DingControlVirtual : DingControlBase {
 				AudioSource audio = gameObject.AddComponent<AudioSource>();
     			audio.PlayOneShot ((AudioClip)Resources.Load ("ui_sounds/" + action.playSoundParams.type));
 				break;
+			case AiGlobals.ActionTypes.recognize:
+				print("recognize");
+				recognize = true;
+				break;
 			default:
 				//Debug.LogWarning("DING-VIRTUAL unknown type: " + action.actionType);
 				break;
@@ -118,6 +123,27 @@ public class DingControlVirtual : DingControlBase {
 				if (DelftToolkit.DingSignal.onSignalEvent != null)
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 			}
+		}
+
+		// handle recognize request
+		if (DelftToolkit.DingSignal.onSignalEvent != null) {
+			recognize = false;
+			String tag = "no object";
+			RaycastHit hit;
+			Ray forwardRay = new Ray(transform.position, -Vector3.up);
+
+			//Cast a ray straight forwards.
+			float distance = -1;
+			Vector3 fwd = transform.TransformDirection(Vector3.forward);
+			if (Physics.Raycast(transform.position, fwd, out hit)) {
+				if (hit.distance < 4) {
+					tag = hit.collider.tag;
+				} else {
+					tag = "far:" + hit.collider.tag;
+				}
+			}
+			DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
+			DelftToolkit.DingSignal.onSignalEvent(signal);
 		}
 
 		// watch keyboard

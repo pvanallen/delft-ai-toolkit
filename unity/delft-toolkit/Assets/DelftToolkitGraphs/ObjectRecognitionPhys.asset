@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 833e8118763fc48ef814fcb19963c803, type: 3}
-  m_Name: objectRecognition
+  m_Name: ObjectRecognitionPhys
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 114310754902303238}
@@ -632,8 +632,8 @@ MonoBehaviour:
     source: 1
     messageFilter: /str/speech2text/
   conditions:
-  - compareType: 0
-    strVal: hello
+  - compareType: 2
+    strVal: hello,hi,hey
     inverse: 0
   - compareType: 2
     strVal: recognize
@@ -1533,8 +1533,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: 'screwdriver: 0.36286\syringe: 0.24730\ballpoint: 0.10452\power drill: 0.04671\fountain
-    pen: 0.02242'
+  _value: no object
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
