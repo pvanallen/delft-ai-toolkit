@@ -51,75 +51,75 @@ The physical robot is currently based on a simple robot platform from Adafruit w
 <img src="docs/robot2.jpg" width="512">
 <img src="docs/robot3.jpg" width="512">
 
-## Starting the system
-1. **Power robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
+## Starting the System Up
+1. **Power the Robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
      * **Motors**: Turn on the 6V AA battery pack (you can leave this off to disable the servos and wheel motors, or to save the batteries. The robot will work fine other than the motors)
      * **Arduino** Powered by the USB cable from the RPi
      * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the micro USB connector
 
-1. **Get the IP address of the robot**
-     * Hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you'll need an adapter: USB-C (Links to an external site.)Links to an external site., Thunderbolt (Links to an external site.)Links to an external site.)
-     * Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed it to something other than delfbt0.
+1. **Get the IP address of the Robot**
+     * **Connect with Ethernet** - Hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you'll need an adapter: USB-C (Links to an external site.)Links to an external site., Thunderbolt (Links to an external site.)Links to an external site.)
+     * **Log In to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed it to something other than delfbt0.
 
      ```bash
      ssh pi@delftbt0.local
      ```
-     * The password for the standard toolkit disk image is "adventures"
-     * Once logged in, copy and save the IP address of the RPi by typing:
+     * **Password** - The password for the standard toolkit disk image is "adventures"
+     * **Get the RPi IP Address** - Once logged in, copy and save the IP address of the RPi by typing:
 
      ```bash
     ifconfig
     ```
 
-     * You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
-     * Logout of the RPI by typing
+     You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
+     * **Logout** - of the RPI by typing
 
      ```bash
      exit
      ```
 
-     * Disconnect the ethernet cable
+     * **Disconnect** - Unplug the ethernet cable
 
 1. **Start the Delft Toolkit software on the RPi**
 
-     * If you are using the motors, turn on the 6V battery pack (or save the batteries for now, and turn the battery pack on when you are ready)
-     * In the terminal app log in to the RPi over WiFi by typing:
+     * **Power Motors** - If you are using the motors, turn on the 6V battery pack (or save the batteries for now, and turn the battery pack on when you are ready)
+     * **Login to RPi** - In the terminal app log in to the RPi over WiFi by typing:
 
      ```bash
      ssh pi@10.4.27.47 # replace this IP address with the one you got from ifconfig above
      ```
 
-     * Once logged in, change directory to the delft-ai-toolkit directory:
+     * **Toolkit Dirctory** - Once logged in, change directory to the delft-ai-toolkit directory:
 
      ```bash
      cd delft-ai-toolkit
      ```
-     * Get the IP address of your computer by opening Network Preferences
-     Start the software, putting the IP address of your computer at the end for --server_ip:
+     * **Start the software** - Type the below command, putting the IP address of your computer at the end for --server_ip (get the IP address of your computer by opening Network Preferences)
 
      ```bash
      python3 delft_toolkit.py --server_ip 10.4.18.109
      ```
-     * The software will take a little time to start up. When it finishes, the robot will say "Hello."
-       * NOTE: Before you disconnect the battery from the RPi, you must properly shut it down with the following:
+     * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello."
 
-       ```bash
-       sudo poweroff
-       ```
-       * Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi
+     * **IMPORTANT: Powering off the RPi procedure**: Before you disconnect the power from the RPi, you must properly shut it down with the following:
+
+     ```bash
+     sudo poweroff
+     ```
+     Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi
 
 1. **Start the software running in Unity**
 
-      * Open the "delft-toolkit" project in Unity3D (we've tested in version 2018.2.x)
-      * In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
-      * In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
-      * If you are using the physical robot (the toolkit will work fine without the robot)
+      * **Open Project** - Open the "delft-toolkit" project in Unity3D (we've tested in version 2018.2.x)
+      * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
+      * **Open Visual Graph** - In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
+      * **Physcial Robot** - If you are using the physical robot (the toolkit will work fine without the robot)
         * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, enable the "Ding Control Physical" script. If you are not using the physical robot, keep this script unchecked and inactive.
         * Still in the inspector at "Ding Control Physical," paste in the IP address of the robot where it says "Target Addr"
         * <img src="docs/DingControlPhysical-IP.png" width="254">
-      * Click on the Unity **Play** button
-      * In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
-      * Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
+      * **Play** - Click on the Unity **Play** button
+      * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
+        * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
 
 
 ## Robot Command Line Essentials ##
