@@ -271,7 +271,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: no object
+  _value: far:car
 --- !u!114 &114611669769838220
 MonoBehaviour:
   m_ObjectHideFlags: 0

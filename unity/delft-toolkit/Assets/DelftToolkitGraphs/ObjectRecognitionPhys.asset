@@ -1423,7 +1423,7 @@ MonoBehaviour:
       duration: 1
     recognizeParams:
       type: 0
-      model: 0
+      model: 2
     chatParams:
       type: 1
       time: 1

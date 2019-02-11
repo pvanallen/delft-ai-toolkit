@@ -86,11 +86,11 @@ MonoBehaviour:
     messageFilter: /num/analogin/0/
   conditions:
   - compareType: 0
-    floatValA: 873
+    floatValA: 773
     floatValB: 919
     inverse: 0
   valueOut: 0
-  _value: 838.452
+  _value: 638.307
 --- !u!114 &114128087606339860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
     strVal: x
     inverse: 0
   valueOut: 
-  _value: LeftControl
+  _value: X
 --- !u!114 &114618462081190882
 MonoBehaviour:
   m_ObjectHideFlags: 0

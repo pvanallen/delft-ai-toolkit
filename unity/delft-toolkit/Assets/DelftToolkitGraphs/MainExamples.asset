@@ -1784,7 +1784,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: LeftControl
+  _value: L
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
