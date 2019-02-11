@@ -30,7 +30,7 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 ![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
 
 ### Hardware
-The physical robot is currently based on a simple robot platform from Adafruit with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot communicates with Unity on the computer with the OSC network protocol.
+The physical robot is currently based on a simple robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
 
 ### Hardware Parts list
 * [Robot Platform Kit](https://www.adafruit.com/product/3244)
@@ -139,8 +139,11 @@ sudo poweroff
 ## Installing The software
 
 1. **Install [Unity3D](https://store.unity.com)**
-1. **Download the toolkit software** and place on your computer
-   * Unity project and Arduino code from github [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2)
+1. **Download the toolkit software** and place on your computer. This includes the Unity project, RPi code, and Arduino code from [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2). **NOTE**: Because we use xNode as a submodule (i.e. we get the code from the original repo), a simple download or clone will leave the xNode code out and the directory for xNode will be empty: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+     <br>There are two solutions for this:
+     * **Clone** - Use the following command to clone the repo with the submodule included:
+     <pre>git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git</pre>
+     * **Download** - After you download the toolkit from our site with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
    * Disk image for [RPi]() - NEW VERSION NOT YET AVAILABLE
 1. **Arduino**:
    * Install delftToolkit.ino on your Arduino with the Arduino IDE
