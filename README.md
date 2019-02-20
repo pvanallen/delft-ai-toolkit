@@ -1,9 +1,9 @@
 # Delft AI Toolkit - Version 2
 ## Visual Authoring Toolkit for Smart Things
 
-**As of February 2019, this version is nearing a usable release, which should be out by the end of February 2019. At that time, we'll post a RasPi image that's ready to go to use with the toolkit.**
+**As of early February 2019, this version is nearing a usable release, which should be out by the end of February 2019. At that time, we'll post a RasPi image that's ready to use with the toolkit.**
 
-This is a 2.0 version of this project with a significantly changed architecture ([original version](https://github.com/pvanallen/delft-toolkit)). The NodeCanvas node system has been replaced with [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
+This system uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ### Description
 
@@ -14,17 +14,33 @@ The Delft AI Toolkit a system for designing smart things. It provides a visual a
 The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
 ### External Documents
-* [Overall Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
-* [Process Blog](http://ai-toolkit.tumblr.com)
+* [ACM Interactions Article on Project](http://interactions.acm.org/archive/view/november-december-2018/prototyping-ways-of-prototyping-ai)
+* [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
 ### System Components
 * Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
 * Robot/Device
-  * Raspberry Pi + Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it - this would elminate the need for the Arduino)
+  * Raspberry Pi + Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it - this would eliminate the need for the Arduino)
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
 Each of these has a codebase, and includes a range of libraries. **We are using and helping create an improved version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
+
+### Current Features
+* **Action Types** - speak, listen, object recognize, servos, movement, leds, sensor input
+* **Action Options** - repeat, random
+* **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
+* **Behavior Trees** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of current node and action within node
+
+### Roadmap
+
+* More video and written documentation
+* Add OSC remote marionetting back in
+* Add support for IBM Watson AI Cognitive Services (e.g. Assistant, Speech2Text, Text2Speech, Emotion, Sentiment, etc.)
+* Add support for Snip.ai -- edge based speech assistant
+* Better support for hardware sensors and IoT
+* Integrate gesture recognition learning and classification
+* Integrate Unity Reinforcement learning
 
 ### System Architecture
 ![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
