@@ -64,6 +64,11 @@ The physical robot is currently based on a simple robot platform from Adafruit c
 * [short USB A to Micro Cable - Battery to RPi](https://www.amazon.com/Micro-USB-Cable-Select-Models/dp/B01FSYBQ9Q/)
 * [USB A to USB B - RPi to Arduino](https://www.amazon.com/Inovat-Printer-Cable-USB-Scanner/dp/B01HB91CRM/)
 
+In addition to the above, the current configuration uses a couple pieces of plexiglass for mounting all the components. It also uses a 3D printed "L" bracket to mount the pan/tilt servos.
+* 8"x5" main platform - mounted as the top layer instead of the circular metal plate supplied with the Adafruit robot kit
+* 2"5" front face - used to mount the RPi camera, NeoPixel, and IR sensor
+* ["L" bracket](https://www.tinkercad.com/things/ikA8s2YAOyl) - 3D printed part used to mount the pan/tilt servos
+
 <img src="docs/robot1.jpg" width="512">
 <img src="docs/robot2.jpg" width="512">
 <img src="docs/robot3.jpg" width="512">
