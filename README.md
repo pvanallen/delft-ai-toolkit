@@ -13,7 +13,8 @@ The Delft AI Toolkit a system for designing smart things. It provides a visual a
 
 The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
-### External Documents
+### Documents
+* [Toolkit Documentation](docs/README.md)
 * [ACM Interactions Article on Project](http://interactions.acm.org/archive/view/november-december-2018/prototyping-ways-of-prototyping-ai)
 * [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
