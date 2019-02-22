@@ -11,75 +11,81 @@ using UnityOSC;
 
 public class DingControlPhysical : DingControlBase {
 
-	public string TargetAddr = "127.0.0.1";
-	public int OutGoingPort = 5005;
-	public int InComingPort = 5006;
+	public string RobotIPAddr = "127.0.0.1";
+	public int OutgoingPort = 5005;
+	public int IncomingPort = 5006;
 
 	private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
 
 	private const string OSC_SERVER_CLIENT = "DelftDingOSC";
+	private string serverClientID;
+	private bool OSCInit = false;
 
 	private long lastOscMessageIn = 0;
 
 	// Script initialization
 	void Awake() {
 		// using awake so that it happens before oscCentral initializes in Start()
-
-		//OSCHandler.Instance.Init(); //init OSC
-		OSCHandler.Instance.Init(OSC_SERVER_CLIENT, TargetAddr, OutGoingPort, InComingPort);
-		servers = new Dictionary<string, ServerLog>();
-		clients = new Dictionary<string, ClientLog>();
+		if (RobotIPAddr != "127.0.0.1") {
+			serverClientID = OSC_SERVER_CLIENT + RobotIPAddr;
+			OSCHandler.Instance.Init(OSC_SERVER_CLIENT, RobotIPAddr, OutgoingPort, IncomingPort);
+			servers = new Dictionary<string, ServerLog>();
+			clients = new Dictionary<string, ClientLog>();
+			OSCInit = true;
+		}
 	}
 
 	public override void Update() {
-		OSCHandler.Instance.UpdateLogs();
+		if(OSCInit) {
+			OSCHandler.Instance.UpdateLogs();
 
-		servers = OSCHandler.Instance.Servers;
+			servers = OSCHandler.Instance.Servers;
 
-		foreach (KeyValuePair<string, ServerLog> item in servers) {
-			//print(item.Value.packets.Count);
-			// get the most recent NEW OSC message received
-			if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
-				
-				// count back until we find the matching timestamp
-				int lastMsgIndex = item.Value.packets.Count - 1;
-				while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
-					lastMsgIndex--;
-				}
-
-				// set how many messages are queued up
-				int msgsQd = 1;
-				if (item.Value.packets.Count > 1) { // not the first item
-					msgsQd = item.Value.packets.Count - lastMsgIndex - 1;
-				}
-
-				// print the queued messages
-				for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
-					//
-					string address = item.Value.packets[msgIndex].Address;
-					if (address.StartsWith("/num/")) {
-						float value = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
-						//print(OSC_SERVER_CLIENT + ": " + address + " " + value);
-						if (DelftToolkit.DingSignal.onSignalEvent != null)
-							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
+			foreach (KeyValuePair<string, ServerLog> item in servers) {
+				//print(item.Value.packets.Count);
+				// get the most recent NEW OSC message received
+				if (serverClientID == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
+					
+					// count back until we find the matching timestamp
+					int lastMsgIndex = item.Value.packets.Count - 1;
+					while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
+						lastMsgIndex--;
 					}
-					if (address.StartsWith("/vec/")) {
-						float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
-						float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
-						float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
-						//print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
-						if (DelftToolkit.DingSignal.onSignalEvent != null)
-							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, new Vector3(value0, value1, value2)));
-					} else if (address.StartsWith("/str/")) {
-						string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
-						//print("Received Event" + address + value);
-						if (DelftToolkit.DingSignal.onSignalEvent != null)
-							DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
+
+					// set how many messages are queued up
+					int msgsQd = 1;
+					if (item.Value.packets.Count > 1) { // not the first item
+						msgsQd = item.Value.packets.Count - lastMsgIndex - 1;
 					}
-					//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
+
+					// print the queued messages
+					for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
+						//
+						string address = item.Value.packets[msgIndex].Address;
+						if (address.StartsWith("/num/")) {
+							float value = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+							//print(OSC_SERVER_CLIENT + ": " + address + " " + value);
+							if (DelftToolkit.DingSignal.onSignalEvent != null)
+								DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
+						}
+						if (address.StartsWith("/vec/")) {
+							float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+							float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
+							float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
+							//print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
+							if (DelftToolkit.DingSignal.onSignalEvent != null)
+								DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, new Vector3(value0, value1, value2)));
+						} else if (address.StartsWith("/str/")) {
+							string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
+							//print("Received Event" + address + value);
+							if (DelftToolkit.DingSignal.onSignalEvent != null)
+								DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.phys, address, value));
+						}
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
+					}
+					lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
 				}
-				lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
 			}
 		}
 	}
@@ -159,7 +165,7 @@ public class DingControlPhysical : DingControlBase {
 				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);
 				break;
 		}
-		if (oscValues != null) {
+		if (oscValues != null && OSCInit) {
 			OSCHandler.Instance.SendMessageToClient(OSC_SERVER_CLIENT, oscString, oscValues);
 		}
 	}

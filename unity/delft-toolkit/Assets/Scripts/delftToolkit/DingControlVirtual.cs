@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class DingControlVirtual : DingControlBase {
 
-	public bool sendSensors = false;
-	public bool recognize = false;
-	public int analoginPort = 0;
+	private bool sendSensors = false;
+	private int analoginPort = 0;
+	private bool recognize = false;
+
 
 	// servos
 	public Transform body;
@@ -21,15 +22,39 @@ public class DingControlVirtual : DingControlBase {
 	// move motors
 	private AiGlobals.ActionMoveTypes moveType = AiGlobals.ActionMoveTypes.stop;
 	private float moveSpeed = 1;
-	public AiGlobals.Easing moveEasing = AiGlobals.Easing.easeInOut;
+	private AiGlobals.Easing moveEasing = AiGlobals.Easing.easeInOut;
 
 	// keyboard 
 	private Array allKeyCodes;
+
+	// OSC
+	public string MarionetteIPAddr = "127.0.0.1";
+	public int OutgoingPort = 5007;
+	public int IncomingPort = 5008;
+
+	private Dictionary<string, ServerLog> servers;
+	private Dictionary<string, ClientLog> clients;
+
+	private const string OSC_SERVER_CLIENT = "DelftMarionetteOSC";
+	private string serverClientID;
+	private bool OSCInit = false;
+	private long lastOscMessageIn = 0;
+
+	// Script initialization
 
 	void Awake() {
 		yawTarget = yawJoint.localEulerAngles.z;
 		pitchTarget = pitchJoint.localEulerAngles.y;
 		allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
+
+		// OSC
+		if (MarionetteIPAddr != "127.0.0.1") {
+			serverClientID = OSC_SERVER_CLIENT + MarionetteIPAddr;
+			OSCHandler.Instance.Init(OSC_SERVER_CLIENT, MarionetteIPAddr, OutgoingPort, IncomingPort);
+			servers = new Dictionary<string, ServerLog>();
+			clients = new Dictionary<string, ClientLog>();
+			OSCInit = true;
+		}
 	}
 
 	public override void handleAction() {
@@ -67,8 +92,6 @@ public class DingControlVirtual : DingControlBase {
 				} else {
 					sendSensors = false;
 				}
-
-				analoginPort = action.analoginParams.port;
 				break;
 			case AiGlobals.ActionTypes.servo:
 				if (action.servoParams.port == 9) { // tilt
@@ -151,7 +174,7 @@ public class DingControlVirtual : DingControlBase {
             if (Input.GetKeyDown(currentKey)) {
 				
 				if (DelftToolkit.DingSignal.onSignalEvent != null) {
-					print(currentKey);
+					//print(currentKey);
 					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/keydown/", currentKey.ToString());
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 				}
@@ -183,7 +206,52 @@ public class DingControlVirtual : DingControlBase {
 				break;
 			default:
 				break;
-		}			
+		}	
+
+		// OSC
+		if(OSCInit) {
+			OSCHandler.Instance.UpdateLogs();
+
+			servers = OSCHandler.Instance.Servers;
+
+			foreach (KeyValuePair<string, ServerLog> item in servers) {
+				//print(item.Value.packets.Count);
+				// get the most recent NEW OSC message received
+				if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
+					
+					// count back until we find the matching timestamp
+					int lastMsgIndex = item.Value.packets.Count - 1;
+					while (lastMsgIndex > 0 && item.Value.packets[lastMsgIndex].TimeStamp != lastOscMessageIn) {
+						lastMsgIndex--;
+					}
+
+					// set how many messages are queued up
+					int msgsQd = 1;
+					if (item.Value.packets.Count > 1) { // not the first item
+						msgsQd = item.Value.packets.Count - lastMsgIndex - 1;
+					}
+					lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
+
+					// check the queued messages
+					for (int msgIndex = item.Value.packets.Count - msgsQd; msgIndex < item.Value.packets.Count; msgIndex++) {
+						//
+						string address = item.Value.packets[msgIndex].Address;
+						if (address.StartsWith("/")) {
+							float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+							float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
+							float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
+							address = "/vec" + address + "/";
+							print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
+							if (DelftToolkit.DingSignal.onSignalEvent != null) {
+								DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, address, new Vector3(value0, value1, value2)));
+							}
+						} 
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
+					}
+				}
+			}		
+		}
 	}
 
 	private void moveYaw() {
