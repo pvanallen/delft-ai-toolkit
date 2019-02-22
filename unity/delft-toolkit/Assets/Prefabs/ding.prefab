@@ -426,24 +426,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisDevice: 0
   speedAdj: 1
-  sendSensors: 0
-  analoginPort: 0
   body: {fileID: 4262682680315064}
   yawJoint: {fileID: 4687428209391206}
   pitchJoint: {fileID: 4831574649912508}
+  MarionetteIPAddr: 127.0.0.1
+  OutgoingPort: 5007
+  IncomingPort: 5008
 --- !u!114 &114802144251405316
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1323370813238944}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0935fdee413e469f8e60fe154d65a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisDevice: 0
   speedAdj: 1
-  TargetAddr: 127.0.0.1
-  OutGoingPort: 5005
-  InComingPort: 5006
+  RobotIPAddr: 127.0.0.1
+  OutgoingPort: 5005
+  IncomingPort: 5006

@@ -299,8 +299,7 @@ Prefab:
       propertyPath: m_Name
       value: ding1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1729268537
@@ -346,43 +345,16 @@ Prefab:
       propertyPath: m_Name
       value: ding2
       objectReference: {fileID: 0}
+    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
+        type: 2}
+      propertyPath: thisDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114382407479356524, guid: 8a627e8444d584bfaaf57ba797130d17,
         type: 2}
       propertyPath: thisDevice
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
-        type: 2}
-      propertyPath: thisDevice
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
-        type: 2}
-      propertyPath: TargetAddr
-      value: 127.0.0.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1817224551 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1323370813238944, guid: 8a627e8444d584bfaaf57ba797130d17,
-    type: 2}
-  m_PrefabInternal: {fileID: 1559217856}
---- !u!114 &1817224552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1817224551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0935fdee413e469f8e60fe154d65a96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisDevice: 0
-  speedAdj: 1
-  TargetAddr: 10.4.18.221
-  OutGoingPort: 5005
-  InComingPort: 5006
