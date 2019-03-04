@@ -1,6 +1,8 @@
 # Hardware
 The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
 
+<img src="images/robot1.jpg" width="512">
+
 ## Hardware Parts list
 * [Robot Platform Kit](https://www.adafruit.com/product/3244)
 * [Raspberry Pi](https://www.adafruit.com/product/3775)
@@ -51,7 +53,6 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 * Follow the startup sequence on the [main page](../README.md)
 
 <img src="images/motor-shield.jpg" width="512">
-<img src="images/robot1.jpg" width="512">
 <img src="images/robot2.jpg" width="512">
 <img src="images/robot3.jpg" width="512">
 
