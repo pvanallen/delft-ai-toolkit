@@ -1,7 +1,7 @@
-# Delft AI Toolkit - Version 2
+# Delft AI Toolkit
 ## Visual Authoring Toolkit for Smart Things
 
-**As of early February 2019, this version is nearing a usable release, which should be out by the end of February 2019. At that time, we'll post a RasPi image that's ready to use with the toolkit.**
+**As of early March 2019, this version is a stable release. Of course, many improvements are planned, and documentation is still in progress**
 
 This system uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
@@ -31,12 +31,12 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 * **Action Types** - speak, listen, object recognize, servos, movement, leds, sensor input
 * **Action Options** - repeat, random
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
-* **Behavior Trees** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of current node and action within node
+* **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
 
 ### Roadmap
 
 * More video and written documentation
-* Add OSC remote marionetting back in
+* DONE: Add OSC remote marionetting back in
 * Add support for IBM Watson AI Cognitive Services (e.g. Assistant, Speech2Text, Text2Speech, Emotion, Sentiment, etc.)
 * Add support for Snip.ai -- edge based speech assistant
 * Better support for hardware sensors and IoT
@@ -49,30 +49,9 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 ### Hardware
 The physical robot is currently based on a simple robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
 
-### Hardware Parts list
-* [Robot Platform Kit](https://www.adafruit.com/product/3244)
-* [Raspberry Pi](https://www.adafruit.com/product/3775)
-* [Pi Camera](https://www.adafruit.com/product/3099) & [8" camera cable](https://www.adafruit.com/product/1647)
-* [Seeed Microphone Hat](https://us.seeedstudio.com/ReSpeaker-2-Mics-Pi-HAT-p-2874.html)
-* [Arduino or Equivalent](https://www.sparkfun.com/products/11021)
-* [Motor Shield for Arduino](https://www.adafruit.com/product/1438)
-* [Speaker](https://www.adafruit.com/product/3351)
-* [NeoPixel 12 Light Ring](https://www.adafruit.com/product/1643)
-* [IR Sensor](https://www.adafruit.com/product/164)
-* [Pan/Tilt Servo Kit](https://www.adafruit.com/product/1967)
-* [USB 5V 2A Rechargeable Battery](https://www.amazon.com/Anker-PowerCore-Ultra-Compact-High-Speed-Technology/dp/B01CU1EC6Y/)
-* [short USB A to Micro Cable - Battery to RPi](https://www.amazon.com/Micro-USB-Cable-Select-Models/dp/B01FSYBQ9Q/)
-* [USB A to USB B - RPi to Arduino](https://www.amazon.com/Inovat-Printer-Cable-USB-Scanner/dp/B01HB91CRM/)
+[More details on the hardware](docs/hardware.md).
 
-In addition to the above, the current configuration uses a couple pieces of plexiglass for mounting all the components. It also uses a 3D printed "L" bracket to mount the pan/tilt servos, and a 3D printed light diffuser to cover the NeoPixel ring
-* 8"x5" main platform - mounted as the top layer instead of the circular metal plate supplied with the Adafruit robot kit
-* 2"5" front face - used to mount the RPi camera, NeoPixel, and IR sensor
-* ["L" bracket](https://www.tinkercad.com/things/ikA8s2YAOyl) - 3D printed part used to mount the pan/tilt servos
-* [NeoPixel Diffuser](https://www.tinkercad.com/things/hJRIqCVGwtZ) - fits over the NeoPixel Ring and helps diffuse the light
-
-<img src="docs/robot1.jpg" width="512">
-<img src="docs/robot2.jpg" width="512">
-<img src="docs/robot3.jpg" width="512">
+<img src="docs/images/robot3.jpg" width="512">
 
 ## Starting the System Up
 1. **Power the Robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
@@ -80,15 +59,16 @@ In addition to the above, the current configuration uses a couple pieces of plex
      * **Arduino** Powered by the USB cable from the RPi
      * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the micro USB connector
 
-1. **Get the IP address of the Robot**
-     * **Connect with Ethernet** - Hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you'll need an adapter: USB-C (Links to an external site.)Links to an external site., Thunderbolt (Links to an external site.)Links to an external site.)
-     * **Log In to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed it to something other than delfbt0.
+1. **Get the WiFi IP address of the Robot**
+     * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
+     * **Connect by Ethernet if necessary** - Some networks don't allow connection by the .local (Bonjour) name. If so, hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you may need a [USB-C adapter](https://www.amazon.com/dp/B01M6WQ0T0/ref=twister_B06ZZLKBWJ)
+     * **Login to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt1 to match the number of your robot if you changed the name.
 
      ```bash
-     ssh pi@delftbt0.local
+     ssh pi@delftbt1.local
      ```
-     * **Password** - The password for the standard toolkit disk image is "adventures"
-     * **Get the RPi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for "wlan0" - from there copy the IP address (e.g. 10.4.27.47)
+     * **Password** - The default password for the standard Delft AI Toolkit disk image is "adventures"
+     * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
 
      ```bash
     ifconfig
@@ -136,7 +116,7 @@ In addition to the above, the current configuration uses a couple pieces of plex
       * **Physcial Robot** - If you are using the physical robot (the toolkit will work fine without the robot)
         * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, enable the "Ding Control Physical" script. If you are not using the physical robot, keep this script unchecked and inactive.
         * Still in the inspector at "Ding Control Physical," paste in the IP address of the robot where it says "Target Addr"
-        * <img src="docs/DingControlPhysical-IP.png" width="254">
+        * <img src="docs/images/DingControlPhysical-IP.png" width="254">
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
