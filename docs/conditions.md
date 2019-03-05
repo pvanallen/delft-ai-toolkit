@@ -1,10 +1,16 @@
+# Condition Nodes
+
+The condition nodes (String/Text and Float/Numbers) wait for conditions to be met, and then pass control to the next node associated with the met conditions. They only act on new data received from it's input.
+
+For example, if a sensor on the robot is reading distance, a condition can be set up to pass control to an action node that turns the robot when the distance indicates the robot is close to an object in front of it. If the robot is far enough away, another condition trigger can connect to a node the moves the robot straight forward.
+
 ## String Condition Node
 
 ### Setting the input data source
 There are several things you need to set for the node receive the data it will evaluate
 * **Robot ID** - The robot you are listening to (e.g. ding1)
 * **Virtual or Physical Robot** - Whether the data is coming form the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
-* **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of source you want.
+* **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of input source you want.
 
 
 ``` bash
@@ -14,10 +20,10 @@ There are several things you need to set for the node receive the data it will e
 ```
 &nbsp;
 
- <img src="StringCondition-objectRecognition2.jpg" width="254"><img src="StringCondition-speech2text.jpg" width="254"><img src="StringCondition-keydown.jpg" width="254">
+ <img src="images/StringCondition-objectRecognition2.jpg" width="254"><img src="images/StringCondition-speech2text.jpg" width="254"><img src="images/StringCondition-keydown.jpg" width="254">
 
 ### Creating Trigger Conditions
-The trigger conditions determine which node will run next. If the condition is met, the node connected (from the green dot) to that condition will run. Multiple conditions are possible, and more than one can trigger at the same time.
+The trigger conditions determine which node(s) will run next. If the condition is met, the node connected (from the green dot) to that condition will run. Multiple conditions are possible, and more than one can trigger at the same time.
 
 * **Add** - To add a condition, click on the "+" button
 * **Reorder** - Drag the "=" symbol to reorder them
