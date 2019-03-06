@@ -5,6 +5,7 @@
 * [Toolkit Basics](toolkit-basics.md)
 
 ### Nodes
+* [Action](action.md) - Perform actions in a timed sequence
 * [Conditions](conditions.md) - Make decisions based on text or numeric input
 
 ### Hardware
