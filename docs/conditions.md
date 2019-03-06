@@ -4,10 +4,19 @@ The condition nodes (String/Text and Float/Numbers) wait for conditions to be me
 
 For example, if a sensor on the robot is reading distance, a condition can be set up to pass control to an action node that turns the robot when the distance indicates the robot is close to an object in front of it. If the robot is far enough away, another condition trigger can connect to a node the moves the robot straight forward.
 
-Note that the interface for these nodes is still rough, and we hope to make them easier to use in the near future. 
-
+Note that the interface for these nodes is still rough, and we hope to make them easier to use in the near future.
+_______________
+<!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
+- [String Condition Node](#string-condition-node)
+  - [Setting the input data source](#setting-the-input-data-source)
+  - [Creating Trigger Conditions](#creating-trigger-conditions)
+  - [Four kinds of conditions](#four-kinds-of-conditions)
+  - [The ! Not Checkbox](#the--not-checkbox)
+- [Number Condition Node](#number-condition-node)
+<!-- TOC END -->
+________________
 ## String Condition Node
-
+<img src="images/StringCondition-objectRecognition2.jpg" width="254">
 ### Setting the input data source
 There are several things you need to set for the node receive the data it will evaluate
 * **Robot ID** - The robot you are listening to (e.g. Ding 1)
@@ -39,3 +48,5 @@ The trigger conditions determine which node(s) will run next. If the trigger con
 
 ### The ! Not Checkbox
 The ! checkbox will invert the condition you set up. So for example, if the condition is `Starts With` and text of `car` with the `! checkbox` checked then any incoming text that does NOT start with "car" will trigger that condition and corresponding connected node.
+
+## Number Condition Node

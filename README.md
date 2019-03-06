@@ -1,11 +1,26 @@
 # Delft AI Toolkit
-## Visual Authoring Toolkit for Smart Things
+# Visual Authoring Toolkit for AI Smart Things
 
 **As of early March 2019, this version is a stable release. Of course, many improvements are planned, some things are still rough, and documentation is still in progress**
 
 This system uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
-### Description
+<!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
+- [Description](#description)
+- [Documents](#documents)
+- [System Components](#system-components)
+- [Current Features](#current-features)
+- [Roadmap](#roadmap)
+- [System Architecture](#system-architecture)
+  - [Hardware](#hardware)
+  - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
+- [Getting Started](#getting-started)
+  - [Starting the System Up](#starting-the-system-up)
+  - [Robot Command Line Essentials](#robot-command-line-essentials)
+  - [Installing The software](#installing-the-software)
+<!-- TOC END -->
+
+## Description
 
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
@@ -13,12 +28,12 @@ The Delft AI Toolkit a system for designing smart things. It provides a visual a
 
 The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
-### Documents
+## Documents
 * [Toolkit Documentation](docs/README.md)
 * [ACM Interactions Article on Project](http://interactions.acm.org/archive/view/november-december-2018/prototyping-ways-of-prototyping-ai)
 * [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
-### System Components
+## System Components
 * Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
 * Robot/Device
@@ -27,13 +42,13 @@ The goal of this project is to develop an approach to authoring AI that enables 
 
 Each of these has a codebase, and includes a range of libraries. **We are using and helping create an improved version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
 
-### Current Features
+## Current Features
 * **Action Types** - speak, listen, object recognize, servos, movement, leds, sensor input
 * **Action Options** - repeat, random
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
 
-### Roadmap
+## Roadmap
 
 * More video and written documentation
 * More and simpler hardware configurations
@@ -44,7 +59,7 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
 
-### System Architecture
+## System Architecture
 ![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
 
 ### Hardware
@@ -56,11 +71,13 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 <img src="docs/images/robot3.jpg" width="512">
 
-## Raspberry Pi Disk Image
+### Raspberry Pi Disk Image
 * Download the [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
 * Disk Image [Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
 
-## Starting the System Up
+## Getting Started
+
+### Starting the System Up
 1. **Power the Robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
      * **Motors**: Turn on the 6V AA battery pack (you can leave this off to disable the servos and wheel motors, or to save the batteries. The robot will work fine other than the motors)
      * **Arduino** Powered by the USB cable from the RPi
@@ -129,7 +146,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
 
 
-## Robot Command Line Essentials ##
+### Robot Command Line Essentials
 
 ```bash
 # login to the RPi via ethernet
@@ -146,7 +163,7 @@ python3 delft_toolkit.py --server_ip 10.4.18.109
 sudo poweroff
 ```
 
-## Installing The software
+### Installing The software
 
 1. **Install [Unity3D](https://store.unity.com)**
 1. **Download the toolkit software** and place on your computer. This includes the Unity project, RPi code, and Arduino code from [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2). **NOTE**: Because we use xNode as a submodule (i.e. we get the code from the original repo), a simple download or clone will leave the xNode code out and the directory for xNode will be empty: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode

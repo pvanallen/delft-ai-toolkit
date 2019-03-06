@@ -5,6 +5,14 @@ The action node performs a sequence of actions from top to bottom, where each ac
 The actions are communicated to all virtual or physical device with the specified name (e.g. Ding 1). In a typical situation, this means that the virtual representation of the AI system inside of Unity, and the physical device driven by the Raspberry Pi will respond simultaneously.
 
 Currently, only the physical device will respond to the "Speak" and "Listen" actions, but a future release will enable the virtual system to do this as well.
+_________________
+<!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
+- [Creating Actions](#creating-actions)
+- [Repeats](#repeats)
+- [Random](#random)
+- [Actions](#actions)
+<!-- TOC END -->
+_________________
 
 <img src="images/ActionNode.jpg" width="271">
 
@@ -55,4 +63,4 @@ Note that this is a standard random function currently, so it is possible for th
   * *Utterance* - The text to be spoken
 * **Listen** - Causes the device to listen to a microphone and transcribe what it hears to text
   * *Mode* - Not yet implemented.
-  * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting 
+  * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
