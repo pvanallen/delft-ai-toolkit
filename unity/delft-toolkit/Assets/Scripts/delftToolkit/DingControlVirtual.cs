@@ -109,7 +109,6 @@ public class DingControlVirtual : DingControlBase {
     			audio.PlayOneShot ((AudioClip)Resources.Load ("ui_sounds/" + action.playSoundParams.type));
 				break;
 			case AiGlobals.ActionTypes.recognize:
-				print("recognize");
 				recognize = true;
 				break;
 			default:
