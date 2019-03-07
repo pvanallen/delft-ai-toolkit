@@ -41,6 +41,28 @@ namespace DelftToolkit {
             }
         }
 
+        private static GUIStyle _commentNodeBody;
+        public static GUIStyle commentNodeBody {
+            get {
+                if (_commentNodeBody == null) {
+                    _commentNodeBody = new GUIStyle(NodeEditorResources.styles.nodeBody);
+                    _commentNodeBody.normal.background = Resources.Load<Texture2D>("delftnode_comment");
+                }
+                return _commentNodeBody;
+            }
+        }
+
+        private static GUIStyle _commentTextArea;
+        public static GUIStyle commentTextArea {
+            get {
+                if (_commentTextArea == null) {
+                    _commentTextArea = new GUIStyle(EditorStyles.textArea);
+                    _commentTextArea.normal.background = null;
+                }
+                return _commentTextArea;
+            }
+        }
+
         private static GUIStyle _labelNoHighlight;
         public static GUIStyle labelNoHighlight {
             get {
