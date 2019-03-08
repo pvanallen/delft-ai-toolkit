@@ -11,8 +11,20 @@ namespace DelftToolkit {
 		private Comment node { get { return _node != null ? _node : _node = target as Comment; } }
 		private Comment _node;
 
+		private GUIStyle headerStyle {
+			get {
+				if (_headerStyle == null) {
+					_headerStyle = new GUIStyle(NodeEditorResources.styles.nodeHeader);
+					_headerStyle.normal.textColor = Color.black;
+					_headerStyle.alignment = TextAnchor.MiddleLeft;
+				}
+				return _headerStyle;
+			}
+		}
+		private GUIStyle _headerStyle;
+
 		public override void OnHeaderGUI() {
-			GUILayout.Space(30);
+			GUILayout.Label(target.name, headerStyle, GUILayout.Height(30));
 		}
 
 		public override void OnBodyGUI() {
