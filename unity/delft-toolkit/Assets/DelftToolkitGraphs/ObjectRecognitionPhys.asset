@@ -37,7 +37,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: 168}
+  position: {x: 824, y: 184}
   ports:
     keys:
     - actions
@@ -45,6 +45,7 @@ MonoBehaviour:
     - enter
     - exit
     - actions 0
+    - actions 1
     values:
     - _fieldName: actions
       _node: {fileID: 114149277457162586}
@@ -93,6 +94,14 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 1
       _dynamic: 1
+    - _fieldName: actions 1
+      _node: {fileID: 114149277457162586}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
   actions:
   - actionType: 6
     moveParams:
@@ -104,6 +113,50 @@ MonoBehaviour:
       type: 0
       time: 0
       ledNum: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: is that a screwdriver?
+    listenParams:
+      type: 0
+      duration: 1
+    recognizeParams:
+      type: 0
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 24
+      time: 0.5
+  - actionType: 2
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
       color:
         serializedVersion: 2
         rgba: 4278222719
@@ -645,7 +698,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: no transcription
+  _value: 'recognize '
 --- !u!114 &114376299329961632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +711,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: 376}
+  position: {x: 824, y: 424}
   ports:
     keys:
     - actions
@@ -829,7 +882,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: -40}
+  position: {x: 824, y: -56}
   ports:
     keys:
     - actions
@@ -837,6 +890,7 @@ MonoBehaviour:
     - enter
     - exit
     - actions 0
+    - actions 1
     values:
     - _fieldName: actions
       _node: {fileID: 114474645790050000}
@@ -885,7 +939,59 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 1
       _dynamic: 1
+    - _fieldName: actions 1
+      _node: {fileID: 114474645790050000}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
   actions:
+  - actionType: 2
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Looks like a car
+    listenParams:
+      type: 0
+      duration: 1
+    recognizeParams:
+      type: 0
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 24
+      time: 0.5
   - actionType: 6
     moveParams:
       type: 0
@@ -957,6 +1063,7 @@ MonoBehaviour:
     - actions 0
     - actions 1
     - actions 2
+    - actions 3
     values:
     - _fieldName: actions
       _node: {fileID: 114729460210787630}
@@ -1021,7 +1128,59 @@ MonoBehaviour:
       _direction: 0
       _connectionType: 1
       _dynamic: 1
+    - _fieldName: actions 3
+      _node: {fileID: 114729460210787630}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 1
   actions:
+  - actionType: 2
+    moveParams:
+      type: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 60
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 2
+      utterance: Hi, how are you?
+    listenParams:
+      type: 0
+      duration: 1
+    recognizeParams:
+      type: 0
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 24
+      time: 0.5
   - actionType: 1
     moveParams:
       type: 0
@@ -1533,7 +1692,8 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: no object
+  _value: 'projector: 0.29445\spotlight: 0.24264\bannister: 0.08456\cinema: 0.03034\planetarium:
+    0.02788'
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
