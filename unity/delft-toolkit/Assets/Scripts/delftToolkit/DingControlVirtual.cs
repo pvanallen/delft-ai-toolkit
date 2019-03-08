@@ -49,8 +49,8 @@ public class DingControlVirtual : DingControlBase {
 
 		// OSC
 		if (MarionetteIPAddr != "127.0.0.1") {
-			serverClientID = OSC_SERVER_CLIENT + MarionetteIPAddr;
-			OSCHandler.Instance.Init(OSC_SERVER_CLIENT, MarionetteIPAddr, OutgoingPort, IncomingPort);
+			serverClientID = OSC_SERVER_CLIENT + MarionetteIPAddr + IncomingPort;
+			OSCHandler.Instance.Init(serverClientID, MarionetteIPAddr, OutgoingPort, IncomingPort);
 			servers = new Dictionary<string, ServerLog>();
 			clients = new Dictionary<string, ClientLog>();
 			OSCInit = true;
@@ -216,7 +216,7 @@ public class DingControlVirtual : DingControlBase {
 			foreach (KeyValuePair<string, ServerLog> item in servers) {
 				//print(item.Value.packets.Count);
 				// get the most recent NEW OSC message received
-				if (OSC_SERVER_CLIENT == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
+				if (serverClientID == item.Key && item.Value.packets.Count > 0 && item.Value.packets[item.Value.packets.Count - 1].TimeStamp != lastOscMessageIn) {
 					
 					// count back until we find the matching timestamp
 					int lastMsgIndex = item.Value.packets.Count - 1;
