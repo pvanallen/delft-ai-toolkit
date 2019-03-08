@@ -299,11 +299,6 @@ Prefab:
       propertyPath: m_Name
       value: ding1
       objectReference: {fileID: 0}
-    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
-        type: 2}
-      propertyPath: RobotIPAddr
-      value: 192.168.1.26
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
   m_IsPrefabAsset: 0

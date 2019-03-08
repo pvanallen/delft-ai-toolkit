@@ -745,7 +745,7 @@ MonoBehaviour:
     ledParams:
       type: 0
       time: 0
-      ledNum: 0
+      ledNum: -1
       color:
         serializedVersion: 2
         rgba: 4280234942
@@ -877,7 +877,7 @@ MonoBehaviour:
     ledParams:
       type: 0
       time: 0
-      ledNum: 0
+      ledNum: -1
       color:
         serializedVersion: 2
         rgba: 4278222605

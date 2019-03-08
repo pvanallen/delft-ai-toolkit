@@ -45,7 +45,7 @@ namespace DelftToolkit {
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
 
 			// Actions list
-			NodeEditorGUILayout.InstancePortList("actions", typeof(Action), serializedObject, NodePort.IO.Input, Node.ConnectionType.Override, OnCreateReorderableList);
+			NodeEditorGUILayout.InstancePortList("actions", typeof(Action), serializedObject, NodePort.IO.Input, Node.ConnectionType.Override, Node.TypeConstraint.Strict, OnCreateReorderableList);
 			serializedObject.ApplyModifiedProperties();
 			serializedObject.Update();
 

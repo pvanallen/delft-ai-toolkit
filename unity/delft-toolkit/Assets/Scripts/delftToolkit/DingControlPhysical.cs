@@ -28,8 +28,8 @@ public class DingControlPhysical : DingControlBase {
 	void Awake() {
 		// using awake so that it happens before oscCentral initializes in Start()
 		if (RobotIPAddr != "127.0.0.1") {
-			serverClientID = OSC_SERVER_CLIENT + RobotIPAddr;
-			OSCHandler.Instance.Init(OSC_SERVER_CLIENT, RobotIPAddr, OutgoingPort, IncomingPort);
+			serverClientID = OSC_SERVER_CLIENT + RobotIPAddr + IncomingPort;
+			OSCHandler.Instance.Init(serverClientID, RobotIPAddr, OutgoingPort, IncomingPort);
 			servers = new Dictionary<string, ServerLog>();
 			clients = new Dictionary<string, ClientLog>();
 			OSCInit = true;
@@ -166,7 +166,7 @@ public class DingControlPhysical : DingControlBase {
 				break;
 		}
 		if (oscValues != null && OSCInit) {
-			OSCHandler.Instance.SendMessageToClient(OSC_SERVER_CLIENT, oscString, oscValues);
+			OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
 		}
 	}
 
