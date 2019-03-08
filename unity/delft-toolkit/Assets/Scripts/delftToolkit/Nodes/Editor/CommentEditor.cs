@@ -29,7 +29,8 @@ namespace DelftToolkit {
 
 		public override void OnBodyGUI() {
 			serializedObject.Update();
-			serializedObject.FindProperty("text").stringValue = EditorGUILayout.TextArea(serializedObject.FindProperty("text").stringValue, DelftStyles.commentTextArea, GUILayout.MinHeight(60));
+			Rect size = GUILayoutUtility.GetRect(new GUIContent(node.text), DelftStyles.commentTextArea);
+			serializedObject.FindProperty("text").stringValue = EditorGUI.TextArea(size, serializedObject.FindProperty("text").stringValue, DelftStyles.commentTextArea/*, GUILayout.Height(size.y)*/);
 			serializedObject.ApplyModifiedProperties();
 		}
 
