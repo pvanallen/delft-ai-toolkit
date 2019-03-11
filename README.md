@@ -73,7 +73,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 ### Raspberry Pi Disk Image
 * Download the [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
-* Disk Image [Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
+* [Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
 
 ## Getting Started
 
@@ -166,14 +166,19 @@ sudo poweroff
 ### Installing The software
 
 1. **Install [Unity3D](https://store.unity.com)**
-1. **Download the toolkit software** and place on your computer. This includes the Unity project, RPi code, and Arduino code from [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2). **NOTE**: Because we use xNode as a submodule (i.e. we get the code from the original repo), a simple download or clone will leave the xNode code out and the directory for xNode will be empty: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
-     <br>There are two solutions for this:
-     * **Clone** - Use the following command to clone the repo with the submodule included:
-     <pre>git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git</pre>
-     * **Download** - After you download the toolkit from our site with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
-   * Disk image for [RPi]() - NEW VERSION NOT YET AVAILABLE
+1. **Download the toolkit software** and place on your computer. This includes the Unity project, RPi code, and Arduino code from [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2). **NOTE**: Because we use xNode as a submodule (i.e. we get the code from the original xNode repo), a simple download or git clone will leave the xNode code out and the directory for xNode will be empty: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+     <br>There are several solutions for this:
+     * **Download a Release** - At significant version points, we will upload a complete version as a release that include the appropriate version of xNode. [Releases are available here](https://github.com/pvanallen/delft-toolkit-v2/releases).
+     * **Git Clone From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
+     ```bash
+     git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git
+     ```
+     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+  * Disk image for [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
 1. **Arduino**:
-   * Install delftToolkit.ino on your Arduino with the Arduino IDE
+   * Install delftToolkit.ino on your Arduino with the Arduino IDE (you may need to add some libraries, e.g. the [Adafruit Motor Shield V2 Library](https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/install-software))
 1. **RPi**: Burn the RPi image to your SD card
-   * [Set up your WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) with `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
-   * Change the hostname from the default of delftbt0 (e.g. delftbt1, delftbt2, etc.) if you are using more than one robot on your network
+  * Download [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)  
+  * Burn this image to a 16GB micro SD card ([more info](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image))
+  * [Set up your WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) with `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
+   * If you are using more than one robot on your network, change the RPi hostname from the default of delftbt1 (e.g. delftbt2, delftbt3, etc.) if you are using more than one robot on your network
