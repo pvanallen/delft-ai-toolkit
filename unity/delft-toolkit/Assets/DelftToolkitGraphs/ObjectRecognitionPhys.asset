@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 114943807250311866}
   - {fileID: 114258925689134974}
   - {fileID: 114983409799500198}
+  - {fileID: 114529728970958718}
 --- !u!114 &114149277457162586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +56,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114149277457162586}
@@ -63,6 +65,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114149277457162586}
@@ -74,6 +77,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114149277457162586}
@@ -85,6 +89,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114149277457162586}
@@ -93,6 +98,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114149277457162586}
@@ -101,6 +107,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 6
@@ -224,6 +231,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114206098733442228}
@@ -232,6 +240,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114258925689134974
 MonoBehaviour:
@@ -261,6 +270,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114258925689134974}
@@ -269,6 +279,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114270789225271516
 MonoBehaviour:
@@ -282,7 +293,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -520, y: -104}
+  position: {x: -536, y: 88}
   ports:
     keys:
     - enter
@@ -295,6 +306,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114270789225271516}
@@ -306,6 +318,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114310754902303238
 MonoBehaviour:
@@ -319,7 +332,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -392, y: -104}
+  position: {x: -408, y: 88}
   ports:
     keys:
     - actions
@@ -339,6 +352,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114310754902303238}
@@ -347,6 +361,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114310754902303238}
@@ -358,6 +373,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114310754902303238}
@@ -369,6 +385,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114310754902303238}
@@ -378,6 +395,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114310754902303238}
@@ -387,6 +405,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114310754902303238}
@@ -395,6 +414,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114310754902303238}
@@ -403,6 +423,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 1
@@ -598,7 +619,7 @@ MonoBehaviour:
   m_Name: Speech to Text
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: -104}
+  position: {x: -120, y: 88}
   ports:
     keys:
     - valueOut
@@ -616,6 +637,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114372309242171624}
@@ -627,6 +649,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114372309242171624}
@@ -635,6 +658,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: conditions 0
       _node: {fileID: 114372309242171624}
@@ -646,6 +670,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: conditions 1
       _node: {fileID: 114372309242171624}
@@ -657,6 +682,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: conditions 2
       _node: {fileID: 114372309242171624}
@@ -668,6 +694,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: conditions 3
       _node: {fileID: 114372309242171624}
@@ -679,6 +706,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
   filter:
     device: 0
@@ -729,6 +757,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114376299329961632}
@@ -737,6 +766,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114376299329961632}
@@ -748,6 +778,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114376299329961632}
@@ -759,6 +790,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114376299329961632}
@@ -767,6 +799,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114376299329961632}
@@ -775,6 +808,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 2
@@ -789,7 +823,7 @@ MonoBehaviour:
       ledNum: -1
       color:
         serializedVersion: 2
-        rgba: 4279048957
+        rgba: 4278190333
     delayParams:
       type: 0
       time: 1
@@ -900,6 +934,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114474645790050000}
@@ -908,6 +943,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114474645790050000}
@@ -919,6 +955,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114474645790050000}
@@ -930,6 +967,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114474645790050000}
@@ -938,6 +976,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114474645790050000}
@@ -946,6 +985,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 2
@@ -1041,6 +1081,29 @@ MonoBehaviour:
   device: 0
   expanded: 1
   valueIn: 
+--- !u!114 &114529728970958718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
+  m_Name: Physical Object Recognition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -536, y: -184}
+  ports:
+    keys: []
+    values: []
+  text: 'Demonstrates using camera based object recognition on the physical robot.
+    Asks the user for a command, and if they say "hello", simply says hello back.
+    If the user says "recognition" the system will point the camera slightly down,
+    take a picture, and run the chosen recognition model on the image.
+
+
+    Based on the recognition, the sysrtem reacts, and starts over.'
 --- !u!114 &114729460210787630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1136,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114729460210787630}
@@ -1081,6 +1145,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114729460210787630}
@@ -1092,6 +1157,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114729460210787630}
@@ -1103,6 +1169,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114729460210787630}
@@ -1111,6 +1178,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114729460210787630}
@@ -1119,6 +1187,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114729460210787630}
@@ -1127,6 +1196,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114729460210787630}
@@ -1135,6 +1205,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 2
@@ -1350,6 +1421,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114783945668664478}
@@ -1358,6 +1430,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114783945668664478}
@@ -1369,6 +1442,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114783945668664478}
@@ -1380,6 +1454,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114783945668664478}
@@ -1388,6 +1463,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114783945668664478}
@@ -1396,6 +1472,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114783945668664478}
@@ -1404,6 +1481,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114783945668664478}
@@ -1412,6 +1490,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 1
@@ -1624,6 +1703,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114791146802443312}
@@ -1635,6 +1715,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114791146802443312}
@@ -1643,6 +1724,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: conditions 0
       _node: {fileID: 114791146802443312}
@@ -1654,6 +1736,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: conditions 1
       _node: {fileID: 114791146802443312}
@@ -1665,6 +1748,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: conditions 2
       _node: {fileID: 114791146802443312}
@@ -1676,6 +1760,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
   filter:
     device: 0
@@ -1692,8 +1777,8 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: 'projector: 0.29445\spotlight: 0.24264\bannister: 0.08456\cinema: 0.03034\planetarium:
-    0.02788'
+  _value: 'window shade: 0.28603\lampshade: 0.05021\bannister: 0.03879\spotlight:
+    0.03698\crate: 0.02960'
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,6 +1808,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114943807250311866}
@@ -1731,6 +1817,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114943807250311866}
@@ -1745,6 +1832,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114943807250311866}
@@ -1756,6 +1844,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114943807250311866}
@@ -1764,6 +1853,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
   actions:
   - actionType: 6
@@ -1849,6 +1939,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114983409799500198}
@@ -1857,4 +1948,5 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0

@@ -43,6 +43,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114215755815855588}
@@ -54,6 +55,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114215755815855588}
@@ -62,6 +64,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
   message: SubGraph ended
 --- !u!114 &114267577464123548
@@ -76,7 +79,7 @@ MonoBehaviour:
   m_Name: Exit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 360, y: -8}
+  position: {x: 136, y: -8}
   ports:
     keys:
     - enter
@@ -92,6 +95,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114267577464123548}
@@ -100,6 +104,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114284219324733470
 MonoBehaviour:
@@ -121,6 +126,8 @@ MonoBehaviour:
     - enter
     - exit
     - actions 0
+    - actions 1
+    - actions 2
     values:
     - _fieldName: actions
       _node: {fileID: 114284219324733470}
@@ -130,6 +137,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114284219324733470}
@@ -138,6 +146,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114284219324733470}
@@ -149,6 +158,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114284219324733470}
@@ -163,6 +173,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114284219324733470}
@@ -172,8 +183,71 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: actions 1
+      _node: {fileID: 114284219324733470}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: actions 2
+      _node: {fileID: 114284219324733470}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 1
   actions:
+  - actionType: 2
+    moveParams:
+      type: 1
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 18
+      time: 0.5
   - actionType: 0
     moveParams:
       type: 1
@@ -187,6 +261,50 @@ MonoBehaviour:
       color:
         serializedVersion: 2
         rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 20
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+    listenParams:
+      type: 0
+      duration: 3
+    recognizeParams:
+      type: 1
+      model: 0
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 18
+      time: 0.5
+  - actionType: 2
+    moveParams:
+      type: 1
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 1
+      ledNum: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278190719
     delayParams:
       type: 0
       time: 1
@@ -248,6 +366,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114643210153194924}
@@ -262,6 +381,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114818718541239458
 MonoBehaviour:
@@ -289,6 +409,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114818718541239458}
@@ -300,6 +421,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114818718541239458}
@@ -308,5 +430,6 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
   message: SubGraph started
