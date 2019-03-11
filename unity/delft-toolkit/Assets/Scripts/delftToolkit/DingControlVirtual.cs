@@ -239,13 +239,14 @@ public class DingControlVirtual : DingControlBase {
 							float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
 							float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
 							float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
-							address = "/vec" + address + "/";
+							address = "/num" + address + "/";
 							print(OSC_SERVER_CLIENT + ": " + address + " " + value0 + " " + value1 + " " + value2);
 							if (DelftToolkit.DingSignal.onSignalEvent != null) {
-								DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, address, new Vector3(value0, value1, value2)));
+								DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, address, value0);
+								DelftToolkit.DingSignal.onSignalEvent(signal);
+								//DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, address, new Vector3(value0, value1, value2)));
 							}
 						} 
-						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
 						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
 					}
 				}

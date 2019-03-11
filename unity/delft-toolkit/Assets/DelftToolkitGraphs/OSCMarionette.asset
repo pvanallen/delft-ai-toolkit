@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114377228326472098}
   - {fileID: 114025086956921662}
   - {fileID: 114394093139064816}
+  - {fileID: 114759910912715250}
 --- !u!114 &114023052582696596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +46,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114023052582696596}
@@ -56,6 +58,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114023052582696596}
@@ -64,6 +67,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: conditions 0
       _node: {fileID: 114023052582696596}
@@ -75,11 +79,12 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
   filter:
     device: 0
     source: 0
-    messageFilter: /vec/1/push1/:x
+    messageFilter: /num/1/push1/
   conditions:
   - compareType: 0
     floatValA: 0
@@ -99,7 +104,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -536, y: -152}
+  position: {x: -600, y: -88}
   ports:
     keys:
     - enter
@@ -112,6 +117,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114025086956921662}
@@ -126,6 +132,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114377228326472098
 MonoBehaviour:
@@ -139,7 +146,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: 24}
+  position: {x: -40, y: 8}
   ports:
     keys:
     - actions
@@ -148,6 +155,7 @@ MonoBehaviour:
     - exit
     - actions 0
     - actions 1
+    - actions 2
     values:
     - _fieldName: actions
       _node: {fileID: 114377228326472098}
@@ -157,6 +165,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114377228326472098}
@@ -165,6 +174,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114377228326472098}
@@ -176,6 +186,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114377228326472098}
@@ -187,6 +198,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114377228326472098}
@@ -195,6 +207,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114377228326472098}
@@ -203,6 +216,16 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: actions 2
+      _node: {fileID: 114377228326472098}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 1
   actions:
   - actionType: 2
@@ -253,6 +276,50 @@ MonoBehaviour:
     moveParams:
       type: 1
       time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 0.5
+      utterance: Goodbye
+    listenParams:
+      type: 0
+      duration: 1
+    recognizeParams:
+      type: 0
+      model: 2
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 18
+      time: 0.5
+  - actionType: 0
+    moveParams:
+      type: 2
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -329,6 +396,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114394093139064816}
@@ -337,6 +405,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114546314532891356
 MonoBehaviour:
@@ -365,6 +434,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114546314532891356}
@@ -376,6 +446,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114546314532891356}
@@ -384,6 +455,7 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: conditions 0
       _node: {fileID: 114546314532891356}
@@ -395,11 +467,12 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 1
   filter:
     device: 0
     source: 0
-    messageFilter: /vec/1/push2/:x
+    messageFilter: /num/1/push2/
   conditions:
   - compareType: 0
     floatValA: 0
@@ -428,6 +501,7 @@ MonoBehaviour:
     - exit
     - actions 0
     - actions 1
+    - actions 2
     values:
     - _fieldName: actions
       _node: {fileID: 114717817919225364}
@@ -437,6 +511,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: valueIn
       _node: {fileID: 114717817919225364}
@@ -445,6 +520,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enter
       _node: {fileID: 114717817919225364}
@@ -456,6 +532,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114717817919225364}
@@ -467,6 +544,7 @@ MonoBehaviour:
         reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114717817919225364}
@@ -475,6 +553,7 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114717817919225364}
@@ -483,12 +562,66 @@ MonoBehaviour:
       connections: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: actions 2
+      _node: {fileID: 114717817919225364}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 1
   actions:
   - actionType: 2
     moveParams:
       type: 1
       time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello
+    listenParams:
+      type: 0
+      duration: 1
+    recognizeParams:
+      type: 0
+      model: 2
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 18
+      time: 0.5
+  - actionType: 0
+    moveParams:
+      type: 1
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -558,7 +691,7 @@ MonoBehaviour:
       easing: 3
     speakParams:
       type: 0
-      time: 1
+      time: 0.5
       utterance: Hello
     listenParams:
       type: 0
@@ -578,3 +711,21 @@ MonoBehaviour:
   device: 0
   expanded: 1
   valueIn: 
+--- !u!114 &114759910912715250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
+  m_Name: Using OSC
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648, y: -280}
+  ports:
+    keys: []
+    values: []
+  text: 'Uses OSC from the TouchOSC app to trigger simple behaviors in the robot.
+    Works with TouchOSC push buttons sending /1/push1 and /1/push2. '
