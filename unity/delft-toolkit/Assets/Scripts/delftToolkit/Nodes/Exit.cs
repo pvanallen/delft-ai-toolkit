@@ -11,6 +11,7 @@ namespace DelftToolkit {
 			StateGraph stateGraph = graph as StateGraph;
 			if (stateGraph != null) stateGraph.Exit();
 			else Debug.LogWarning("Graph isn't a Delft StateGraph");
+			Exit();
 		}
 
 		protected override void OnExit() {
