@@ -24,6 +24,7 @@ const short EV_MOVE = 0;
 const short EV_LEDS = 1;
 const short EV_DELAY = 2;
 const short EV_ANALOGIN = 3;
+const short EV_SERVO = 4;
 
 // types
 const short TY_STOP = 0;
@@ -36,6 +37,8 @@ const short TY_BLINK = 6;
 const short TY_ALLOFF = 7;
 const short TY_PAUSE = 8;
 const short TY_START = 9;
+const short TY_IMMEDIATE = 10; // servo
+const short TY_VARSPEED = 11; // servo
 
 // easing
 const short EA_NONE = 0;
@@ -58,6 +61,10 @@ short easing = EA_NONE;
 short colorR = 127;
 short colorG = 127;
 short colorB = 127;
+short angle = 90;
+short port = 9;
+short varspeed = 0;
+
 
 // NeoPixel setup
 //
@@ -99,7 +106,14 @@ Adafruit_DCMotor *L_MOTOR = AFMS.getMotor(1);
 Adafruit_DCMotor *R_MOTOR = AFMS.getMotor(2);
 
 // Setup Servos
-Servo servo1;
+Servo tilt;
+Servo pan;
+
+//const SERVOLOW = 1000;
+//const SERVOHIGH = 2000;
+//
+//int servo1Target = 1000;
+//int servo2Target = 1000;
 
 void setup() {
   Serial.begin(115200);
@@ -120,36 +134,52 @@ void setup() {
   R_MOTOR->run(RELEASE);
 
   // Attach servo
-  servo1.attach(9);
+  tilt.attach(9);
+  pan.attach(10);
 
   // Setup the neopixel
   pixel.begin();
   pixel.setBrightness(127); //medium brightness
   pixel.show();
 
-  startBlinkLeds(100,4,127,0,0);
+  tilt.write(60);
+  startBlinkLeds(100,10,127,0,0);
+  delay(300);
+  pan.write(35);
+  delay(300);
+  pan.write(120);
+  delay(300);
+  pan.write(90);
+  delay(300);
+  tilt.write(120);
+  
 }
 
 void loop() {
   if (eventReady) {
-    Serial.print("event: ");
-    Serial.print(event);
-    Serial.print('\n');
+//    Serial.print("event: ");
+//    Serial.print(event);
+//    Serial.print('\n');
     eventReady = false;
   }
   // run TaskScheduler
   runner.execute();
-  //delay(10);
+  //delay(2);
 }
 
 void serialEvent() {
-  Serial.println("got serial");
+  //Serial.println("got serial");
   int interval = 20;
   int port = 0;
   if (Serial.available()) {
     // get the event and type
     event = Serial.parseInt();
     type = Serial.parseInt();
+
+//    Serial.print("event: ");
+//    Serial.print(event);
+//    Serial.print(" type: ");
+//    Serial.println(type);
     
     switch (event) {
       case EV_MOVE:
@@ -210,11 +240,30 @@ void serialEvent() {
       case EV_ANALOGIN:
         interval = Serial.parseInt();
         port = Serial.parseInt();
-        Serial.print(event);Serial.print(type);Serial.print(interval);Serial.println(port);
+        //Serial.print(event);Serial.print(type);Serial.print(interval);Serial.println(port);
         if (type == TY_START) {
           switchSensors(true,interval,port);
-        } else {
+        } else { // stop them
           switchSensors(false,interval,port);
+        }
+        break;
+      case EV_SERVO:
+        angle = Serial.parseInt();
+        port = Serial.parseInt();
+        varspeed = Serial.parseInt();
+        easing = Serial.parseInt();
+//        Serial.print(" angle: ");
+//        Serial.print(angle);
+//        Serial.print(" port: ");
+//        Serial.println(port);
+        if (type == TY_IMMEDIATE) {
+          if (port == 9) {
+            tilt.write(angle);
+          } else if (port == 10) {
+            pan.write(angle);
+          }
+        } else {
+          // varSpeedServo code using move_rate & easing
         }
         break;
       default:
