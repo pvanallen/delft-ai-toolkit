@@ -99,6 +99,11 @@ public class AiGlobals : MonoBehaviour {
 	}
 
 	public enum UISoundFiles {
+		UserSound1,
+		UserSound2,
+		UserSound3,
+		UserSound4,
+		UserSound5,
 		BasicClickWooden,
 		BeepSpaceButton,
 		BlipPop,

@@ -1489,7 +1489,7 @@ MonoBehaviour:
       time: 1
       text: Hello
     playSoundParams:
-      type: 18
+      type: 23
       time: 0.1
   - actionType: 0
     moveParams:
