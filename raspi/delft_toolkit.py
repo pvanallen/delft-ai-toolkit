@@ -185,8 +185,10 @@ def main(_):
         # messages are in pseudo OSC format
         line = ser.readline().decode("utf-8")
         vals = line.split(' ')
-        if vals[0] == "/num/analogIn/0/":
-          builder = osc_message_builder.OscMessageBuilder(address="/num/analogin/0/")
+        if vals[0].startswith('/num/analogin/'):
+          # messages come in the form /num/analogIn/0/ 0 0 0 - where the last number in the url is the port
+          #print ("Arduino message:" + line)
+          builder = osc_message_builder.OscMessageBuilder(address=vals[0])
           builder.add_arg(float(vals[1]))
           builder.add_arg(float(vals[2]))
           builder.add_arg(float(vals[3]))
@@ -264,6 +266,8 @@ if __name__ == '__main__':
   # picture_ready = False
   # picture_being_taken = False
 
+  # turn off all analog ports
+  analogin_cb("/analogin/", "stop", 50, -1)
   # use thread to handle incoming OSC messages from Unity
   osc_thread = Thread(target=osc_loop,args=())
   osc_thread.start() # run in background as a thread

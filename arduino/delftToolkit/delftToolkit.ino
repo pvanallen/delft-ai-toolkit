@@ -92,7 +92,9 @@ Task tBlinkLeds(250, 5, &blinkLeds);
 
 Scheduler runner;
 
-int analogPort = 0;
+//int analogPort = 0;
+short analogPorts[] = {0,0,0,0,0,0};
+byte analogPortPins[] = {A0,A1,A2,A3,A4,A5};
 bool blinkState = false;
 int blinkR = 60;
 int blinkG = 0;
@@ -242,9 +244,11 @@ void serialEvent() {
         port = Serial.parseInt();
         //Serial.print(event);Serial.print(type);Serial.print(interval);Serial.println(port);
         if (type == TY_START) {
-          switchSensors(true,interval,port);
-        } else { // stop them
-          switchSensors(false,interval,port);
+          configureSensors(true,interval,port);
+        } else if (type == TY_STOP) { // stop this sensor
+          configureSensors(false,interval,port);
+        } else {
+          configureSensors(false,interval,-1);
         }
         break;
       case EV_SERVO:
@@ -311,22 +315,43 @@ void startBlinkLeds(int ms, int blinks, int r, int g, int b) {
 }
 
 void transmitSensors() {
-  int value = analogRead(analogPort);
-  Serial.print("/num/analogIn/");
-  Serial.print(analogPort);
-  Serial.print("/ ");
-  Serial.print(value);
-  Serial.print(" 0 0\n");
+  int value = 0;
+  for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+    if (analogPorts[i] == 1) {
+      value = analogRead(analogPortPins[i]);
+      Serial.print("/num/analogin/");
+      Serial.print(i);
+      Serial.print("/ ");
+      Serial.print(value);
+      Serial.print(" 0 0\n");
+    }
+    delay(5);
+  }
 }
 
-void switchSensors(bool start, int interval, int port) {
+void configureSensors(bool start, int interval, int port) {
   if (start) {
     tTransmitSensors.setInterval(interval);
     tTransmitSensors.setIterations(TASK_FOREVER);
-    analogPort = port;
+    analogPorts[port] = 1;
     tTransmitSensors.restart();
   } else {
-    tTransmitSensors.disable();
+    bool portsInUse = false;
+    if (port < 0) { // shut all ports off
+      for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+        analogPorts[i] = 0;
+      }
+    } else { // stop this port
+      analogPorts[port] = 0;
+      for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+        if (analogPorts[i] == 1) {
+          portsInUse = true;
+        }
+      }
+    }
+    if (!portsInUse) {
+      tTransmitSensors.disable();
+    }
   }
 }
 
