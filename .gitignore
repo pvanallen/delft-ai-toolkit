@@ -7,8 +7,6 @@ node_modules/
 # python/ai stuff
 /raspi/google-credentials.json
 /raspi/models/
-/raspi/labels/
-/raspi/audio/
 *.caffemodel
 *.prototxt
 .remote-sync.json

@@ -1,0 +1,1000 @@
+n00001740	that which is perceived or known or inferred to have its own distinct existence (living or nonliving)
+n00001930	an entity that has physical existence
+n00002137	a general concept formed by extracting common features from specific examples
+n00002452	a separate and self-contained entity
+n00002684	a tangible and visible entity; an entity that can cast a shadow; "it was full of rackets, balls and other objects"
+n00003553	an assemblage of parts that is regarded as a single entity; "how big is that part compared to the whole?"; "the team is a unit"
+n00003993	a whole (a thing or person) of the same kind or category as another; "lard was also used, though its congener, butter, was more frequently employed"; "the American shopkeeper differs from his European congener"
+n00004258	a living (or once living) entity
+n00004475	a living thing that has (or can develop) the ability to act or function independently
+n00005787	organisms (plants and animals) that live at or near the bottom of a sea
+n00005930	a plant or animal that is atypically small
+n00006024	an organism that depends on complex organic substances for nutrition
+n00006150	an organism (plant or animal) from which younger ones are obtained
+n00006269	living things collectively; "the oceans are teeming with life"
+n00006400	a discrete unit of living matter
+n00006484	(biology) the basic structural and functional unit of all organisms; they may exist as independent units of life (as in monads) or may form colonies or tissues as in higher plants and animals
+n00007347	any entity that produces an effect or is responsible for events or results
+n00007846	a human being; "there was too much for one person to do"
+n00015388	a living organism characterized by voluntary movement
+n00017222	(botany) a living organism lacking the power of locomotion
+n00019046	indigenous plants and animals
+n00019128	an object occurring naturally; not made by man
+n00019613	the real physical matter of which a person or thing consists; "DNA is the substance of our genes"
+n00020090	a particular kind or species of matter with uniform properties; "shigella is one of the most toxic substances known to man"
+n00020827	that which has mass and occupies space; "physicists study both the nature of matter and the forces which govern it"
+n00021265	any substance that can be metabolized by an animal to give energy and build tissue
+n00021734	any substance (such as a chemical element or inorganic compound) that can be taken in by a green plant and used in organic synthesis
+n00021939	a man-made object taken as a whole
+n00022903	one of a class of artifacts; "an article of clothing"
+n00023100	a feature of the mental life of a living organism
+n00023271	the psychological result of perception and learning and reasoning
+n00023773	the psychological feature that arouses an organism to action toward a desired goal; the reason for the action; that which gives purpose and direction to behavior; "we did not understand his motivation"; "he acted with the best of motives"
+n00024264	an abstraction belonging to or characteristic of an entity
+n00024720	the way something is with respect to its main attributes; "the current state of knowledge"; "his state of health"; "in a weak financial state"
+n00026192	the experiencing of affective and emotional states; "she had a feeling of euphoria"; "he had terrible feelings of guilt"; "I disliked him and the feeling was mutual"
+n00027167	a point or extent in space
+n00027807	the spatial arrangement of something as distinct from its substance; "geometry is the mathematical science of shape"
+n00028270	the continuum of experience in which events pass from the future through the present to the past
+n00028651	the unlimited expanse in which everything is located; "they tested his ability to locate objects in space"; "the boundless regions of the infinite"
+n00029007	physical space independent of what occupies it
+n00029114	(physics) an ideal space in which the coordinate dimensions represent the variables that are required to describe a system or substance; "a multidimensional phase space"
+n00029378	something that happens at a given place and time
+n00029677	a sustained phenomenon or one marked by gradual changes through a series of states; "events now in process"; "the process of calcification begins later for boys than for girls"
+n00030358	something that people do or cause to happen
+n00031264	any number of entities (members) considered as a unit
+n00031921	an abstraction belonging to or characteristic of two entities or parts together
+n00032613	anything owned or possessed
+n00032823	a relation between living organisms (especially between people)
+n00033020	something that is communicated by or to or between people or groups
+n00033615	how much there is or how many there are of something that you can quantify
+n00034213	any state or process known through the senses rather than by intuition or reasoning
+n00034479	an action; "how could you do such a thing?"
+n00034574	a kind act
+n00034777	cosmetic surgery of the abdomen to remove wrinkles and tighten the skin over the stomach
+n00034939	the act of terminating a project or procedure before it is completed; "I wasted a year of my life working on an abort"; "he sent a short message requesting an abort due to extreme winds in the area"
+n00035189	the action of accomplishing something
+n00035697	a festivity in ancient Greece at which competitors contended for prizes
+n00035891	the action of alienating; the action of causing to become unfriendly; "his behavior alienated the other students"
+n00036061	the action of putting something into operation; "the application of maximum thrust"; "massage has far-reaching medical applications"; "the application of indexes to tables of data"
+n00036299	an initial accomplishment that opens the way for further developments; "the town became a beachhead in the campaign to ban smoking outdoors"; "they are presently attempting to gain a foothold in the Russian market"
+n00036580	an easy accomplishment; "winning the tournament was a cakewalk for him"; "invading Iraq won't be a cakewalk"
+n00036762	a notable achievement; "he performed a great feat"; "the book was her finest effort"
+n00037006	an outstanding achievement
+n00037090	an achievement demonstrating great skill or mastery
+n00037200	used in the phrase `to your credit' in order to indicate an achievement deserving praise; "she already had several performances to her credit";
+n00037396	something done (usually as opposed to something said); "there were stories of murders and other unnatural actions"
+n00038175	things done
+n00038262	a mode of action; "if you persist in that course you will surely fail"; "once a nation is embarked on a course of action it becomes extremely difficult for any retraction to take place"
+n00038573	(figurative) a course of action that is unproductive and offers no hope of improvement; "all the clues led the police into blind alleys"; "so far every road that we've been down has turned out to be a blind alley"
+n00038863	a course of action (following a given idea) that will lead to conflict if it continues unabated
+n00039021	a mutual or reciprocal action; interacting
+n00039211	reciprocal action and reaction
+n00039297	close interaction; "they kept in daily contact"; "they claimed that they had been in contact with extraterrestrial beings"
+n00039545	contact with something dangerous or undesirable; "I had a brush with danger on my way to work"; "he tried to avoid any brushes with the police"
+n00039740	contact that occurs when two people look directly at each other; "a teacher should make eye contact with the students"
+n00039916	the action of fetching
+n00039990	contact established between applicants and prospective employees; "the agency provided placement services"
+n00040152	mutual interaction; the activity of reciprocating or exchanging (especially information)
+n00040420	mutual exchange of commercial or other privileges
+n00040545	interchange between different cultures or different ways of thinking that is mutually productive and beneficial; "the cross-fertilization of science and the creative arts"
+n00040804	social or verbal interchange (usually followed by `with')
+n00040962	(usually plural) mutual dealings or connections among persons or groups; "international relations"
+n00041188	the action of taking part in a game or sport or other recreation
+n00041468	the act using a sword (or other weapon) vigorously and skillfully
+n00041614	work of little or no value done merely to look busy
+n00041740	the playing of a game of tenpins or duckpins etc
+n00041899	the act of acquiring something; "I envied his talent for acquiring"; "he's much more interested in the getting than in the giving"
+n00042311	the act of causing something to happen
+n00042541	the act of delivering a child
+n00042757	the act of departing
+n00043116	brave and heroic feats
+n00043195	the act of discovering something
+n00043609	the act or means of getting rid of something
+n00043902	(baseball) a successful stroke in an athletic contest (especially in baseball); "he came all the way around on Williams' hit"
+n00044150	the act of implementing (providing a practical means for accomplishing something); carrying into effect
+n00044455	the act of coming (or going) out; becoming apparent
+n00044673	the act of making equal or uniform
+n00044900	the act of digging something out of the ground (especially a corpse) where it has been buried
+n00045114	(Judaism) a good deed performed out of religious duty
+n00045250	the act of propelling
+n00045646	the feat of mustering strength for a renewed effort; "he singled to start a rally in the 9th inning"; "he feared the rallying of their troops for a counterattack"
+n00045907	the act of regaining or saving something lost (or in danger of becoming lost)
+n00046177	the act of leaving (without permission) the place you are expected to be
+n00046344	a difficult or unusual or dangerous feat; usually done to gain attention
+n00046522	the act of putting two things together with no space between them; "at his touch the room filled with lights"
+n00047018	a masterly or brilliant feat
+n00047106	any recognized accomplishment; "they admired his performance under stress"; "when Roger Maris powered four home runs in one game his performance merits awe"
+n00047356	better than expected performance (better than might have been predicted from intelligence tests)
+n00047550	poorer than expected performance (poorer than might have been predicted from intelligence tests)
+n00047745	the sum of recognized accomplishments; "the lawyer has a good record"; "the track record shows that he will be a good president"
+n00047941	an irreversible accomplishment
+n00048051	advancing toward a goal; "persuading him was easy going"; "the proposal faces tough sledding"
+n00048225	accomplishment of an objective
+n00048374	the act of arriving at a certain place; "they awaited her arrival"
+n00048656	arrival at a new stage; "his attainment of puberty was delayed by malnutrition"
+n00048828	arrival that has been awaited (especially of something momentous); "the advent of the computer"
+n00049003	the act of entering; "she made a grand entrance"
+n00049344	the act of entering some territory or domain (often in large numbers); "the incursion of television into the American living room"
+n00049530	entrance by force or without permission or welcome
+n00049636	a sudden violent entrance; a bursting in; "the recent irruption of bad manners"
+n00049789	the act of entering; "she made a graceful entree into the ballroom"
+n00049909	the act of entailing property; the creation of a fee tail from a fee simple
+n00050037	the act of enrolling
+n00050195	the act of appearing in public view; "the rookie made a brief appearance in the first period"; "it was Bernhardt's last appearance in America"
+n00050484	an act of appearing or becoming visible unexpectedly; "natives were amazed at the apparition of this white stranger"
+n00050693	the act of emerging
+n00050887	the act of someone appearing again; "his reappearance as Hamlet has been long awaited"
+n00051077	return by a celebrity to some previously successful activity
+n00051192	a coming to or returning home; "on his return from Australia we gave him a welcoming party"
+n00051385	the act of returning to the country of origin
+n00051525	the act of entering into or through something; "the penetration of upper management by women"
+n00051712	mutual penetration; diffusion of each through the other
+n00051897	the extent to which a product is recognized and bought by customers in a particular market
+n00052052	the act of anchoring
+n00052146	the act of securing an arriving vessel with ropes
+n00052334	the act of coming to land after a voyage
+n00052500	the act of coming down to the earth (or other surface); "the plane made a smooth landing"; "his landing on his feet was catlike"
+n00052791	an unscheduled airplane landing that is made under circumstances (engine failure or adverse weather) not under the pilot's control
+n00053020	departing hastily
+n00053097	the act of departing politely; "he disliked long farewells"; "he took his leave"; "parting is such sweet sorrow"
+n00053405	an abrupt and unannounced departure (without saying farewell)
+n00053525	the act of saying farewell
+n00053609	the act of leaving secretly or without explanation
+n00053806	a sudden disappearance from sight
+n00053913	the act of withdrawing; "the withdrawal of French troops from Vietnam"
+n00054328	withdrawing into the background; making yourself inconspicuous
+n00054483	the act of withdrawing or going backward (especially to escape something hazardous or unpleasant)
+n00054652	withdrawal for prayer and study and meditation; "the religious retreat is a form of vacation activity"
+n00054821	the act of evacuating; leaving a place in an orderly fashion; especially for protection
+n00055038	the evacuation of persons (usually by air transportation) to a place where they can receive medical care
+n00055227	breaking camp
+n00055315	withdrawing support or help despite allegiance or responsibility; "his abandonment of his wife and children left them penniless"
+n00055633	the act of running away secretly (as to avoid arrest)
+n00055793	unauthorized military absence
+n00055932	ideological defection from the party line (especially from orthodox communism)
+n00056087	migration from a place (especially migration from your native country in order to settle in another)
+n00056311	migration into a place (especially migration to a country of which you are not a native in order to settle there)
+n00056551	(Judaism) immigration of Jews to Israel; "students making aliyah"
+n00056688	(military) the act of pulling back (especially an orderly withdrawal of troops); "the pullback is expected to be over 25,000 troops"
+n00056912	(military) withdrawal of troops to a more favorable position to escape the enemy's superior forces or after a defeat; "the disorderly retreat of French troops"
+n00057162	(military) a temporary stop of offensive military action
+n00057306	to break off a military action with an enemy
+n00057486	the act of becoming more distant
+n00057657	the departure of a vessel from a port
+n00057748	a military action of coordinated land, sea, and air forces organized for an invasion; "MacArthur staged a massive amphibious landing behind enemy lines"
+n00058002	the act of passengers and crew getting off of a ship or aircraft
+n00058247	debarkation from a boat or ship
+n00058337	the act of passengers and crew getting aboard a ship or aircraft
+n00058519	the act of going out
+n00058608	the act of running away with a lover (usually to get married)
+n00058743	the act of escaping physically; "he made his escape from the mental hospital"; "the canary escaped from its cage"; "his flight was an indication of his guilt"
+n00059127	the act of physically escaping from something (an opponent or a pursuer or an unpleasant situation) by some adroit maneuver
+n00059376	the act of avoiding capture (especially by cunning)
+n00059552	an action aimed at evading an opponent
+n00059728	(boxing) the act of one boxer holding onto the other to avoid being hit and to rest momentarily
+n00059895	a quick evasive movement
+n00059989	an escape from jail; "the breakout was carefully planned"
+n00060201	a rapid escape (as by criminals); "the thieves made a clean getaway"; "after the expose he had to take it on the lam"
+n00060414	a journey by a large group to escape from a hostile environment
+n00060548	the flight of Muhammad from Mecca to Medina in 622 which marked the beginning of the Muslim era; the Muslim calendar begins in that year
+n00060747	a hasty flight
+n00060817	secret aid to escaping slaves that was provided by abolitionists in the years before the American Civil War
+n00061014	something achieved (or escaped) by a narrow margin
+n00061171	emerging to the surface and becoming apparent
+n00061290	the act of sending off something
+n00061453	the act of shipping again (especially by transferring to another ship)
+n00061598	the act of bringing to completion or fruition
+n00061792	the completion of marriage by sexual intercourse
+n00061917	something that is made real or concrete; "the victory was the realization of a whole year's work"
+n00062133	the moment of most intense pleasure in sexual intercourse
+n00062331	an orgasm accompanied by the sensation of ejaculation of semen
+n00062451	the act of consummating something (a desire or promise etc)
+n00062671	the fulfillment of your capacities
+n00062806	the act of achieving an aim; "the attainment of independence"
+n00063014	an extreme attainment; the best (or worst) performance ever attested (as in a sport); "he tied the Olympic record"; "coffee production last year broke all previous records"; "Chicago set the homicide record"
+n00063310	the fastest time ever recorded for a specific distance at a particular racetrack; "the track record for the mile and a half at Belmont is 2 minutes 24 seconds held by Secretariat since 1973"
+n00063559	the best record in the whole world
+n00063652	an attainment that is successful; "his success in the marathon was unexpected"; "his new play was a great success"
+n00064018	succeeding with great difficulty; "winning is not everything"
+n00064151	an unusually successful hit with widespread popularity and huge sales (especially a movie or play or recording or novel)
+n00064370	an unexpected hit; "that movie was the sleeper of the summer"
+n00064504	a conspicuous success; "that song was his first hit and marked the beginning of his career"; "that new Broadway show is a real smasher"; "the party went with a bang"
+n00064789	something that exactly succeeds in achieving its goal; "the new advertising campaign was a bell ringer"; "scored a bull's eye"; "hit the mark"; "the president's speech was a home run"
+n00065098	the act of raising someone to the nobility
+n00065216	success in mastering something difficult; "the conquest of space"
+n00065336	a brilliant and notable success
+n00065418	complete success; "they passed inspection with flying colors"
+n00065575	success in satisfying a test or requirement; "his future depended on his passing that test"; "he got a pass in introductory chemistry"
+n00065855	recognition by a college or university that a course of studies has been successfully completed; typically measured in semester hours
+n00066075	a unit of academic credit; one hour a week for an academic semester
+n00066216	an act that does not achieve its intended goal
+n00066397	an unexpected omission; "he resented my failure to return his call"; "the mechanic's failure to check the brakes"
+n00066636	an act that fails; "his failure to pass the test"
+n00066901	failure to reach a minimum required performance; "his failing the course led to his disqualification"; "he got two flunks on his report"
+n00067153	complete failure; "all my efforts led to naught"
+n00067254	an unexcused absence from class; "he was punished for taking too many cuts in his math class"
+n00067397	loss due to not showing up; "he lost the game by default"
+n00067526	the act of losing someone or something; "everyone expected him to win so his loss was a shock"
+n00067707	the act of surrendering (usually under agreed conditions); "they were protected until the capitulation of the fort"
+n00067990	an act of hindering someone's plans or efforts
+n00068170	an improbable and unexpected victory; "the biggest upset since David beat Goliath"
+n00068333	a failure to maintain a higher state
+n00068617	habitual relapse into crime
+n00068755	an act (or failure to act) that disappoints someone
+n00068901	a failure to perform some promised act or obligation
+n00069060	a failure to face some difficulty squarely
+n00069173	a breach of a legal duty; failure to do something that is required in a contract
+n00069444	a breach of contract committed prior to the time of required performance
+n00069604	a breach of due care
+n00069685	a failure of the seller's guarantee of good title
+n00069815	failure to keep a promise (of marriage)
+n00069918	violation (either through fraud or negligence) by a trustee of a duty that equity requires of him
+n00070077	larceny after trust rather than after unlawful taking
+n00070215	a breach that occurs when an item is deficient according to the terms of a warranty
+n00070363	the act of deviating from a vertical position
+n00070462	a breach serious enough to destroy the value of the contract and to give a basis for an action for breach of contract
+n00070641	the act of motivating; providing incentive
+n00070807	a breach that does not destroy the value of the contract but can give rise to a claim for damages
+n00070965	a wrong action attributable to bad judgment or ignorance or inattention; "he made a bad mistake"; "she was quick to point out my errors"; "I could understand his English in spite of his grammatical faults"
+n00071546	(tennis) two successive faults in serving resulting in the loss of the point
+n00071700	a fault that occurs when the server in tennis fails to keep both feet behind the baseline
+n00071864	the momentary juggling of a batted or thrown baseball; "the second baseman made a bobble but still had time to throw the runner out"
+n00072068	(baseball) a failure of a defensive player to make an out when normal play would have sufficed
+n00072261	an act that brings discredit to the person who does it; "he made a huge blot on his copybook"
+n00072473	a mistake that results from taking one thing to be another; "he changed his name in order to avoid confusion with the notorious outlaw"
+n00072691	the mistake of incurring liability or blame
+n00072808	a mistake in calculating
+n00073032	a miscalculation that recoils on its maker
+n00073177	(mathematics) a miscalculation that results from rounding off numbers to a convenient number of decimals; "the error in the calculation was attributable to rounding"; "taxes are rounded off to the nearest dollar but the rounding error is surprisingly small"
+n00073525	(mathematics) a miscalculation that results from cutting off a numerical calculation before it is finished
+n00073713	the mistake of misrepresenting the facts
+n00073828	a minor inadvertent mistake usually observed in speech or writing or in small accidents or memory lapses etc.
+n00074092	a slip-up that (according to Sigmund Freud) results from the operation of unconscious wishes or conflicts and can reveal unconscious processes in normal healthy individuals
+n00074324	(sport) the mistake of occupying an illegal position on the playing field (in football, soccer, ice hockey, field hockey, etc.)
+n00074524	a mistake resulting from inattention
+n00074624	a mistake resulting from neglect
+n00074790	an embarrassing mistake
+n00075283	an acronym often used by soldiers in World War II: situation normal all fucked up
+n00075471	a blunder that makes you look ridiculous; used in the phrase `make a spectacle of' yourself
+n00075618	something badly botched or muddled
+n00075790	a serious and ludicrous blunder; "he made a bad bull of the assignment"
+n00075912	(sports) dropping the ball
+n00076072	a blunder (especially an actor's forgetting the lines)
+n00076196	a socially awkward or tactless act
+n00076323	a glaring blunder
+n00076393	a conspicuous mistake whose effects seem to reverberate; "he dropped a clanger"
+n00076563	an unintentional but embarrassing blunder; "he recited the whole poem without a single trip"; "he arranged his robes to avoid a trip-up later"; "confusion caused his unfortunate misstep"
+n00076884	a sudden drop from an upright position; "he had a nasty spill on the ice"
+n00077169	a fall onto your buttocks
+n00077249	a spill in some sport (as a fall from a bicycle or while skiing or being capsized on a surfboard)
+n00077419	the act of contracting or assuming or acquiring possession of something; "the acquisition of wealth"; "the acquisition of one company by another"
+n00077856	the act of obtaining
+n00077981	becoming infected; "catching cold is sometimes unavoidable"; "the contracting of a serious illness can be financially catastrophic"
+n00078217	acquiring or coming into something (usually undesirable); "incurring debts is easier than paying them"
+n00078393	the act of making money (and accumulating wealth)
+n00078536	the formal act of acquiring something (especially territory) by conquest or occupation; "the French annexation of Madagascar as a colony in 1896"; "a protectorate has frequently been a first step to annexation"
+n00078821	acquisition of government money for benefits to a specific locale; "keeps his hold on his constituents through unashamed pork-barreling"
+n00079018	the acquisition of something for payment; "they closed the purchase with a handshake"
+n00079212	the act of purchasing back something previously sold
+n00079398	buying or selling securities or commodities
+n00079603	trading in bonds (usually by a broker on the floor of an exchange)
+n00079752	a trading technique involving large blocks of stock with trades triggered by computer programs
+n00079908	sale of securities or commodity futures not owned by the seller (who hopes to buy them back later at a lower price)
+n00080096	the purchase of securities or commodities by a short seller to close out a short sale
+n00080242	buying or selling corporate stock by a corporate officer or other insider on the basis of information that has not been made public and is supposed to remain confidential
+n00080474	a put or call option for which the seller or buyer has no underlying security position
+n00080619	a put or call option backed by the shares underlying the option
+n00080743	the option to buy a given stock (or stock index or commodity future) at a given price before a given date
+n00080968	the option to sell a given stock (or stock index or commodity future) at a given price before a given date
+n00081174	the option to buy or sell a given stock (or stock index or commodity future) at a given price before a given date; consists of an equal number of put and call options
+n00081395	an option granted to corporate executives if the company achieves certain financial goals
+n00081572	the act of buying; "buying and selling fill their days"; "shrewd purchasing requires considerable knowledge"
+n00081836	searching for or buying goods or services; "went shopping for a reliable plumber"; "does her shopping at the mall rather than down town"
+n00082081	shopping at a market; "does the weekly marketing at the supermarket"
+n00082223	buying goods to be shipped through the mail
+n00082347	purchasing insurance policies for cash from terminally ill policy holders
+n00082525	the act of taking something that is offered; "her acceptance of the gift encouraged him"; "he anticipated their acceptance of his offer"
+n00082754	acquisition of property by descent or by will
+n00082870	the act of taking possession of or power over something; "his assumption of office coincided with the trouble in Cuba"; "the Nazi assumption of power in 1934"; "he acquired all the company's assets for ten million dollars and the assumption of the company's debts"
+n00083260	the act of assuming or taking for granted; "your assumption that I would agree was unwarranted"
+n00083448	the act of positing; an assumption taken as a postulate or axiom
+n00083585	hereditary succession to a title or an office or property
+n00083729	the act of getting possession of something; "he was responsible for the procurement of materials and supplies"
+n00083975	a deliberate act of acquisition of something, often without the permission of the owner; "the necessary funds were obtained by the government's appropriation of the company's operating unit"; "a person's appropriation of property belonging to another is dishonest"
+n00084371	the appropriation (of ideas or words etc) from another source; "the borrowing of ancient motifs was very apparent"
+n00084642	changing the pronunciation of a borrowed word to agree with the borrowers' phonology; "the naturalization in English of many Italian words"
+n00084895	wrongful borrowing; "his explanation was a misappropriation of sociological theory"
+n00085041	a prior appropriation of something; "the preemption of bandwidth by commercial interests"
+n00085219	the taking possession of something by legal process
+n00085432	wrongfully seizing and holding (an office or powers) by force (especially the seizure of a throne or supreme authority); "a succession of generals who ruled by usurpation"
+n00085678	seizure by the government
+n00085829	the seizure and holding of property as security for payment of a debt or satisfaction of a claim; "Originally distress was a landlord's remedy against a tenant for unpaid rents or property damage but now the landlord is given a landlord's lien"
+n00086140	taking out of an owner's hands (especially taking property by public authority)
+n00086297	placing private property in the custody of an officer of the law
+n00086547	seizure of illegal drugs by the police
+n00086654	the act of coercing someone into government service
+n00086809	the act of occupying or taking possession of a building; "occupation of a building without a certificate of occupancy is illegal"
+n00087073	the act of taking occupancy before someone else does
+n00087218	seizing property that belongs to someone else and holding it until profits pay the demand for which it was seized
+n00087423	the act of providing a subsidy
+n00087663	a grant made by a law court; "he criticized the awarding of compensation by the court"
+n00087849	(Roman law) a formal award by a magistrate of a thing or person to another person (as the award of a debtor to his creditor); a surrender to a master; "under Roman law addiction was the justification for slavery"
+n00088154	a grant of federal money to state and local governments to support social welfare programs; "block grants reduce federal responsibility for social welfare"
+n00088367	a grant from a central government to a local government
+n00088481	the act of forcibly dispossessing an owner of property
+n00088725	the act of apprehending (especially apprehending a criminal); "the policeman on the beat got credit for the collar"
+n00089027	the act of conquering
+n00089234	the act of making slaves of your captives
+n00089351	getting something back again; "upon the restitution of the book to its rightful owner the child was given a tongue lashing"
+n00089657	finding a way to take money back from people that they were given in another way; "the Treasury will find some clawback for the extra benefits members received"
+n00089891	the action of regaining possession (especially the seizure of collateral securing a loan that is in default)
+n00090076	the legal proceedings initiated by a creditor to repossess the collateral for loan that is in default
+n00090253	the act of receiving
+n00090393	(law) the act of disposing of property by virtue of the power of appointment; "she allocated part of the trust to her church by appointment"
+n00090610	the act of carefully weeding out unwanted things or people; "the department got a good comb-out"
+n00090779	disposing of property by voluntary transfer without receiving value in return; "the alumni followed a program of annual giving"
+n00091013	the voluntary surrender of property (or a right to property) without attempting to reclaim it or give it away
+n00091234	getting rid something that is regarded as useless or undesirable
+n00091404	getting rid of a stage of a multistage rocket
+n00091503	(cards) the act of throwing out a useless card or of failing to follow suit
+n00091670	the disposal of explosive mines
+n00091779	the activity of detecting and disposing of marine mines
+n00091893	the disposal of sewage
+n00091977	a deceptive way of selling that involves advertising a product at a very low price in order to attract customers who are then persuaded to switch to a more expensive product
+n00092212	a sale of property at a price agreed on by the seller and buyer without an intervening agency
+n00092366	the public sale of something to the highest bidder
+n00092663	the act of making or transporting alcoholic liquor for sale illegally; "the Prohibition amendment made bootlegging profitable"
+n00092847	the act of selling illegally or without permission; "the bootlegging of videotapes is common in Asia"
+n00093006	the sale of capital stock
+n00093127	(business) too much capitalization (the sale of more stock than the business warrants)
+n00093354	the recovery of useful substances from waste products
+n00093483	recovery or preservation from loss or danger; "work is the deliverance of mankind"; "a surgeon's job is the saving of lives"
+n00093874	saving the lives of drowning persons; "he took a course in lifesaving"
+n00094001	(theology) the act of delivering from sin or saving from evil
+n00094240	the act of absolving or remitting; formal redemption as pronounced by a priest in the sacrament of penance
+n00094500	the remission by the pope of the temporal punishment in purgatory that is still due for sins even after absolution; "in the Middle Ages the unrestricted sale of indulgences by pardoners became a widespread abuse"
+n00094788	a spiritual enlightenment causing a person to lead a new life
+n00094954	the state of being a proselyte; spiritual rebirth resulting from the zeal of crusading advocacy of the gospel
+n00095121	the act of atoning for sin or wrongdoing (especially appeasing a deity)
+n00095329	something done or paid in expiation of a wrong; "how can I make amends"
+n00095502	the act of liberating someone or something
+n00095873	the use of force to liberate prisoners
+n00095971	rescuing from error and returning to a rightful course; "the reclamation of delinquent children"
+n00096211	the act of rescuing a ship or its crew or its cargo from a shipwreck or a fire
+n00096343	the act of saving goods or property that were in danger of damage or destruction
+n00096513	saving someone or something from harm or from an unpleasant situation; "the salvation of his party was the president's major concern"
+n00096720	a rescue mission to search for survivors and to rescue them
+n00096851	the act of freeing from captivity or punishment
+n00096969	the act of taking something back
+n00097122	a legal seizure by the government of profits beyond a fixed amount
+n00097244	the act of appealing for help
+n00097348	the act of providing or using the instruments needed for some implementation
+n00097504	the act of performing; of doing something successfully; using knowledge as distinguished from merely possessing it; "they criticised his performance as mayor"; "experience generally improves performance"
+n00097923	the performance of a legal contract as specified by its terms
+n00098051	(linguistics) a speaker's actual use of language in real situations; what the speaker actually says, including grammatical errors and other non-linguistic features such as hesitations and other disfluencies (contrasted with linguistic competence)
+n00098385	the technical aspects of doing something; "a mechanism of social control"; "mechanisms of communication"; "the mechanics of prose style"
+n00098625	the performance of duties by a waiter or servant; "that restaurant has excellent service"
+n00098822	service provided to customers who remain in their vehicles
+n00098939	the practice of serving yourself (as in a grocery or cafeteria)
+n00099061	a service provided (at a club or restaurant or airport etc.) whereby a patron leaves a car at the entrance and an attendant parks and retrieves it
+n00099267	the act of performing a drama; "the group joined together in a dramatic production"
+n00099439	an extra or repeated performance; usually given in response to audience demand
+n00099588	a performance given extempore without planning or preparation
+n00099799	throwing and catching several objects simultaneously
+n00099951	an illusory feat; considered magical by naive observers
+n00100253	the act of performing music
+n00100437	a performance in one place on one night only
+n00100543	the act of interpreting something as expressed in an artistic performance; "her rendition of Milton's verse was extraordinarily moving"
+n00100889	a new or different interpretation
+n00101003	a distinctive interpretation (especially as used by politicians to sway public opinion); "the campaign put a favorable spin on the story"
+n00101191	the act of playing a musical instrument
+n00101410	managing the bow in playing a stringed instrument; "the violinist's bowing was excellent"
+n00101570	bowing in such a way that the bow bounces lightly off the strings
+n00101708	playing a pipe or the bagpipes
+n00101809	the kind of playing that involves pressing the fingers on the strings of a stringed instrument to control the pitch; "the violinist's stopping was excellent"
+n00102039	stopping two strings and producing two notes at the same time
+n00102162	(music) playing in a different key from the key intended; moving the pitch of a piece of music upwards or downwards
+n00102374	an impromptu jazz concert
+n00102457	the act of implementing the control of equipment with advanced technology; usually involving electronic hardware; "automation replaces human workers by machines"
+n00102779	the control of processes by computer
+n00102927	the act of motorizing (equiping with motors or with motor vehicles)
+n00103140	the act of propelling with force
+n00103291	the act of moving a newly built vessel into the water for the first time
+n00103419	the launching of a rocket or missile under its own power
+n00103590	the launching of a missile or spacecraft to a specified destination
+n00103737	the launching of a spacecraft to the moon
+n00103834	the act of applying force to propel something; "after reaching the desired velocity the drive is cut off"
+n00104088	(colloquial) the application of maximum thrust; "he moved the throttle to the firewall"
+n00104249	the act of applying force suddenly; "the impulse knocked him over"
+n00104409	the act of rolling something (as the ball in bowling)
+n00104539	the act of throwing (propelling something with a rapid movement of the arm and wrist); "the catcher made a good throw to second base"
+n00104976	(cricket) the act of delivering a cricket ball to the batsman
+n00105164	the act of flinging
+n00105271	throwing something heavy (with great effort); "he gave it a mighty heave"; "he was not good at heaving passes"
+n00105479	a violent throw
+n00105624	(horseshoes) the throw of a horseshoe so as to lean against (but not encircle) the stake
+n00105820	(sports) the act of throwing the ball to another member of your team; "the pass was fumbled"
+n00106104	the action or manner of throwing something; "his pitch fell short and his hat landed on the floor"
+n00106272	(baseball) the act of throwing a baseball by a pitcher to a batter
+n00106726	(horseshoes) the successful throw of a horseshoe or quoit so as to encircle a stake or peg
+n00106888	a quick throw; "he gave the ball a shy to the first baseman"
+n00107016	throwing with a wide motion (as if with a sling)
+n00107137	(rugby) an act or instance of throwing a ball in to put it into play
+n00107279	an illegal pitching motion while runners are on base
+n00107400	a pitch that is not in the strike zone; "he threw nine straight balls before the manager yanked him"
+n00107551	a baseball deliberately thrown at the batter's head
+n00107684	a baseball thrown with little velocity when the batter is expecting a fastball
+n00107875	a pitch of a baseball that is thrown with spin so that its path curves as it approaches the batter
+n00108081	a pitch thrown deliberately close to the batter
+n00108181	(baseball) a pitch thrown with maximum velocity; "he swung late on the fastball"; "he showed batters nothing but smoke"
+n00108427	a baseball pitch thrown with little speed or spin
+n00108545	a baseball pitch in which the hand moves above the shoulder
+n00108665	a pitch that the catcher should have caught but did not; allows a base runner to advance a base
+n00108818	a pitch with reverse spin that curves toward the side of the plate from which it was thrown
+n00108965	a pitch that curves downward rapidly as it approaches the plate
+n00109081	a fastball that curves slightly away from the side from which it was thrown
+n00109227	an illegal pitch in which a foreign substance (spit or Vaseline) is applied to the ball by the pitcher before he throws it
+n00109414	(baseball) a pitch that the batter swings at and misses, or that the batter hits into foul territory, or that the batter does not swing at but the umpire judges to be in the area over home plate and between the batter's knees and shoulders; "this pitcher throws more strikes than balls"
+n00109771	a pitch thrown sidearm instead of overhead
+n00109892	an errant pitch that the catcher cannot be expected to catch and that allows a base runner to advance a base
+n00110057	throwing the basketball toward the hoop; "his shot hit the rim and bounced out"
+n00110415	a basketball shot that bounces off of the backboard before passing through the hoop
+n00110554	a basketball shot in which the basketball is propelled downward into the basket
+n00110745	a forceful dunk
+n00110834	a basketball shot that rolls off the tips of the fingers into the basket
+n00110964	an unhindered basketball shot from the foul line; given to penalize the other team for committing a foul
+n00111222	a foul shot that must be made in order to earn the right to a second foul shot
+n00111358	a basketball shot made over the head with the hand that is farther from the basket
+n00111503	(basketball) a player releases the basketball at the high point of a jump
+n00111660	a basketball shot made with one hand from a position under or beside the basket (and usually banked off the backboard)
+n00111839	a one-handed basketball shot made while whirling on the pivot foot
+n00111962	a two-handed basketball shot from a stationary position
+n00112072	a basketball shot made with an underhand scooping motion
+n00112185	a basketball shot made by tapping the rebounding ball back into the basket
+n00112312	the act of applying force in order to move something away; "he gave the door a hard push"; "the pushing is good exercise"
+n00112674	pushing down; "depression of the space bar on the typewriter"
+n00112828	depression of a button on a computer mouse; "a click on the right button for example"
+n00112997	a slight push or shake
+n00113113	the act of pressing; the exertion of pressure; "he gave the button a press"; "he used pressure to stop the bleeding"; "at the pressing of a button"
+n00113532	the act of pressing one thing on or into the surface of another; "he watched the impression of the seal on the hot wax"
+n00113726	the act of shoving (giving a push to someone or something); "he gave the door a shove"
+n00113954	the act of shoving hastily; "she complained about bundling the children off to school"
+n00114095	the act of jostling (forcing your way by pushing)
+n00114298	jostling with the elbows; "elbowing is a foul in basketball"
+n00114431	the act of pulling; applying force to move something toward or with you; "the pull up the hill had him breathing harder"; "his strenuous pulling strained his back"
+n00114871	the act of dragging (pulling with force); "the drag up the hill exhausted him"
+n00115036	the act of drawing or hauling something; "the haul up the hill went very slowly"
+n00115292	the act of hauling something (as a vehicle) by means of a hitch or rope; "the truck gave him a tow to the garage"
+n00115500	a sudden abrupt pull
+n00115667	the act of moving a load by drawing or pulling
+n00115803	the act of pulling up or out; uprooting; cutting off from existence
+n00116008	the act of pulling and releasing a taut cord
+n00116122	(orthopedics) the act of pulling on a bone or limb (as in a fracture) to relieve pressure or align parts in a special way during healing; "his leg was in traction for several days"
+n00116376	the act of raising something; "he responded with a lift of his eyebrow"; "fireman learn several different raises for getting ladders up"
+n00116687	the act of expelling or projecting or ejecting
+n00116989	the act of throwing someone or something out of a window
+n00117124	reflex changes in the eyes that enable an object to be focused on the retina
+n00117267	extension upward of the toes when the sole of the foot is stroked firmly on the outer side from the heel to the front; normal in infants under the age of two years but a sign of brain or spinal cord injury in older persons
+n00117578	a reflex that expels gas noisily from the stomach through the mouth
+n00117810	the forceful expulsion of something from inside; "the belching of smoke from factory chimneys"
+n00117959	a reflex that closes and opens the eyes rapidly
+n00118268	sudden reddening of the face (as from embarrassment or guilt or shame or modesty)
+n00118445	the act of expelling (food or phlegm) by coughing
+n00118552	the act of spitting (forcefully expelling saliva)
+n00118733	the reflex act of ejecting the contents of the stomach through the mouth
+n00119079	regurgitation of small amounts of food; seen in some infants after feeding
+n00119210	vomiting blood
+n00119297	severe and excessive vomiting
+n00119402	hyperemesis during pregnancy; if severe it can result in damage to the brain and liver and kidney
+n00119568	the act of jumping; propelling yourself off the ground; "he advanced in a series of jumps"; "the jumping was unexpected"
+n00119893	a headlong jump (or fall); "he took a header into the shrubbery"
+n00120010	the act of hopping; jumping upward or forward (especially on one foot)
+n00120202	a light, self-propelled movement upwards or forwards
+n00120515	the act of jumping over an obstacle
+n00120647	jumping in one spot (as in excitement); "the wailing and jumping up and down exhausted him"
+n00120804	the act of propelling something (as a ball or shell etc.) in a high arc
+n00120943	(American football) putting the ball in play by passing it (between the legs) to a back; "the quarterback fumbled the snap"
+n00121166	the act of causing something to go (especially messages)
+n00121366	the act of sending a message; causing a message to be transmitted
+n00121645	the act of sending on to another destination; "the forwarding of mail to a new address is done automatically"; "the forwarding of resumes to the personnel department"
+n00121904	the act of referring (as forwarding an applicant for employment or referring a matter to an appropriate agency)
+n00122106	(law) the act of remitting (especially the referral of a law case to another court)
+n00122338	the transmission of a letter; "the postmark indicates the time of mailing"
+n00122530	propelling something on wheels
+n00122661	the act of firing a projectile; "his shooting was slow but accurate"
+n00122954	the act of shooting at targets; "they hold a shoot every weekend during the summer"
+n00123143	a return shot; a retaliatory shot
+n00123234	the act of discharging a gun
+n00123430	the discharge of a firearm as signal or as a salute in military ceremonies; "two runners started before the gun"; "a twenty gun salute"
+n00123652	preparation for the delivery of shellfire on a target
+n00123783	the act of shooting a gun; "the gunfire endangered innocent bystanders"; "they retreated in the face of withering enemy fire"
+n00124008	gunfire directed along the length rather than the breadth of a formation
+n00124151	a gunshot from a concealed location
+n00124256	a shot aimed at a person's head
+n00124342	the sport of shooting at clay pigeons that are hurled upward in such a way as to simulate the flight of a bird
+n00124536	shooting artillery shells
+n00124617	a fight involving shooting small arms with the intent to kill or frighten
+n00124766	a shot taken at an easy or casual target (as by a pothunter)
+n00124880	the act of touching physically; "her fingers came in contact with the light switch"
+n00125126	the act of rubbing or wiping; "he gave the hood a quick rub"
+n00125315	the act of scuffing (scraping or dragging the feet)
+n00125436	a light touch or stroke
+n00125629	the act of contacting one thing with another; "repeated hitting raised a large bruise"; "after three misses she finally got a hit"
+n00126100	the action of bruising; "the bruise resulted from a contusion"
+n00126236	the act of colliding with something; "his crash through the window"; "the fullback's smash into the defensive line"
+n00126447	a sharp collision produced by striking or dashing against something
+n00126584	(baseball) the batter's attempt to get on base
+n00126721	(baseball) handling the ball while playing in the field
+n00126886	(baseball) playing the position of catcher on a baseball team
+n00127021	playing golf; "he goes south every winter for the golfing"
+n00127151	(baseball) playing the position of pitcher on a baseball team
+n00127286	(baseball) an advance to first base by a batter who receives four balls; "he worked the pitcher for a base on balls"
+n00127531	the supreme effort one can make; "they did their best"
+n00127672	the weakest effort or poorest achievement one is capable of; "it was the worst he had ever done on a test"
+n00127866	(baseball) a ball struck with the bat so that it stays between the lines (the foul lines) that define the width of the playing field
+n00128091	(baseball) a ball struck with the bat so that it does not stay between the lines (the foul lines) that define the width of the playing field
+n00128324	a glancing contact with the ball off the edge of the cricket bat
+n00128477	(baseball) the act of hitting a baseball lightly without swinging the bat
+n00128638	(baseball) a hit that flies up in the air
+n00128867	a very long fly ball
+n00128976	a short high fly ball
+n00129089	(baseball) a hit that travels along the ground
+n00129317	a grounder that bounces high in the air
+n00129435	a grounder that rolls along the infield
+n00129527	(baseball) a failure by a batter or runner to reach a base safely in baseball; "you only get 3 outs per inning"
+n00129743	a putout of a base runner who is required to run; the putout is accomplished by holding the ball while touching the base to which the runner must advance before the runner reaches that base; "the shortstop got the runner at second on a force"
+n00130093	an out resulting from a fielding play (not a strikeout); "the first baseman made 15 putouts"
+n00130347	an out resulting from the batter getting three strikes
+n00130512	a strikeout resulting from the batter swinging at and missing the ball for the third strike
+n00130673	a play made on a ground ball in which the fielder chooses to put out an advancing runner instead of the batter
+n00130846	(baseball) an out that advances the base runners
+n00130987	a sacrifice made by hitting a long fly ball
+n00131090	(baseball) the successful act of striking a baseball in such a way that the batter reaches base safely
+n00131347	a batted or served ball that skims along close to the ground
+n00131485	(soccer) the act of hitting the ball with your head
+n00131608	(baseball) a hit that flies straight out from the batter; "the batter hit a liner to the shortstop"
+n00131791	a very hard hit ball
+n00131877	a single resulting from a line drive
+n00131991	a double resulting from a line drive
+n00132105	a triple resulting from a line drive
+n00132219	(baseball) hitting a baseball so that it drops suddenly
+n00132355	a base hit on which the batter scores a run
+n00132497	a home run with no runners on base
+n00132601	a base hit on which the batter stops safely at first base
+n00132756	a base hit on which the batter stops safely at second base; "he hit a double to deep centerfield"
+n00132982	a base hit at which the batter stops safely at third base
+n00133160	a backhanded blow
+n00133234	a sharp slanting blow; "he gave me a clip on the ear"
+n00133338	the act of hitting vigorously; "he gave the table a whack"
+n00133567	a hard blow with a flat object
+n00133668	the act of smacking something; a blow delivered with an open hand
+n00133875	a very powerful blow with the fist
+n00133981	a blow that knocks the opponent off his feet
+n00134099	a blow that renders the opponent unconscious
+n00134246	a knockout declared by the referee who judges one boxer unable to continue
+n00134391	a sharp blow
+n00134472	a slap with the flat of the hand
+n00134574	a quick blow delivered with a whip or whiplike object; "the whip raised a red welt"
+n00134780	(boxing) a blow with the fist; "I gave him a clout on his nose"
+n00135148	a blow with the hand (usually on the ear); "I gave him a good box on the ear"
+n00135311	the act of touching someone suddenly with your finger or elbow; "she gave me a sharp dig in the ribs"
+n00135504	a return punch (especially by a boxer)
+n00135637	a hard punch that renders the opponent unable to continue boxing
+n00135799	a short swinging punch delivered from the side with the elbow bent
+n00135952	a quick short straight punch
+n00136048	a short chopping blow to the back of the neck
+n00136152	an unexpected punch
+n00136230	a hook delivered with an exaggerated swing
+n00136329	the act of delivering a blow with the foot; "he gave the ball a powerful kick"; "the team's kicking was excellent"
+n00136691	(association football) a kick by the defending side after the attacking side sends the ball over the goal-line
+n00136876	(rugby) an attempt to kick a goal
+n00136984	(football) a kick in which the football is dropped from the hands and kicked before it touches the ground; "the punt traveled 50 yards"; "punting is an important part of the game"
+n00137279	(sports) a kick in which the ball is placed on the ground before kicking
+n00137534	(soccer) a place kick that is allowed for a foul or infringement by the other team
+n00137709	a free kick from the corner awarded to the other side when a player has sent the ball behind his own goal line
+n00137877	(football) kicking (as for a field goal) in which the football is dropped and kicked as it touches the ground
+n00138078	a light glancing touch; "there was a brief kiss of their hands in passing"
+n00138221	the act of caressing with the lips (or an instance thereof)
+n00138441	the act of contacting something with your hand; "peonies can be blighted by the laying on of a finger"
+n00138599	an enthusiastic kiss
+n00138734	a loud kiss
+n00138799	an openmouthed kiss in which your tongue is inserted into the other's mouth
+n00138956	the act of catching an object with the hands; "Mays made the catch with his back to the plate"; "he made a grab for the ball before it landed"; "Martin's snatch at the bridle failed and the horse raced away"; "the infielder's snap and throw was a single motion"
+n00139544	(American football) a catch of a punt on the fly by a defensive player who has signalled that he will not run and so should not be tackled
+n00139758	(American football) the act of catching a football by a player on the opposing team
+n00139919	(American football) the act of catching a pass in football; "the tight end made a great reception on the 20 yard line"
+n00140112	the act of securing possession of the rebounding basketball after a missed shot
+n00140264	(baseball) a running catch made near the ground
+n00140393	the act of interlocking or meshing; "an interlocking of arms by the police held the crowd in check"
+n00140652	the action of touching with the hands (or the skillful use of the hands) or by the use of mechanical means
+n00140900	touching something with the fingers
+n00141027	the act of groping; and instance of groping
+n00141176	a methodical examination or review of a condition or situation; "he made an audit of all the plants on his property"; "an energy efficiency audit"; "an email log audit"
+n00141396	an examination and dissection of a dead body to determine cause of death or the changes produced by disease
+n00141669	the act of reporting your presence (as at an airport or a hotel)
+n00141806	the act of inspecting or verifying; "they made a check of their equipment"; "the pilot ran through the check-out procedure"
+n00142140	a check on work performance or product quality made at random times without warning; "spot checks ensure a high level of performance by employees"
+n00142361	a thorough physical examination; includes a variety of tests depending on the age and sex and health of the person
+n00142665	the act of examining resemblances; "they made a comparison of noise levels"; "the fractions selected for comparison must require pupils to consider both numerator and denominator"
+n00143057	a method of examining in minute detail; "he went over the contract with a fine-tooth comb looking for loopholes"
+n00143251	a subsequent examination of a patient for the purpose of monitoring earlier treatment
+n00143536	a careful and thorough inspection
+n00143626	a swift cursory examination or inspection; "I gave him the once-over"
+n00143763	examination of the interior of an eye using an ophthalmoscope
+n00143885	a method of examination in which the examiner feels the size or shape or firmness or location of something (of body parts when the examiner is a health professional)
+n00144182	a palpatory technique for feeling a floating object in the body (especially for determining the position of a fetus by feeling the rebound of the fetus after a quick digital tap on the wall of the uterus)
+n00144445	the act of tickling
+n00144632	a light touch with the hands
+n00144778	a gentle affectionate stroking (or something resembling it); "he showered her with caresses"; "soft music was a fond caress"; "the caresses of the breeze played over his face"
+n00145024	(sports) the act of touching a player in a game (which changes their status in the game)
+n00145218	the act of bringing two things into contact (especially for communication); "the joining of hands around the table"; "there was a connection via the internet"
+n00145779	a connection made via the internet to another website; "WordNet gets many hits from users worldwide"
+n00145929	(computer science) the act of interconnecting (wires or computers or theories etc.)
+n00146111	the act of intersecting (as joining by causing your path to intersect your target's path)
+n00146277	the act of bringing near or bringing together especially the cut edges of tissue
+n00146443	the act of linking together as in a series or chain
+n00146572	the act of converging (coming closer)
+n00146856	the act of joining together as one; "the merging of the two groups occurred quickly"; "there was no meeting of minds"
+n00147091	a coming together of people
+n00147187	a casual meeting with a person or thing
+n00147314	the act of joining things in such a way that motion is possible
+n00147454	an act of joining or adjoining things
+n00147595	the act of fastening things together
+n00147862	the act of making something less tight
+n00148057	the act of making something tighter; "the tightening of economic controls"
+n00148242	(surgery) tying a duct or blood vessel with a ligature (as to prevent bleeding during surgery)
+n00148446	a sterilization procedure with women; both Fallopian tubes are tied in two places and the tubes removed in between the ligations
+n00148653	fastening firmly together
+n00148762	fastening by dowels
+n00148836	fastening electrical equipment to earth
+n00148978	the act of linking things together
+n00149084	the act of tying or binding things together
+n00149262	loosening the ties that fasten something; "the tying of bow ties is an art; the untying is easy"
+n00149508	fastening two pieces of metal together by softening with heat and applying pressure
+n00149699	creating a butt joint by welding
+n00149895	creating an overlapping joint by welding at small points
+n00150097	(baseball) a fly ball hit a short distance into the outfield
+n00150228	(baseball) a fly ball that falls between and infielder and an outfielder
+n00150379	butt welding by creating an electric arc between the two pieces which melts and joins them; used for joining segments of metal pipe
+n00150591	touching with the tongue; "the dog's laps were warm and wet"
+n00150762	the act of brushing against while passing
+n00150932	the discovery and description of the course of development of something; "the tracing of genealogies"
+n00151087	the act of detecting something; catching sight of something
+n00151314	discovering your own individuality
+n00151409	making an important discovery
+n00151497	the act of determining the properties of something, usually by research or calculation; "the determination of molecular structures"
+n00151914	the act of discovering again
+n00152018	the act of designating or identifying something
+n00152230	a system or procedure for identifying persons
+n00152338	the procedure of taking inked impressions of a person's fingerprints for the purpose of identification
+n00152519	the procedure of analyzing the DNA in samples of a person's body tissue or body fluid for the purpose of identification
+n00152727	identifying the nature or cause of some phenomenon
+n00152990	determining a person's blood type by serological methods
+n00153105	identification of a disease from its symptoms
+n00153288	any of the diagnostic procedures used to determine whether a fetus has a genetic abnormality
+n00153499	a systematic method of diagnosing a disorder (e.g., headache) that lacks unique symptoms or signs
+n00153665	a prediction of the course of a disease
+n00153809	finding a solution to a problem
+n00153961	the act of validating; finding or testing the truth of something
+n00154233	validating the authenticity of something or someone
+n00154433	documentary validation; "his documentation of the results was excellent"; "the strongest support for this view is the work of Jones"
+n00154689	establishing something (e.g. gold or silver) as the legal tender of a country
+n00154894	the act of proving that an instrument purporting to be a will was signed and executed in accord with legal requirements
+n00155085	ending something (e.g. gold or silver) as no longer the legal tender of a country
+n00155298	the act of determining that something is false
+n00155487	a determination of the place where something is; "he got a good fix on the target"
+n00155797	determining the location of something by measuring the time it takes for an echo to return from it
+n00155970	the act of determining or ordaining in advance what is to take place
+n00156119	determination of the length of a curve; finding a straight line equal in length to a given curve
+n00156293	determining again
+n00156390	an act that sets in motion some course of events
+n00156625	deliberate and intentional triggering (of trouble or discord)
+n00156812	using force to cause something to occur; "though pressed into rugby under compulsion I began to enjoy the game"; "they didn't have to use coercion"
+n00157081	causing something without any direct or apparent effort
+n00157318	stimulating influence among diverse elements; "the cross-pollination of the arts"
+n00157463	the act of subjecting someone to an influencing experience; "she denounced the exposure of children to pornography"
+n00157687	the act of exposing someone excessively to an influencing experience; "an overexposure to violence on television"
+n00157877	inadequate publicity
+n00157957	influencing strongly; "they resented the impingement of American values on European culture"
+n00158185	exerting shrewd or devious influence especially for one's own advantage; "his manipulation of his friends was scandalous"
+n00158443	deliberate actions of calculated psychological manipulation intended to intimidate or confuse (usually for competitive advantage); "football players try to play mind games with the opposition"; "the jeweler's mind game is to convince lovers that the size of a gemstone reflects the depth of their feelings"
+n00158805	a system for self-improvement developed by Emile Coue which was popular in the 1920s and 1930s
+n00158996	the act of inducing hypnosis
+n00159177	act of bringing about a desired result; "inducement of sleep"
+n00159396	inducement (as of a public official) by improper means (as bribery) to violate duty (as by commiting a felony); "he was held on charges of corruption and racketeering"
+n00159620	the act of influencing by exciting hope or desire; "his enticements were shameless"
+n00159899	the act of urging by means of teasing or flattery
+n00160073	the act of gaining acceptance or affection for yourself by persuasive and subtle blandishments; "she refused to use insinuation in order to gain favor"
+n00160297	the act of enticing others into sinful ways
+n00160415	enticing someone astray from right behavior
+n00160532	an act of winning the love or sexual favor of someone
+n00160688	a seduction culminating in sexual intercourse; "calling his seduction of the girl a `score' was a typical example of male slang"
+n00160922	the practice of making cuckolds; sexual conquests of married women
+n00161044	the act of enticing a person to do something wrong (as an offer of sex in return for money)
+n00161243	the act of choosing or selecting; "your choice of colors was unfortunate"; "you can take your pick"
+n00161603	the choice of actors to play particular roles in a play or movie
+n00161739	choice and use of colors (as by an artist)
+n00161888	(statistics) the selection of a suitable sample for study
+n00162055	the selection of a random sample; each element of the population has an equal chance of been selected
+n00162236	a selection or decision purely at random; "their system of hiring people seemed to be a sort of lucky dip"
+n00162417	the population is divided into subpopulations (strata) and random samples are taken of each stratum
+n00162632	the act of making up your mind about something; "the burden of decision was his"; "he drew his conclusions quickly"
+n00163047	the act of making a choice; "followed my father of my own volition"
+n00163233	an act of intending; a volition that you intend to carry out; "my intention changed once I saw her"
+n00163406	a major change in attitude or principle or point of view; "an about-face on foreign policy"
+n00163630	the act of adulterating (especially the illicit substitution of one substance for another)
+n00163779	the act of putting a person into a non-elective position; "the appointment had to be approved by the whole committee"
+n00164152	the act of officially naming a candidate; "the Republican nomination for Governor"
+n00164345	the act of distributing something to designated places or persons; "the first task is the assignment of an address to each datum"
+n00164579	(computer science) the assignment of particular areas of a magnetic disk to particular data or instructions
+n00164801	(sports) the decision made by an umpire or referee; "he was ejected for protesting the call"
+n00164999	the act of appointing summarily (with or without the appointee's consent)
+n00165178	the appointment of a delegate
+n00165298	the act of ordaining; the act of conferring (or receiving) holy orders; "the rabbi's family was present for his ordination"
+n00165563	designation by the chair granting a person the right to speak in a deliberative body; "he was unable to make his motion because he couldn't get recognition by the chairman"
+n00165793	laying hands on a person's head to invoke spiritual blessing in Christian ordination
+n00165942	the act of deciding to do something; "he didn't make a move to help"; "his first move was to hire a lawyer"
+n00166172	(game) a player's turn to take some action permitted by the rules of the game
+n00166355	the act of moving a chess piece
+n00166552	interchanging the positions of the king and a rook
+n00166702	the removal of an opponent's piece from the chess board
+n00166865	(chess) a chess pawn that is moved two squares can be captured by an opponent's pawn commanding the square that was passed
+n00167063	(chess) the capture by both players (usually on consecutive moves) of pieces of equal value; "the endgame began after the exchange of queens"
+n00167278	(chess) gaining (or losing) a rook in return for a knight or bishop; "black lost the exchange"
+n00167446	(chess) a direct attack on an opponent's king
+n00167580	a check on the opponent's king that is delivered by moving a piece out of the line of attack by a queen or rook or bishop
+n00167764	a chess move constituting an inescapable and indefensible attack on the opponent's king
+n00167950	a chess move early in the game in which the player sacrifices minor pieces in order to obtain an advantageous position
+n00168121	a move or step or maneuver in political or diplomatic affairs
+n00168237	a move made to gain a tactical end
+n00168505	the act of maneuvering a vehicle into a location where it can be left temporarily
+n00168658	the act of changing your residence or place of business; "they say that three moves equal one fire"
+n00168911	a secret move (to avoid paying debts); "they did a moonlight flit"
+n00169047	a change to a lower gear in a car or bicycle
+n00169147	a change from a financially rewarding but stressful career to a less well paid but more fulfilling one
+n00169305	a flight maneuver; aircraft tips laterally about its longitudinal axis (especially in turning); "the plane went into a steep bank"
+n00169522	a bank so steep that the plane's lateral axis approaches the vertical
+n00169651	a flight maneuver consisting of a steep climbing turn executed to gain altitude while changing direction
+n00169811	a flight maneuver; aircraft flies a complete circle in the vertical plane
+n00170005	a loop consisting of a climb followed by inverted flight followed by a dive that returns to horizontal flight
+n00170172	a loop consisting of a dive followed by inverted flight followed by a climb that returns to horizontal flight
+n00170340	a flight maneuver; aircraft rotates about its longitudinal axis without changing direction or losing altitude
+n00170536	a roll in which the plane follows a spiral course
+n00170643	a fast roll
+n00170710	a flight maneuver; aircraft slides sideways in the air
+n00170844	a maneuver executed by an aircraft
+n00171050	(American football) the act of warding off a tackler by holding the arm fully extended with the hand against the opponent
+n00171249	any clever maneuver; "he would stoop to any device to win a point"; "it was a great sales gimmick"; "a cheap promotions gimmick for greedy businessmen"
+n00171507	a device (such as a rhyme or acronym) used to aid recall
+n00171618	a cunning or deceitful action or device; "he played a trick on me"; "he pulled a fast one and got away with it"
+n00171882	(Yiddish) a devious trick; a bit of cheating; "how did you ever fall for a shtik like that?"
+n00172073	any distracting or deceptive maneuver (as a mock attack)
+n00172217	(football) a deceptive move made by a football player
+n00172347	skillful maneuvering or dealing; "she needs some fancy footwork to cover all those lies"
+n00172490	a maneuver in a game or conversation
+n00172598	a deceptive maneuver (especially to avoid capture)
+n00172710	how a result is obtained or an end is achieved; "a means of control"; "an example is the best agency of instruction"; "the true way to success"
+n00173172	interchangeable with `means' in the expression `by means of'
+n00173283	a means or way of escaping; "hard work was his escape from worry"; "they installed a second hatch as an escape"; "their escape route"
+n00173487	a rapid means of achieving a goal; "they saw independence as the fast track to democracy"; "he took a fast track to the top of the corporate ladder"; "the company went off the fast track when the stock market dropped"
+n00173761	the means whereby some act is accomplished; "my greed was the instrument of my destruction"; "science has given us new tools to fight disease"
+n00174003	a way or means to achieve something; "the road to fame"
+n00174127	an auspicious way or means to achieve something; "the royal road to success"
+n00174260	any means of advancement; "the job was just a stepping stone on his way to fame and riches"
+n00174412	any maneuver made as part of progress toward a goal; "the situation called for strong measures"; "the police took steps to reduce crime"
+n00174663	an action taken to offset another action
+n00174782	a takeover bid so attractive that the directors of the target company must approve it or risk shareholder protest
+n00174950	a measure used by an acquirer to gain control of a takeover target; acquirer tries to persuade other shareholders that the management of the target should be replaced
+n00175174	a buyout using borrowed money; the target company's assets are usually security for the loan; "a leveraged buyout by upper management can be used to combat hostile takeover bids"
+n00175433	a leveraged buyout in which the target company's assets are sold to repay the loan that financed the takeover
+n00175605	a measure undertaken by a corporation to discourage unwanted takeover attempts
+n00175875	giving top executives lucrative benefits that must be paid by the acquirer if they are discharged after a takeover
+n00176052	(corporation) the practice of purchasing enough shares in a firm to threaten a takeover and thereby forcing the owners to buy those shares back at a premium in order to stay in business
+n00176312	the target company defends itself by threatening to take over its acquirer
+n00176449	the target company defends itself by making its stock less attractive to an acquirer
+n00176609	a poison pill with potentially catastrophic implications for the company it is intended to protect
+n00176766	the target company defends itself by acquiring a company so onerously regulated that it makes the target less attractive; "the acquisition gave the company a safe harbor"
+n00176994	the target company defends itself by selling off its crown jewels
+n00177127	a procedure followed in making a medical diagnosis
+n00177448	a means to an end; not necessarily a principled or ethical one
+n00177638	a precaution in case of an emergency; "he acted as a backstop in case anything went wrong"
+n00177783	(medicine) a procedure adopted to meet an emergency (especially a medical emergency)
+n00178024	the specific techniques used in conducting a particular experiment
+n00178177	an experimental procedure in which neither the subjects of the experiment nor the persons administering the experiment know the critical aspects of the experiment; "a double-blind procedure is used to guard against both experimenter bias and placebo effects"
+n00178551	something contrived to meet an urgent need or emergency
+n00178700	anything that serves as an expedient; "he uses drugs as a psychological crutch"
+n00178832	an unplanned expedient
+n00178972	an expedient adopted only in desperation; "`pis aller' is French for `worst going'"
+n00179125	desperate actions taken as a means to an end; "he had to resort to desperate measures"
+n00179275	any very successful means of achieving a result
+n00179380	a means of preserving from harm or unpleasantness; "tourism was their economic salvation"; "they turned to individualism as their salvation"
+n00179576	a means of enforcement; "the treaty had no teeth in it"
+n00179683	a means or agency by which something is expressed or communicated; "the voice of the law"; "the Times is not the voice of New York"; "conservatism has many voices"
+n00179916	a means of flight or ascent; "necessity lends wings to inspiration"
+n00180054	making a chance decision by using lots (straws or pebbles etc.) that are thrown or drawn
+n00180228	a decision to do something or to behave in a certain manner; "he always wrote down his New Year's resolutions"
+n00180413	the act of accepting with approval; favorable reception; "its adoption by society"; "the proposal found wide acceptance"
+n00180770	a close affectionate and protective acceptance; "his willing embrace of new ideas"; "in the bosom of the family"
+n00180962	the act of selecting someone or something; the exercise of deliberate choice; "her election of medicine as a profession"
+n00181191	the selection of a new member (usually by a vote of the existing membership)
+n00181373	election again; "he did not run for reelection"
+n00181495	a vote by the electorate determining public opinion on a question of national importance
+n00181640	a legislative act is referred for final approval to a popular vote by the electorate
+n00181781	a vote to select the winner of a position or political office; "the results of the election will be announced tonight"
+n00182213	the opinion of a group as determined by voting; "they put the question to a vote"
+n00182435	a national or state election; candidates are chosen in all constituencies
+n00182571	a preliminary election where delegates or nominees are chosen
+n00182723	a primary where voters directly select the candidates who will run for office
+n00182897	a primary in which only registered members of a particular political party can vote; "closed primaries strengthen party unity"
+n00183084	a primary in which any registered voter can vote (but must vote for candidates of only one party)
+n00183240	a special election between regular elections
+n00183357	a final election to resolve an earlier election that did not produce a winner
+n00183505	a choice that is made by counting the number of people in favor of each alternative; "there were only 17 votes in favor of the motion"; "they allowed just one vote per person"
+n00183995	a vote proportional in magnitude to the number of people that a delegate represents
+n00184135	an election in which each person has as many votes as there are positions to be filled and they can all be cast for one candidate or can be distributed in any manner
+n00184362	a vote in which each person's choice is secret but the totaled votes are public
+n00184501	a ballot cast by a voter who votes for candidates from more than one party
+n00184652	a ballot cast by a voter who votes for all the candidates of one party
+n00184802	the act of voting in more than one place by the same person at the same election (illegal in U.S.)
+n00184981	the deciding vote cast by the presiding officer to resolve a tie
+n00185104	getting two things to correspond; "the reconciliation of his checkbook and the bank statement"
+n00185307	the act of regarding as equal
+n00185438	delivery of an infant whose feet or buttocks appear first
+n00185612	position of a fetus in which the buttocks are present at the maternal pelvic outlet
+n00185778	the delivery of a fetus by surgical incision through the abdominal wall and uterus (from the belief that Julius Caesar was born that way)
+n00186251	delivery in which forceps are inserted through the vagina and used to grasp the head of the fetus and pull it through the birth canal; since the forceps can injure the fetus this procedure has generally given way to cesarean deliveries
+n00186549	assisting women at childbirth
+n00186634	the act of scoring in a game or sport; "the winning score came with less than a minute left to play"
+n00187056	the score in a bowling match
+n00187144	in target shooting: a score made by hitting the center of the target; "in repeated sets of five shots his numbers of bull's-eyes varied"
+n00187337	a successful attempt at scoring; "the winning goal came with less than a minute left to play"
+n00187499	(soccer) a goal that results when a player inadvertently knocks the ball into the goal he is defending; "the own goal cost them the game"
+n00187710	a score in tenpins: knocking down all ten with the first ball; "he finished with three strikes in the tenth frame"
+n00187890	a score in tenpins; knocking down all ten after rolling two balls
+n00188007	any frame in which a bowler fails to make a strike or spare; "the break in the eighth frame cost him the match"
+n00188183	a football play is changed orally after both teams have assumed their positions at the line of scrimmage
+n00188341	the score in a football game
+n00188449	(American football) a play in which the opposing team has kicked the football into your end zone
+n00188620	a score in American football; a player is tackled behind his own goal line
+n00188766	a score in American football; being in possession of the ball across the opponents' goal line
+n00188934	a score in American football; a score made by kicking the ball between the opponents' goal posts
+n00189106	a successful free throw or try for point after a touchdown
+n00189257	in American football a point awarded for a successful place kick following a touchdown
+n00189476	the score of a baseball game
+n00189565	a score in baseball made by a runner touching all four bases safely; "the Yankees scored 3 runs in the bottom of the 9th"; "their first tally came in the 3rd inning"
+n00189896	a run that was not scored as the result of an error by the other team
+n00190040	a run that was scored as a result of an error by the other team
+n00190180	a run that is the result of the batter's performance; "he had more than 100 rbi last season"
+n00190338	the score in a basketball game
+n00190431	a score in basketball made by throwing the ball through the hoop
+n00190579	(sports) three consecutive scores by one player or three scores in one game (as in cricket or ice hockey etc.)
+n00190783	the successful action of solving a problem; "the solution took three hours"
+n00190931	a stunt in which you spin the cylinder of a revolver that is loaded with only one bullet and then point the muzzle at your head and pull the trigger
+n00191142	the action of changing something; "the change of government had no impact on the economy"; "his change on abortion cost him the election"
+n00191980	the act of changing a fluid by passing it through a filter
+n00192149	the filtration of a liquid for extraction or purification
+n00192300	the act of reducing complexity
+n00192457	the act of reducing to a scheme or formula
+n00192613	an act of economizing; reduction in cost; "it was a small economy to walk to work every day"; "there was a saving of 50 cents"
+n00192910	the reduction of expenditures in order to become financially stable
+n00193099	the saving in cost of production that is due to mass production
+n00193225	(physiology) the automatic adjustment in focal length of the natural lens of the eye
+n00193406	(physiology) the responsive adjustment of a sense organ (as the eye) to varying conditions (as of light)
+n00193622	the process of adjusting the eyes to low levels of illumination; cones adapt first; rods continue to adapt for up to four hours
+n00193811	the process of adjusting the eyes to relatively high levels of illumination; the pupil constricts and the cones system is operative
+n00194005	the action of taking up as by tightening or absorption or reeling in
+n00194127	the act of adjusting again (to changed circumstances)
+n00194257	accommodation to domestic life; "her explorer husband resisted all her attempts at domestication"
+n00194414	the act of changing to a decimal system; "the decimalization of British currency"
+n00194645	the act of changing from imperial units of measurement to metric units: meters, grams, seconds
+n00194831	a general accommodation to unchanging environmental conditions
+n00194969	an activity that varies from a norm or standard; "any variation in his routine was immediately reported"
+n00195194	the act of changing or altering something slightly but noticeably from the norm or standard; "who is responsible for these variations in taxation?"
+n00195415	act of changing in practice or custom; "the law took many turnings over the years"
+n00195569	the act of introducing variety (especially in investments or in the variety of goods and services offered); "my broker recommended a greater diversification of my investments"; "he limited his losses by diversification of his product line"
+n00195938	in constant change; "his opinions are in flux"; "the newness and flux of the computer industry"
+n00196084	the act of changing one thing or position for another; "his switch on abortion cost him the election"
+n00196402	a sudden unexpected switch
+n00196485	the act of putting one thing or person in the place of another: "he sent Smith in for Jones but the substitution came too late to help"
+n00196848	(law) the replacement of one obligation by another by mutual agreement of both parties; usually the replacement of one of the original parties to a contract with the consent of the remaining party
+n00197136	replacing a pitcher in baseball
+n00197229	the act of discharging someone because of age (especially to cause someone to retire from service on a pension)
+n00197419	act of replacing one person or thing by another especially one held to be superior
+n00197610	act of taking the place of another especially using underhanded tactics
+n00197772	the act of furnishing an equivalent person or thing in the place of another; "replacing the star will not be easy"
+n00198118	(law) the act of substituting of one creditor for another
+n00198270	the act of substituting other food for the mother's milk in the diet of a child or young mammal
+n00198451	act of raising in rank or position
+n00198631	the act of preferring; "the preferment went to the younger candidate"
+n00198793	act of lowering in rank or position
+n00198919	the ceremonial act of clothing someone in the insignia of an office; the formal promotion of a person to an office or rank
+n00199130	the act of changing something into something different in essential characteristics
+n00199707	the act of making something different (as e.g. the size of a garment)
+n00200041	the act of distracting; drawing someone's attention away from something; "conjurers are experts at misdirection"
+n00200244	the act of charging a liquid with a gas making it effervescent
+n00200379	the act of modifying or adjusting according to due measure and proportion (as with regard to artistic effect)
+n00200563	the act of modifying or changing the strength of some idea; "his new position involves a qualification of his party's platform"
+n00200768	an extensive alteration of the structure of a corporation or government; "after the takeover there was a thorough reorganization"; "the reorganization was prescribed by federal bankruptcy laws"
+n00201058	the act of passing from one state or place to the next
+n00201269	becoming inflexible or out of date
+n00201397	the act of changing smoothly from one state or situation to another
+n00201516	the act of altering something secretly or improperly
+n00201671	the act of transfering something from one form to another; "the transfer of the music from record to tape suppressed much of the background noise"
+n00201923	the action of prohibiting or inhibiting or forbidding (or an instance thereof); "they were restrained by a prohibition in their charter"; "a medical inhibition of alcoholic beverages"; "he ignored his parents' forbiddance"
+n00202284	the action of opposing something that you disapprove or disagree with; "he encountered a general feeling of resistance from many citizens"; "despite opposition from the newspapers he went ahead"
+n00202620	a management action resisting employee's demands; employees are barred from entering the workplace until they agree to terms
+n00202816	doing something in opposition to another way of doing it that you don't like; "his style of painting was a reaction against cubism"
+n00203020	an adverse reaction to some political or social occurrence; "there was a backlash of intolerance"
+n00203208	backlash by white racists against black civil rights advances
+n00203342	the act of rejecting something; "his proposals were met with rejection"
+n00203649	a curt or disdainful rejection
+n00203753	deliberately avoiding; keeping away from or preventing from happening
+n00204022	the act of turning yourself (or your gaze) away; "averting her gaze meant that she was angry"
+n00204199	an avoidance of danger or difficulty; "that was a narrow escape"
+n00204334	something that barely avoids failure or disaster
+n00204439	the act of giving something up
+n00204659	abandoning without shelter or protection (as by leaving as infant out in the open)
+n00204814	the act of abandoning a party for cause
+n00204943	a sudden abandonment (as from a political party)
+n00205079	the act of renouncing; sacrificing or giving up or surrendering (a possession or right or title or privilege etc.)
+n00205349	the act of refusing an offer; "the turndown was polite but very firm"
+n00205543	the act of forsaking
+n00205649	renunciation of your own interests in favor of the interests of others
+n00205891	the act of losing or surrendering something as a penalty for a mistake or fault or failure to perform etc.
+n00206130	a group's refusal to have commercial dealings with some organization in protest against its policies
+n00206302	rejection by means of an act of banishing or proscribing someone
+n00206600	the formal act of pronouncing (someone or something) accursed
+n00206779	the act of expelling a lawyer from the practice of law
+n00206927	the act of forcing out someone or something; "the ejection of troublemakers by the police"; "the child's expulsion from school"
+n00207306	the expulsion from a country of an undesirable alien
+n00207434	the act of excluding someone from society by general consent
+n00207622	the act of excluding someone by a negative vote or veto
+n00207761	the act of expelling a person from their native land; "men in exile dream of hope"; "his deportation to a penal colony"; "the expatriation of wealthy farmers"; "the sentence was one of transportation for life"
+n00208141	the deportation of the Jews to Babylonia by Nebuchadnezzar in 586 BC
+n00208277	the act of banishing a member of a church from the communion of believers and the privileges of the church; cutting a person off from a religious society
+n00208521	mild banishment; consignment to an inferior position; "he has been relegated to a post in Siberia"
+n00208694	banishment into the country
+n00208797	the act of ejecting someone or forcing them out
+n00208943	the act of deposing someone; removing a powerful person from a position or office
+n00209132	a temporary debarment (from a privilege or position etc)
+n00209301	temporary dismissal of a student from a university
+n00209446	act of removing from office or employment
+n00209546	a vote that blocks a decision
+n00209680	indirect veto of legislation by refusing to sign it
+n00209789	a vote cast by writing in the name of a candidate who is not listed on the ballot
+n00209943	the act of ending something; "the termination of the agreement"
+n00210518	the act of finishing; "his best finish in a major tournament was third"; "the speaker's finishing was greeted with applause"
+n00210797	the concluding part of any performance
+n00210940	(music) the act or manner of terminating a musical phrase or tone
+n00211110	a concluding action
+n00211462	the act of finalizing
+n00211593	carrying some project or intention to full completion; "I appreciated his follow-through on his promise"
+n00211776	the act of carrying a stroke to its natural completion; "his follow-through was straight down the line toward the target"; "squash can be dangerous if your opponent has a long follow-through"
+n00212065	the successful completion of a program of study
+n00212205	withdrawal from your position or occupation
+n00212377	the act of retiring into inactivity; "he emerged from his hibernation to make his first appearance in several years"
+n00212551	the action of retiring to and living in the country
+n00212678	a final performance or effort (especially before retirement)
+n00212808	the act of giving up and abandoning a struggle or task etc.
+n00213052	the act of ceding
+n00213186	act of relinquishing property or authority etc; "the handover of occupied territory"
+n00213343	the delivery of a principal into lawful custody
+n00213482	the surrender of an accused or convicted person by one state or country to another (usually under the provisions of a statute or treaty)
+n00213694	a formal written statement of relinquishment
+n00213903	an act exempting someone; "he was granted immunity from prosecution"
+n00214148	an exemption granted after influence (e.g., money) is brought to bear; "collusion resulted in tax fixes for gamblers"
+n00214315	personal immunity accorded to a public official from liability to anyone injured by actions that are the consequence of exerting official authority
+n00214526	an exemption that precludes bringing a suit against the sovereign government without the government's consent; "the doctrine of sovereign immunity originated with the maxim that the king can do no wrong"
+n00214794	a broader form of use immunity that also protects the witness from any prosecution brought about relating to transactions to which they gave testimony
+n00215013	an exemption that displaces the privilege against self-incrimination; neither compelled testimony or any fruits of it can be used against the witness who therefore can no longer fear self-incrimination
+n00215314	the termination or disintegration of a relationship (between persons or nations)
+n00215534	separation or breakup or divorce; "after 15 years together they are headed for splitsville"
+n00215683	the termination of a ruler or institution (especially by force)
+n00215838	the act of subverting; as overthrowing or destroying a legally constituted government
+n00216038	the termination of a meeting
+n00216174	the termination of someone's employment (leaving them free to depart)
+n00216607	an abrupt and unceremonious dismissal
+n00216723	dismissal from office
+n00216834	an abrupt or sudden removal of a person or group from an organization or place; "he died in a purge by Stalin"
+n00217014	the termination of something by causing so much damage to it that it cannot be repaired or no longer exists
