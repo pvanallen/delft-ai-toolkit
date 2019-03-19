@@ -11,6 +11,15 @@ _________________
 - [Repeats](#repeats)
 - [Random](#random)
 - [Actions](#actions)
+  - [Move - Causes the device to move](#move---causes-the-device-to-move)
+  - [Servo - Moves a servo to an angle](#servo---moves-a-servo-to-an-angle)
+  - [Leds - Sets the color of device LEDs](#leds---sets-the-color-of-device-leds)
+  - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
+  - [Analogin - Starts or stops values from a sensor](#analogin---starts-or-stops-values-from-a-sensor)
+  - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
+  - [Speak - Perform text to speech - robot only](#speak---perform-text-to-speech---robot-only)
+  - [Listen - Perform text to speech - robot only](#listen---perform-text-to-speech---robot-only)
+  - [Recognize - Perform object recognition](#recognize---perform-object-recognition)
 <!-- TOC END -->
 _________________
 
@@ -34,33 +43,47 @@ The Random checkbox changes the behavior of the node to run one random action in
 Note that this is a standard random function currently, so it is possible for the same action to run twice in a row during random set of repeats.
 
 ## Actions
-* **Move** - Causes the device to move
-  * *Direction* - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
-  * *Time* - Number of seconds the movement will run. Zero sets the movement to run until changed, and control passes immediately on the to the next action.
-  * *Speed* - Speed of the movement
-* **Servo** - Moves a servo to an angle
-  * *Movement* Type - Not yet implemented. In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
-  * *Port* - The port the servo is attached to
-  * *Time* - Number of seconds the action waits before passing control to the next action
-  * *Angle* - The target angle to move the servo to
-* **Leds** - Sets the color of device LEDs
-  * *Type* - Not yet implemented. In the future will blink capability
-  * *Port* - Sets the LED to be set (0-12). If -1, all LEDs will be set
-  * *Time* - Number of seconds the action waits before passing control to the next action
-  * *Color* - Opens a color picker to set the color the LEDs will be set to
-* **Play Sound** - Plays a sound effect
-  * *Sound* - Sets the sound to be played
-  * *Time* - Number of seconds the action waits before passing control to the next action
-* **Analogin** - Starts or stops values from a sensor
-  * *Action* - Start tells the virtual or physical device to start sending values. Stop ends the sending of values
-  * *Port* - Specifies the port the sensor is connected to
-  * *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
-* **Delay** - Pauses the sequence of actions
-  * *Time* - Seconds of delay before the next action
-* **Speak** - Causes the device to voice text
-  * *Voice* - Not yet implemented
-  * *Time* - Number of seconds the action waits before passing control to the next action
-  * *Utterance* - The text to be spoken
-* **Listen** - Causes the device to listen to a microphone and transcribe what it hears to text
-  * *Mode* - Not yet implemented.
-  * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
+### Move - Causes the device to move
+* *Direction* - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
+* *Time* - Number of seconds the movement will run. Zero sets the movement to run until changed, and control passes immediately on the to the next action.
+* *Speed* - Speed of the movement
+
+### Servo - Moves a servo to an angle
+* *Movement* Type - Not yet implemented. In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
+* *Port* - The port the servo is attached to
+* *Time* - Number of seconds the action waits before passing control to the next action
+* *Angle* - The target angle to move the servo to
+
+### Leds - Sets the color of device LEDs
+* *Type* - Not yet implemented. In the future will blink capability
+* *Port* - Sets the LED to be set (0-12). If -1, all LEDs will be set
+* *Time* - Number of seconds the action waits before passing control to the next action
+* *Color* - Opens a color picker to set the color the LEDs will be set to
+
+### Play Sound - Plays a sound effect
+* *Sound* - Sets the sound to be played
+* *Time* - Number of seconds the action waits before passing control to the next action
+* *User Sounds* - Note that there are five placeholder sound files built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
+  * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound1.wave - UserSound5.wav files with your own.
+  * Robot - To change the sounds on the robot, FTP to the RPi, go to the folder *delft-ai-toolkit>audio>ui_sounds* and replace any of the UserSound1.wave - UserSound5.wav files with your own.
+
+### Analogin - Starts or stops values from a sensor
+* *Action* - Start tells the virtual or physical device to start sending values. Stop ends the sending of values
+* *Port* - Specifies the port the sensor is connected to.
+  * It is possible to have the robot send more than one sensor at a time. Plug your sensors into one of the six analog inputs on the Arduino (the IR distance sensor is normally plugged into input 0)
+* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+
+### Delay - Pauses the sequence of actions
+* *Time* - Seconds of delay before the next action
+
+### Speak - Perform text to speech - robot only
+* *Voice* - Not yet implemented
+* *Time* - Number of seconds the action waits before passing control to the next action
+* *Utterance* - The text to be spoken
+
+### Listen - Perform text to speech - robot only
+* *Mode* - Not yet implemented.
+* *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
+
+### Recognize - Perform object recognition
+* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and complex and slower at the bottom of the list. 
