@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Name: Float Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -264, y: -88}
+  position: {x: 88, y: -56}
   ports:
     keys:
     - valueOut
@@ -55,10 +55,10 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: exit
-        node: {fileID: 114345104071829422}
+        node: {fileID: 114840279153423284}
         reroutePoints: []
       - fieldName: exit
-        node: {fileID: 114840279153423284}
+        node: {fileID: 114805473901169136}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     floatValB: 919
     inverse: 0
   valueOut: 0
-  _value: -1
+  _value: 731.4872
 --- !u!114 &114128087606339860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 56, y: 200}
+  position: {x: 88, y: -376}
   ports:
     keys:
     - actions
@@ -309,9 +309,6 @@ MonoBehaviour:
         node: {fileID: 114805473901169136}
         reroutePoints: []
       - fieldName: enter
-        node: {fileID: 114048849356217398}
-        reroutePoints: []
-      - fieldName: enter
         node: {fileID: 114584445420009982}
         reroutePoints: []
       _direction: 1
@@ -330,7 +327,7 @@ MonoBehaviour:
   m_Name: Stop when X key is pressed
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -264, y: 200}
+  position: {x: -264, y: -392}
   ports:
     keys:
     - valueOut
@@ -402,7 +399,7 @@ MonoBehaviour:
   m_Name: Exit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 200}
+  position: {x: 360, y: -376}
   ports:
     keys:
     - enter
@@ -441,7 +438,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -264, y: -376}
+  position: {x: -264, y: -40}
   ports:
     keys:
     - actions
@@ -487,7 +484,10 @@ MonoBehaviour:
       _node: {fileID: 114805473901169136}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114048849356217398}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 56, y: -232}
+  position: {x: 408, y: -152}
   ports:
     keys:
     - actions
