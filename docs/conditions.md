@@ -57,6 +57,7 @@ The trigger conditions determine which node(s) will run next. If the trigger con
 * **Ends With** - If the incoming text ends with the text in the condition field, the attached node will run
 * **Contains** - If the incoming text contains the text in the condition field, the attached node will run. For this type, you can have multiple options separated by commas. If any of the comma delimited entries is matched, the condition will be true and the attached node will run. For example, in the above object recognition node, one condition is set to any of "car,van,vehicle,jeep" to handle different kinds of vehicles identified in the same way.
 * **Otherwise** - If no conditions above the Otherwise condition have matched, the node connected to this condition will run
+* **AllTrue** - If all of the conditions above have matched, the node connected to this condition will run
 
 ### The ! Not Checkbox
 The ! checkbox will invert the condition you set up. So for example, if the condition is `Starts With` and text of `car` with the `! checkbox` checked then any incoming text that does NOT start with "car" will trigger that condition and corresponding connected node.
