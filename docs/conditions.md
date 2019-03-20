@@ -11,7 +11,7 @@ _______________
 - [String Condition Node](#string-condition-node)
   - [Setting the input data source](#setting-the-input-data-source)
   - [Creating Trigger Conditions](#creating-trigger-conditions)
-  - [Four kinds of conditions](#four-kinds-of-conditions)
+  - [Condition Types](#condition-types)
   - [The ! Not Checkbox](#the--not-checkbox)
 - [Float Condition Node](#float-condition-node)
   - [Setting the input data source](#setting-the-input-data-source-1)
@@ -52,7 +52,7 @@ The trigger conditions determine which node(s) will run next. If the trigger con
 * **Reorder** - Drag the "=" symbol to reorder them
 * **Delete** - To delete a condition, select the condition and click the "-" button
 
-### Four kinds of conditions
+### Condition Types
 * **Starts With** - If the incoming text starts with the text in the condition field, the attached node will run
 * **Ends With** - If the incoming text ends with the text in the condition field, the attached node will run
 * **Contains** - If the incoming text contains the text in the condition field, the attached node will run. For this type, you can have multiple options separated by commas. If any of the comma delimited entries is matched, the condition will be true and the attached node will run. For example, in the above object recognition node, one condition is set to any of "car,van,vehicle,jeep" to handle different kinds of vehicles identified in the same way.
