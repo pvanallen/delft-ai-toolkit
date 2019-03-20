@@ -13,8 +13,7 @@ using XNode;
 
 namespace DelftToolkit {
 	/// <summary> Splitter Node. Routes triggers </summary>
-	[CreateNodeMenu("Graph Control/Splitter"), NodeWidth(170), NodeTint(0f, 1f, 1f)]
-    //[NodeTint(0f, 1f, 1f)]
+	[CreateNodeMenu("Graph Control/Splitter"), NodeWidth(170)]
 	public class Splitter : StateNodeBase {
 
         public int outlets = 4;
