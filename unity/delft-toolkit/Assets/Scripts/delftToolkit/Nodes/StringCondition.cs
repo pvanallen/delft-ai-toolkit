@@ -42,9 +42,10 @@ namespace DelftToolkit {
 			// Store the active state because we want to evaluate all conditions, not just the first one
 			bool activeCache = active;
 			bool conditionMatch = false;
+			bool conditionMatchAll = true;
 			for (int i = 0; i < conditions.Length; i++) {
 				// We evaluate first because we want the lastState in the condition to update regardless of 'active'
-				if (conditions[i].Evaluate(value, conditionMatch) ) {
+				if (conditions[i].Evaluate(value, conditionMatch, conditionMatchAll) ) {
 					conditionMatch = true; // track condition matches for "otherwise" condition
 					if (activeCache) {
 						NodePort triggerPort = GetOutputPort("conditions " + i);
@@ -56,22 +57,24 @@ namespace DelftToolkit {
 							}
 						}
 					}
+				} else {
+					conditionMatchAll = false;
 				}
 			}
 		}
 
 		[Serializable] public struct Condition {
-			public enum CompareType { StartsWith, EndsWith, Contains, Otherwise }
+			public enum CompareType { StartsWith, EndsWith, Contains, Otherwise, AllTrue }
 			[NodeEnum] public CompareType compareType;
 			public string strVal;
 			public bool inverse;
 			[NonSerialized] public bool lastState;
 
-			public bool Evaluate(string test, bool priorConditionMatch) {
-				return lastState = EvaluateInternal(test, priorConditionMatch) != inverse;
+			public bool Evaluate(string test, bool priorConditionMatch, bool priorMatchAll) {
+				return lastState = EvaluateInternal(test, priorConditionMatch, priorMatchAll) != inverse;
 			}
 
-			private bool EvaluateInternal(string test, bool priorConditionMatch ) {
+			private bool EvaluateInternal(string test, bool priorConditionMatch, bool priorMatchAll ) {
 				test = test.ToLower();
 				switch (compareType) {
 					case CompareType.StartsWith:
@@ -93,6 +96,9 @@ namespace DelftToolkit {
 					case CompareType.Otherwise:
 						// if none of the prior conditions are true, this is true
 						return !priorConditionMatch;
+					case CompareType.AllTrue:
+						// if none of the prior conditions are true, this is true
+						return priorMatchAll;
 					default:
 						return false;
 				}
