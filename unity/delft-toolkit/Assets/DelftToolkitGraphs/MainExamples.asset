@@ -2444,7 +2444,7 @@ MonoBehaviour:
   filter:
     device: 0
     source: 0
-    messageFilter: /str/keydow
+    messageFilter: /str/keydown
   conditions:
   - compareType: 0
     strVal: F
@@ -2462,7 +2462,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: Mouse0
+  _value: S
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
