@@ -34,6 +34,8 @@ from google.cloud.speech import types
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google-credentials.json"
 
 def speak(phrase):
+  phrase = phrase.replace("'","")
+  phrase = phrase.replace('"',"")
   os.system("pico2wave -w audio/speaknow.wav '" + phrase + "' && sox audio/speaknow.wav -c 2 audio/speaknowstereo.wav && aplay -Dhw:1 audio/speaknowstereo.wav" )
 
 def isAudioPlaying():
