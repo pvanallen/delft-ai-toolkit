@@ -1,5 +1,5 @@
 # Delft AI Toolkit
-# Visual Authoring Toolkit for AI Smart Things
+# Visual Authoring Toolkit for AI driven Smart Things
 
 **As of early March 2019, this version is a stable release. Of course, many improvements are planned, some things are still rough, and documentation is still in progress**
 
@@ -19,7 +19,8 @@ This system uses [xNode](https://github.com/Siccity/xNode), which is being enhan
   - [Robot Command Line Essentials](#robot-command-line-essentials)
   - [Installing The software](#installing-the-software)
 <!-- TOC END -->
-
+_________________________
+<img src="docs/images/speak-recognize-graph.png" width="700">
 ## Description
 
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
@@ -43,8 +44,9 @@ The goal of this project is to develop an approach to authoring AI that enables 
 Each of these has a codebase, and includes a range of libraries. **We are using and helping create an improved version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
 
 ## Current Features
-* **Action Types** - speak, listen, object recognize, servos, movement, leds, sensor input
+* **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
 * **Action Options** - repeat, random
+* **Inputs** - analog sensors, keyboard, OSC
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
 
@@ -52,10 +54,9 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 
 * More video and written documentation
 * More and simpler hardware configurations
-* DONE: Add OSC remote marionetting back in
 * Add support for IBM Watson AI Cognitive Services (e.g. Assistant, Speech2Text, Text2Speech, Emotion, Sentiment, etc.)
 * Add support for Snip.ai -- edge based speech assistant
-* Better support for hardware sensors and IoT (e.g. IFTTT, webhooks)
+* Better support for IoT (e.g. IFTTT, webhooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
 
@@ -63,7 +64,7 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 ![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
 
 ### Hardware
-The physical robot is currently based on a simple robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
+The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
 
 Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
 
