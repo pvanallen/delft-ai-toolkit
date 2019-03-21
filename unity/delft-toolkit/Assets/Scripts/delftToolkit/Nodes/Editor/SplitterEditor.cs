@@ -20,30 +20,14 @@ namespace DelftToolkit {
 			Rect rect = GUILayoutUtility.GetLastRect();
 			rect.x += 47;
 			rect.width = 65;
-			EditorGUI.BeginChangeCheck();
 			EditorGUI.PropertyField(rect, serializedObject.FindProperty("splitType"), GUIContent.none);
 
 			GUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Outlets:", GUILayout.Width(43));
-			node.outlets = EditorGUILayout.IntField(node.outlets, GUILayout.Width(22));
+			node.outlets = Mathf.Clamp(EditorGUILayout.IntField(node.outlets, GUILayout.Width(22)),2,50);
 
-			if (EditorGUI.EndChangeCheck()) {
-				//Debug.Log("changed");
-				if (node.outlets < 2) node.outlets = 2;
-				if (node.lastOutlets != node.outlets) {
-					// remove unneeded old outlets and create new ones
-					for (int i=node.outlets;i<node.lastOutlets;i++) {
-						node.RemoveInstancePort("out" + i); 
-					}
-					for (int i=node.lastOutlets;i<node.outlets;i++) {
-						node.AddInstanceOutput(typeof(DelftToolkit.StateNodeBase.Empty), fieldName: "out" + i);
-					}
-					node.lastOutlets = node.outlets;
-				}
-				// reset next outlet
-				node.nextOutletNum = -1;
-				node.nextOutlet();
-			}
+			node.changeCheck();
+			
 			EditorGUILayout.LabelField("Next:", GUILayout.Width(35));
 			node.nextOutletNum = EditorGUILayout.IntField(node.nextOutletNum, GUILayout.Width(22));
 			GUILayout.EndHorizontal();
@@ -52,7 +36,8 @@ namespace DelftToolkit {
 			for (int i=0;i<node.outlets;i++) {	
 				NodeEditorGUILayout.PortField(target.GetOutputPort("out" + i));
 			}
-			
+			serializedObject.ApplyModifiedProperties();
+			serializedObject.Update();
 			DrawFooterGUI();
 		}
 	}

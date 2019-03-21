@@ -20,13 +20,11 @@ namespace DelftToolkit {
         public int lastOutlets = 0;
         public int nextOutletNum = -1;
 
-        public enum splitterType {
-            random,
-            sequential
-	    } 
+        public enum splitterType {random, sequential} 
 
         [NodeEnum]
         public splitterType splitType = splitterType.random;
+        private splitterType splitTypeLast = splitterType.random;
 
         private bool nodeInitialized = false;
 
@@ -64,6 +62,28 @@ namespace DelftToolkit {
                 } 
             } else if (splitType == splitterType.sequential) {
                 nextOutletNum = (nextOutletNum + 1) % outlets;
+            }
+        }
+
+        public void changeCheck() { 
+            if (lastOutlets != outlets) {
+                // remove unneeded old outlets and create new ones
+                for (int i=outlets;i<lastOutlets;i++) {
+                    RemoveInstancePort("out" + i); 
+                }
+                for (int i=lastOutlets;i<outlets;i++) {
+                    AddInstanceOutput(typeof(DelftToolkit.StateNodeBase.Empty), fieldName: "out" + i);
+                }
+                // reset next outlet
+                nextOutletNum = -1;
+				nextOutlet();
+                lastOutlets = outlets;
+            }
+            if (splitType != splitTypeLast) {
+                // reset next outlet
+				nextOutletNum = -1;
+				nextOutlet();
+                splitTypeLast = splitType;
             }
         }
 
