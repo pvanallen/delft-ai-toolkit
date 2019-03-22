@@ -31,7 +31,7 @@ The goal of this project is to develop an approach to authoring AI that enables 
 
 ## Documents
 * [Toolkit Documentation](docs/README.md)
-* [ACM Interactions Article on Project](http://interactions.acm.org/archive/view/november-december-2018/prototyping-ways-of-prototyping-ai)
+* [ACM Interactions Article on Project](http://www.philvanallen.com/articles/PrototypingWaysOfPrototypingAI-ACM-Interactions.pdf)
 * [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
 ## System Components
@@ -46,6 +46,7 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
 * **Action Options** - repeat, random
+* **Machine Learning** - performs object recognition onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Speeds range from 0.6secs to 2.0secs
 * **Inputs** - analog sensors, keyboard, OSC
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
