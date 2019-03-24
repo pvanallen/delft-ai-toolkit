@@ -24,8 +24,8 @@ namespace DelftToolkit {
 
 		/// <summary> Used only for storing the expanded state of the actions list. </summary>
 		[SerializeField, HideInInspector] private bool expanded;
-		[Tooltip("ValueIn lets you define a variable string to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
-		[Input] public string valueIn;
+		[Tooltip("This input lets you define a variable to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
+		[Input] public string variable;
 		private Action actionStopAll = new Action();
 
 		public delegate void DingActionEvent(AiGlobals.Devices device, Action action);
@@ -45,6 +45,7 @@ namespace DelftToolkit {
 							_currentAction = UnityEngine.Random.Range(0, actions.Count);
 						}
 
+						actions[currentAction].variable = GetInputValue("variable", variable);
 						DingEvent(device, actions[currentAction]);
 
 						switch (actions[currentAction].actionType) {
@@ -114,6 +115,8 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class Action {
+		/// <summary> Replace {variable} with this value when executing this action </summary>
+		public string variable;
 		[NodeEnum] public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.move;
 		public ActionMove moveParams = new ActionMove();
 		public ActionLed ledParams = new ActionLed();

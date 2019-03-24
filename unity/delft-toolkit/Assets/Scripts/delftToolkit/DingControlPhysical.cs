@@ -138,9 +138,10 @@ public class DingControlPhysical : DingControlBase {
 				});
 				break;
 			case AiGlobals.ActionTypes.speak:
+				string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
 				oscValues.AddRange(new object[] { 
 					action.speakParams.type.ToString(),
-					action.speakParams.utterance
+					utterance
 				});
 				break;
 			case AiGlobals.ActionTypes.listen:
