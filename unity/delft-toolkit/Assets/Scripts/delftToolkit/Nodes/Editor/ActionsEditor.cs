@@ -32,14 +32,14 @@ namespace DelftToolkit {
 			GUILayout.EndHorizontal();
 
 			// Display the valueIn port.
-			NodePort valueInPort = node.GetInputPort("valueIn");
+			NodePort valueInPort = node.GetInputPort("variable");
 			if (valueInPort.IsConnected) {
 				// Display an uneditable input value if connected
 				EditorGUI.BeginDisabledGroup(true);
-				EditorGUILayout.TextField(serializedObject.FindProperty("valueIn").displayName, valueInPort.GetInputValue<string>());
+				EditorGUILayout.TextField(serializedObject.FindProperty("variable").displayName, valueInPort.GetInputValue<string>());
 				EditorGUI.EndDisabledGroup();
 				NodeEditorGUILayout.AddPortField(valueInPort);
-			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("valueIn"), valueInPort, true);
+			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("variable"), valueInPort, true);
 
 			string title = "Actions";
 			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
