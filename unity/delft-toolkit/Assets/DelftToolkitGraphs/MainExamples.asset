@@ -64,7 +64,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -86,7 +86,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114069587484601216}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -189,7 +189,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -233,7 +234,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -277,7 +279,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -321,7 +324,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -365,7 +369,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -409,7 +414,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -453,7 +459,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -497,7 +504,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -545,7 +553,7 @@ MonoBehaviour:
   random: 1
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114192978095366514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +609,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -618,7 +626,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114197308591409166}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -676,7 +684,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 1
@@ -720,7 +729,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 3
       time: 1
@@ -764,7 +774,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
       time: 1
@@ -812,7 +823,7 @@ MonoBehaviour:
   random: 0
   device: 1
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114199012867470620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +840,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -844,7 +855,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114199012867470620}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -887,7 +898,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
       time: 0.5
@@ -935,7 +947,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114237430225727632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1015,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -1018,7 +1030,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114239333526522506}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1061,7 +1073,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 4
       time: 0.5
@@ -1109,7 +1122,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114365703743924768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,7 +1139,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -1150,7 +1163,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114365703743924768}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1271,7 +1284,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
       time: 1
@@ -1315,7 +1329,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -1359,7 +1374,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -1403,7 +1419,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -1447,7 +1464,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 3
+  - variable: 
+    actionType: 3
     moveParams:
       type: 1
       time: 1
@@ -1491,7 +1509,8 @@ MonoBehaviour:
     playSoundParams:
       type: 23
       time: 0.1
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 3
       time: 1
@@ -1535,7 +1554,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 4
       time: 1
@@ -1579,7 +1599,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 1
@@ -1623,7 +1644,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 3
+  - variable: 
+    actionType: 3
     moveParams:
       type: 2
       time: 1
@@ -1667,7 +1689,8 @@ MonoBehaviour:
     playSoundParams:
       type: 47
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 2
       time: 1
@@ -1715,7 +1738,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114385956546319634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1755,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -1747,7 +1770,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114385956546319634}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1790,7 +1813,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 3
       time: 0.5
@@ -1838,7 +1862,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114386569591514158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,7 +1998,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -1991,7 +2015,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114650074088641332}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2049,7 +2073,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
       time: 1
@@ -2093,7 +2118,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 3
       time: 1
@@ -2137,7 +2163,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 1
@@ -2185,7 +2212,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114728867026376646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,7 +2247,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -2235,7 +2262,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114773366550339388}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2278,7 +2305,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 0.5
@@ -2326,7 +2354,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114775135851953510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,7 +2507,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -2494,7 +2522,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114859249833087784}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2537,7 +2565,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 3
+  - variable: 
+    actionType: 3
     moveParams:
       type: 4
       time: 1
@@ -2585,7 +2614,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114896338245393414
 MonoBehaviour:
   m_ObjectHideFlags: 0

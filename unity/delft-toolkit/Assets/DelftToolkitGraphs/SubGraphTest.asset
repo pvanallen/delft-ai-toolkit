@@ -52,7 +52,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -68,7 +68,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114293047227969994}
       _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -122,7 +122,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   actions:
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 0
       time: 1
@@ -166,7 +167,8 @@ MonoBehaviour:
     playSoundParams:
       type: 18
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 1
@@ -214,7 +216,7 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114538942463119652
 MonoBehaviour:
   m_ObjectHideFlags: 0
