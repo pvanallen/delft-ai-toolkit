@@ -63,9 +63,21 @@ Note that this is a standard random function currently, so it is possible for th
 ### Play Sound - Plays a sound effect
 * *Sound* - Sets the sound to be played
 * *Time* - Number of seconds the action waits before passing control to the next action
-* *User Sounds* - Note that there are five placeholder sound files built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
-  * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound1.wave - UserSound5.wav files with your own.
-  * Robot - To change the sounds on the robot, FTP to the RPi, go to the folder *delft-ai-toolkit>audio>ui_sounds* and replace any of the UserSound1.wave - UserSound5.wav files with your own.
+* *User Sounds* - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
+  * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound#.wav files with your own.
+  * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own. 
+    * FTP
+      * In your FTP program (e.g. CyberDuck) connect to the RPi
+      * Type in the the IP address
+      * Put in the RPi login: pi, adventures
+      * Navigate to *delft-ai-toolkit>audio>ui_sounds* and replace the files
+    * Mount the RPi as a server (Mac)
+      * In the Finder, select Go>Connect to server…
+      * Type in the IP address of your RPi in the following way: smb://10.4.17.93
+      * Press Connect, and put in the RPi login: pi, adventures
+      * You will then see the RPi appear in your servers in the left side of the Finder
+      * Navigate to *delft-ai-toolkit>audio>ui_sounds* and replace the files
+
 
 ### Analogin - Starts or stops values from a sensor
 * *Action* - Start tells the virtual or physical device to start sending values. Stop ends the sending of values
@@ -86,4 +98,4 @@ Note that this is a standard random function currently, so it is possible for th
 * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
 
 ### Recognize - Perform object recognition
-* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and complex and slower at the bottom of the list. 
+* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and complex and slower at the bottom of the list.
