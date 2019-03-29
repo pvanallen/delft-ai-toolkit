@@ -17,6 +17,7 @@ run command
 #include <Adafruit_MotorShield.h>
 #include <Adafruit_NeoPixel.h>
 #include <Servo.h>
+#include <math.h>
 
 // set up constants
 // events
@@ -145,15 +146,15 @@ void setup() {
   pixel.show();
 
   tilt.write(60);
-  startBlinkLeds(100,10,127,0,0);
-  delay(300);
+  delay(200);
   pan.write(35);
-  delay(300);
+  delay(200);
   pan.write(120);
-  delay(300);
+  delay(200);
   pan.write(90);
-  delay(300);
+  delay(200);
   tilt.write(120);
+  startBlinkLeds(120,4,127,0,0);
   
 }
 
@@ -164,9 +165,9 @@ void loop() {
 //    Serial.print('\n');
     eventReady = false;
   }
+  
   // run TaskScheduler
   runner.execute();
-  //delay(2);
 }
 
 void serialEvent() {
@@ -234,7 +235,15 @@ void serialEvent() {
         colorG = Serial.parseInt();
         colorB = Serial.parseInt();
 
-        setLedsColor(ledNum, colorR, colorG, colorB);
+        if (type == TY_SET) {
+          setLedsColor(ledNum, colorR, colorG, colorB);
+        } else if (type == TY_BLINK) {
+          int delayTime = round((duration * 1000.00));
+          startBlinkLeds(delayTime,ledNum,colorR,colorG,colorB);
+        } else { // all off
+          setLedsColor(-1, 0, 0, 0);
+        }
+        
         break;
       case EV_DELAY:
         duration = Serial.parseFloat();
@@ -316,7 +325,7 @@ void startBlinkLeds(int ms, int blinks, int r, int g, int b) {
 
 void transmitSensors() {
   int value = 0;
-  for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+  for (unsigned int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
     if (analogPorts[i] == 1) {
       value = analogRead(analogPortPins[i]);
       Serial.print("/num/analogin/");
@@ -338,12 +347,12 @@ void configureSensors(bool start, int interval, int port) {
   } else {
     bool portsInUse = false;
     if (port < 0) { // shut all ports off
-      for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+      for (unsigned int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
         analogPorts[i] = 0;
       }
     } else { // stop this port
       analogPorts[port] = 0;
-      for (int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
+      for (unsigned int i = 0; i < (sizeof(analogPorts) / sizeof(analogPorts[0])); i++) {
         if (analogPorts[i] == 1) {
           portsInUse = true;
         }

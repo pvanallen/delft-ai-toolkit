@@ -106,6 +106,7 @@ def get_ip():
     return IP
 
 def move_cb(adr, type, time, speed, easing):
+  time = '%.5f'%(time) # Unity sends very long floats that upset the Arduino
   print("move: " + type + " " + str(time) + " " + str(speed) + " " +  easing)
   arduinoStr = '{},{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
@@ -118,7 +119,8 @@ def move_cb(adr, type, time, speed, easing):
   if ser != None: ser.write(arduinoStr.encode())
 
 def leds_cb(adr, type, time, num, color):
-  #print("leds: " + type + " " +  str(time) + " " + str(num) + " " +  color)
+  time = '%.5f'%(time) # Unity sends very long floats that upset the Arduino
+  print("leds: " + type + " " +  str(time) + " " + str(num) + " " +  color)
   arduinoStr = '{},{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
@@ -131,6 +133,7 @@ def leds_cb(adr, type, time, num, color):
 
 def delay_cb(adr, type, time):
   #print("delay: " + type + " " +  str(time))
+  time = '%.5f'%(time) # Unity sends very long floats that upset the Arduino
   arduinoStr = '{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
