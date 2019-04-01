@@ -40,6 +40,13 @@ public class DingControlVirtual : DingControlBase {
 	private bool OSCInit = false;
 	private long lastOscMessageIn = 0;
 
+	// LEDs
+	private int ledBlinkNum = 0;
+	private bool ledBlinkState = false;
+	private float ledBlinkInterval = 0;
+	private float ledBlinkNextTime = 0;
+	private Color ledBlinkColor = new Color(0.236f, 0.0f, 0.5f);
+
 	// Script initialization
 
 	void Awake() {
@@ -74,6 +81,13 @@ public class DingControlVirtual : DingControlBase {
 						break;
 					case AiGlobals.ActionLedTypes.allOff:
 						body.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
+						break;
+					case AiGlobals.ActionLedTypes.blink:
+						ledBlinkColor = action.ledParams.color;
+						ledBlinkNum = action.ledParams.ledNum * 2; // reusing ledNum for number of times to blink
+						ledBlinkInterval = action.ledParams.time;
+						ledBlinkNextTime = 0;
+						ledBlinkState = false;
 						break;
 					default:
 						break;
@@ -178,6 +192,18 @@ public class DingControlVirtual : DingControlBase {
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 				}
 			}  
+		}
+
+		// handle led blinking
+		if (ledBlinkNum > 0 && Time.time > ledBlinkNextTime ) {
+			if (ledBlinkState) { // turn it off
+				body.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
+			} else { // turn it on
+				body.GetComponent<Renderer>().material.color = ledBlinkColor;
+			}
+			ledBlinkState = !ledBlinkState;
+			ledBlinkNextTime = Time.time + ledBlinkInterval;
+			ledBlinkNum--;
 		}
 
 

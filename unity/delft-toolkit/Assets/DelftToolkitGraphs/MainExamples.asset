@@ -1428,7 +1428,7 @@ MonoBehaviour:
       easing: 3
     ledParams:
       type: 0
-      time: 0.5
+      time: 0.1
       ledNum: -1
       color:
         serializedVersion: 2
@@ -1697,12 +1697,12 @@ MonoBehaviour:
       speed: 1
       easing: 3
     ledParams:
-      type: 0
+      type: 1
       time: 0.2
-      ledNum: -1
+      ledNum: 5
       color:
         serializedVersion: 2
-        rgba: 4278190080
+        rgba: 4291572527
     delayParams:
       type: 0
       time: 1
