@@ -79,7 +79,7 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 #### Delft AI Toolkit Unity Project
 * **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and Arduino code
 * Open the toolkit in Unity - use Open from within Unity and select **delft-toolkit-2_0_3>Unity>delft-toolkit**
-* **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode as a submodule (i.e. we get the code from the original xNode repo), and the xNode code will be missing out and the directory for xNode will be empty from the following Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+* **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode as a submodule (i.e. we get the code from the original xNode repo), and the xNode code will be missing from this Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
      <br>There are several solutions for this:
      * **Download a Release** - At significant version points, we upload a complete version as a [release](../releases/) that includes the appropriate version of xNode. As mentioned above, this is the recommended method.
      * **Git Clone With Submodules From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
@@ -99,7 +99,7 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 * Use a 16GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Ultra](https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE)
 * Copy the disk image to the card ([more info for Mac and Windows](https://thepihut.com/blogs/raspberry-pi-tutorials/17789160-backing-up-and-restoring-your-raspberry-pis-sd-card)). On the Mac Terminal:
   ```bash
-  # get the name of the correct drive (look for on that is Windows_FAT_32 and 15.9 GB)
+  # get the name of the correct drive (look for one that is Windows_FAT_32 and 15.9 GB)
   diskutil list
   # unmound the disk (change "N" at the end to the correct number)
   diskutil unmountDisk /dev/diskN
@@ -108,7 +108,7 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
   sudo dd if=delft-ai-toolkit-2019-04-04.dmg of=/dev/rdiskN bs=5m
   ```
 * Plug the SD card into the RPI, and then power it up
-* Connect your computer to the RPI with ethernet and login:
+* Setup the WiFi: Connect your computer to the RPI with ethernet and login:
   ```bash
   ssh pi@delftbt0.local
   # password: adventures
