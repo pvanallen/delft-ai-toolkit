@@ -17,7 +17,7 @@ This system uses [xNode](https://github.com/Siccity/xNode), which is being enhan
 - [Getting Started](#getting-started)
   - [Starting the System Up](#starting-the-system-up)
   - [Robot Command Line Essentials](#robot-command-line-essentials)
-  - [Installing The software](#installing-the-software)
+  - [Installing The Software](#installing-the-software)
 <!-- TOC END -->
 _________________________
 <img src="docs/images/speak-recognize-graph.png" width="700">
@@ -88,10 +88,10 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
      * **Connect by Ethernet if necessary** - Some networks don't allow connection by the .local (Bonjour) name. If so, hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you may need a [USB-C adapter](https://www.amazon.com/dp/B01M6WQ0T0/ref=twister_B06ZZLKBWJ)
-     * **Login to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt1 to match the number of your robot if you changed the name.
+     * **Login to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed the name.
 
      ```bash
-     ssh pi@delftbt1.local
+     ssh pi@delftbt0.local
      ```
      * **Password** - The default password for the standard Delft AI Toolkit disk image is "adventures"
      * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
@@ -165,22 +165,6 @@ python3 delft_toolkit.py --server_ip 10.4.18.109
 sudo poweroff
 ```
 
-### Installing The software
+### Installing The Software
 
-1. **Install [Unity3D](https://store.unity.com)**
-1. **Download the toolkit software** and place on your computer. This includes the Unity project, RPi code, and Arduino code from [DelftToolkit](https://github.com/pvanallen/delft-toolkit-v2). **NOTE**: Because we use xNode as a submodule (i.e. we get the code from the original xNode repo), a simple download or git clone will leave the xNode code out and the directory for xNode will be empty: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
-     <br>There are several solutions for this:
-     * **Download a Release** - At significant version points, we will upload a complete version as a release that include the appropriate version of xNode. [Releases are available here](https://github.com/pvanallen/delft-toolkit-v2/releases).
-     * **Git Clone From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
-     ```bash
-     git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git
-     ```
-     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
-  * Disk image for [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
-1. **Arduino**:
-   * Install delftToolkit.ino on your Arduino with the Arduino IDE (you may need to add some libraries, e.g. the [Adafruit Motor Shield V2 Library](https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/install-software))
-1. **RPi**: Burn the RPi image to your SD card
-  * Download [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)  
-  * Burn this image to a 16GB micro SD card ([more info](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image))
-  * [Set up your WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) with `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf`
-   * If you are using more than one robot on your network, change the RPi hostname from the default of delftbt1 (e.g. delftbt2, delftbt3, etc.) if you are using more than one robot on your network
+See installation instructions on the [hardware documentation page](docs/hardware.md#installing-delft-ai-toolkit-software)

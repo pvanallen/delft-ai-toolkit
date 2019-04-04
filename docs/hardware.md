@@ -3,17 +3,19 @@ The physical robot is currently based on a simple metal robot platform from Adaf
 
 Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
 ________________
-<!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
-- [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
+<!-- TOC START min:2 max:4 link:true asterisk:false update:true -->
 - [Hardware Parts list](#hardware-parts-list)
 - [Hardware Assembly](#hardware-assembly)
-- [Installing the Delft AI Toolkit Disk Image](#installing-the-delft-ai-toolkit-disk-image)
+- [Installing Delft AI Toolkit software](#installing-delft-ai-toolkit-software)
+  - [Computer](#computer)
+    - [Free Unity Software](#free-unity-software)
+    - [Delft AI Toolkit Unity Project](#delft-ai-toolkit-unity-project)
+  - [Robot](#robot)
+    - [Arduino - Sketch](#arduino---sketch)
+    - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image)
 <!-- TOC END -->
 
 <img src="images/robot1.jpg" width="512">
-
-## Raspberry Pi Disk Image
-* Download the [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
 
 ## Hardware Parts list
 * [Robot Platform Kit](https://www.adafruit.com/product/3244)
@@ -68,8 +70,29 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 <img src="images/robot2.jpg" width="512">
 <img src="images/robot3.jpg" width="512">
 
-## Installing the Delft AI Toolkit Disk Image
+## Installing Delft AI Toolkit software
 
+### Computer
+#### Free Unity Software
+* **Install [Unity3D](https://store.unity.com)**
+* The toolkit is compatible with Unity3D v2018.2.x and v2018.3.x
+#### Delft AI Toolkit Unity Project
+* **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and Arduino code
+* Open the toolkit in Unity - use Open from within Unity and select **delft-toolkit-2_0_3>Unity>delft-toolkit**
+* **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode as a submodule (i.e. we get the code from the original xNode repo), and the xNode code will be missing out and the directory for xNode will be empty from the following Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+     <br>There are several solutions for this:
+     * **Download a Release** - At significant version points, we upload a complete version as a [release](../releases/) that includes the appropriate version of xNode. As mentioned above, this is the recommended method.
+     * **Git Clone With Submodules From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
+     ```bash
+     git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git
+     ```
+     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+  * Disk image for [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
+### Robot
+#### Arduino - Sketch
+* Install delftToolkit.ino on your Robot Arduino with the Arduino IDE (you may need to add some libraries, e.g. the [Adafruit Motor Shield V2 Library](https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/install-software))
+#### Raspberry Pi - Disk Image
+* **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI software installed. This means you cannot use the visual desktop on a monitor.
 * Download the [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
 * Use a 16GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Ultra](https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE)
 * Copy the disk image to the card ([more info for Mac and Windows](https://thepihut.com/blogs/raspberry-pi-tutorials/17789160-backing-up-and-restoring-your-raspberry-pis-sd-card)). On the Mac Terminal:
@@ -78,20 +101,26 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
   diskutil list
   # unmound the disk (change "N" at the end to the correct number)
   diskutil unmountDisk /dev/diskN
-  # write the image (change "N" at the end to the correct number)
-  sudo dd if=test.dmg of=/dev/diskN
+  # write the image (change the .dmg filename to the current version
+  # change "N" at in rdiskN to the correct number from diskutil)
+  sudo dd if=delft-ai-toolkit-2019-04-04.dmg of=/dev/rdiskN bs=5m
   ```
 * Plug the SD card into the RPI, and then power it up
 * Connect your computer to the RPI with ethernet and login:
   ```bash
-  ssh pi@delftbt1.local
+  ssh pi@delftbt0.local
   # password: adventures
-  # once logged in, edit the RPi WiFi configuration with your network credentials
+  # once logged in, edit the RPi WiFi configuration with your WiFi credentials
   sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
   # reboot for the new WiFi to take effect
   sudo reboot
   # log back in, and confirm the WiFi has connected on wlan0
-  ssh pi@delftbt1.local
+  ssh pi@delftbt0.local
   # on RPI, check the IP address for wlan0
   ifconfig
   ```
+* Get Google Cloud credentials for Speech To Text
+  * Create a Goolge Cloud account and create a Speech to Text service.
+  * [Generate your Google Cloud Credentials](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) as a GCP Console json file
+  * Change the name of the json file you downloaded to: google-credentials.json, and place it in the /home/pi/delft-ai-toolkit folder with FTP or scp
+* If you are using more than one robot on your network, [change the RPi hostname](https://carmalou.com/how-to/2017/08/06/how-to-change-hostname-for-raspberry-pi.html) from the default of delftbt0 (e.g. to delftbt1, delftbt2, delftbt3, etc.)
