@@ -1288,7 +1288,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 1
-      time: 1
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 3
-      time: 1
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -1558,7 +1558,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 4
-      time: 1
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -1603,7 +1603,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 2
-      time: 1
+      time: 0.5
       speed: 1
       easing: 3
     ledParams:
@@ -1698,7 +1698,7 @@ MonoBehaviour:
       easing: 3
     ledParams:
       type: 1
-      time: 0.2
+      time: 0.1
       ledNum: 5
       color:
         serializedVersion: 2
@@ -2490,7 +2490,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: S
+  _value: B
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
