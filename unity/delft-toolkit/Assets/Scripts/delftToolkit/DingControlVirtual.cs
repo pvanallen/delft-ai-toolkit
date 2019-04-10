@@ -169,13 +169,13 @@ public class DingControlVirtual : DingControlBase {
 			Ray forwardRay = new Ray(transform.position, -Vector3.up);
 
 			//Cast a ray straight forwards.
-			float distance = -1;
 			Vector3 fwd = transform.TransformDirection(Vector3.forward);
 			if (Physics.Raycast(transform.position, fwd, out hit)) {
 				if (hit.distance < 4) {
 					tag = hit.collider.tag;
 				} else {
-					tag = "far:" + hit.collider.tag;
+					//tag = "far:" + hit.collider.tag;
+					tag = hit.collider.tag;
 				}
 			}
 			DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
