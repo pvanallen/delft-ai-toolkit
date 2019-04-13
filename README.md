@@ -6,6 +6,7 @@
 This system uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
+- [Video Introduction](#video-introduction)
 - [Description](#description)
 - [Documents](#documents)
 - [System Components](#system-components)
@@ -20,9 +21,10 @@ This system uses [xNode](https://github.com/Siccity/xNode), which is being enhan
   - [Installing The Software](#installing-the-software)
 <!-- TOC END -->
 _________________________
-<img src="docs/images/speak-recognize-graph.png" width="700">
-## Description
+## Video Introduction
+[<img src="docs/images/toolkitintro.jpg" width="700">](http://www.youtube.com/watch?v=BjsFq0DOrgQ "Delft AI Toolkit Introduction")
 
+## Description
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
 The Delft AI Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
@@ -51,6 +53,7 @@ Each of these has a codebase, and includes a range of libraries. **We are using 
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
 
+<img src="docs/images/speak-recognize-graph.png" width="700">
 ## Roadmap
 
 * More video and written documentation
@@ -74,8 +77,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 <img src="docs/images/robot3.jpg" width="512">
 
 ### Raspberry Pi Disk Image
-* Download the [RPi disk image](https://www.dropbox.com/s/ory2ydrt6lkyrty/delft-toolkit-2019-03-03.dmg.zip?dl=0)
-* [Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
+* [Raspberry Pi Disk Image & Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
 
 ## Getting Started
 
@@ -140,9 +142,10 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
       * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
       * **Open Visual Graph** - In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
       * **Physcial Robot** - If you are using the physical robot (the toolkit will work fine without the robot)
-        * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, enable the "Ding Control Physical" script. If you are not using the physical robot, keep this script unchecked and inactive.
-        * Still in the inspector at "Ding Control Physical," paste in the IP address of the robot where it says "Target Addr"
+        * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, be sure the "Ding Control Physical" script is enabled.
+        * Still in the inspector at the "Ding Control Physical" script, paste in the IP address of the robot where it says "Target Addr"
         * <img src="docs/images/DingControlPhysical-IP.png" width="254">
+        * If you are not using the physical robot, leave the IP address at 127.0.0.1
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
