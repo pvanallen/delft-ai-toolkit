@@ -204,12 +204,12 @@ void serialEvent() {
             R_MOTOR->run(BACKWARD);
             break;
           case TY_TURNRIGHT:
-            L_MOTOR->run(BACKWARD);
-            R_MOTOR->run(FORWARD);
-            break;
-          case TY_TURNLEFT:
             L_MOTOR->run(FORWARD);
             R_MOTOR->run(BACKWARD);
+            break;
+          case TY_TURNLEFT:
+            L_MOTOR->run(BACKWARD);
+            R_MOTOR->run(FORWARD);
             break;
           default:
             L_MOTOR->run(RELEASE);
