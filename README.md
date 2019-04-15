@@ -1,9 +1,15 @@
 # Delft AI Toolkit
-# Visual Authoring Toolkit for AI driven Smart Things
+# Visual Authoring for AI Prototyping
 
-**As of early March 2019, this version is a stable release. Of course, many improvements are planned, some things are still rough, and documentation is still in progress**
+The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
-This system uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
+DAI-TK enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
+
+In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
+
+* **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
+
+* **3D/AR simulation** - Because hardware design and implementation can be time consuming, DAI-TK simulates the smart thing in 3D within Unity3D. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of DAI-TK, designers will be able to place the smart thing 3D simulation in the real world through AR, as well as add AR augmentations of the smart thing.
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
@@ -43,7 +49,9 @@ The goal of this project is to develop an approach to authoring AI that enables 
   * Raspberry Pi + Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it - this would eliminate the need for the Arduino)
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
-Each of these has a codebase, and includes a range of libraries. **We are using and helping create an improved version of the open source [xNode Unity asset](https://github.com/Siccity/xNode)**
+Each of these has a codebase, and includes a range of open source libraries.
+
+This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
