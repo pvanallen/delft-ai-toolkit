@@ -36,7 +36,8 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google-credentials.json"
 def speak(phrase):
   phrase = phrase.replace("'","")
   phrase = phrase.replace('"',"")
-  os.system("pico2wave -w audio/speaknow.wav '" + phrase + "' && sox audio/speaknow.wav -c 2 audio/speaknowstereo.wav && aplay -Dhw:1 audio/speaknowstereo.wav" )
+  lang = "en-US"
+  os.system("pico2wave -l " + lang + " -w audio/speaknow.wav '" + phrase + "' && sox audio/speaknow.wav -c 2 audio/speaknowstereo.wav && aplay -Dhw:1 audio/speaknowstereo.wav" )
 
 def isAudioPlaying():
 
@@ -68,6 +69,7 @@ def speech2text(duration):
 
   #Record sound
   #----------------
+  duration = round(duration)
   print ("listening for " + str(duration) + " seconds...")
   os.system('arecord -D plughw:1 -f cd -c 1 -t wav -d ' + str(duration) + '  -q -r 16000 | flac - -s -f --best -o ' + speech_file)
 
