@@ -41,7 +41,7 @@ MonoBehaviour:
     values:
     - _fieldName: valueOut
       _node: {fileID: 114023052582696596}
-      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -161,15 +161,15 @@ MonoBehaviour:
       _node: {fileID: 114377228326472098}
       _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114377228326472098}
-      _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
@@ -228,7 +228,8 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -259,9 +260,12 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -271,8 +275,10 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 6
+  - variable: 
+    actionType: 6
     moveParams:
       type: 1
       time: 1
@@ -303,9 +309,12 @@ MonoBehaviour:
       type: 0
       time: 0.5
       utterance: Goodbye
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -315,8 +324,10 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 2
       time: 0.5
@@ -347,9 +358,12 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Goodbye
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -359,12 +373,13 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
   repeats: 1
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114394093139064816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +444,7 @@ MonoBehaviour:
     values:
     - _fieldName: valueOut
       _node: {fileID: 114546314532891356}
-      _typeQualifiedName: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
@@ -496,7 +511,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -507,15 +522,15 @@ MonoBehaviour:
       _node: {fileID: 114717817919225364}
       _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114717817919225364}
-      _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
@@ -574,7 +589,8 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
       time: 1
@@ -605,9 +621,12 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -617,8 +636,10 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
       time: 0.5
@@ -649,9 +670,12 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -661,8 +685,10 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 6
+  - variable: 
+    actionType: 6
     moveParams:
       type: 1
       time: 1
@@ -693,9 +719,12 @@ MonoBehaviour:
       type: 0
       time: 0.5
       utterance: Hello
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 1
+      source: 0
     recognizeParams:
       type: 0
       model: 2
@@ -705,12 +734,13 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
   repeats: 1
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114759910912715250
 MonoBehaviour:
   m_ObjectHideFlags: 0
