@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace DelftToolkit {
 		private int dingFilter = -1;
 		private string messageFilter = "";
 
-		[MenuItem("Delft Toolkit/Signal Log")]
+		[MenuItem("Delft AI Toolkit/Signal Log")]
 		public static void Init() {
 			SignalLogWindow window = EditorWindow.GetWindow(typeof(SignalLogWindow)) as SignalLogWindow;
 			window.Show();
