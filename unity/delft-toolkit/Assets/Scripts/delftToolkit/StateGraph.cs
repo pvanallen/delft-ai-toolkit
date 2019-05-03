@@ -5,7 +5,7 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
-	[CreateAssetMenu(fileName = "New State Graph", menuName = "delft Toolkit")]
+	[CreateAssetMenu(fileName = "New DelftAIToolkit Graph", menuName = "Delft AI Toolkit Graph")]
 	public class StateGraph : NodeGraph {
 
 		/// <summary> Called when the graph exits </summary>

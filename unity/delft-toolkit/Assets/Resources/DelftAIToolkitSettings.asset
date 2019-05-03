@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be362c1cd3424caab5fc656c2b5b75a, type: 3}
+  m_Name: DelftAIToolkitSettings
+  m_EditorClassIdentifier: 
+  dings:
+  - device: 0
+    robotIP: 127.0.0.1
+    robotOutPort: 5005
+    robotInPort: 5006
+    marionetteIP: 127.0.0.1
+    marionetteOutPort: 5007
+    marionetteInPort: 5008
+  - device: 1
+    robotIP: 127.0.0.1
+    robotOutPort: 5009
+    robotInPort: 5010
+    marionetteIP: 127.0.0.1
+    marionetteOutPort: 5011
+    marionetteInPort: 5012
+  watsonServices:
+  - service: 0
+    iamKey: 
+    url: 
+    model: 
+  - service: 1
+    iamKey: 
+    url: 
+    model: 
