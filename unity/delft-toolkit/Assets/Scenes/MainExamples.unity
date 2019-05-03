@@ -265,7 +265,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000209489405212, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.26
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 4000209489405212, guid: 8a627e8444d584bfaaf57ba797130d17, type: 2}
       propertyPath: m_LocalPosition.y
@@ -345,12 +345,12 @@ Prefab:
       propertyPath: m_Name
       value: ding2
       objectReference: {fileID: 0}
-    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
+    - target: {fileID: 114382407479356524, guid: 8a627e8444d584bfaaf57ba797130d17,
         type: 2}
       propertyPath: thisDevice
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114382407479356524, guid: 8a627e8444d584bfaaf57ba797130d17,
+    - target: {fileID: 114802144251405316, guid: 8a627e8444d584bfaaf57ba797130d17,
         type: 2}
       propertyPath: thisDevice
       value: 1

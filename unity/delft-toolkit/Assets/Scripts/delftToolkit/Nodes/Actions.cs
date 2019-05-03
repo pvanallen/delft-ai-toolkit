@@ -61,7 +61,7 @@ namespace DelftToolkit {
 							case AiGlobals.ActionTypes.servo:
 								delayTime = actions[currentAction].servoParams.time;
 								break;
-							case AiGlobals.ActionTypes.speak:
+							case AiGlobals.ActionTypes.textToSpeech:
 								delayTime = actions[currentAction].speakParams.time;
 								break;
 							case AiGlobals.ActionTypes.playSound:
@@ -165,7 +165,7 @@ namespace DelftToolkit {
 		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 50; // milliseconds
-		[Tooltip("Port (Typically 9-10)")]
+		[Tooltip("Port (Typically 0-6)")]
 		public int port = 0;
 	}
 
@@ -186,18 +186,23 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionSpeak {
-		[NodeEnum] public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.male;
-		[Tooltip("Time (Seconds)")]
+		[NodeEnum] public AiGlobals.ActionSpeakTypes type = AiGlobals.ActionSpeakTypes.enUS1;
+		[Tooltip("Wait (Seconds)")]
 		public float time = 1;
 		[Tooltip("Utterance")]
 		public string utterance = "Hello World";
+		[Tooltip("Source")]
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
+		[NodeEnum] public AiGlobals.VoiceModels model = AiGlobals.VoiceModels.pico;
 	}
 
 	[Serializable]
 	public class ActionListen {
 		[NodeEnum] public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
-		[Tooltip("Duration (Milliseconds)")]
-		public int duration = 1;
+		[Tooltip("Time Limit (Seconds)")]
+		public float duration = 5;
+		[Tooltip("Source")]
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 	}
 
 	[Serializable]
@@ -218,6 +223,7 @@ namespace DelftToolkit {
 	[Serializable]
 	public class ActionPlaySound {
 		[NodeEnum] public AiGlobals.UISoundFiles type = AiGlobals.UISoundFiles.ClickPopTwoPart;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 		[Tooltip("Time (Seconds)")]
 		public float time = 0.5f;
 	}

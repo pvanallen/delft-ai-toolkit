@@ -28,9 +28,9 @@ public class DingControlVirtual : DingControlBase {
 	private Array allKeyCodes;
 
 	// OSC
-	public string MarionetteIPAddr = "127.0.0.1";
-	public int OutgoingPort = 5007;
-	public int IncomingPort = 5008;
+	private string MarionetteIPAddr = "127.0.0.1";
+	private int OutgoingPort = 5007;
+	private int IncomingPort = 5008;
 
 	private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
@@ -47,9 +47,34 @@ public class DingControlVirtual : DingControlBase {
 	private float ledBlinkNextTime = 0;
 	private Color ledBlinkColor = new Color(0.236f, 0.0f, 0.5f);
 
+	// Watson
+	private Dictionary<AiGlobals.WatsonServices,Settings.WatsonService> watsonCredentials = new Dictionary<AiGlobals.WatsonServices,Settings.WatsonService>();
+	private WatsonSTT stt;
+	private WatsonTTS tts;
+	float sttStartTime = 0;
+	float sttDuration = 5.0f;
+	bool sttRecording = false;
+
+	// ScriptableObject for settings in Assets>Resources>DelftAIToolkitSettings
+	private Settings delftSettings;
+
 	// Script initialization
 
 	void Awake() {
+		delftSettings = Resources.Load<Settings>("DelftAIToolkitSettings");
+		foreach (Settings.WatsonService service in delftSettings.watsonServices) {
+			//print("Virt " + thisDevice + ": Loading Watson Service Credentials: " + service.service.ToString());
+			watsonCredentials.Add(service.service,service);
+		}
+		foreach (Settings.Ding dingNetwork in delftSettings.dings) {
+			if (dingNetwork.device == thisDevice) {
+				print("Virt " + thisDevice + ": Loading Marionnette Network Settings: " + dingNetwork.device.ToString());
+				MarionetteIPAddr = dingNetwork.marionetteIP;
+				OutgoingPort = dingNetwork.marionetteOutPort;
+				IncomingPort = dingNetwork.marionetteInPort;
+			}
+		}
+
 		yawTarget = yawJoint.localEulerAngles.z;
 		pitchTarget = pitchJoint.localEulerAngles.y;
 		allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
@@ -62,6 +87,21 @@ public class DingControlVirtual : DingControlBase {
 			clients = new Dictionary<string, ClientLog>();
 			OSCInit = true;
 		}
+
+		// Watson Speech to Text
+		if (watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey != "") {
+			print("Initializing Watson Speech To Text...");
+			stt = gameObject.AddComponent<WatsonSTT>();
+			stt.StartService(sttResults,watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey);
+		} else print("Need IamKey to start Watson Speech To Text - See Assets>Resources>DelftAITookitSettings");
+
+		// Watson Text to Speech
+		if (watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey != "") {
+			print("Initializing Watson Text to Speech...");
+			tts = gameObject.AddComponent<WatsonTTS>();
+			tts.StartService(ttsResults,watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey);
+		} else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
+
 	}
 
 	public override void handleAction() {
@@ -119,11 +159,31 @@ public class DingControlVirtual : DingControlBase {
 				}
 				break;
 			case AiGlobals.ActionTypes.playSound:
-				AudioSource audio = gameObject.AddComponent<AudioSource>();
-    			audio.PlayOneShot ((AudioClip)Resources.Load ("ui_sounds/" + action.playSoundParams.type));
+				if (action.playSoundParams.source == AiGlobals.SensorSource.virt || action.playSoundParams.source == AiGlobals.SensorSource.both) {
+					AudioSource audio = gameObject.AddComponent<AudioSource>();
+					audio.PlayOneShot ((AudioClip)Resources.Load ("ui_sounds/" + action.playSoundParams.type));
+				}
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				recognize = true;
+				break;
+			case AiGlobals.ActionTypes.speechToText:
+				if ((action.listenParams.source == AiGlobals.SensorSource.virt 
+				|| action.listenParams.source == AiGlobals.SensorSource.both)
+				&& watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey != "") {
+					stt.StartRecording();
+					sttStartTime = Time.time;
+					sttRecording = true;
+					sttDuration = action.listenParams.duration;
+				}
+				break;
+			case AiGlobals.ActionTypes.textToSpeech:
+				if ((action.speakParams.source == AiGlobals.SensorSource.virt 
+				|| action.speakParams.source == AiGlobals.SensorSource.both)
+				&& watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey != "") {
+					string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
+					tts.Speak(utterance, action.speakParams.type.ToString());
+				}
 				break;
 			default:
 				//Debug.LogWarning("DING-VIRTUAL unknown type: " + action.actionType);
@@ -134,6 +194,13 @@ public class DingControlVirtual : DingControlBase {
 	}
 
 	public override void Update() {
+		// keep track of speech to text
+		if (sttRecording == true && Time.time - sttStartTime >= sttDuration) {
+			stt.StopRecording();
+			sttRecording = false;
+			print("stopped");
+		}
+
 		// hand sending virtual sensor data
 		if (sendSensors) {
 			// very crude implementation
@@ -278,6 +345,19 @@ public class DingControlVirtual : DingControlBase {
 				}
 			}		
 		}
+	}
+
+	public void sttResults(string transcription) {
+		//print("Virt - Speech To Text: " + transcription);
+		//stt.StopRecording();
+		sttRecording = false;
+		DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/speech2text/", transcription);
+				if (DelftToolkit.DingSignal.onSignalEvent != null)
+					DelftToolkit.DingSignal.onSignalEvent(signal);
+	}
+
+	public void ttsResults(float utteranceLength) {
+		print("Virt - Text To Speech Length: " + utteranceLength + " seconds");
 	}
 
 	private void moveYaw() {

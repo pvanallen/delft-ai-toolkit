@@ -11,9 +11,9 @@ using UnityOSC;
 
 public class DingControlPhysical : DingControlBase {
 
-	public string RobotIPAddr = "127.0.0.1";
-	public int OutgoingPort = 5005;
-	public int IncomingPort = 5006;
+	private string RobotIPAddr = "127.0.0.1";
+	private int OutgoingPort = 5005;
+	private int IncomingPort = 5006;
 
 	private Dictionary<string, ServerLog> servers;
 	private Dictionary<string, ClientLog> clients;
@@ -24,8 +24,29 @@ public class DingControlPhysical : DingControlBase {
 
 	private long lastOscMessageIn = 0;
 
+	// Watson
+	private Dictionary<AiGlobals.WatsonServices,Settings.WatsonService> watsonCredentials = new Dictionary<AiGlobals.WatsonServices,Settings.WatsonService>();
+
+	// ScriptableObject for settings in Assets>Resources>DelftAIToolkitSettings
+	private Settings delftSettings;
+
 	// Script initialization
 	void Awake() {
+
+		delftSettings = Resources.Load<Settings>("DelftAIToolkitSettings");
+		foreach (Settings.WatsonService service in delftSettings.watsonServices) {
+			//print("Phys " + thisDevice + ": Loading Watson Service Credentials: " + service.service.ToString());
+			watsonCredentials.Add(service.service,service);
+		}
+		foreach (Settings.Ding dingNetwork in delftSettings.dings) {
+			if (dingNetwork.device == thisDevice) {
+				print("Phys " + thisDevice + ": Loading Robot Network Settings: " + dingNetwork.device.ToString());
+				RobotIPAddr = dingNetwork.robotIP;
+				OutgoingPort = dingNetwork.robotOutPort;
+				IncomingPort = dingNetwork.robotInPort;
+			}
+		}
+
 		// using awake so that it happens before oscCentral initializes in Start()
 		if (RobotIPAddr != "127.0.0.1") {
 			serverClientID = OSC_SERVER_CLIENT + RobotIPAddr + IncomingPort;
@@ -95,7 +116,7 @@ public class DingControlPhysical : DingControlBase {
 		List<object> oscValues = new List<object>();
 
 		string oscString = "/" + action.actionType + "/";
-
+	
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
@@ -137,18 +158,24 @@ public class DingControlPhysical : DingControlBase {
 					action.moveParams.easing.ToString()
 				});
 				break;
-			case AiGlobals.ActionTypes.speak:
-				string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
-				oscValues.AddRange(new object[] { 
-					action.speakParams.type.ToString(),
-					utterance
-				});
+			case AiGlobals.ActionTypes.textToSpeech:
+				if (action.speakParams.source == AiGlobals.SensorSource.phys 
+				|| action.speakParams.source == AiGlobals.SensorSource.both) {
+					string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
+					oscValues.AddRange(new object[] { 
+						action.speakParams.type.ToString(),
+						utterance
+					});
+				}
 				break;
-			case AiGlobals.ActionTypes.listen:
-				oscValues.AddRange(new object[] { 
-					action.listenParams.type.ToString(),
-					action.listenParams.duration
-				});
+			case AiGlobals.ActionTypes.speechToText:
+				if (action.listenParams.source == AiGlobals.SensorSource.phys 
+				|| action.listenParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] { 
+						action.listenParams.type.ToString(),
+						action.listenParams.duration
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				oscValues.AddRange(new object[] { 
@@ -166,7 +193,7 @@ public class DingControlPhysical : DingControlBase {
 				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);
 				break;
 		}
-		if (oscValues != null && OSCInit) {
+		if (oscValues != null && oscValues.Count != 0 && OSCInit) {
 			OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
 		}
 	}

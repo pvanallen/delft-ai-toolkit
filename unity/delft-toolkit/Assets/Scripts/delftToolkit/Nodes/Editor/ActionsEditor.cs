@@ -41,9 +41,6 @@ namespace DelftToolkit {
 				NodeEditorGUILayout.AddPortField(valueInPort);
 			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("variable"), valueInPort, true);
 
-			string title = "Actions";
-			if (Application.isPlaying) title = "Actions (" + node.repeatCount + "/" + node.repeats + " repeats)";
-
 			// Actions list
 			NodeEditorGUILayout.InstancePortList("actions", typeof(Action), serializedObject, NodePort.IO.Input, Node.ConnectionType.Override, Node.TypeConstraint.Strict, OnCreateReorderableList);
 			serializedObject.ApplyModifiedProperties();

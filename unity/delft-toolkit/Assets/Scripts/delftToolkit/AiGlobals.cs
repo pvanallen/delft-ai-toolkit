@@ -18,8 +18,8 @@ public class AiGlobals : MonoBehaviour {
 		playSound,
 		analogin,
 		delay,
-		speak,
-		listen,
+		textToSpeech,
+		speechToText,
 		recognize,
 		chat,
 	}
@@ -53,8 +53,8 @@ public class AiGlobals : MonoBehaviour {
 	}
 
 	public enum ActionSpeakTypes {
-		male,
-		female
+		enUS1,
+		enUS2
 	}
 
 	public enum ActionListenTypes {
@@ -79,6 +79,21 @@ public class AiGlobals : MonoBehaviour {
 		rcnn
 	}
 
+	public enum  VoiceModels {
+		watson,
+		pico
+	}
+
+	public enum WatsonServices {
+		textToSpeech,
+		speechToText,
+		assistant,
+		vision,
+		personality,
+		tone,
+		discovery
+	}
+
 	public enum Devices {
 		ding1,
 		ding2,
@@ -95,7 +110,8 @@ public class AiGlobals : MonoBehaviour {
 
 	public enum SensorSource {
 		virt,
-		phys
+		phys,
+		both
 	}
 
 	public enum UISoundFiles {
