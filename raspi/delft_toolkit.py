@@ -63,7 +63,7 @@ def audio_output_loop(q):
       print("Speaking... " + arg)
     elif type == "playsound":
       pw.play(arg)
-      #print("Playing... " + arg)
+      print("Playing sound... " + arg)
 
 def listen_loop(q):
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
@@ -172,6 +172,7 @@ def play_sound_cb(adr, filename, time):
   audio_output_q.put("playsound-" + filename)
 
 def speak_cb(adr, type, utterance):
+  print("speak: " + type)
   audio_output_q.put("speak-" + utterance)
 
 def recognize_cb(adr, type, model):
@@ -242,8 +243,8 @@ if __name__ == '__main__':
   dispatcher.map("/delay/", delay_cb)
   dispatcher.map("/analogin/", analogin_cb)
   dispatcher.map("/servo/", servo_cb)
-  dispatcher.map("/speak/", speak_cb)
-  dispatcher.map("/listen/", listen_cb)
+  dispatcher.map("/textToSpeech/", speak_cb)
+  dispatcher.map("/speechToText/", listen_cb)
   dispatcher.map("/recognize/", recognize_cb)
   dispatcher.map("/playSound/", play_sound_cb)
 
