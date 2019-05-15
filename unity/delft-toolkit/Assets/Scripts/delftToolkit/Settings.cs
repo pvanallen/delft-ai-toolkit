@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "DelftSettings", menuName = "DelftAIToolkit Settings", order = 1)]
+[CreateAssetMenu(fileName = "DelftAIToolkitSettings", menuName = "DelftAIToolkit Settings", order = 1)]
 public class Settings : ScriptableObject {
     
 
@@ -22,7 +22,6 @@ public class Settings : ScriptableObject {
         public AiGlobals.WatsonServices service;
         public string iamKey;
         public string url;
-        public string model;
     }
 
     public Ding[] dings;

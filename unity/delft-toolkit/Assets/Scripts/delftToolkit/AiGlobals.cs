@@ -54,7 +54,23 @@ public class AiGlobals : MonoBehaviour {
 
 	public enum ActionSpeakTypes {
 		enUS1,
-		enUS2
+		enUS2,
+		enGB1,
+		esUS1,
+		esES1,
+		frFR1,
+		itIT1,
+		deDE1,
+		deDE2
+	}
+
+	public enum ActionLang {
+		enUS,
+		enGB,
+		deDE,
+		esES,
+		frFR,
+		itIT
 	}
 
 	public enum ActionListenTypes {

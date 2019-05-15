@@ -114,9 +114,30 @@ public class WatsonSTT : MonoBehaviour
         }
     }
 
-    public void StartRecording()
+    public void StartRecording(AiGlobals.ActionLang lang)
     {
         lastTranscription = "no transcription";
+        switch (lang) {
+            case AiGlobals.ActionLang.enUS:
+                _recognizeModel = "en-US_BroadbandModel";
+                break;
+            case AiGlobals.ActionLang.enGB:
+                _recognizeModel = "en-GB_BroadbandModel";
+                break;
+            case AiGlobals.ActionLang.deDE:
+                _recognizeModel = "de-DE_BroadbandModel";
+                break;
+            case AiGlobals.ActionLang.esES:
+                _recognizeModel = "es-ES_BroadbandModel";
+                break;
+            case AiGlobals.ActionLang.frFR:
+                _recognizeModel = "fr-FR_BroadbandModel";
+                break;
+            default:
+                _recognizeModel = "en-US_BroadbandModel";
+                break;
+        }
+        
         Active = true;
         if (_recordingRoutine == 0)
         {

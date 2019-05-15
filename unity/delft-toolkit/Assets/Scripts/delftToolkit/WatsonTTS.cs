@@ -33,10 +33,6 @@ public class WatsonTTS : MonoBehaviour
     private string _serviceUrl;
     private string _iamApikey;
 
-    // Watons voices https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-voices
-    private string enAllison = "en-US_AllisonVoice";
-    private string enMichael = "en-US_MichaelVoice";
-    private string enMichael2 = "en-US_MichaelV2Voice";
     private string synthesizeMimeType = "audio/wav";
     private string voiceModelLanguage = "en-US";
 
@@ -47,9 +43,12 @@ public class WatsonTTS : MonoBehaviour
 
     private TextToSpeechService _service;
 
-    public void StartService(watsonTtsCallback method, string iamkey) // add service URL and voice model
+    public void StartService(watsonTtsCallback method, string iamkey, string url) // add service URL and voice model
     {
         _iamApikey = iamkey;
+        if (url != "default" && url != "") {
+            _serviceUrl = url;
+        }
         m_callbackMethod = method;
         LogSystem.InstallDefaultReactors();
         Runnable.Run(CreateService());
@@ -81,19 +80,41 @@ public class WatsonTTS : MonoBehaviour
     }
 
      public void Speak(string synthesizeText, string voiceLabel) {
-         string voice;
-         switch (voiceLabel) {
-            case "enUS1": 
-                voice = enMichael;
-                break;
-            case "enUS2": 
-                voice = enAllison;
-                break;
-            default:
-                voice = enMichael;
-                break;
-         }
-         Runnable.Run(Synthesize(synthesizeText, voice));
+        string voice;
+        // Watons voices https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-voices
+        switch (voiceLabel) {
+        case "enUS1": 
+            voice = "en-US_MichaelVoice";
+            break;
+        case "enUS2": 
+            voice = "en-US_AllisonVoice";
+            break;
+        case "enGB1":
+            voice = "en-GB_KateVoice";
+            break;
+        case "esES1":
+            voice = "es-ES_EnriqueVoice";
+            break;
+        case "esUS1":
+            voice = "es-US_SofiaVoice";
+            break;
+        case "frFR1":
+            voice = "fr-FR_ReneeVoice";
+            break;
+        case "itIT1":
+            voice = "it-IT_FrancescaVoice";
+            break;
+        case "deDE1":
+            voice = "de-DE_DieterVoice";
+            break;
+        case "deDE2":
+            voice = "de-DE_BirgitVoice";
+            break;
+        default:
+            voice = "en-US_MichaelVoice";
+            break;
+        }
+        Runnable.Run(Synthesize(synthesizeText, voice));
      }
 
     private IEnumerator Synthesize(string synthesizeText, string voice) {

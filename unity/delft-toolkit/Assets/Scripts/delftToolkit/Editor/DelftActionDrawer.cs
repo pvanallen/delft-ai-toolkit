@@ -67,9 +67,9 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.speechToText:
 				SerializedProperty actionListen = property.FindPropertyRelative("listenParams");
-				//DrawNextProperty(ref pos, actionListen, "type", 70, GUIContent.none);
 				DrawNextProperty(ref pos, actionListen, "source", 40, GUIContent.none);
 				NextLine(ref pos);
+				DrawNextProperty(ref pos, actionListen, "lang", 45, GUIContent.none);
 				DrawNextProperty(ref pos, actionListen, "duration", 45, new GUIContent(DelftStyles.timeIcon));
 				break;
 			case AiGlobals.ActionTypes.recognize:

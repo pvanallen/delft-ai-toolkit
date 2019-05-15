@@ -20,7 +20,9 @@ import socket
 
 # import my libraries
 import classify_pic_once as rec
-import speech as sp
+import text_to_speech_pico as tts_pico
+import text_to_speech_watson as tts_watson
+import speech_to_text_watson as stt_watson
 import play_wav as pw
 
 FLAGS = None
@@ -55,28 +57,62 @@ def osc_loop():
   server.serve_forever()
 
 def audio_output_loop(q):
+  tts = None
   while True:
-    command = q.get()
-    type, arg = command.split("-")
-    if type == "speak":
-      sp.speak(arg)
-      print("Speaking... " + arg)
-    elif type == "playsound":
-      pw.play(arg)
-      print("Playing sound... " + arg)
+    command = q.get() # the queue has a tuple in it
+    if command[0] == "init":
+      print("TTS initializing " + command[1])
+      if command[1] == "watson":
+        if tts == None:
+          iamkey, url = command[2:4]
+          tts = tts_watson.tts_watson(iamkey, url)
+        else:
+          print("Watson TTS Already Initialized ")
+    elif command[0] == "speak":
+      model, voice, utterance = command[1:4]
+      if model == "pico":
+        tts_pico.speak(utterance, voice)
+        print("Pico Speaking... " + utterance)
+      if model == "watson":
+        if tts != None:
+          tts.speak(utterance, voice)
+          print("Watson Speaking... " + utterance)
+        else:
+          print("Can't speak, Watson not initialized...")
+    elif command[0] == "playsound":
+      filename = command[1]
+      pw.play(filename)
+      print("Playing sound... " + filename)
 
 def listen_loop(q):
+  stt = None
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
   while True:
-    duration = q.get()
-    #sp.speak("Speak")
+    command = q.get()
     #time.sleep(0.1)
-    transcription = sp.speech2text(duration).replace("'","")
-    if (transcription != ""):
-      client.send_message("/str/speech2text/", transcription)
-    else:
-      print("no transcription")
-      client.send_message("/str/speech2text/", "no transcription")
+    if command[0] == "init":
+      print("STT initializing " + command[1])
+      if command[1] == "watson":
+        if stt == None:
+          iamkey, url = command[2:4]
+          stt = stt_watson.stt_watson(iamkey, url)
+        else:
+          print("Watson STT Already Initialized ")
+    elif command[0] == "transcribe":
+      model, lang, time_limit = command[1:4]
+      if model == "watson":
+        if stt != None:
+          #print("Watson Transcribing... ")
+          transcription = stt.transcribe(lang, time_limit)
+        else:
+          print("Can't transcribe, Watson not initialized...")
+          transcription = "Watson STT not initialized"
+        # transcription = sp.speech2text(duration).replace("'","")
+        if (transcription != ""):
+          client.send_message("/str/speech2text/", transcription)
+        else:
+          print("no transcription")
+          client.send_message("/str/speech2text/", "no transcription")
 
 def reconize_loop(q, e, FLAGS, model):
   #obj.take_picture_recognize.picture_being_taken= False
@@ -165,15 +201,21 @@ def servo_cb(adr, type, angle, port, varspeed, easing):
   #print("servo: " + arduinoStr)
   if ser != None: ser.write(arduinoStr.encode())
 
-def listen_cb(adr, type, duration):
-  listen_q.put(duration)
+def listen_cb(adr, model, lang, duration):
+  listen_q.put(("transcribe", model, lang, duration))
+
+def initstt_cb(adr, model, iamkey, url):
+  listen_q.put(("init", model, iamkey, url))
 
 def play_sound_cb(adr, filename, time):
-  audio_output_q.put("playsound-" + filename)
+  audio_output_q.put(("playsound",filename))
 
-def speak_cb(adr, type, utterance):
-  print("speak: " + type)
-  audio_output_q.put("speak-" + utterance)
+def speak_cb(adr, model, voice, utterance):
+  print("speak: " + utterance)
+  audio_output_q.put(("speak", model, voice, utterance))
+
+def inittts_cb(adr, model, iamkey, url):
+  audio_output_q.put(("init", model, iamkey, url))
 
 def recognize_cb(adr, type, model):
   print("received cmd recognize: " + adr + " " + type + " " + model)
@@ -244,9 +286,12 @@ if __name__ == '__main__':
   dispatcher.map("/analogin/", analogin_cb)
   dispatcher.map("/servo/", servo_cb)
   dispatcher.map("/textToSpeech/", speak_cb)
+  dispatcher.map("/inittts/", inittts_cb)
   dispatcher.map("/speechToText/", listen_cb)
+  dispatcher.map("/initstt/", initstt_cb)
   dispatcher.map("/recognize/", recognize_cb)
   dispatcher.map("/playSound/", play_sound_cb)
+
 
   # setup USB Port for connection to Arduino
   try:
@@ -304,8 +349,8 @@ if __name__ == '__main__':
   # wait for model init to finish before waiting for commands
   recognition_ready_e.wait()
 
-  print("Delft Toolkit Initializaiton Complete")
-  audio_output_q.put("speak-Hello")
+  print("Delft Toolkit Initialization Complete")
+  audio_output_q.put(("speak","pico","enUS1","Hello"))
 
   # set up OSC client
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)

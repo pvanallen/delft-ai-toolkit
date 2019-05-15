@@ -203,6 +203,8 @@ namespace DelftToolkit {
 		public float duration = 5;
 		[Tooltip("Source")]
 		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
+		[NodeEnum] public AiGlobals.ActionLang lang = AiGlobals.ActionLang.enUS;
+		[NodeEnum] public AiGlobals.VoiceModels model = AiGlobals.VoiceModels.watson;
 	}
 
 	[Serializable]

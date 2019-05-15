@@ -68,16 +68,12 @@ public class DingControlVirtual : DingControlBase {
 		}
 		foreach (Settings.Ding dingNetwork in delftSettings.dings) {
 			if (dingNetwork.device == thisDevice) {
-				print("Virt " + thisDevice + ": Loading Marionnette Network Settings: " + dingNetwork.device.ToString());
+				//print("Virt " + thisDevice + ": Loading Marionnette Network Settings: " + dingNetwork.device.ToString());
 				MarionetteIPAddr = dingNetwork.marionetteIP;
 				OutgoingPort = dingNetwork.marionetteOutPort;
 				IncomingPort = dingNetwork.marionetteInPort;
 			}
 		}
-
-		yawTarget = yawJoint.localEulerAngles.z;
-		pitchTarget = pitchJoint.localEulerAngles.y;
-		allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
 
 		// OSC
 		if (MarionetteIPAddr != "127.0.0.1") {
@@ -90,18 +86,22 @@ public class DingControlVirtual : DingControlBase {
 
 		// Watson Speech to Text
 		if (watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey != "") {
-			print("Initializing Watson Speech To Text...");
+			print(thisDevice + ": Initializing Virtual Watson Speech To Text...");
 			stt = gameObject.AddComponent<WatsonSTT>();
 			stt.StartService(sttResults,watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey);
-		} else print("Need IamKey to start Watson Speech To Text - See Assets>Resources>DelftAITookitSettings");
+		} // else print("Need IamKey to start Watson Speech To Text - See Assets>Resources>DelftAITookitSettings");
 
 		// Watson Text to Speech
 		if (watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey != "") {
-			print("Initializing Watson Text to Speech...");
+			print(thisDevice + ": Initializing Virtual Watson Text to Speech...");
 			tts = gameObject.AddComponent<WatsonTTS>();
-			tts.StartService(ttsResults,watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey);
-		} else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
+			tts.StartService(ttsResults,watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey,
+			watsonCredentials[AiGlobals.WatsonServices.textToSpeech].url);
+		} // else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
 
+		yawTarget = yawJoint.localEulerAngles.z;
+		pitchTarget = pitchJoint.localEulerAngles.y;
+		allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
 	}
 
 	public override void handleAction() {
@@ -171,7 +171,7 @@ public class DingControlVirtual : DingControlBase {
 				if ((action.listenParams.source == AiGlobals.SensorSource.virt 
 				|| action.listenParams.source == AiGlobals.SensorSource.both)
 				&& watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey != "") {
-					stt.StartRecording();
+					stt.StartRecording(action.listenParams.lang);
 					sttStartTime = Time.time;
 					sttRecording = true;
 					sttDuration = action.listenParams.duration;

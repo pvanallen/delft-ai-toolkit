@@ -21,6 +21,7 @@ public class DingControlPhysical : DingControlBase {
 	private const string OSC_SERVER_CLIENT = "DelftDingOSC";
 	private string serverClientID;
 	private bool OSCInit = false;
+	private bool watsonTtsInit = false;
 
 	private long lastOscMessageIn = 0;
 
@@ -33,6 +34,7 @@ public class DingControlPhysical : DingControlBase {
 	// Script initialization
 	void Awake() {
 
+		// read toolkit settings
 		delftSettings = Resources.Load<Settings>("DelftAIToolkitSettings");
 		foreach (Settings.WatsonService service in delftSettings.watsonServices) {
 			//print("Phys " + thisDevice + ": Loading Watson Service Credentials: " + service.service.ToString());
@@ -40,27 +42,65 @@ public class DingControlPhysical : DingControlBase {
 		}
 		foreach (Settings.Ding dingNetwork in delftSettings.dings) {
 			if (dingNetwork.device == thisDevice) {
-				print("Phys " + thisDevice + ": Loading Robot Network Settings: " + dingNetwork.device.ToString());
+				//print("Phys " + thisDevice + ": Loading Robot Network Settings: " + dingNetwork.device.ToString());
 				RobotIPAddr = dingNetwork.robotIP;
 				OutgoingPort = dingNetwork.robotOutPort;
 				IncomingPort = dingNetwork.robotInPort;
 			}
 		}
 
-		// using awake so that it happens before oscCentral initializes in Start()
 		if (RobotIPAddr != "127.0.0.1") {
+			// set up OSC
+			// using awake so that it happens before oscCentral initializes in Start()
 			serverClientID = OSC_SERVER_CLIENT + RobotIPAddr + IncomingPort;
 			OSCHandler.Instance.Init(serverClientID, RobotIPAddr, OutgoingPort, IncomingPort);
 			servers = new Dictionary<string, ServerLog>();
 			clients = new Dictionary<string, ClientLog>();
 			OSCInit = true;
+
+			// set up Watson services
+			List<object> oscValues;
+			string oscString;
+			string url;
+			// Watson Speech to Text
+			if (watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey != "") {
+				oscValues = new List<object>();
+				oscString = "/initstt/";
+				url = "default";
+				if (watsonCredentials[AiGlobals.WatsonServices.speechToText].url != "") {
+					url = watsonCredentials[AiGlobals.WatsonServices.speechToText].url;
+				}
+				print(thisDevice + ": Initializing Physical Watson Speech To Text...");
+				oscValues.AddRange(new object[] {
+					"watson",
+					watsonCredentials[AiGlobals.WatsonServices.speechToText].iamKey,
+					url
+				});
+				OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
+			} //else print("Need IamKey to start Watson Speech To Text - See Assets>Resources>DelftAITookitSettings");
+
+			// Watson Text to Speech
+			if (watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey != "") {
+				oscValues = new List<object>();
+				oscString = "/inittts/";
+				url = "default";
+				if (watsonCredentials[AiGlobals.WatsonServices.textToSpeech].url != "") {
+					url = watsonCredentials[AiGlobals.WatsonServices.textToSpeech].url;
+				}
+				print(thisDevice + ": Initializing Physical Watson Text to Speech...");
+				oscValues.AddRange(new object[] {
+					"watson",
+					watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey,
+					url
+				});
+				OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
+			} // else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
 		}
 	}
 
 	public override void Update() {
 		if(OSCInit) {
 			OSCHandler.Instance.UpdateLogs();
-
 			servers = OSCHandler.Instance.Servers;
 
 			foreach (KeyValuePair<string, ServerLog> item in servers) {
@@ -163,7 +203,8 @@ public class DingControlPhysical : DingControlBase {
 				|| action.speakParams.source == AiGlobals.SensorSource.both) {
 					string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
 					oscValues.AddRange(new object[] { 
-						action.speakParams.type.ToString(),
+						action.speakParams.model.ToString(), // watson, pico
+						action.speakParams.type.ToString(), // voice
 						utterance
 					});
 				}
@@ -172,7 +213,8 @@ public class DingControlPhysical : DingControlBase {
 				if (action.listenParams.source == AiGlobals.SensorSource.phys 
 				|| action.listenParams.source == AiGlobals.SensorSource.both) {
 					oscValues.AddRange(new object[] { 
-						action.listenParams.type.ToString(),
+						action.listenParams.model.ToString(), // watson, snips coming
+						action.listenParams.lang.ToString(),
 						action.listenParams.duration
 					});
 				}
@@ -194,6 +236,9 @@ public class DingControlPhysical : DingControlBase {
 				break;
 		}
 		if (oscValues != null && oscValues.Count != 0 && OSCInit) {
+			// print(oscString);
+			// print(oscValues[1]);
+			// print(oscValues[2]);
 			OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
 		}
 	}
