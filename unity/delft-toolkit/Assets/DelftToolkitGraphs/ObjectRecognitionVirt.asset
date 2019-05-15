@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: 152}
+  position: {x: -584, y: -88}
   ports:
     keys:
     - enter
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: -72}
+  position: {x: 184, y: -312}
   ports:
     keys:
     - actions
@@ -171,6 +171,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -199,7 +201,7 @@ MonoBehaviour:
   m_Name: String Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 232, y: 152}
+  position: {x: -136, y: -88}
   ports:
     keys:
     - valueOut
@@ -290,7 +292,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: bus
+  _value: no object
 --- !u!114 &114611669769838220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +305,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 344}
+  position: {x: 184, y: 104}
   ports:
     keys:
     - actions
@@ -403,6 +405,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -431,7 +435,7 @@ MonoBehaviour:
   m_Name: Virtual Object Recognition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: -72}
+  position: {x: -584, y: -312}
   ports:
     keys: []
     values: []
@@ -454,7 +458,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 856, y: 136}
+  position: {x: 488, y: -104}
   ports:
     keys:
     - enter
@@ -499,7 +503,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 136}
+  position: {x: 184, y: -104}
   ports:
     keys:
     - actions
@@ -599,6 +603,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -627,7 +633,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -72, y: 152}
+  position: {x: -440, y: -88}
   ports:
     keys:
     - actions
@@ -737,6 +743,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -786,6 +794,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
