@@ -79,14 +79,14 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 #### Delft AI Toolkit Unity Project
 * **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and Arduino code
 * Open the toolkit in Unity - use Open from within Unity and select **delft-toolkit-2_0_3>Unity>delft-toolkit**
-* **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode as a submodule (i.e. we get the code from the original xNode repo), and the xNode code will be missing from this Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+* **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode, IBM Watson SDK, and IBM SDK Core as a submodules (i.e. we use the code from the original repos). With a simple clone, the submodule code will be missing from this Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>
      <br>There are several solutions for this:
      * **Download a Release** - At significant version points, we upload a complete version as a [release](../releases/) that includes the appropriate version of xNode. As mentioned above, this is the recommended method.
      * **Git Clone With Submodules From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
      ```bash
      git clone --recurse-submodules https://github.com/pvanallen/delft-toolkit-v2.git
      ```
-     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) and download xNode. Then place this xNode folder in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) (or other submodules) and download the code yourself. Then place the xNode folder (or other submodules) in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
 
 ### Robot
 

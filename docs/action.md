@@ -17,8 +17,8 @@ _________________
   - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
   - [Analogin - Starts or stops values from a sensor](#analogin---starts-or-stops-values-from-a-sensor)
   - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
-  - [Speak - Perform text to speech - robot only](#speak---perform-text-to-speech---robot-only)
-  - [Listen - Perform text to speech - robot only](#listen---perform-text-to-speech---robot-only)
+  - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
+  - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
   - [Recognize - Perform object recognition](#recognize---perform-object-recognition)
 <!-- TOC END -->
 _________________
@@ -65,7 +65,7 @@ Note that this is a standard random function currently, so it is possible for th
 * *Time* - Number of seconds the action waits before passing control to the next action
 * *User Sounds* - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
   * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound#.wav files with your own.
-  * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own. 
+  * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own.
     * FTP
       * In your FTP program (e.g. CyberDuck) connect to the RPi
       * Type in the the IP address
@@ -88,14 +88,20 @@ Note that this is a standard random function currently, so it is possible for th
 ### Delay - Pauses the sequence of actions
 * *Time* - Seconds of delay before the next action
 
-### Speak - Perform text to speech - robot only
-* *Voice* - Not yet implemented
+### Text To Speech - Convert text to spoken word
+* *Model* - Select the model to perform the TTS, Watson (cloud), Pico (edge, robot only)
+* *Virtual or Physical Robot* - Whether the speech is generated on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Time* - Number of seconds the action waits before passing control to the next action
+* *Voice* - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into make a gender neutral voice available)
 * *Utterance* - The text to be spoken
+* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
 
-### Listen - Perform text to speech - robot only
-* *Mode* - Not yet implemented.
+### Speech To Text - Transcribe spoken words to text
+* *Model* - Only Watson currently, and this option is not shown. In the future, we hope to also implement Snips.ai, which is an edge based system (i.e. no internet connection required).
+* *Virtual or Physical Robot* - Whether the speech is transcribed on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
+* *Language* - Select a language, country combination. Not all languages are available in all models.
+* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
 
 ### Recognize - Perform object recognition
 * *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and complex and slower at the bottom of the list.

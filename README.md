@@ -56,7 +56,8 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
 * **Action Options** - repeat, random
-* **Machine Learning** - performs object recognition onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Speeds range from 0.6secs to 2.0secs
+* **Machine Learning** - performs edge object recognition onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Recognition speeds range from 0.6secs to 2.0secs.
+* **Cognitive Services** - Supports IBM Watson Text to Speech, Speech to Text, others Watson services coming soon.
 * **Inputs** - analog sensors, keyboard, OSC
 * **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
@@ -66,7 +67,7 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 
 * More video and written documentation
 * More and simpler hardware configurations
-* Add support for IBM Watson AI Cognitive Services (e.g. Assistant, Speech2Text, Text2Speech, Emotion, Sentiment, etc.)
+* Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
 * Add support for Snip.ai -- edge based speech assistant
 * Better support for IoT (e.g. IFTTT, webhooks)
 * Integrate gesture recognition learning and classification

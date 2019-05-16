@@ -227,6 +227,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -276,6 +278,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -325,6 +329,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -374,6 +380,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -423,6 +431,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -472,6 +482,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -521,6 +533,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -570,6 +584,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -754,6 +770,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -803,6 +821,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -852,6 +872,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -980,6 +1002,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1159,6 +1183,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1374,6 +1400,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1423,6 +1451,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1472,6 +1502,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1521,6 +1553,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1570,6 +1604,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1619,6 +1655,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1668,6 +1706,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1717,6 +1757,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1766,6 +1808,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1815,6 +1859,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1943,6 +1989,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -2207,6 +2255,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -2256,6 +2306,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -2305,6 +2357,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -2451,6 +2505,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -2602,7 +2658,7 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: L
+  _value: Mouse0
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2715,6 +2771,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2

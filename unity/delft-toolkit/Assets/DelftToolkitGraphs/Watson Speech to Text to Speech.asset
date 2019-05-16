@@ -128,9 +128,9 @@ MonoBehaviour:
       varspeed: 127
       easing: 3
     speakParams:
-      type: 0
+      type: 5
       time: 2
-      utterance: Hi there!
+      utterance: bonjour
       source: 0
       model: 0
     listenParams:
@@ -390,7 +390,7 @@ MonoBehaviour:
       text: Hello
     playSoundParams:
       type: 23
-      source: 1
+      source: 0
       time: 0.1
   repeats: 1
   random: 0
@@ -481,58 +481,7 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - variable: 'time''s up '
-    actionType: 6
-    moveParams:
-      type: 1
-      time: 1
-      speed: 1
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 50
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 3
-      utterance: You said, {variable}
-      source: 0
-      model: 0
-    listenParams:
-      type: 0
-      duration: 1
-      source: 0
-      lang: 0
-      model: 0
-    recognizeParams:
-      type: 0
-      model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
-    playSoundParams:
-      type: 24
-      source: 0
-      time: 0.5
-  - variable: 'time''s up '
+  - variable: 'I''m going to Disneyland '
     actionType: 2
     moveParams:
       type: 1
@@ -565,6 +514,57 @@ MonoBehaviour:
       time: 5
       utterance: you said
       source: 1
+      model: 0
+    listenParams:
+      type: 0
+      duration: 1
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 24
+      source: 0
+      time: 0.5
+  - variable: 'I''m going to Disneyland '
+    actionType: 6
+    moveParams:
+      type: 1
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 3
+      utterance: You said, {variable}
+      source: 0
       model: 0
     listenParams:
       type: 0
@@ -672,13 +672,13 @@ MonoBehaviour:
     messageFilter: /str/speech2text/
   conditions:
   - compareType: 2
-    strVal: hello, hey, hi
+    strVal: 'hello,hey,hi '
     inverse: 0
   - compareType: 3
     strVal: 
     inverse: 0
   valueOut: 
-  _value: 'hello there '
+  _value: 'I''m going to Disneyland '
 --- !u!114 &114567834932035406
 MonoBehaviour:
   m_ObjectHideFlags: 0

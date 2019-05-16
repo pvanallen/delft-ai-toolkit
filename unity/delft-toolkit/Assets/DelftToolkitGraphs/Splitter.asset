@@ -162,6 +162,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -211,6 +213,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -260,6 +264,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -309,6 +315,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -649,6 +657,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -698,6 +708,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -747,6 +759,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -796,6 +810,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -954,6 +970,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1003,6 +1021,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1052,6 +1072,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1101,6 +1123,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1278,6 +1302,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1327,6 +1353,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1376,6 +1404,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
@@ -1425,6 +1455,8 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
