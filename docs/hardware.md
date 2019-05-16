@@ -95,7 +95,7 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 
 #### Raspberry Pi - Disk Image
 * **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI software installed. This means you cannot use the visual desktop on a monitor.
-* Download the [RPi disk image](https://www.dropbox.com/sh/z55nyokspq8uqae/AADKrg-C2LJ1XxekNylnwAs0a?dl=0)
+* Download the 2019-05-16 [RPi disk image](https://www.dropbox.com/s/o62yycnodb7ppho/delft-toolkit-2019-05-16.zip?dl=0)
 * Use a 16GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Ultra](https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE)
 * Copy the disk image to the card ([more info for Mac and Windows](https://thepihut.com/blogs/raspberry-pi-tutorials/17789160-backing-up-and-restoring-your-raspberry-pis-sd-card)). On the Mac Terminal:
   ```bash
