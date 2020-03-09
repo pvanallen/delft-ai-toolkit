@@ -18,20 +18,40 @@ namespace DelftToolkit {
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
 			NodeEditorGUILayout.PortField(target.GetInputPort("enter"));
-
+			//Debug.Log(node.filter.messageFilter);
 			// Get port
 			NodePort port = node.GetInputPort("value");
 			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
-			GUIContent filterContent = new GUIContent("Incoming signal filter", filterProperty.tooltip);
-			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
-				EditorGUI.indentLevel++;
+			SerializedProperty inputTypeProperty = serializedObject.FindProperty("inputType");
+			//SerializedProperty inputProperty = serializedObject.FindProperty("inputType");
+			//GUIContent filterContent = new GUIContent("Condition signal filter", filterProperty.tooltip);
+			//if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
+				//EditorGUI.indentLevel++;
+				//Debug.Log(node.filter.messageFilter);
 				EditorGUI.BeginChangeCheck();
+
 				NodeEditorGUILayout.PropertyField(filterProperty, GUIContent.none);
+				NodeEditorGUILayout.PropertyField(inputTypeProperty, GUIContent.none);
+				//string oscMessage = filterProperty.FindPropertyRelative("messageFilter");
+				//EditorGUILayout.PropertyField(inputTypeProperty, GUILayout.Width(33));
 				if (EditorGUI.EndChangeCheck()) {
+					//Debug.Log(node.filter.messageFilter);
 					serializedObject.ApplyModifiedProperties();
+					serializedObject.Update();
 				}
-				EditorGUI.indentLevel--;
-			}
+				if (node.inputType == AiGlobals.FloatConditionType.analogin) {
+					//Debug.Log("analogin selected");
+					node.filter.messageFilter = "/num/analogin/" + node.filter.port + "/";
+					
+				} else if (node.inputType == AiGlobals.FloatConditionType.touch) {
+					//Debug.Log("touch selected");
+					node.filter.messageFilter = "/num/touch/" + node.filter.port + "/";
+				}
+				serializedObject.ApplyModifiedProperties();
+				serializedObject.Update();
+				
+				//EditorGUI.indentLevel--;
+			//}
 
 			if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
@@ -92,8 +112,8 @@ namespace DelftToolkit {
 			float valB = floatValBProperty.floatValue;
 
 			switch (compareType) {
-				case FloatCondition.Condition.CompareType.Gtr:
-				case FloatCondition.Condition.CompareType.Lss:
+				case FloatCondition.Condition.CompareType.GT:
+				case FloatCondition.Condition.CompareType.LT:
 				valA = EditorGUI.Slider(compareValueRect, valA, 0, 1023);
 				break;
 

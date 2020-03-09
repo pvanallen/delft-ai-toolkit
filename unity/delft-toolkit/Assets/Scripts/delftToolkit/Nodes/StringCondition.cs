@@ -15,6 +15,25 @@ namespace DelftToolkit {
 			set { _value = value; CheckConditions(); }
 		}
 
+		public DingSignalFilterStr filter = new DingSignalFilterStr(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.StrConditionType.recognize);
+		[Tooltip("Read signals matching message signature. (only exact match supported)")]
+		/// <summary> The last signal we received which passed the filter </summary>
+		[NonSerialized] public DingSignal signal;
+
+		[NodeEnum] public AiGlobals.StrConditionType inputType = AiGlobals.StrConditionType.recognize;
+
+		protected override void Init() {
+			base.Init();
+			DingSignal.onSignalEvent -= FilterSignalEvent;
+			DingSignal.onSignalEvent += FilterSignalEvent;
+		}
+
+		void FilterSignalEvent(DingSignal signal) {
+			if (filter.Match(signal)) {
+				HandleSignalEvent(signal);
+			}
+		}
+
 		protected override void OnExit() {
 			return;
 		}
@@ -36,6 +55,7 @@ namespace DelftToolkit {
 				this.signal = signal;
 				this.value = value;
 			}
+			//Debug.Log("HandleSignalEvent " + signal + " " + this.value);
 		}
 
 		protected override void CheckConditions() {
@@ -94,10 +114,10 @@ namespace DelftToolkit {
 							return comparison;
 						} else return test.Contains(strVal.ToLower());
 					case CompareType.Otherwise:
-						// if none of the prior conditions are true, this is true
+						// if NONE of the prior conditions are true, this is true
 						return !priorConditionMatch;
 					case CompareType.AllTrue:
-						// if none of the prior conditions are true, this is true
+						// if ALL of the prior conditions are true, this is true
 						return priorMatchAll;
 					default:
 						return false;

@@ -23,6 +23,7 @@ public class DelftActionDrawer : PropertyDrawer {
 				//{}
 				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
 				DrawNextProperty(ref pos, actionMove, "type", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionMove, "source", 40, GUIContent.none);
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionMove, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionMove, "speed", 50, new GUIContent(DelftStyles.speedIcon));
@@ -62,14 +63,14 @@ public class DelftActionDrawer : PropertyDrawer {
 				
 				DrawNextProperty(ref pos, actionSpeak, "time", 25, GUIContent.none);
 				NextLine(ref pos);
-				DrawNextProperty(ref pos, actionSpeak, "type", 50, GUIContent.none);
-				DrawNextProperty(ref pos, actionSpeak, "utterance", 162, GUIContent.none);
+				DrawNextProperty(ref pos, actionSpeak, "type", 65, GUIContent.none);
+				DrawNextProperty(ref pos, actionSpeak, "utterance", 151, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.speechToText:
 				SerializedProperty actionListen = property.FindPropertyRelative("listenParams");
 				DrawNextProperty(ref pos, actionListen, "source", 40, GUIContent.none);
 				NextLine(ref pos);
-				DrawNextProperty(ref pos, actionListen, "lang", 45, GUIContent.none);
+				DrawNextProperty(ref pos, actionListen, "lang", 60, GUIContent.none);
 				DrawNextProperty(ref pos, actionListen, "duration", 45, new GUIContent(DelftStyles.timeIcon));
 				break;
 			case AiGlobals.ActionTypes.recognize:
@@ -84,13 +85,13 @@ public class DelftActionDrawer : PropertyDrawer {
 				DrawNextProperty(ref pos, actionPlaySound, "time", 45, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionPlaySound, "type", 140, GUIContent.none);
 				break;
-			case AiGlobals.ActionTypes.chat:
-				SerializedProperty actionChat = property.FindPropertyRelative("chatParams");
-				DrawNextProperty(ref pos, actionChat, "type", 70, GUIContent.none);
-				DrawNextProperty(ref pos, actionChat, "time", 60, new GUIContent(DelftStyles.timeIcon));
-				NextLine(ref pos);
-				DrawNextProperty(ref pos, actionChat, "text", position.width, GUIContent.none);
-				break;
+			// case AiGlobals.ActionTypes.chat:
+			// 	SerializedProperty actionChat = property.FindPropertyRelative("chatParams");
+			// 	DrawNextProperty(ref pos, actionChat, "type", 70, GUIContent.none);
+			// 	DrawNextProperty(ref pos, actionChat, "time", 60, new GUIContent(DelftStyles.timeIcon));
+			// 	NextLine(ref pos);
+			// 	DrawNextProperty(ref pos, actionChat, "text", position.width, GUIContent.none);
+			// 	break;
 			default:
 				EditorGUI.LabelField(pos, "ActionType not supported: " + (AiGlobals.ActionTypes) actionType.enumValueIndex);
 				break;

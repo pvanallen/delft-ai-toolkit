@@ -1,31 +1,39 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace DelftToolkit {
-	[Serializable] public struct DingSignalFilter {
+	[Serializable] public struct DingSignalFilterStr {
 		[NodeEnum] public AiGlobals.Devices device;
 		[NodeEnum] public AiGlobals.SensorSource source;
 		public string messageFilter;
-		[NodeEnum] public AiGlobals.FloatConditionType messageType;
-		public int port;
+		[NodeEnum] public AiGlobals.StrConditionType messageType;
+		//public int port;
 
 		/// <summary> Constructor </summary>
-		public DingSignalFilter(AiGlobals.Devices device, AiGlobals.SensorSource source, AiGlobals.FloatConditionType oscMessageType, int port) {
+		public DingSignalFilterStr(AiGlobals.Devices device, AiGlobals.SensorSource source, AiGlobals.StrConditionType oscMessageType) {
 			this.device = device;
 			this.source = source;
 			this.messageType = oscMessageType;
-			this.port = port;
-			this.messageFilter = "/num/analogin/" + port + "/";
+			this.messageFilter = "/str/recognize/";
 		}
 
 		public bool Match(DingSignal signal) {
-			// if (messageType == AiGlobals.FloatConditionType.analogin) {
-			// 	this.messageFilter = "/num/analogin/" + port + "/";
-			// } else if (messageType == AiGlobals.FloatConditionType.touch) {
-			// 	this.messageFilter = "/num/touch/" + port + "/";
+			// AiGlobals.Devices device = signal.device;
+			// AiGlobals.SensorSource source = signal.source;
+			// string oscMessage = signal.oscMessage;
+			// object value = signal.value;
+			// if (signal.oscMessage == AiGlobals.StrConditionType.recognize) {
+			// 	this.messageFilter = "/str/recognize/";
+			// } else if (messageType == AiGlobals.StrConditionType.keydown) {
+			// 	this.messageFilter = "/str/keydown/";
+			// } else if (messageType == AiGlobals.StrConditionType.speech2text) {
+			// 	this.messageFilter = "/str/speech2text/";
 			// }
-			//Debug.Log(messageFilter);
-			return signal.device == device && signal.source == source && signal.oscMessage.Filter(this.messageFilter.Split(':') [0]);
+			//Debug.Log(messageType);
+			//Debug.Log(this.messageFilter);
+			//return signal.device == device && signal.source == source && signal.oscMessage.Filter(this.messageFilter.Split(':') [0]);
+
+			return signal.device == device && signal.source == source && signal.oscMessage.Filter(messageFilter.Split(':') [0]);
 		}
 
 		public Type GetExpectedType() {

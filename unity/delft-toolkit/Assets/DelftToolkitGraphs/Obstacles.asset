@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -24,7 +25,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -89,18 +91,22 @@ MonoBehaviour:
     device: 0
     source: 0
     messageFilter: /num/analogin/0/
+    messageType: 0
+    port: 0
+  inputType: 0
   conditions:
-  - compareType: 0
-    floatValA: 773
+  - compareType: 1
+    floatValA: 28
     floatValB: 919
     inverse: 0
   valueOut: 0
-  _value: 771.676
+  _value: 1000
 --- !u!114 &114128087606339860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -163,8 +169,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114128087606339860}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -172,8 +178,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114128087606339860}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -184,6 +190,7 @@ MonoBehaviour:
     actionType: 4
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -218,13 +225,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -233,6 +238,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -267,13 +273,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -287,7 +291,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -329,7 +334,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -387,21 +393,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  filter:
-    device: 0
-    source: 0
-    messageFilter: /str/keydown/
   conditions:
   - compareType: 0
     strVal: x
     inverse: 0
   valueOut: 
-  _value: L
+  filter:
+    device: 0
+    source: 0
+    messageFilter: /str/keydown/
+    messageType: 0
+  inputType: 2
+  _value: X
 --- !u!114 &114618462081190882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -440,7 +449,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -504,8 +514,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114805473901169136}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -513,8 +523,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114805473901169136}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -522,8 +532,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114805473901169136}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -534,6 +544,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 2
       easing: 3
@@ -568,13 +579,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -583,6 +592,7 @@ MonoBehaviour:
     actionType: 4
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 1
       easing: 3
@@ -599,7 +609,7 @@ MonoBehaviour:
     analoginParams:
       type: 0
       interval: 50
-      port: 0
+      port: 1
     servoParams:
       type: 0
       time: 1
@@ -617,13 +627,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -632,6 +640,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 2
       easing: 3
@@ -666,13 +675,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -686,7 +693,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -698,15 +706,16 @@ MonoBehaviour:
   ports:
     keys: []
     values: []
-  text: "Uses a simple strategy (turn left when close) to avoid an obstacle. Set up
-    for virtual objects in Unity. Change the float condition for the analogin to \"Phys\"
-    (instead of Virt) to use with the physical robot. \n\nIf the user presses the
-    X on the keyboard, exits.\n\nUses the Obstacles Scene"
+  text: "Uses a simple strategy (turn left when close) to avoid an obstacle. Set
+    up for virtual objects in Unity. Change the float condition for the analogin
+    to \"Phys\" (instead of Virt) to use with the physical robot. \n\nIf the user
+    presses the X on the keyboard, exits.\n\nUses the Obstacles Scene"
 --- !u!114 &114840279153423284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -725,7 +734,6 @@ MonoBehaviour:
     - actions 1
     - actions 2
     - actions 3
-    - actions 4
     values:
     - _fieldName: actions
       _node: {fileID: 114840279153423284}
@@ -772,8 +780,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114840279153423284}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -781,8 +789,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114840279153423284}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -790,8 +798,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114840279153423284}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -799,17 +807,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114840279153423284}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: actions 4
-      _node: {fileID: 114840279153423284}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -820,6 +819,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 2
       easing: 3
@@ -854,13 +854,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -869,7 +867,8 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 4
-      time: 0.873
+      source: 0
+      time: 0.826
       speed: 1
       easing: 3
     ledParams:
@@ -903,13 +902,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -918,6 +915,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 2
       easing: 3
@@ -952,13 +950,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -967,6 +963,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 0
       speed: 2
       easing: 3
@@ -1001,62 +998,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
-    playSoundParams:
-      type: 18
-      source: 0
-      time: 0.5
-  - variable: 
-    actionType: 8
-    moveParams:
-      type: 1
-      time: 0
-      speed: 2
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278222605
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 50
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-      source: 0
-      model: 1
-    listenParams:
-      type: 0
-      duration: 1
-      source: 0
-    recognizeParams:
-      type: 0
-      model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0

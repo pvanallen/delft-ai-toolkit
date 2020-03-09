@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -18,11 +19,13 @@ MonoBehaviour:
   - {fileID: 114257323827988600}
   - {fileID: 114419075400698750}
   - {fileID: 114940382141402472}
+  - {fileID: 1967710589525874616}
 --- !u!114 &114257323827988600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -82,8 +85,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114257323827988600}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -91,65 +94,14 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114257323827988600}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - variable: 
-    actionType: 6
-    moveParams:
-      type: 1
-      time: 1
-      speed: 1
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 50
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 5
-      time: 2
-      utterance: bonjour
-      source: 0
-      model: 0
-    listenParams:
-      type: 0
-      duration: 1
-      source: 0
-      lang: 0
-      model: 0
-    recognizeParams:
-      type: 0
-      model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
-    playSoundParams:
-      type: 24
-      source: 0
-      time: 0.5
   - variable: 
     actionType: 2
     moveParams:
@@ -163,7 +115,7 @@ MonoBehaviour:
       ledNum: -1
       color:
         serializedVersion: 2
-        rgba: 4278222719
+        rgba: 4278190975
     delayParams:
       type: 0
       time: 1
@@ -201,6 +153,57 @@ MonoBehaviour:
       type: 24
       source: 0
       time: 0.5
+  - variable: 
+    actionType: 6
+    moveParams:
+      type: 1
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 5
+      time: 3
+      utterance: bonjour
+      source: 0
+      model: 0
+    listenParams:
+      type: 0
+      duration: 1
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+    chatParams:
+      type: 1
+      time: 1
+      text: Hello
+    playSoundParams:
+      type: 24
+      source: 0
+      time: 0.5
   repeats: 1
   random: 0
   device: 0
@@ -210,7 +213,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -273,8 +277,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114266994730812140}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -282,8 +286,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114266994730812140}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -342,16 +346,16 @@ MonoBehaviour:
       source: 0
       time: 0.5
   - variable: 
-    actionType: 3
+    actionType: 2
     moveParams:
       type: 1
       time: 1
       speed: 1
       easing: 3
     ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
+      type: 1
+      time: 0.1
+      ledNum: 2
       color:
         serializedVersion: 2
         rgba: 4278222719
@@ -391,7 +395,7 @@ MonoBehaviour:
     playSoundParams:
       type: 23
       source: 0
-      time: 0.1
+      time: 0.5
   repeats: 1
   random: 0
   device: 0
@@ -401,7 +405,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -464,8 +469,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114419075400698750}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -473,15 +478,15 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114419075400698750}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - variable: 'I''m going to Disneyland '
+  - variable: what's up?
     actionType: 2
     moveParams:
       type: 1
@@ -532,7 +537,7 @@ MonoBehaviour:
       type: 24
       source: 0
       time: 0.5
-  - variable: 'I''m going to Disneyland '
+  - variable: what's up?
     actionType: 6
     moveParams:
       type: 1
@@ -563,7 +568,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 3
-      utterance: You said, {variable}
+      utterance: You said {variable}
       source: 0
       model: 0
     listenParams:
@@ -592,7 +597,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -672,18 +678,19 @@ MonoBehaviour:
     messageFilter: /str/speech2text/
   conditions:
   - compareType: 2
-    strVal: 'hello,hey,hi '
+    strVal: "hello,hey,hi,\u4F60\u597D"
     inverse: 0
   - compareType: 3
     strVal: 
     inverse: 0
   valueOut: 
-  _value: 'I''m going to Disneyland '
+  _value: what's up?
 --- !u!114 &114567834932035406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -722,12 +729,13 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
-  m_Name: Watson Speech to Text to Speech
+  m_Name: Speech to Text to Speech
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -568, y: -232}
@@ -738,5 +746,25 @@ MonoBehaviour:
     in Unity (i.e. "virt"), or on the robot ("phys")
 
 
-    If the user says any of "hello, hey, hi" the system will greet back. Otherwise,
-    it will repeat whatever the user says.'
+    If the user says any of
+    "hello, hey, hi" the system will greet back in French. Otherwise, it will repeat
+    whatever the user says.'
+--- !u!114 &1967710589525874616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
+  m_Name: Text to Speech Voice Options
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: -232}
+  ports:
+    keys: []
+    values: []
+  text: 'Note: The Text to Speech languages are limited to what Watson offers. In
+    each, if available, the "1" version is female, the "2" version is male.'

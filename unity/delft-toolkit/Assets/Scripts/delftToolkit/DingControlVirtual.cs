@@ -51,6 +51,7 @@ public class DingControlVirtual : DingControlBase {
 	private Dictionary<AiGlobals.WatsonServices,Settings.WatsonService> watsonCredentials = new Dictionary<AiGlobals.WatsonServices,Settings.WatsonService>();
 	private WatsonSTT stt;
 	private WatsonTTS tts;
+	//private WatsonAssistantV2 assistant;
 	float sttStartTime = 0;
 	float sttDuration = 5.0f;
 	bool sttRecording = false;
@@ -98,6 +99,15 @@ public class DingControlVirtual : DingControlBase {
 			tts.StartService(ttsResults,watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey,
 			watsonCredentials[AiGlobals.WatsonServices.textToSpeech].url);
 		} // else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
+
+		// Watson Assistant
+		//if (watsonCredentials[AiGlobals.WatsonServices.assistant].iamKey != "") {
+		//	print(thisDevice + ": Initializing Virtual Watson Assistant...");
+		//	assistant = gameObject.AddComponent<WatsonAssistantV2>();
+		//	assistant.StartService(assistantResults(), watsonCredentials[AiGlobals.WatsonServices.assistant].iamKey,watsonCredentials[AiGlobals.WatsonServices.assistant].assistantid,
+		//	watsonCredentials[AiGlobals.WatsonServices.textToSpeech].url);
+		//	assistant.message("what is machine learning?");
+		//} // else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
 
 		yawTarget = yawJoint.localEulerAngles.z;
 		pitchTarget = pitchJoint.localEulerAngles.y;
@@ -182,7 +192,7 @@ public class DingControlVirtual : DingControlBase {
 				|| action.speakParams.source == AiGlobals.SensorSource.both)
 				&& watsonCredentials[AiGlobals.WatsonServices.textToSpeech].iamKey != "") {
 					string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
-					tts.Speak(utterance, action.speakParams.type.ToString());
+					tts.Speak(utterance, action.speakParams.type.ToString(), action.speakParams.time);
 				}
 				break;
 			default:
@@ -198,10 +208,11 @@ public class DingControlVirtual : DingControlBase {
 		if (sttRecording == true && Time.time - sttStartTime >= sttDuration) {
 			stt.StopRecording();
 			sttRecording = false;
-			print("stopped");
+			//print("stopped STT");
+			Debug.LogWarning("DING-VIRTUAL stopped STT after: " + sttDuration  + " seconds");
 		}
 
-		// hand sending virtual sensor data
+		// send virtual sensor data
 		if (sendSensors) {
 			// very crude implementation
 			if (DelftToolkit.DingSignal.onSignalEvent != null) {
@@ -215,12 +226,13 @@ public class DingControlVirtual : DingControlBase {
         		Ray forwardRay = new Ray(transform.position, -Vector3.up);
 
 				//Cast a ray straight forwards.
-				float distance = -1;
+				float distance = 1000; // when nothing is in front of it
 				Vector3 fwd = transform.TransformDirection(Vector3.forward);
         		if (Physics.Raycast(transform.position, fwd, out hit))
             		//print("Found an object - distance: " + hit.distance);
 					// make it similar to what comes out of the arduino
-					distance = 1023 - (hit.distance * 100);
+					//distance = 1023 - (hit.distance * 100); // IR sensor
+					distance = hit.distance * 10; // sonar sensor get lower as it gets closer
 				
 				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/0/", distance);
 				if (DelftToolkit.DingSignal.onSignalEvent != null)
@@ -229,24 +241,28 @@ public class DingControlVirtual : DingControlBase {
 		}
 
 		// handle recognize request
-		if (DelftToolkit.DingSignal.onSignalEvent != null) {
-			recognize = false;
-			String tag = "no object";
-			RaycastHit hit;
-			Ray forwardRay = new Ray(transform.position, -Vector3.up);
+		if (recognize) {
+			if (DelftToolkit.DingSignal.onSignalEvent != null) {
+				//recognize = false;
+				String tag = "Untagged";
+				RaycastHit hit;
+				Ray forwardRay = new Ray(transform.position, -Vector3.up);
 
-			//Cast a ray straight forwards.
-			Vector3 fwd = transform.TransformDirection(Vector3.forward);
-			if (Physics.Raycast(transform.position, fwd, out hit)) {
-				if (hit.distance < 4) {
-					tag = hit.collider.tag;
-				} else {
-					//tag = "far:" + hit.collider.tag;
-					tag = hit.collider.tag;
+				//Cast a ray straight forwards.
+				Vector3 fwd = transform.TransformDirection(Vector3.forward);
+				if (Physics.Raycast(transform.position, fwd, out hit)) {
+					if (hit.distance < 4) {
+						tag = hit.collider.tag;
+					} else {
+						//tag = "far:" + hit.collider.tag;
+						tag = hit.collider.tag;
+					}
 				}
+				// if (tag != "Untagged") {
+					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
+					DelftToolkit.DingSignal.onSignalEvent(signal);
+				// }
 			}
-			DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
-			DelftToolkit.DingSignal.onSignalEvent(signal);
 		}
 
 		// watch keyboard
@@ -254,7 +270,7 @@ public class DingControlVirtual : DingControlBase {
             if (Input.GetKeyDown(currentKey)) {
 				
 				if (DelftToolkit.DingSignal.onSignalEvent != null) {
-					//print(currentKey);
+					print(currentKey);
 					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/keydown/", currentKey.ToString());
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 				}
@@ -356,8 +372,16 @@ public class DingControlVirtual : DingControlBase {
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 	}
 
-	public void ttsResults(float utteranceLength) {
-		print("Virt - Text To Speech Length: " + utteranceLength + " seconds");
+	public void ttsResults(string utterance, float utteranceLength) {
+		print("Virt - Text To Speech time for: "
+            + utterance
+            + " "
+            + utteranceLength
+            + " seconds");
+	}
+
+	public void assistantResults(string answer) {
+		print("Virt - Assistant: " + answer);
 	}
 
 	private void moveYaw() {

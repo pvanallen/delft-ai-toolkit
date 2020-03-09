@@ -18,27 +18,46 @@ namespace DelftToolkit {
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
 			NodeEditorGUILayout.PortField(target.GetInputPort("enter"));
-
+			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
+			SerializedProperty inputTypeProperty = serializedObject.FindProperty("inputType");
 			// Get port
 			NodePort port = node.GetInputPort("value");
-			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
+			EditorGUI.BeginChangeCheck();
+			// SerializedProperty filterProperty = serializedObject.FindProperty("filter");
+			// SerializedProperty inputTypeProperty = serializedObject.FindProperty("inputType");
 			GUIContent filterContent = new GUIContent("Incoming signal filter", filterProperty.tooltip);
-			if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
-				EditorGUI.indentLevel++;
+			// if (filterProperty.isExpanded = EditorGUILayout.Foldout(filterProperty.isExpanded, filterContent, DelftStyles.foldoutNoHighlight)) {
+			// 	EditorGUI.indentLevel++;
 				EditorGUI.BeginChangeCheck();
 				NodeEditorGUILayout.PropertyField(filterProperty, GUIContent.none);
+				NodeEditorGUILayout.PropertyField(inputTypeProperty, GUIContent.none);
+				//NodeEditorGUILayout.PropertyField(inputTypeProperty, GUIContent.none);
 				if (EditorGUI.EndChangeCheck()) {
 					serializedObject.ApplyModifiedProperties();
+					serializedObject.Update();
 				}
-				EditorGUI.indentLevel--;
+				//EditorGUI.indentLevel--;
+			//}
+			if (node.inputType == AiGlobals.StrConditionType.keydown) {
+				//Debug.Log("keydown selected");
+				node.filter.messageFilter = "/str/keydown/";
+			} else if (node.inputType == AiGlobals.StrConditionType.speech2text) {
+				//Debug.Log("speech2text selected");
+				node.filter.messageFilter = "/str/speech2text/";
+			} else if (node.inputType == AiGlobals.StrConditionType.recognize) {
+				//Debug.Log("recognize selected");
+				node.filter.messageFilter = "/str/recognize/";
 			}
 
-			if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
+			serializedObject.ApplyModifiedProperties();
+			serializedObject.Update();
+
+			//if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
 				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + "\n" + node.signal.value.ToString());
 				else EditorGUILayout.LabelField("Missing or incorrect data type");
 				EditorGUI.indentLevel--;
-			}
+			//}
 
 			// Input value
 			EditorGUI.BeginChangeCheck();

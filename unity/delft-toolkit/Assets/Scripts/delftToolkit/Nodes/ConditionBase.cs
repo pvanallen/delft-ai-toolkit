@@ -9,22 +9,22 @@ namespace DelftToolkit {
 	[NodeWidth(270)][NodeTint(255, 255, 0)]
 	public abstract class ConditionBase : StateNodeBase {
 
-		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, "/num/analogin/0/");
-		[Tooltip("Read signals matching message signature. (only exact match supported)")]
-		/// <summary> The last signal we received which passed the filter </summary>
-		[NonSerialized] public DingSignal signal;
+		// public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.FloatConditionType.analogin, 0);
+		// [Tooltip("Read signals matching message signature. (only exact match supported)")]
+		// /// <summary> The last signal we received which passed the filter </summary>
+		// [NonSerialized] public DingSignal signal;
 
-		protected override void Init() {
-			base.Init();
-			DingSignal.onSignalEvent -= FilterSignalEvent;
-			DingSignal.onSignalEvent += FilterSignalEvent;
-		}
+		// protected override void Init() {
+		// 	base.Init();
+		// 	DingSignal.onSignalEvent -= FilterSignalEvent;
+		// 	DingSignal.onSignalEvent += FilterSignalEvent;
+		// }
 
-		void FilterSignalEvent(DingSignal signal) {
-			if (filter.Match(signal)) {
-				HandleSignalEvent(signal);
-			}
-		}
+		// void FilterSignalEvent(DingSignal signal) {
+		// 	if (filter.Match(signal)) {
+		// 		HandleSignalEvent(signal);
+		// 	}
+		// }
 
 		protected abstract void HandleSignalEvent(DingSignal signal);
 

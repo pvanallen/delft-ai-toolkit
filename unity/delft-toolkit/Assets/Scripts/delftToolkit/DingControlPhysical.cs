@@ -161,12 +161,15 @@ public class DingControlPhysical : DingControlBase {
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
 				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
-				oscValues.AddRange(new object[] {
-					action.moveParams.type.ToString(),
-					action.moveParams.time,
-					action.moveParams.speed,
-					action.moveParams.easing.ToString()
-				});
+				if (action.moveParams.source == AiGlobals.SensorSource.phys 
+				|| action.moveParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] {
+						action.moveParams.type.ToString(),
+						action.moveParams.time,
+						action.moveParams.speed,
+						action.moveParams.easing.ToString()
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.leds:
 				oscValues.AddRange(new object[] {

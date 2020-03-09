@@ -18,14 +18,24 @@
 */
 #pragma warning disable 0649
 
-using UnityEngine;
+// using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine.UI;
+// using IBM.Watson.TextToSpeech.V1;
+// using IBM.Cloud.SDK;
+// using IBM.Cloud.SDK.Utilities;
+// using UnityEngine.Assertions;
+
+using IBM.Watson.TextToSpeech.V1;
+using IBM.Watson.TextToSpeech.V1.Model;
+using IBM.Cloud.SDK.Utilities;
+using IBM.Cloud.SDK.Authentication;
+using IBM.Cloud.SDK.Authentication.Iam;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using IBM.Watson.TextToSpeech.V1;
+using UnityEngine;
 using IBM.Cloud.SDK;
-using IBM.Cloud.SDK.Utilities;
-using UnityEngine.Assertions;
 
 public class WatsonTTS : MonoBehaviour
 {
@@ -36,12 +46,14 @@ public class WatsonTTS : MonoBehaviour
     private string synthesizeMimeType = "audio/wav";
     private string voiceModelLanguage = "en-US";
 
-    public delegate void watsonTtsCallback(float length);
+    public delegate void watsonTtsCallback(string text, float length);
     public watsonTtsCallback m_callbackMethod;
 
-    private string lastTranscription = "";
+    //private string lastTranscription = "";
 
     private TextToSpeechService _service;
+
+    public float delayBeforeStart = 0.5f;
 
     public void StartService(watsonTtsCallback method, string iamkey, string url) // add service URL and voice model
     {
@@ -61,26 +73,41 @@ public class WatsonTTS : MonoBehaviour
             throw new IBMException("Plesae provide IAM ApiKey for the service.");
         }
 
-        //  Create credential and instantiate service
-        Credentials credentials = null;
+    //     //  Create credential and instantiate service
+    //     Credentials credentials = null;
 
-        //  Authenticate using iamApikey
-        TokenOptions tokenOptions = new TokenOptions()
+    //     //  Authenticate using iamApikey
+    //     TokenOptions tokenOptions = new TokenOptions()
+    //     {
+    //         IamApiKey = _iamApikey
+    //     };
+
+    //     credentials = new Credentials(tokenOptions, _serviceUrl);
+
+    //     //  Wait for tokendata
+    //     while (!credentials.HasIamTokenData())
+    //         yield return null;
+
+    //     _service = new TextToSpeechService(credentials);
+    // }
+
+        IamAuthenticator authenticator = new IamAuthenticator(apikey: _iamApikey);
+
+        while (!authenticator.CanAuthenticate())
         {
-            IamApiKey = _iamApikey
-        };
-
-        credentials = new Credentials(tokenOptions, _serviceUrl);
-
-        //  Wait for tokendata
-        while (!credentials.HasIamTokenData())
             yield return null;
+        }
 
-        _service = new TextToSpeechService(credentials);
+        _service = new TextToSpeechService(authenticator);
+        if (!string.IsNullOrEmpty(_serviceUrl))
+        {
+            _service.SetServiceUrl(_serviceUrl);
+        }
     }
 
-     public void Speak(string synthesizeText, string voiceLabel) {
+     public void Speak(string synthesizeText, string voiceLabel, float delay) {
         string voice;
+        delayBeforeStart = delay;
         // Watons voices https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-voices
         switch (voiceLabel) {
         case "enUS1": 
@@ -110,6 +137,12 @@ public class WatsonTTS : MonoBehaviour
         case "deDE2":
             voice = "de-DE_BirgitVoice";
             break;
+        case "zhCN1":
+            voice = "zh-CN_LiNaVoice";
+            break;
+        case "zhCN2":
+            voice = "zh-CN_WangWeiVoice";
+            break;
         default:
             voice = "en-US_MichaelVoice";
             break;
@@ -121,15 +154,27 @@ public class WatsonTTS : MonoBehaviour
         Log.Debug("WatsonTTS", "Attempting to Synthesize...");
         byte[] synthesizeResponse = null;
         AudioClip clip = null;
+        // _service.Synthesize(
+        //     callback: (DetailedResponse<byte[]> response, IBMError error) =>
+        //     {
+        //         synthesizeResponse = response.Result;
+        //         Assert.IsNotNull(synthesizeResponse);
+        //         Assert.IsNull(error);
+        //         clip = WaveFile.ParseWAV("myClip", synthesizeResponse);
+        //         PlayClip(clip);
+
+        //     },
+        //     text: synthesizeText,
+        //     voice: voice,
+        //     accept: synthesizeMimeType
+        // );
         _service.Synthesize(
             callback: (DetailedResponse<byte[]> response, IBMError error) =>
             {
                 synthesizeResponse = response.Result;
-                Assert.IsNotNull(synthesizeResponse);
-                Assert.IsNull(error);
+                Log.Debug("Watson TTS", "Synthesize done!");
                 clip = WaveFile.ParseWAV("myClip", synthesizeResponse);
-                PlayClip(clip);
-
+                StartCoroutine(PlayClip(clip));
             },
             text: synthesizeText,
             voice: voice,
@@ -140,10 +185,11 @@ public class WatsonTTS : MonoBehaviour
             yield return null;
 
         yield return new WaitForSeconds(clip.length);
-        m_callbackMethod(clip.length);
+        m_callbackMethod(synthesizeText, clip.length);
     }
 
-    private void PlayClip(AudioClip clip) {
+    IEnumerator PlayClip(AudioClip clip) {
+        yield return new WaitForSeconds(delayBeforeStart); // to prevent garbled audio playback after STT
         if (Application.isPlaying && clip != null) {
             GameObject audioObject = new GameObject("AudioObject");
             AudioSource source = audioObject.AddComponent<AudioSource>();
@@ -151,8 +197,9 @@ public class WatsonTTS : MonoBehaviour
             source.loop = false;
             source.clip = clip;
             source.Play();
-
+            yield return new WaitForSeconds(1.0f);
             GameObject.Destroy(audioObject, clip.length);
         }
+        //return null;
     }
 }

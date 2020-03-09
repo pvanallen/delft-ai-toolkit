@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class AiGlobals : MonoBehaviour {
 
+// /num/analogin/0/
+// /num/touch/0/
+
+	public enum FloatConditionType {
+		analogin,
+		touch,
+	}
+
+// /str/keydown
+// /str/speech2text/
+// /str/recognize/
+
+	public enum StrConditionType {
+		recognize,
+		speech2text,
+		keydown,
+	}
+
 	public enum StringCompare {
 		Contains,
 		StartsWith,
@@ -21,7 +39,7 @@ public class AiGlobals : MonoBehaviour {
 		textToSpeech,
 		speechToText,
 		recognize,
-		chat,
+		//chat,
 	}
 
 	public enum ActionMoveTypes {
@@ -61,7 +79,9 @@ public class AiGlobals : MonoBehaviour {
 		frFR1,
 		itIT1,
 		deDE1,
-		deDE2
+		deDE2,
+		zhCN1, // zh-zh-CN_ZhangJingVoice
+		zhCN2, // zh-CN_WangWeiVoice
 	}
 
 	public enum ActionLang {
@@ -70,7 +90,8 @@ public class AiGlobals : MonoBehaviour {
 		deDE,
 		esES,
 		frFR,
-		itIT
+		itIT,
+		zhCN,
 	}
 
 	public enum ActionListenTypes {

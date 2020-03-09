@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -24,7 +25,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -63,7 +65,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -125,8 +128,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114337680773865732}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -137,6 +140,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -176,10 +180,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -193,7 +193,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Name: String Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: -88}
+  position: {x: -136, y: -184}
   ports:
     keys:
     - valueOut
@@ -277,10 +278,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  filter:
-    device: 0
-    source: 0
-    messageFilter: /str/recognize/
   conditions:
   - compareType: 2
     strVal: car
@@ -288,16 +285,23 @@ MonoBehaviour:
   - compareType: 2
     strVal: bus
     inverse: 0
-  - compareType: 3
-    strVal: 
+  - compareType: 2
+    strVal: Untagged
     inverse: 0
   valueOut: 
-  _value: no object
+  filter:
+    device: 0
+    source: 0
+    messageFilter: /str/recognize/
+    messageType: 0
+  inputType: 0
+  _value: car
 --- !u!114 &114611669769838220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -305,7 +309,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: 104}
+  position: {x: 184, y: 152}
   ports:
     keys:
     - actions
@@ -359,8 +363,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114611669769838220}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -371,6 +375,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -410,10 +415,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -427,7 +428,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -439,18 +441,19 @@ MonoBehaviour:
   ports:
     keys: []
     values: []
-  text: 'Performs "object recognition" inside Unity based on standard Unity game object
-    Tags, where ray casting is the "camera." Functions the same as the physical robot
-    object recognition.
+  text: 'Performs "object recognition" inside Unity based on standard Unity game
+    object Tags, where ray casting is the "camera." Functions the same as the physical
+    robot object recognition.
 
 
-    Note that the tags must be on the same level as the Mesh Collider for the game
-    object.'
+    Note that the tags must be on the same level
+    as the Mesh Collider for the game object.'
 --- !u!114 &114773318335904836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -458,7 +461,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 488, y: -104}
+  position: {x: 760, y: -88}
   ports:
     keys:
     - enter
@@ -495,7 +498,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -503,7 +507,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: -104}
+  position: {x: 184, y: -88}
   ports:
     keys:
     - actions
@@ -557,8 +561,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114797932163858972}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -569,6 +573,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -608,10 +613,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -625,7 +626,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -688,8 +690,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114884832802119976}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -697,8 +699,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114884832802119976}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -709,6 +711,7 @@ MonoBehaviour:
     actionType: 0
     moveParams:
       type: 3
+      source: 0
       time: 0.1
       speed: 0.7
       easing: 3
@@ -748,10 +751,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -760,6 +759,7 @@ MonoBehaviour:
     actionType: 8
     moveParams:
       type: 3
+      source: 0
       time: 0.5
       speed: 1
       easing: 3
@@ -799,10 +799,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0

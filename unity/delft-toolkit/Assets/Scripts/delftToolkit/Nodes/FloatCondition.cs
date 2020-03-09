@@ -8,11 +8,30 @@ using XNode;
 namespace DelftToolkit {
 	[NodeWidth(270), NodeTint(255, 255, 0), CreateNodeMenu("Conditions/Float")]
 	public class FloatCondition : ConditionBase {
+
+		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.FloatConditionType.analogin, 0);
+		[Tooltip("Read signals matching message signature. (only exact match supported)")]
+		/// <summary> The last signal we received which passed the filter </summary>
+		[NonSerialized] public DingSignal signal;
+
+		[NodeEnum] public AiGlobals.FloatConditionType inputType = AiGlobals.FloatConditionType.analogin;
 		public Condition[] conditions = new Condition[0];
 		[Output] public float valueOut;
 		public float value {
 			get { return _value; }
 			set { _value = value; CheckConditions(); }
+		}
+
+		protected override void Init() {
+			base.Init();
+			DingSignal.onSignalEvent -= FilterSignalEvent;
+			DingSignal.onSignalEvent += FilterSignalEvent;
+		}
+
+		void FilterSignalEvent(DingSignal signal) {
+			if (filter.Match(signal)) {
+				HandleSignalEvent(signal);
+			}
 		}
 
 #region Events
@@ -59,7 +78,7 @@ namespace DelftToolkit {
 		}
 
 		[Serializable] public struct Condition {
-			public enum CompareType { Gtr, Lss, Range }
+			public enum CompareType { GT, LT, Range }
 			[NodeEnum] public CompareType compareType;
 			public float floatValA;
 			public float floatValB;
@@ -72,9 +91,9 @@ namespace DelftToolkit {
 
 			private bool EvaluateInternal(float test) {
 				switch (compareType) {
-					case CompareType.Gtr:
-						return test > floatValA;
-					case CompareType.Lss:
+					case CompareType.GT: // greater than or equal to
+						return test >= floatValA;
+					case CompareType.LT:
 						return test < floatValA;
 					case CompareType.Range:
 						return test >= floatValA && test <= floatValB;

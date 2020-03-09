@@ -67,10 +67,7 @@ MonoBehaviour:
       _node: {fileID: 114168946626156416}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: out2
-        node: {fileID: 114485060710568810}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -439,8 +436,8 @@ MonoBehaviour:
     - exit
     - out0
     - out1
-    - out2
     - out3
+    - out2
     values:
     - _fieldName: enter
       _node: {fileID: 114485060710568810}
@@ -487,34 +484,28 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-    - _fieldName: out2
-      _node: {fileID: 114485060710568810}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114168946626156416}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
     - _fieldName: out3
       _node: {fileID: 114485060710568810}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114549503075050822}
-        reroutePoints: []
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: out2
+      _node: {fileID: 114485060710568810}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
   outlets: 4
   lastOutlets: 4
-  nextOutletNum: 3
-  splitType: 0
+  nextOutletNum: 2
+  splitType: 1
 --- !u!114 &114549503075050822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,10 +553,7 @@ MonoBehaviour:
       _node: {fileID: 114549503075050822}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: out3
-        node: {fileID: 114485060710568810}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0

@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dings:
   - device: 0
-    robotIP: 127.0.0.1
+    robotIP: 192.168.1.30
     robotOutPort: 5005
     robotInPort: 5006
     marionetteIP: 127.0.0.1
@@ -21,15 +22,15 @@ MonoBehaviour:
     marionetteInPort: 5008
   - device: 1
     robotIP: 127.0.0.1
-    robotOutPort: 5005
-    robotInPort: 5006
+    robotOutPort: 5009
+    robotInPort: 5010
     marionetteIP: 127.0.0.1
-    marionetteOutPort: 5009
-    marionetteInPort: 5010
+    marionetteOutPort: 5011
+    marionetteInPort: 5012
   watsonServices:
   - service: 0
-    iamKey: 
+    iamKey: Z34HN2fHSTHk5XTXzf-SMmK1_7Du7RMxvvA9fCg7q-Eo
     url: 
   - service: 1
-    iamKey: 
+    iamKey: VTh76F-Yk4izi0OHpC7vY_EEU6OdJlz9M9DtJTGcdajw
     url: 

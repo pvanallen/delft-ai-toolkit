@@ -76,7 +76,7 @@ namespace DelftToolkit {
 							}
 						} else {
 							// always have a very short delay for OSC to settle
-							yield return new WaitForSeconds(0.02f);
+							//yield return new WaitForSeconds(0.02f);
 						}
 					}
 					if (active) {
@@ -126,7 +126,7 @@ namespace DelftToolkit {
 		public ActionSpeak speakParams = new ActionSpeak();
 		public ActionListen listenParams = new ActionListen();
 		public ActionRecognize recognizeParams = new ActionRecognize();
-		public ActionChat chatParams = new ActionChat();
+		//public ActionChat chatParams = new ActionChat();
 		public ActionPlaySound playSoundParams = new ActionPlaySound();
 
 	}
@@ -134,6 +134,7 @@ namespace DelftToolkit {
 	[Serializable]
 	public class ActionMove {
 		[NodeEnum] public AiGlobals.ActionMoveTypes type = AiGlobals.ActionMoveTypes.forward;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Speed")]

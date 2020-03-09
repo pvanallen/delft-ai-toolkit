@@ -18,12 +18,23 @@
 */
 #pragma warning disable 0649
 
+// using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine.UI;
+// using IBM.Watson.SpeechToText.V1;
+// using IBM.Cloud.SDK;
+// using IBM.Cloud.SDK.Utilities;
+// using IBM.Cloud.SDK.DataTypes;
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using IBM.Watson.SpeechToText.V1;
 using IBM.Cloud.SDK;
+using IBM.Cloud.SDK.Authentication;
+using IBM.Cloud.SDK.Authentication.Iam;
 using IBM.Cloud.SDK.Utilities;
 using IBM.Cloud.SDK.DataTypes;
 
@@ -63,25 +74,39 @@ public class WatsonSTT : MonoBehaviour
             throw new IBMException("Plesae provide IAM ApiKey for the service.");
         }
 
-        //  Create credential and instantiate service
-        Credentials credentials = null;
+        // //  Create credential and instantiate service
+        // Credentials credentials = null;
 
-        //  Authenticate using iamApikey
-        TokenOptions tokenOptions = new TokenOptions()
-        {
-            IamApiKey = _iamApikey
-        };
+        // //  Authenticate using iamApikey
+        // TokenOptions tokenOptions = new TokenOptions()
+        // {
+        //     IamApiKey = _iamApikey
+        // };
 
-        credentials = new Credentials(tokenOptions, _serviceUrl);
+        // credentials = new Credentials(tokenOptions, _serviceUrl);
+
+        // //  Wait for tokendata
+        // while (!credentials.HasIamTokenData())
+        //     yield return null;
+
+        // _service = new SpeechToTextService(credentials);
+        // _service.StreamMultipart = true;
+
+        IamAuthenticator authenticator = new IamAuthenticator(apikey: _iamApikey);
 
         //  Wait for tokendata
-        while (!credentials.HasIamTokenData())
+        while (!authenticator.CanAuthenticate())
             yield return null;
 
-        _service = new SpeechToTextService(credentials);
+        _service = new SpeechToTextService(authenticator);
+        if (!string.IsNullOrEmpty(_serviceUrl))
+        {
+            _service.SetServiceUrl(_serviceUrl);
+        }
         _service.StreamMultipart = true;
 
-        // Active = true;
+
+        Active = true;
         // StartRecording();
     }
 
@@ -116,6 +141,7 @@ public class WatsonSTT : MonoBehaviour
 
     public void StartRecording(AiGlobals.ActionLang lang)
     {
+        // https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-models
         lastTranscription = "no transcription";
         switch (lang) {
             case AiGlobals.ActionLang.enUS:
@@ -132,6 +158,9 @@ public class WatsonSTT : MonoBehaviour
                 break;
             case AiGlobals.ActionLang.frFR:
                 _recognizeModel = "fr-FR_BroadbandModel";
+                break;
+            case AiGlobals.ActionLang.zhCN:
+                _recognizeModel = "zh-CN_BroadbandModel";
                 break;
             default:
                 _recognizeModel = "en-US_BroadbandModel";
@@ -242,6 +271,7 @@ public class WatsonSTT : MonoBehaviour
                         m_callbackMethod(alt.transcript);
                     } else {
                         lastTranscription = alt.transcript;
+                        StopRecording();
                     }
                 }
             }
