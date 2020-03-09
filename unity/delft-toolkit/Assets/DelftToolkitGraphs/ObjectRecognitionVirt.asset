@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 760, y: -88}
+  position: {x: 520, y: -88}
   ports:
     keys:
     - enter

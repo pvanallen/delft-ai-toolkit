@@ -29,8 +29,8 @@ MonoBehaviour:
     marionetteInPort: 5012
   watsonServices:
   - service: 0
-    iamKey: Z34HN2fHSTHk5XTXzf-SMmK1_7Du7RMxvvA9fCg7q-Eo
+    iamKey: 
     url: 
   - service: 1
-    iamKey: VTh76F-Yk4izi0OHpC7vY_EEU6OdJlz9M9DtJTGcdajw
+    iamKey: 
     url: 

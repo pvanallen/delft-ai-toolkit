@@ -108,6 +108,7 @@ def listen_loop(q):
           print("Can't transcribe, Watson not initialized...")
           transcription = "Watson STT not initialized"
         # transcription = sp.speech2text(duration).replace("'","")
+        print("final transcription: " + transcription) 
         if (transcription != ""):
           client.send_message("/str/speech2text/", transcription)
         else:

@@ -18,6 +18,8 @@ namespace DelftToolkit {
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;
 			NodeEditorGUILayout.PortField(target.GetInputPort("enter"));
+
+			// show the contents of the filter
 			SerializedProperty filterProperty = serializedObject.FindProperty("filter");
 			SerializedProperty inputTypeProperty = serializedObject.FindProperty("inputType");
 			// Get port

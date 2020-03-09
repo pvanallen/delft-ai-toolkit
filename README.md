@@ -147,14 +147,18 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 1. **Start the software running in Unity**
 
-      * **Open Project** - Open the "delft-toolkit" project in Unity3D (we've tested in version 2018.2.x)
+      * **Open Project** - Open the "delft-toolkit" project in Unity3D (minimum version is 2018.2.x)
       * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
       * **Open Visual Graph** - In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
-      * **Physcial Robot** - If you are using the physical robot (the toolkit will work fine without the robot)
-        * Click on the simulated robot in the Hierarchy (e.g. ding1), and in the inspector, be sure the "Ding Control Physical" script is enabled.
-        * Still in the inspector at the "Ding Control Physical" script, paste in the IP address of the robot where it says "Target Addr"
-        * <img src="docs/images/DingControlPhysical-IP.png" width="254">
-        * If you are not using the physical robot, leave the IP address at 127.0.0.1
+      * **Physical Robot** - If you are using the physical robot (the toolkit will work fine without the robot):
+        * From the Unity menubar, select Delft AI Toolkit>Show Settings. This will select the central settings document (Assets>Resources>DelftAIToolkitSettings) and you can make changes in the Inspector.<br><img src="docs/images/settings.png" width="310">
+        * In the inspector for "ding1", paste in the IP address of the robot where it says "Robot IP"
+        * If you are not using the physical robot, leave the IP address set to 127.0.0.1
+      * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free available).
+        * Sign up for an account - http://cloud.ibm.com
+        * Set up the service(s) you are using
+        * Create credentials for using the service in the API Key format (also called IAM Key).<br><img src="docs/images/watson-credentials.png" width="370">
+        * Enter the API Key/IAM Key in the corresponding field in the settings document. Delft AI Toolkit>Show Settings
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)

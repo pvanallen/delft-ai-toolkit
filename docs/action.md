@@ -19,7 +19,7 @@ _________________
   - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
   - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
-  - [Recognize - Perform object recognition](#recognize---perform-object-recognition)
+  - [Recognize - Perform object recognition from the camera](#recognize---perform-object-recognition-from-the-camera)
 <!-- TOC END -->
 _________________
 
@@ -28,9 +28,9 @@ _________________
 ## Creating Actions
 Each action added to the node will perform in sequence.
 
-* **Add** - To add an action, click on the "+" button
+* **Add** - To add an action, click on the "+" button, which add a duplicate of the last action as a starting point
 * **Reorder** - Drag the "=" symbol to reorder them
-* **Delete** - To delete a condition, select the condition and click the "-" button
+* **Delete** - To delete a condition, select the condition row and click the "-" button
 
 ## Repeats
 
@@ -55,7 +55,10 @@ Note that this is a standard random function currently, so it is possible for th
 * *Angle* - The target angle to move the servo to
 
 ### Leds - Sets the color of device LEDs
-* *Type* - Not yet implemented. In the future will blink capability
+* *Type* - Determines how the LEDs will behave
+  * Set - Sets the color of the LEDs
+  * Blink - Blinks the LEDs, using the "port" setting for the number of blinks, and the "time" for the amount of time for each "on" period in seconds
+  * All Off - Turns all the LEDs off regardless of port/color settings
 * *Port* - Sets the LED to be set (0-12). If -1, all LEDs will be set
 * *Time* - Number of seconds the action waits before passing control to the next action
 * *Color* - Opens a color picker to set the color the LEDs will be set to
@@ -94,14 +97,14 @@ Note that this is a standard random function currently, so it is possible for th
 * *Time* - Number of seconds the action waits before passing control to the next action
 * *Voice* - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into make a gender neutral voice available)
 * *Utterance* - The text to be spoken
-* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
+* **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
 
 ### Speech To Text - Transcribe spoken words to text
 * *Model* - Only Watson currently, and this option is not shown. In the future, we hope to also implement Snips.ai, which is an edge based system (i.e. no internet connection required).
 * *Virtual or Physical Robot* - Whether the speech is transcribed on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
 * *Language* - Select a language, country combination. Not all languages are available in all models.
-* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
+* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu: Delft AI Toolkit>Show Settings
 
-### Recognize - Perform object recognition
-* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and complex and slower at the bottom of the list.
+### Recognize - Perform object recognition from the camera
+* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. **Note**: Actual object recognition happens on the robot, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. In the Unity virtual environment, the Recognition Model setting has no effect.
