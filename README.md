@@ -167,14 +167,12 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 ```bash
 # login to the RPi via ethernet
 ssh pi@delftbt0.local
-# get the IP address of the RPi from the wlan0 section
+# get the IP address of the RPi from the **wlan0** section
 ifconfig
-# login to the RPi via WiFi, change the example IP to that RPi
+# login to the RPi via WiFi, change the example IP to the RPi IP obtained in the last step
 ssh pi@10.4.27.47
-# change to the toolkit software directory
-cd delft-ai-toolkit
 # start the RPi software, change the example IP to that of the computer running Unity
-python3 delft_toolkit.py --server_ip 10.4.18.109
+./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
 # shutdown before disconnecting the power, then wait for 10 seconds
 sudo poweroff
 ```
