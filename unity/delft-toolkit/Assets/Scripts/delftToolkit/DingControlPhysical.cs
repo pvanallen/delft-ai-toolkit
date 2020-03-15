@@ -160,7 +160,7 @@ public class DingControlPhysical : DingControlBase {
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
-				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
+				Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
 				if (action.moveParams.source == AiGlobals.SensorSource.phys 
 				|| action.moveParams.source == AiGlobals.SensorSource.both) {
 					oscValues.AddRange(new object[] {
@@ -190,6 +190,13 @@ public class DingControlPhysical : DingControlBase {
 					action.analoginParams.type.ToString(),
 					action.analoginParams.interval,
 					action.analoginParams.port
+				});
+				break;
+			case AiGlobals.ActionTypes.touch:
+				oscValues.AddRange(new object[] {
+					action.touchParams.type.ToString(),
+					action.touchParams.interval,
+					action.touchParams.port
 				});
 				break;
 			case AiGlobals.ActionTypes.servo:
@@ -229,10 +236,13 @@ public class DingControlPhysical : DingControlBase {
 				});
 				break;
 			case AiGlobals.ActionTypes.playSound:
-				oscValues.AddRange(new object[] {
-					action.playSoundParams.type.ToString(),
-					action.playSoundParams.time,
-				});
+				if (action.playSoundParams.source == AiGlobals.SensorSource.phys 
+				|| action.playSoundParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] {
+						action.playSoundParams.type.ToString(),
+						action.playSoundParams.time,
+					});
+				}
 				break;
 			default:
 				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);

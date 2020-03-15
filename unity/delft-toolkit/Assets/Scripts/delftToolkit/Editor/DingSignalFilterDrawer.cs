@@ -22,6 +22,9 @@ namespace DelftToolkit {
 			Rect portRect = new Rect(portIconRect.x + portIconRect.width, position.y, 52, EditorGUIUtility.singleLineHeight);
 			Rect filterRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing, position.width, EditorGUIUtility.singleLineHeight);
 
+			SerializedProperty strPort = property.FindPropertyRelative("port");
+
+			SerializedProperty actionAnalogIn = property.FindPropertyRelative("analoginParams");
 			// Don't make child fields be indented
 			var indent = EditorGUI.indentLevel;
 			EditorGUI.indentLevel = 0;
@@ -31,6 +34,8 @@ namespace DelftToolkit {
 			EditorGUI.PropertyField(sourceRect, property.FindPropertyRelative("source"), GUIContent.none);
 			//DrawNextProperty(ref pos, actionAnalogIn, "port", 50, new GUIContent(DelftStyles.portIcon));
 			EditorGUI.PropertyField(portIconRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
+			//EditorGUI.DrawNextProperty(portIconRect, property, "port", 50, new GUIContent(DelftStyles.portIcon));
+			//EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
 			EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), GUIContent.none);
 			EditorGUI.PropertyField(filterRect, property.FindPropertyRelative("messageFilter"), GUIContent.none);
 

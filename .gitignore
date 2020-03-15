@@ -7,9 +7,11 @@ node_modules/
 # python/ai stuff
 /raspi/google-credentials.json
 /raspi/models/
+/raspi/old-code/
 *.caffemodel
 *.prototxt
 .remote-sync.json
+./delft-ai-toolkit/atom-sftp-sync.json
 
 # unity stuff
 /unity/delft-toolkit/[Ll]ibrary/

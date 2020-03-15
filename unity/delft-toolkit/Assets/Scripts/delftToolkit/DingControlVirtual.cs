@@ -118,7 +118,7 @@ public class DingControlVirtual : DingControlBase {
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
-				//Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.moveParams.type.ToString());
+				Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.moveParams.type.ToString());
 				moveType = action.moveParams.type;
 				moveSpeed = action.moveParams.speed;
 				moveEasing = action.moveParams.easing;
@@ -270,7 +270,7 @@ public class DingControlVirtual : DingControlBase {
             if (Input.GetKeyDown(currentKey)) {
 				
 				if (DelftToolkit.DingSignal.onSignalEvent != null) {
-					print(currentKey);
+					//print(currentKey);
 					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/keydown/", currentKey.ToString());
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 				}

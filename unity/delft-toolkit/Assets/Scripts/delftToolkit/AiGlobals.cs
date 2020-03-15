@@ -39,6 +39,7 @@ public class AiGlobals : MonoBehaviour {
 		textToSpeech,
 		speechToText,
 		recognize,
+		touch,
 		//chat,
 	}
 

@@ -53,12 +53,12 @@ namespace DelftToolkit {
 				//EditorGUI.indentLevel--;
 			//}
 
-			if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
+			//if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
-				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + "\n" + node.signal.value.ToString());
-				else EditorGUILayout.LabelField("Missing or incorrect data type");
+				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + " " + node.signal.value.ToString());
+				else EditorGUILayout.LabelField("no data yet");
 				EditorGUI.indentLevel--;
-			}
+			//}
 
 			// Input value
 			EditorGUI.BeginChangeCheck();

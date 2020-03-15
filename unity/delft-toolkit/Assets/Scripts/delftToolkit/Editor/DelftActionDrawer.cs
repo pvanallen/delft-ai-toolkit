@@ -48,6 +48,13 @@ public class DelftActionDrawer : PropertyDrawer {
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionAnalogIn, "interval", 60, new GUIContent(DelftStyles.timeIcon));
 				break;
+			case AiGlobals.ActionTypes.touch:
+				SerializedProperty actionTouch = property.FindPropertyRelative("touchParams");
+				DrawNextProperty(ref pos, actionTouch, "type", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionTouch, "port", 50, new GUIContent(DelftStyles.portIcon));
+				NextLine(ref pos);
+				DrawNextProperty(ref pos, actionTouch, "interval", 60, new GUIContent(DelftStyles.timeIcon));
+				break;
 			case AiGlobals.ActionTypes.servo:
 				SerializedProperty actionServo = property.FindPropertyRelative("servoParams");
 				DrawNextProperty(ref pos, actionServo, "type", 70, GUIContent.none);

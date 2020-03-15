@@ -32,8 +32,9 @@ namespace DelftToolkit {
 		public static event DingActionEvent DingEvent;
 
 		protected override void Init() {
-			actionStopAll.moveParams.time = 0;
-			actionStopAll.moveParams.type = AiGlobals.ActionMoveTypes.stop;
+			// actionStopAll.moveParams.time = 0;
+			// actionStopAll.moveParams.type = AiGlobals.ActionMoveTypes.stop;
+			// actionStopAll.moveParams.source = AiGlobals.SensorSource.both; //action.moveParams.source == AiGlobals.SensorSource.phys
 		}
 
 		public IEnumerator NextAction() {
@@ -51,6 +52,9 @@ namespace DelftToolkit {
 						switch (actions[currentAction].actionType) {
 							case AiGlobals.ActionTypes.move:
 								delayTime = actions[currentAction].moveParams.time;
+								actionStopAll.moveParams.time = 0;
+								actionStopAll.moveParams.type = AiGlobals.ActionMoveTypes.stop;
+								actionStopAll.moveParams.source = actions[currentAction].moveParams.source;
 								break;
 							case AiGlobals.ActionTypes.leds:
 								delayTime = actions[currentAction].ledParams.time;
@@ -122,6 +126,7 @@ namespace DelftToolkit {
 		public ActionLed ledParams = new ActionLed();
 		public ActionDelay delayParams = new ActionDelay();
 		public ActionAnalogIn analoginParams = new ActionAnalogIn();
+		public ActionTouch touchParams = new ActionTouch();
 		public ActionServo servoParams = new ActionServo();
 		public ActionSpeak speakParams = new ActionSpeak();
 		public ActionListen listenParams = new ActionListen();
@@ -138,7 +143,7 @@ namespace DelftToolkit {
 		[Tooltip("Time (Seconds)")]
 		public float time = 1;
 		[Tooltip("Speed")]
-		public float speed = 1;
+		public float speed = 0.5f;
 		[Tooltip("Easing")]
 		[NodeEnum] public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
 	}
@@ -166,9 +171,18 @@ namespace DelftToolkit {
 		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 50; // milliseconds
-		[Tooltip("Port (Typically 0-6)")]
+		[Tooltip("Port (Typically 0-5)")]
 		public int port = 0;
 	}
+[Serializable]
+	public class ActionTouch {
+		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
+		[Tooltip("Interval (Milliseconds)")]
+		public int interval = 50; // milliseconds
+		[Tooltip("Port (Typically 0-3)")]
+		public int port = 0;
+	}
+
 
 	[Serializable]
 	public class ActionServo {

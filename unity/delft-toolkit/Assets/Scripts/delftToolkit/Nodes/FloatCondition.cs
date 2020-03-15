@@ -6,7 +6,7 @@ using UnityEngine;
 using XNode;
 
 namespace DelftToolkit {
-	[NodeWidth(270), NodeTint(255, 255, 0), CreateNodeMenu("Conditions/Float")]
+	[NodeWidth(270), NodeTint(255, 255, 160), CreateNodeMenu("Conditions/Float")]
 	public class FloatCondition : ConditionBase {
 
 		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.FloatConditionType.analogin, 0);

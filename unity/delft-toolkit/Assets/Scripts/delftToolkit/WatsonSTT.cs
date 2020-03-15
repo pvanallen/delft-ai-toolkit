@@ -18,15 +18,6 @@
 */
 #pragma warning disable 0649
 
-// using UnityEngine;
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine.UI;
-// using IBM.Watson.SpeechToText.V1;
-// using IBM.Cloud.SDK;
-// using IBM.Cloud.SDK.Utilities;
-// using IBM.Cloud.SDK.DataTypes;
-
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -74,24 +65,6 @@ public class WatsonSTT : MonoBehaviour
             throw new IBMException("Plesae provide IAM ApiKey for the service.");
         }
 
-        // //  Create credential and instantiate service
-        // Credentials credentials = null;
-
-        // //  Authenticate using iamApikey
-        // TokenOptions tokenOptions = new TokenOptions()
-        // {
-        //     IamApiKey = _iamApikey
-        // };
-
-        // credentials = new Credentials(tokenOptions, _serviceUrl);
-
-        // //  Wait for tokendata
-        // while (!credentials.HasIamTokenData())
-        //     yield return null;
-
-        // _service = new SpeechToTextService(credentials);
-        // _service.StreamMultipart = true;
-
         IamAuthenticator authenticator = new IamAuthenticator(apikey: _iamApikey);
 
         //  Wait for tokendata
@@ -104,7 +77,6 @@ public class WatsonSTT : MonoBehaviour
             _service.SetServiceUrl(_serviceUrl);
         }
         _service.StreamMultipart = true;
-
 
         Active = true;
         // StartRecording();
@@ -125,11 +97,12 @@ public class WatsonSTT : MonoBehaviour
                 _service.MaxAlternatives = 1;
                 _service.EnableInterimResults = true;
                 _service.OnError = OnError;
-                _service.InactivityTimeout = 5; // -1 = no timeout
+                _service.InactivityTimeout = -1; // was 5, -1 = no timeout
                 _service.ProfanityFilter = false;
                 _service.SmartFormatting = true;
                 _service.SpeakerLabels = false;
                 _service.WordAlternativesThreshold = null;
+                _service.EndOfPhraseSilenceTime = null;
                 _service.StartListening(OnRecognize, OnRecognizeSpeaker);
             }
             else if (!value && _service.IsListening)
@@ -193,12 +166,12 @@ public class WatsonSTT : MonoBehaviour
     {
         Active = false;
 
-        Log.Debug("ExampleStreaming.OnError()", "Error! {0}", error);
+        Log.Debug("WatsonSTT.OnError()", "Error! {0}", error);
     }
 
     private IEnumerator RecordingHandler()
     {
-        Log.Debug("ExampleStreaming.RecordingHandler()", "devices: {0}", Microphone.devices);
+        Log.Debug("WatsonSTT.RecordingHandler()", "devices: {0}", Microphone.devices);
         _recording = Microphone.Start(_microphoneID, true, _recordingBufferSize, _recordingHZ);
         yield return null;      // let _recordingRoutine get set..
 
@@ -217,7 +190,7 @@ public class WatsonSTT : MonoBehaviour
             int writePos = Microphone.GetPosition(_microphoneID);
             if (writePos > _recording.samples || !Microphone.IsRecording(_microphoneID))
             {
-                Log.Error("ExampleStreaming.RecordingHandler()", "Microphone disconnected.");
+                Log.Error("WatsonSTT.RecordingHandler()", "Microphone disconnected.");
 
                 StopRecording();
                 yield break;
@@ -264,7 +237,6 @@ public class WatsonSTT : MonoBehaviour
                 {
                     // string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                     // Log.Debug("ExampleStreaming.OnRecognize()", text);
-
                     if (res.final) {
                         StopRecording();
                         lastTranscription = "";
@@ -284,7 +256,7 @@ public class WatsonSTT : MonoBehaviour
         {
             foreach (SpeakerLabelsResult labelResult in result.speaker_labels)
             {
-                Log.Debug("ExampleStreaming.OnRecognizeSpeaker()", string.Format("speaker result: {0} | confidence: {3} | from: {1} | to: {2}", labelResult.speaker, labelResult.from, labelResult.to, labelResult.confidence));
+                Log.Debug("WatsonSTT.OnRecognizeSpeaker()", string.Format("speaker result: {0} | confidence: {3} | from: {1} | to: {2}", labelResult.speaker, labelResult.from, labelResult.to, labelResult.confidence));
             }
         }
     }
