@@ -15,11 +15,12 @@ _________________
   - [Servo - Moves a servo to an angle](#servo---moves-a-servo-to-an-angle)
   - [Leds - Sets the color of device LEDs](#leds---sets-the-color-of-device-leds)
   - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
-  - [Analogin - Starts or stops values from a sensor](#analogin---starts-or-stops-values-from-a-sensor)
+  - [Analogin - Starts or stops values from an analog input sensor](#analogin---starts-or-stops-values-from-an-analog-input-sensor)
   - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
   - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
   - [Recognize - Perform object recognition from the camera](#recognize---perform-object-recognition-from-the-camera)
+  - [Touch - Starts or stops values from the capacitive touch sensors](#touch---starts-or-stops-values-from-the-capacitive-touch-sensors)
 <!-- TOC END -->
 _________________
 
@@ -45,6 +46,7 @@ Note that this is a standard random function currently, so it is possible for th
 ## Actions
 ### Move - Causes the device to move
 * *Direction* - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
+* *Virtual or Physical Robot* - Whether the move command is sent to the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Time* - Number of seconds the movement will run. Zero sets the movement to run until changed, and control passes immediately on the to the next action.
 * *Speed* - Speed of the movement
 
@@ -82,10 +84,16 @@ Note that this is a standard random function currently, so it is possible for th
       * Navigate to *delft-ai-toolkit>audio>ui_sounds* and replace the files
 
 
-### Analogin - Starts or stops values from a sensor
-* *Action* - Start tells the virtual or physical device to start sending values. Stop ends the sending of values
+### Analogin - Starts or stops values from an analog input sensor
+* *Action* - Start tells the virtual or physical device to start or stop sending values.
 * *Port* - Specifies the port the sensor is connected to.
-  * It is possible to have the robot send more than one sensor at a time. Plug your sensors into one of the six analog inputs on the Arduino (the IR distance sensor is normally plugged into input 0)
+  * It is possible to have the robot send more than one sensor at a time. Plug your sensors into one of the six analog inputs on the Adafruit Crikit Hat (the ultrasonic distance sensor is normally plugged into input 0)
+* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+
+### Touch - Starts or stops values from a touch input sensor
+* *Action* - Start tells the physical device to start or stop sending values.
+* *Port* - Specifies the port the touch wire is connected to.
+  * It is possible to have the robot send more than one sensor at a time. Connect your sensing wires to one of the four touch inputs on the Adafruit Crikit Hat (labeled 1-4)
 * *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
 ### Delay - Pauses the sequence of actions
@@ -108,3 +116,9 @@ Note that this is a standard random function currently, so it is possible for th
 
 ### Recognize - Perform object recognition from the camera
 * *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. **Note**: Actual object recognition happens on the robot, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. In the Unity virtual environment, the Recognition Model setting has no effect.
+
+### Touch - Starts or stops values from the capacitive touch sensors
+* *Action* - Start tells the physical device to start sending values. Stop ends the sending of values
+* *Port* - Specifies the port of the touch sensor.
+  * It is possible to have the robot send more than one sensor at a time. Plug your conductive wire (e.g. copper tape - alligator clips) into one of the four touch inputs on the Arduino (the IR distance sensor is normally plugged into input 0)
+* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second

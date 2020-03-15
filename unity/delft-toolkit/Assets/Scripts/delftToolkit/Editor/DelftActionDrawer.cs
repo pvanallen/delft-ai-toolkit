@@ -23,7 +23,7 @@ public class DelftActionDrawer : PropertyDrawer {
 				//{}
 				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
 				DrawNextProperty(ref pos, actionMove, "type", 70, GUIContent.none);
-				DrawNextProperty(ref pos, actionMove, "source", 40, GUIContent.none);
+				DrawNextProperty(ref pos, actionMove, "source", 50, GUIContent.none);
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionMove, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionMove, "speed", 50, new GUIContent(DelftStyles.speedIcon));

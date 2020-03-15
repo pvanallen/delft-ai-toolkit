@@ -72,15 +72,18 @@ pixels.fill((1,2,3,0)) # there's a bug in the neopixel lib that ignores zeros in
 # DEFINE sensors
 # For signal control, we'll chat directly with seesaw, use 'ss' to shorted typing!
 ss = crickit.seesaw
-# potentiometer connected to signal #1
 
-
-
-analogin = False
+# analogin = False
 analog_interval = .5
 analog_next_time = time.time() + analog_interval
 # ports to be scanned each interval
 analog_ports = [False,False,False,False,False,False]
+
+
+touch_interval = .5
+touch_next_time = time.time() + touch_interval
+# ports to be scanned each interval
+touch_ports = [False,False,False,False,False]
 
 move_stop_time = time.time()
 move_stop_interval = 10.0 #seconds
@@ -304,7 +307,7 @@ def delay_cb(adr, type, time):
   if ser != None: ser.write(arduinoStr.encode())
 
 def analogin_cb(adr, type, interval, port):
-  global analogin, analog_port, analog_interval
+  global analog_ports, analog_interval
   port = max(0, min(port, 5)) # make sure port is between 0 & 5
   print("analogin: " + type + " interval: " +  str(interval) + " port: " + str(port))
   arduinoStr = '{},{},{},{}\n'.format(
@@ -314,14 +317,28 @@ def analogin_cb(adr, type, interval, port):
     port
   )
   if not send_serial_command(arduinoStr):
-      ######## CHECK TO SEE IF ANY OTHER PORTS ARE ACTIVE, THEN ENABLE CHECK
       if type == "start":
-          analogin = True
           analog_ports[port] = True
           analog_interval = interval * 0.01
       else:
-          analogin = False
           analog_ports[port] = False
+
+def touch_cb(adr, type, interval, port):
+  global touch_ports, touch_interval
+  port = max(1, min(port, 4)) # make sure port is between 1 & 4 -- the Adafruit CRICKIT is labeled 1,2,3,4
+  print("touch: " + type + " interval: " +  str(interval) + " port: " + str(port))
+  arduinoStr = '{},{},{},{}\n'.format(
+    name_val(events, strip_adr(adr)),
+    name_val(types, type),
+    interval,
+    port
+  )
+  if not send_serial_command(arduinoStr):
+      if type == "start":
+          touch_ports[port] = True
+          touch_interval = interval * 0.01
+      else:
+          touch_ports[port] = False
 
 def servo_cb(adr, type, angle, port, varspeed, easing):
   print("servo: " + type + " " +  str(angle) + " port: " + str(port))
@@ -373,17 +390,19 @@ def recognize_cb(adr, type, model):
 
 def main(_):
   global ser, blink, blink_state, blink_delay, blink_next_time, blink_color, blink_times
-  global analogin, analog_port, analog_interval, analog_next_time, move_stop_time
+  global analogin, analog_ports, analog_interval, analog_next_time, move_stop_time
+  global touch_ports, touch_interval, touch_next_time
   count = 0.0;
   while True:
+      # print("touch",touch_ports,touch_next_time, check_touch())
       # shut down any motor moves after move_stop_time
       if time.time() > move_stop_time:
           if motor_1.throttle > 0 or motor_2.throttle > 0:
               motor_1.throttle = 0
               motor_2.throttle = 0
-              print("STOPPING MOTORS")
+              print("#########TIMEOUT -- STOPPING MOTORS")
               #print(time.time(),move_stop_time, move_stop_time - time.time())
-
+      #### BLINK
       if blink == True:
         #print("blink ON " + str(time.time()))
         if time.time() > blink_next_time and blink_times > 0:
@@ -401,10 +420,12 @@ def main(_):
             #print("blink DONE")
             blink = False
             pixels.fill((0,0,0,0)) #OFF
+
+      #### ANALOGIN
       # the interval is the same for all ports -- maybe have a separate array for intervals?
       if time.time() > analog_next_time and check_analog():
+        analog_next_time = time.time() + analog_interval
         for i, read in enumerate(analog_ports):
-            analog_next_time = time.time() + analog_interval
             if analog_ports[i] == True:
                 sensor = crickit.SIGNAL1
                 if i == 0:
@@ -420,7 +441,7 @@ def main(_):
                 elif i == 5:
                     sensor = crickit.SIGNAL6
                 analog_value = ss.analog_read(sensor)
-                #print("analog read, port:",i,analog_value, "analog interval:",analog_interval)
+                print("analog read, port:",i,analog_value, "analog interval:",analog_interval)
 
                 osc_address="/num/analogin/" + str(i) + "/"
                 builder = osc_message_builder.OscMessageBuilder(address = osc_address)
@@ -429,6 +450,35 @@ def main(_):
                 builder.add_arg(999)
                 msg = builder.build()
                 client.send(msg)
+
+        #### TOUCH
+      # print("touch",touch_ports,touch_next_time, check_touch())
+      if time.time() > touch_next_time and check_touch():
+        touch_next_time = time.time() + touch_interval
+        for i, read in enumerate(touch_ports):
+          if touch_ports[i] == True:
+              sensor = crickit.touch_1
+              if i == 1:
+                  sensor = crickit.touch_1
+              elif i == 2:
+                  sensor = crickit.touch_2
+              elif i == 3:
+                  sensor = crickit.touch_3
+              elif i == 4:
+                  sensor = crickit.touch_4
+              if sensor.value: # check if the touch port is active from a touch
+                  touch_value = 1023
+              else:
+                  touch_value = 0
+              # print("touch read, port:",i,touch_value, "touch interval:",touch_interval)
+
+              osc_address="/num/touch/" + str(i) + "/"
+              builder = osc_message_builder.OscMessageBuilder(address = osc_address)
+              builder.add_arg(touch_value)
+              builder.add_arg(100)
+              builder.add_arg(999)
+              msg = builder.build()
+              client.send(msg)
 
       # handle incoming messages from Arduino
       elif MCU == "ARDUINO" and ser != None:
@@ -464,6 +514,13 @@ def main(_):
 def check_analog():
     # are there any ports active?
     for port in analog_ports:
+        if port:
+            return True
+    return False
+
+def check_touch():
+    # are there any ports active?
+    for port in touch_ports:
         if port:
             return True
     return False
@@ -510,6 +567,7 @@ if __name__ == '__main__':
   dispatcher.map("/leds/", leds_cb)
   dispatcher.map("/delay/", delay_cb)
   dispatcher.map("/analogin/", analogin_cb)
+  dispatcher.map("/touch/", touch_cb)
   dispatcher.map("/servo/", servo_cb)
   dispatcher.map("/textToSpeech/", speak_cb)
   dispatcher.map("/inittts/", inittts_cb)

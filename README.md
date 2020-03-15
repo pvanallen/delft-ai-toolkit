@@ -46,30 +46,28 @@ The goal of this project is to develop an approach to authoring AI that enables 
 * Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
 * Robot/Device
-  * Raspberry Pi + Arduino (we may transition to the Adafruit Crikit for RPi once we have a chance to evaluate it - this would eliminate the need for the Arduino)
+  * Raspberry Pi + Adafruit Crikit Hat for RPi
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
-Each of these has a codebase, and includes a range of open source libraries.
+Each of these has a codebase here, and include a range of open source libraries.
 
 This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
 * **Action Options** - repeat, random
-* **Machine Learning** - performs edge object recognition onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Recognition speeds range from 0.6secs to 2.0secs.
-* **Cognitive Services** - Supports IBM Watson Text to Speech, Speech to Text, others Watson services coming soon.
-* **Inputs** - analog sensors, keyboard, OSC
-* **Conditions** - numeric gt/lt/range, string start/end/contains/multiple
+* **Machine Learning** - performs object recognition (machine vision) onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Recognition speeds range from 0.6secs to 2.0secs.
+* **Cognitive Services** - Supports IBM Watson Text to Speech and Speech to Text in the Unity simulation, and on the robot. Other Watson services planned.
+* **Inputs** - analog sensors, keyboard, OSC, capacitive touch
+* **Conditions** - numeric: gt/lt/range, string: start/end/contains/multiple
 * **Behavior Trees/Data Flow** - multiple node ins/outs, loops, restart, individual node trigger for testing, visual indication of active node and action within node
 
 <img src="docs/images/speak-recognize-graph.png" width="700">
-## Roadmap
 
-* More video and written documentation
-* More and simpler hardware configurations
+## Roadmap
 * Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
-* Add support for Snip.ai -- edge based speech assistant
-* Better support for IoT (e.g. IFTTT, webhooks)
+* More video and written documentation
+* Better support for IoT (e.g. IFTTT, web-hooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
 
