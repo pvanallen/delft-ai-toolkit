@@ -634,7 +634,7 @@ if __name__ == '__main__':
   # wait for model init to finish before waiting for commands
   recognition_ready_e.wait()
 
-  #audio_output_q.put(("speak","pico","GB","hello"))
+  audio_output_q.put(("speak","pico","GB","hello"))
   print("Delft Toolkit Initialization Complete")
   # blink leds
   leds_cb("/leds", "blink", 0.1, 10, "0,0,127")
