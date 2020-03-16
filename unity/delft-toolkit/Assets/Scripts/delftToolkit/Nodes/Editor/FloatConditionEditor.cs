@@ -46,6 +46,14 @@ namespace DelftToolkit {
 				} else if (node.inputType == AiGlobals.FloatConditionType.touch) {
 					//Debug.Log("touch selected");
 					node.filter.messageFilter = "/num/touch/" + node.filter.port + "/";
+				} else if (node.inputType == AiGlobals.FloatConditionType.touchOsc) {
+					//Debug.Log("touchOSC selected");
+					node.filter.messageFilter = "/num/1/push" + node.filter.port + "/"; // /num/1/push1/
+				} else if (node.inputType == AiGlobals.FloatConditionType.cleanOsc) {
+					//Debug.Log("cleanOSC selected");
+					node.filter.messageFilter = "/num/clean__project_1__button_" + node.filter.port + "/"; // /num/clean__project_1__button_1/
+				} else if (node.inputType == AiGlobals.FloatConditionType.any) {
+					// leave the message filter alone
 				}
 				serializedObject.ApplyModifiedProperties();
 				serializedObject.Update();
@@ -56,7 +64,7 @@ namespace DelftToolkit {
 			//if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
 				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + " " + node.signal.value.ToString());
-				else EditorGUILayout.LabelField("no data yet");
+				else EditorGUILayout.LabelField("no matching float data yet");
 				EditorGUI.indentLevel--;
 			//}
 

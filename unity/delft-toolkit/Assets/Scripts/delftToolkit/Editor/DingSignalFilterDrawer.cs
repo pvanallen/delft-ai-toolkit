@@ -33,7 +33,7 @@ namespace DelftToolkit {
 			EditorGUI.PropertyField(deviceRect, property.FindPropertyRelative("device"), GUIContent.none);
 			EditorGUI.PropertyField(sourceRect, property.FindPropertyRelative("source"), GUIContent.none);
 			//DrawNextProperty(ref pos, actionAnalogIn, "port", 50, new GUIContent(DelftStyles.portIcon));
-			EditorGUI.PropertyField(portIconRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
+			//EditorGUI.PropertyField(portIconRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
 			//EditorGUI.DrawNextProperty(portIconRect, property, "port", 50, new GUIContent(DelftStyles.portIcon));
 			//EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
 			EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), GUIContent.none);

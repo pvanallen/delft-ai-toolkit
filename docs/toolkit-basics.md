@@ -8,7 +8,8 @@ The toolkit allows for multiple threads of nodes to run in parallel simply by ha
 _______________
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Basic Usage](#basic-usage)
-  - [Working With Graphs](#working-with-graphs)
+  - [Example Graphs and scenes](#example-graphs-and-scenes)
+  - [Working With Visual Graphs](#working-with-visual-graphs)
   - [Graph Structure](#graph-structure)
   - [Saving a graph](#saving-a-graph)
 - [Example Projects](#example-projects)
@@ -16,13 +17,26 @@ _______________
   - [Obstacles](#obstacles)
   - [ObjectRecognitionVirt](#objectrecognitionvirt)
   - [ObjectRecognitionPhys](#objectrecognitionphys)
+  - [Splitter](#splitter)
   - [SubGraph and SubGraphTest](#subgraph-and-subgraphtest)
+  - [Watson Speech to Text to Speech](#watson-speech-to-text-to-speech)
 <!-- TOC END -->
 _______________
 
 ## Basic Usage
 
-### Working With Graphs
+### Example Graphs and scenes
+The toolkit comes pre-configured with a set of example projects, each of which has a visual **graph** and **scene**. For example the MainExamples graph works with the MainExamples scene.
+
+* **Assets/DelftToolkitGraphs** - All of the sample visual graphs are located in the Assets/DelftToolkitGraphs folder.
+* **Assets/Scenes** - All of the sample scenes for each example graph are in the Assets/Scenes folder.
+
+<img src="./images/sample-graphs.jpg" width="350">&nbsp;<img src="./images/sample-scenes.jpg" width="350">
+
+
+
+### Working With Visual Graphs
+* **Open a scene** - Each example graph is associated with a corresponding scene. For example, MainExamples graph works with the MainExamples scene.
 * **Open a graph** - Double click on a graph to open it in a pane. This pane can be separate from the main Unity window, or docked to any panel. Be sure you have the corresponding scene open for this graph. Double click on the scene to make it active.
 * **Create a graph** - In the project panel, right click and select Create>Delft toolkit. By convention, we use the Assets>DelftToolkitGraphs folder to store all the graphs.
 * **Zoom in/out** - Use the scroll wheel, or use a two finger swipe down (bigger) or up (smaller)
@@ -59,7 +73,7 @@ The Delft AI Toolkit comes with a set of example projects that are made up of no
 * Assets>DelftToolkitGraphs folder
 
 ### MainExamples - Four Introductory Graphs
-Contains four different simple graphs that demonstrate basic concepts. Uses MainExamples scene
+Contains four different simple graphs that demonstrate basic concepts. Uses **MainExamples** scene
   * Sample Actions - Shows how multiple actions can be collected in a single node, and will be executed in sequence.
   * Get Key Down - Uses a condition node to capture key presses, where each different key produces a different motion.
   * Parallel Actions - This shows how two Action nodes can run simultaneously
@@ -71,5 +85,16 @@ Gives the robot a simple set of rules to navigate around obstacles. Works with b
 Simulates object recognition in the virtual environment by "recognizing" objects that are tagged with the right name. Uses the **ObjectRecognitionVirt** scene.
 ### ObjectRecognitionPhys
 Does actual object recognition in the physical robot. Asks for a voice command, and if user speaks "recognize" the system will take a picture and run an object recognition model locally on the Raspberry Pi. Uses the **MainExamples** scene.
+### Splitter
+Shows how to use the Splitter node to activate different actions in sequence. Change the node setting from Sequential to Random to see how it can be used to trigger the connected actions in random order. You can also change the number of output ports by changing the "outlets" number. Uses the **MainExamples** scene.
 ### SubGraph and SubGraphTest
 These two graphs demonstrate how a whole graph can be turned into single node (SubGraph) that is used in another graph (SubGraphTest). Uses the **MainExamples** scene.
+### Watson Speech to Text to Speech
+Demonstrates the use of IBM Watson Speech to Text and Text to Speech running in Unity (i.e. "virt"), or on the robot ("phys"). If the user says any of "hello, hey, hi" the system will greet back in French. Otherwise, it will repeat whatever the user says. Uses the **MainExamples** scene.
+
+* **MainExamples** - Contains a set of examples showing different ways to work with the toolkit
+* **ObjectRecognitionPhys** - Shows how to use the robot (Phys) camera to recognize an object
+* **ObjectRecognitionPVirt** - Shows how to use the virtual Unity robot (Virt) camera to recognize an object within Unity. This approach uses the standard Unity "tag" capability, where any Unity object can be assigned a tag in the Inspector
+* **Obstacles** - Shows a simple algorithm that uses a proximity (distance) sensor to avoid objects. This works by default within the virtual Unity environment (Virt), but can also be used with the physical robot (Phys) by changing "**Virt**" to "**Phys**" in the **Condition** and **Action** nodes
+* **OSCMarionette** - Demonstrates how to use a mobile device to marionette the toolkit to do different actions by sending OSC commands. You can use apps such as [TouchOSC](https://hexler.net/products/touchosc) ($5) or [CleanOSC](https://cleanosc.app) (free)
+* **Splitter** - Shows how to use the Splitter node to activate different actions in sequence. Change the Splitte node setting from Sequential to Random to see how it can be used to trigger the following actions in random order. You can also change the number of output ports by changing the "outlets" number.

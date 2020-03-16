@@ -1,15 +1,15 @@
 # Delft AI Toolkit
 # Visual Authoring for AI Prototyping
 
-The Delft AI Toolkit is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of decision trees, machine learning, cognitive APIs, simple logic, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart-seeming behavior in autonomous devices.
+The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
-The toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
+DAI-TK enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
 
-In addition, it encourages **AI design strategies** that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
+In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
 
-* **Marionetting** - This technique allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. the human doing the marionetting reacts to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from design to testing to more design.
+* **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
 
-* **3D simulation** - Because hardware design and implementation can be time consuming, the toolkig simulates the smart thing in 3D within Unity3D. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of DAI-TK, designers will be able to place the smart thing 3D simulation in the real world through AR, as well as add AR features to the smart thing.
+* **3D/AR simulation** - Because hardware design and implementation can be time consuming, DAI-TK simulates the smart thing in 3D within Unity3D. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of DAI-TK, designers will be able to place the smart thing 3D simulation in the real world through AR, as well as add AR augmentations of the smart thing.
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
@@ -33,7 +33,7 @@ _________________________
 ## Description
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
 
-The Delft AI Toolkit is a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
+The Delft AI Toolkit a system for designing smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches, behavior trees, and data flow to create smart behavior in autonomous devices.
 
 The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
@@ -45,16 +45,16 @@ The goal of this project is to develop an approach to authoring AI that enables 
 ## System Components
 * Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
-* Robot/Device - functional Hardware
-  * Raspberry Pi + Adafruit Crikit Hat
+* Robot/Device
+  * Raspberry Pi + Adafruit Crikit Hat for RPi
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
 Each of these has a codebase here, and include a range of open source libraries.
 
-This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by the xNode author Siccity as part of this project.
+This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ## Current Features
-* **Action Types** - text2speech, speech2text, camera based object recognition, set two servo positions, move wheels, set leds on-off-color
+* **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
 * **Action Options** - repeat, random
 * **Machine Learning** - performs object recognition (machine vision) onboard the RPi, and allows model selection (Squeezenet, Alexnet, Googlenet, Inception, Rcnn). Recognition speeds range from 0.6secs to 2.0secs.
 * **Cognitive Services** - Supports IBM Watson Text to Speech and Speech to Text in the Unity simulation, and on the robot. Other Watson services planned.
@@ -72,15 +72,16 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 * Integrate Unity Reinforcement learning
 
 ## System Architecture
-![hardware architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
+![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
 
 ### Hardware
-The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge machine vision AI, local text-to-speech, mic input, and make use of AI cloud APIs. The RPi has an [Adafruit Crickit Hat](https://www.adafruit.com/product/3957) that controls the DC motors, Servos, LEDs, sensors, and a speaker. The robot communicates with Unity on the computer with the OSC network protocol.
+The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
+
+Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
 
 [More details on the hardware](docs/hardware.md).
 
-<img src="docs/images/robot1.jpg" width="512">
-<img src="docs/images/robot2.jpg" width="512">
+<img src="docs/images/robot3.jpg" width="512">
 
 ### Raspberry Pi Disk Image
 * [Raspberry Pi Disk Image & Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
@@ -88,19 +89,21 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
 ## Getting Started
 
 ### Starting the System Up
-1. **Power the Robot**: Power on the CRIKIT and Raspberry Pi (RPi) in the following way:
-     * **RPi**: Connect a 5V 2A AC adapter, or a USB battery to the DC input of the CRIKIT (which will also power the RPi)
+1. **Power the Robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
+     * **Motors**: Turn on the 6V AA battery pack (you can leave this off to disable the servos and wheel motors, or to save the batteries. The robot will work fine other than the motors)
+     * **Arduino** Powered by the USB cable from the RPi
+     * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the micro USB connector
 
 1. **Get the WiFi IP address of the Robot**
-     * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable from your computer to the RPi.
-     * **Connect by Ethernet if necessary** - Some networks don't allow connection by the "PI.local" (Bonjour) name. If so, hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you may need a [USB-C adapter](https://www.amazon.com/dp/B01M6WQ0T0/ref=twister_B06ZZLKBWJ)
-     * **Login to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot, if you needed to change its name (e.g. if you are running more than one at a time).
+     * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
+     * **Connect by Ethernet if necessary** - Some networks don't allow connection by the .local (Bonjour) name. If so, hook up an ethernet cable between your computer and the Raspberry Pi (RPi) on the robot (you may need a [USB-C adapter](https://www.amazon.com/dp/B01M6WQ0T0/ref=twister_B06ZZLKBWJ)
+     * **Login to the RPi** - Open a terminal window on your computer, and log into the RPi by typing in the below. Change the number at the end of delftbt0 to match the number of your robot if you changed the name.
 
      ```bash
      ssh pi@delftbt0.local
      ```
-     * **Password** - The default password for the standard Delft AI Toolkit disk image is **adventures**
-     * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. If the RPi connected successfully to the WiFi, you'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
+     * **Password** - The default password for the standard Delft AI Toolkit disk image is "adventures"
+     * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
 
      ```bash
     ifconfig
@@ -115,21 +118,18 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
 
 1. **Start the Delft Toolkit software on the RPi**
 
-     * **Power On** - Plug in the 5V power supply (AC or USB battery) to the CRIKIT Hat - once fully booted, the robot will speak it's IP address twice - write this down
-
+     * **Power Motors** - If you are using the motors, turn on the 6V battery pack (or save the batteries for now, and turn the battery pack on when you are ready)
      * **Login to RPi** - In the terminal app log in to the RPi over WiFi by typing:
 
      ```bash
      ssh pi@10.4.27.47 # replace this IP address with the one you got from ifconfig above
      ```
 
-     * **Start the software** - Type the below command, putting the IP address of your Unity computer at the end (get the IP address of your computer by opening Network Preferences)
+     * **Start the software** - Type the below command, putting the IP address of your computer at the end (get the IP address of your computer by opening the Network Preferences panel)
 
      ```bash
      ./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
      ```
-     * **Toolkit Dirctory** - All of the software for the toolkit is in the delft-ai-toolkit directory:
-
      * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello."
 
      * **IMPORTANT: Powering off the RPi Procedure**: Before you disconnect the power from the RPi, you must properly shut it down with the following command. Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi.
@@ -162,12 +162,14 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
 ```bash
 # login to the RPi via ethernet
 ssh pi@delftbt0.local
-# get the IP address of the RPi from the **wlan0** section
+# get the IP address of the RPi from the wlan0 section
 ifconfig
-# login to the RPi via WiFi, change the example IP to the RPi IP obtained in the last step
+# login to the RPi via WiFi, change the example IP to that RPi
 ssh pi@10.4.27.47
+# change to the toolkit software directory
+cd delft-ai-toolkit
 # start the RPi software, change the example IP to that of the computer running Unity
-./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
+python3 delft_toolkit.py --server_ip 10.4.18.109
 # shutdown before disconnecting the power, then wait for 10 seconds
 sudo poweroff
 ```

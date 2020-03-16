@@ -1,9 +1,3 @@
 [submodule "unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/xNode"]
 	path = unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/xNode
 	url = git@github.com:Siccity/xNode.git
-[submodule "unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/Watson"]
-	path = unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/Watson
-	url = https://github.com/watson-developer-cloud/unity-sdk
-[submodule "unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/IBMSdkCore"]
-	path = unity/delft-toolkit/Assets/Scripts/delftToolkit/Submodules/IBMSdkCore
-	url = https://github.com/IBM/unity-sdk-core

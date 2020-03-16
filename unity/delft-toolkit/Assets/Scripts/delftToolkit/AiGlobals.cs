@@ -10,6 +10,9 @@ public class AiGlobals : MonoBehaviour {
 	public enum FloatConditionType {
 		analogin,
 		touch,
+		touchOsc,
+		cleanOsc,
+		any,
 	}
 
 // /str/keydown

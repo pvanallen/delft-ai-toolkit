@@ -16,6 +16,7 @@ _________________
   - [Leds - Sets the color of device LEDs](#leds---sets-the-color-of-device-leds)
   - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
   - [Analogin - Starts or stops values from an analog input sensor](#analogin---starts-or-stops-values-from-an-analog-input-sensor)
+  - [Touch - Starts or stops values from a touch input sensor](#touch---starts-or-stops-values-from-a-touch-input-sensor)
   - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
   - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)

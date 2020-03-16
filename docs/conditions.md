@@ -36,8 +36,6 @@ There are several things you need to set for the node receive the data it will e
 * **Virtual or Physical Robot** - Whether the incoming data is from the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
 * **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of input source you want. Use the following:
 
-
-
 ``` bash
 Speech2Text - from "Phys" (robot) or "Virt" (inside Unity), converting speech to text
 Recognize - from "Phys" (robot) or "Virt" (inside Unity), visual object classification
@@ -62,7 +60,7 @@ The trigger conditions determine which node(s) will run next. If the trigger con
 * **AllTrue** - If all of the conditions above have matched, the node connected to this condition will run
 
 ### The ! Not Checkbox
-The ! checkbox will invert the condition you set up. So for example, if the condition is `Starts With` and text of `car` with the `! checkbox` checked then any incoming text that does NOT start with "car" will trigger that condition and corresponding connected node.
+The ! checkbox will invert the condition you set up. So for example, if the condition is `Starts With` and text of `car` with the `! checkbox` checked then any incoming text that does NOT start with "car" will trigger that condition and corresponding connected outlet node.
 
 ## Float Condition Node
 <img src="images/float-condition-touch.jpg" width="254">&nbsp;&nbsp;<img src="images/float-condition-analogin.jpg" width="254">
@@ -72,22 +70,25 @@ To select what data the condition node listens to, set the Incoming signal filte
 
 * **Robot ID** - The robot you are listening to (e.g. Ding 1)
 * **Virtual or Physical Robot** - Whether the incoming data is from the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
+* **port** - Set the port the data is coming from -- in the case of analogin or touch, this is which physical port. In the case of an OSC message, this affects the button or other control being listened to
 * **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of input source you want. Use the following:
-
 
 ``` bash
 # values from a sensor, set the the port used
 Analogin -- /num/analogin/0/ #get the value from an analog sensor, from "Phys" or "Virt"
 Touch -- /num/touch/0/ #get the value from a touch sensor, from "Phys"
 # receive data from an OSC marionette device
-# OSC from the TouchOSC app
-# change last number for a different button
-/num/1/push1/ # from "Virt"
-# OSC from the Clean OSC app
-/num/clean_button_2/ # from "Virt"
+# OSC from the TouchOSC app -- node must be set to "Virt"
+TouchOSC  -- /num/1/push1/ # change port number for a different button /num/1/push1/
+# OSC from the CleanOSC app -- node must be set to "Virt"
+CleanOsc -- /num/clean_button_2/ # change port number for a different button   /num/clean__project_1__button_1/
+# any other OSC message - the node only pays attention to a match with the beginning of the message
+Any # paste in any OSC message to match, prefixed with /num/
 ```
+* [TouchOSC](https://hexler.net/products/touchosc) $5
+* [CleanOSC](https://cleanosc.app) Free
 
-Note that for OSC to be received, the sending device (e.g. a phone) must send to the IP of the computer running Unity (by default, port 5008). In addition the IP address of the device should be set in the DingControlVirtual IP setting in the Unity inspector for the robot game object.
+Note that for OSC to be received, the sending device (e.g. a phone) must send to the IP of the computer running Unity (by default, on port 5008). In addition the IP address of the sending device should be set in the DingControlVirtual IP setting in the Unity inspector for the robot game object.
 
 ### Creating Trigger Conditions
 The trigger conditions determine which node(s) will run next. If the trigger condition is met, the node connected (from the green dot) to that condition will run next. Multiple conditions are possible, and more than one can trigger at the same time.

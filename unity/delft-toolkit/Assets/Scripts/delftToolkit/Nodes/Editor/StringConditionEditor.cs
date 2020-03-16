@@ -55,10 +55,10 @@ namespace DelftToolkit {
 			serializedObject.Update();
 
 			//if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
-				EditorGUI.indentLevel++;
+			//EditorGUI.indentLevel++;
 				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + " " + node.signal.value.ToString());
-				else EditorGUILayout.LabelField("no data yet");
-				EditorGUI.indentLevel--;
+				else EditorGUILayout.LabelField("no matching string data yet");
+			//EditorGUI.indentLevel--;
 			//}
 
 			// Input value
