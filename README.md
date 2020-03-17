@@ -25,7 +25,7 @@ In addition, it encourages design strategies that start with simulation and smoo
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
 - [Getting Started](#getting-started)
   - [Starting the System Up](#starting-the-system-up)
-  - [Robot Command Line Essentials](#robot-command-line-essentials)
+  - [Essential Robot Linux Commands](#essential-robot-linux-commands)
   - [Installing The Software](#installing-the-software)
 <!-- TOC END -->
 _________________________
@@ -119,21 +119,20 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 1. **Start the Delft Toolkit software on the RPi**
 
-     * **Power Motors** - If you are using the motors, turn on the 6V battery pack (or save the batteries for now, and turn the battery pack on when you are ready)
      * **Login to RPi** - In the terminal app log in to the RPi over WiFi by typing:
 
      ```bash
      ssh pi@10.4.27.47 # replace this IP address with the one you got from ifconfig above
      ```
 
-     * **Start the software** - Type the below command, putting the IP address of your computer at the end (get the IP address of your computer by opening the Network Preferences panel)
+     * **Start the software** - After logging in, type the below command, putting the IP address of your Unity computer at the end (get the IP address of your computer by opening the Network Preferences panel)
 
      ```bash
      ./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
      ```
-     * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello."
+     * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello"
 
-     * **IMPORTANT: Powering off the RPi Procedure**: Before you disconnect the power from the RPi, you must properly shut it down with the following command. Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi.
+     * **IMPORTANT: Powering off the RPi Procedure**: Before you disconnect the power from the RPi, to prevent harm to the SD storage, **you must properly shut it down with the following command**. Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi.
 
      ```bash
      sudo poweroff
@@ -141,14 +140,14 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 1. **Start the software running in Unity**
 
-      * **Open Project** - Open the "delft-toolkit" project in Unity3D (minimum version is 2018.2.x)
+      * **Open Project** - Open the "delft-toolkit" project in Unity3D (minimum version is 2019.3.x)
       * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
       * **Open Visual Graph** - In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
-      * **Physical Robot** - If you are using the physical robot (the toolkit will work fine without the robot):
+      * **Physical Robot** - If you are using the physical robot (the Unity toolkit will work fine without the robot):
         * From the Unity menubar, select Delft AI Toolkit>Show Settings. This will select the central settings document (Assets>Resources>DelftAIToolkitSettings) and you can make changes in the Inspector.<br><img src="docs/images/settings.png" width="310">
         * In the inspector for "ding1", paste in the IP address of the robot where it says "Robot IP"
         * If you are not using the physical robot, leave the IP address set to 127.0.0.1
-      * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free available).
+      * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free for limited use).
         * Sign up for an account - http://cloud.ibm.com
         * Set up the service(s) you are using
         * Create credentials for using the service in the API Key format (also called IAM Key).<br><img src="docs/images/watson-credentials.png" width="370">
@@ -158,7 +157,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
 
 
-### Robot Command Line Essentials
+### Essential Robot Linux Commands
 
 ```bash
 # login to the RPi via ethernet
