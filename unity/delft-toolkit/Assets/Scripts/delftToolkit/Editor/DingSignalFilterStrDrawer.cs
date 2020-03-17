@@ -16,8 +16,8 @@ namespace DelftToolkit {
 
 			position = EditorGUI.IndentedRect(position);
 			// Calculate rects
-			Rect deviceRect = new Rect(position.x, position.y, position.width / 3, EditorGUIUtility.singleLineHeight);
-			Rect sourceRect = new Rect(deviceRect.x + deviceRect.width, position.y, deviceRect.width, EditorGUIUtility.singleLineHeight);
+			Rect deviceRect = new Rect(position.x, position.y, 50, EditorGUIUtility.singleLineHeight);
+			Rect sourceRect = new Rect(deviceRect.x + deviceRect.width + 2, position.y, deviceRect.width, EditorGUIUtility.singleLineHeight);
 			Rect filterRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing, position.width, EditorGUIUtility.singleLineHeight);
 
 			// Don't make child fields be indented

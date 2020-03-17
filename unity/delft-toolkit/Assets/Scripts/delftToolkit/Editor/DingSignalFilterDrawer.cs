@@ -11,36 +11,30 @@ namespace DelftToolkit {
 			// prefab override logic works on the entire property.
 			EditorGUI.BeginProperty(position, label, property);
 
+			Rect pos = new Rect(position.x, position.y, 0, EditorGUIUtility.singleLineHeight);
+			EditorGUI.PropertyField(pos, property, new GUIContent());
+			pos.x += pos.width + 2;
+			EditorGUIUtility.labelWidth = 20;
+
 			// Draw label
 			EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-
-			position = EditorGUI.IndentedRect(position);
-			// Calculate rects
-			Rect deviceRect = new Rect(position.x, position.y, position.width / 3, EditorGUIUtility.singleLineHeight);
-			Rect sourceRect = new Rect(deviceRect.x + deviceRect.width, position.y, deviceRect.width, EditorGUIUtility.singleLineHeight);
-			Rect portIconRect = new Rect(sourceRect.x + sourceRect.width + 3, position.y, 25, EditorGUIUtility.singleLineHeight);
-			Rect portRect = new Rect(portIconRect.x + portIconRect.width, position.y, 52, EditorGUIUtility.singleLineHeight);
-			Rect filterRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing, position.width, EditorGUIUtility.singleLineHeight);
 
 			SerializedProperty strPort = property.FindPropertyRelative("port");
 
 			SerializedProperty actionAnalogIn = property.FindPropertyRelative("analoginParams");
 			// Don't make child fields be indented
-			var indent = EditorGUI.indentLevel;
-			EditorGUI.indentLevel = 0;
+			// var indent = EditorGUI.indentLevel;
+			// EditorGUI.indentLevel = 0;
 
 			// Draw fields - pass GUIContent.none to each so they are drawn without labels
-			EditorGUI.PropertyField(deviceRect, property.FindPropertyRelative("device"), GUIContent.none);
-			EditorGUI.PropertyField(sourceRect, property.FindPropertyRelative("source"), GUIContent.none);
-			//DrawNextProperty(ref pos, actionAnalogIn, "port", 50, new GUIContent(DelftStyles.portIcon));
-			//EditorGUI.PropertyField(portIconRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
-			//EditorGUI.DrawNextProperty(portIconRect, property, "port", 50, new GUIContent(DelftStyles.portIcon));
-			//EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), new GUIContent(DelftStyles.portIcon));
-			EditorGUI.PropertyField(portRect, property.FindPropertyRelative("port"), GUIContent.none);
-			EditorGUI.PropertyField(filterRect, property.FindPropertyRelative("messageFilter"), GUIContent.none);
+			DrawNextProperty(ref pos, property, "device", 50, GUIContent.none);
+			DrawNextProperty(ref pos, property, "source", 50, GUIContent.none);
+			DrawNextProperty(ref pos, property, "port", 50, new GUIContent(DelftStyles.portIcon));
+			NextLine(ref pos);
+			DrawNextProperty(ref pos, property, "messageFilter", position.width, GUIContent.none);
 
 			// Set indent back to what it was
-			EditorGUI.indentLevel = indent;
+			// EditorGUI.indentLevel = indent;
 
 			EditorGUI.EndProperty();
 
@@ -49,5 +43,21 @@ namespace DelftToolkit {
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
 			return (EditorGUIUtility.singleLineHeight * 2) + EditorGUIUtility.standardVerticalSpacing;
 		}
+		private void DrawNextProperty(ref Rect pos, SerializedProperty property, string relative, float width, GUIContent content) {
+			SerializedProperty relativeProp = property.FindPropertyRelative(relative);
+			if (relativeProp == null) {
+				Debug.LogWarning("Relative property not found (" + relative + ")");
+				return;
+			}
+			pos.width = width;
+			EditorGUI.PropertyField(pos, relativeProp, content);
+			pos.x += pos.width + 2;
+		}
+
+		private void NextLine(ref Rect pos) {
+			pos.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+			pos.x = 18;
+		}
 	}
+	
 }
