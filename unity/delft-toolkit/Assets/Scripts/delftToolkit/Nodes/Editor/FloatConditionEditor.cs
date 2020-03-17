@@ -63,7 +63,8 @@ namespace DelftToolkit {
 
 			//if (expandLastSignal = EditorGUILayout.Foldout(expandLastSignal, "Last Signal", DelftStyles.foldoutNoHighlight)) {
 				EditorGUI.indentLevel++;
-				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + " " + node.signal.value.ToString());
+				//if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.device + ":" + node.signal.oscMessage + " " + node.signal.value.ToString());
+				if (node.signal.isValid) EditorGUILayout.SelectableLabel(node.signal.oscMessage + " " + node.signal.value.ToString());
 				else EditorGUILayout.LabelField("no matching float data yet");
 				EditorGUI.indentLevel--;
 			//}
