@@ -16,8 +16,10 @@ In addition, it encourages design strategies that start with simulation and smoo
 - [Description](#description)
 - [Documents](#documents)
 - [System Components](#system-components)
+  - [Visual Authoring & Control System running on a computer](#visual-authoring--control-system-running-on-a-computer)
+  - [Robot/Device](#robotdevice)
 - [Current Features](#current-features)
-- [Roadmap](#roadmap)
+- [Roadmap as of](#roadmap-as-of)
 - [System Architecture](#system-architecture)
   - [Hardware](#hardware)
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
@@ -43,10 +45,10 @@ The goal of this project is to develop an approach to authoring AI that enables 
 * [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
 ## System Components
-* Authoring & Control System running on a computer
+### Visual Authoring & Control System running on a computer
   * Visual Authoring with nodes in the Unity3D authoring environment
-* Robot/Device
-  * Raspberry Pi + Adafruit Crikit Hat for RPi
+### Robot/Device
+  * Raspberry Pi + Adafruit Crikit Hat
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
 Each of these has a codebase here, and include a range of open source libraries.
@@ -64,15 +66,16 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 
 <img src="docs/images/speak-recognize-graph.png" width="700">
 
-## Roadmap
+## Roadmap as of
 * Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
+* More nodes for processing sensor data and logic
 * More video and written documentation
 * Better support for IoT (e.g. IFTTT, web-hooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
 
 ## System Architecture
-![hardware architecture](http://www.philvanallen.com/wp-content/uploads/2018/01/toolkit-architecture-diagram.jpg?resize=640%2C350)
+![system architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
 
 ### Hardware
 The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
@@ -81,7 +84,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 [More details on the hardware](docs/hardware.md).
 
-<img src="docs/images/robot3.jpg" width="512">
+<img src="docs/images/robot1.jpg" width="512">&nbsp;<img src="docs/images/robot2.jpg" width="512">
 
 ### Raspberry Pi Disk Image
 * [Raspberry Pi Disk Image & Installation Details](docs/hardware.md#installing-the-delft-ai-toolkit-disk-image)
@@ -89,10 +92,8 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 ## Getting Started
 
 ### Starting the System Up
-1. **Power the Robot**: Power on the Arduino and Raspberry Pi (RPi) in the following order:
-     * **Motors**: Turn on the 6V AA battery pack (you can leave this off to disable the servos and wheel motors, or to save the batteries. The robot will work fine other than the motors)
-     * **Arduino** Powered by the USB cable from the RPi
-     * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the micro USB connector
+1. **Power the Robot**: Power on the Raspberry Pi (RPi):
+     * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
 
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
@@ -102,7 +103,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
      ```bash
      ssh pi@delftbt0.local
      ```
-     * **Password** - The default password for the standard Delft AI Toolkit disk image is "adventures"
+     * **Password** - The default password for the standard Delft AI Toolkit disk image is "**adventures**"
      * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
 
      ```bash
