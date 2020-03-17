@@ -25,7 +25,7 @@ import socket
 import classify_pic_once as rec
 import text_to_speech_pico as tts_pico
 import text_to_speech_watson as tts_watson
-import speech_to_text_watson3 as stt_watson
+import speech_to_text_watson as stt_watson
 import play_wav as pw
 from adafruit_crickit import crickit
 import neopixel
