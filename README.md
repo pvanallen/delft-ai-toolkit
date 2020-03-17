@@ -9,7 +9,7 @@ In addition, it encourages design strategies that start with simulation and smoo
 
 * **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
 
-* **3D/AR simulation** - Because hardware design and implementation can be time consuming, DAI-TK simulates the smart thing in 3D within Unity3D. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of DAI-TK, designers will be able to place the smart thing 3D simulation in the real world through AR, as well as add AR augmentations of the smart thing.
+* **3D/AR simulation** - Because hardware design and implementation can be time consuming, the toolkit simulates the smart thing in 3D within Unity. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of the toolkit, designers will be able to place the smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing.
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
@@ -93,7 +93,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 ### Starting the System Up
 1. **Power the Robot**: Power on the Raspberry Pi (RPi):
-     * **RPi**: Connect a 5V 2A AC adapter, or the USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
+     * **RPi**: Connect a 5V 2A AC adapter, or a USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
 
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
@@ -104,7 +104,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
      ssh pi@delftbt0.local
      ```
      * **Password** - The default password for the standard Delft AI Toolkit disk image is "**adventures**"
-     * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing the below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
+     * **Get the RPi WiFi IP Address** - Once logged in, copy and save the IP address of the RPi by typing "ifconfig" as below. You'll see an entry for **"wlan0"** which is the WiFi connection - from there copy the IP address (e.g. 10.4.27.47)
 
      ```bash
     ifconfig
@@ -119,13 +119,12 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 1. **Start the Delft Toolkit software on the RPi**
 
-     * **Login to RPi** - In the terminal app log in to the RPi over WiFi by typing:
+     * **Login to RPi from your computer** - In a terminal app log in to the RPi over WiFi by typing:
 
      ```bash
      ssh pi@10.4.27.47 # replace this IP address with the one you got from ifconfig above
      ```
-
-     * **Start the software** - After logging in, type the below command, putting the IP address of your Unity computer at the end (get the IP address of your computer by opening the Network Preferences panel)
+     * **Start the robot software** - After logging in, type the below command, putting the IP address of your Unity computer at the end (get the IP address of your computer by opening the Network Preferences panel)
 
      ```bash
      ./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
@@ -142,7 +141,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
       * **Open Project** - Open the "delft-toolkit" project in Unity3D (minimum version is 2019.3.x)
       * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
-      * **Open Visual Graph** - In the Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
+      * **Open a Visual Graph** - In the Unity Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
       * **Physical Robot** - If you are using the physical robot (the Unity toolkit will work fine without the robot):
         * From the Unity menubar, select Delft AI Toolkit>Show Settings. This will select the central settings document (Assets>Resources>DelftAIToolkitSettings) and you can make changes in the Inspector.<br><img src="docs/images/settings.png" width="310">
         * In the inspector for "ding1", paste in the IP address of the robot where it says "Robot IP"
@@ -155,7 +154,6 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
-
 
 ### Essential Robot Linux Commands
 
