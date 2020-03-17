@@ -356,7 +356,7 @@ public class DingControlVirtual : DingControlBase {
 								//DelftToolkit.DingSignal.onSignalEvent(new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, address, new Vector3(value0, value1, value2)));
 							}
 						} 
-						print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
+						//print(OSC_SERVER_CLIENT + ": " + address + " " + float.Parse(item.Value.packets[msgIndex].Data[0].ToString()));
 					}
 				}
 			}		
