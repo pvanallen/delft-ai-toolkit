@@ -19,7 +19,7 @@ In addition, it encourages design strategies that start with simulation and smoo
   - [Visual Authoring & Control System running on a computer](#visual-authoring--control-system-running-on-a-computer)
   - [Robot/Device](#robotdevice)
 - [Current Features](#current-features)
-- [Roadmap as of](#roadmap-as-of)
+- [Roadmap as of March 2020](#roadmap-as-of-march-2020)
 - [System Architecture](#system-architecture)
   - [Hardware](#hardware)
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
@@ -66,7 +66,7 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 
 <img src="docs/images/speak-recognize-graph.png" width="700">
 
-## Roadmap as of
+## Roadmap as of March 2020
 * Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
 * More nodes for processing sensor data and logic
 * More video and written documentation
