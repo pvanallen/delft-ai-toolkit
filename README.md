@@ -4,12 +4,13 @@
 # UPDATE as of March 18, 2020
 NOTE: We're in the process of updating the system to version 3.0, which means that the documentation and code may be out of sync. We're in the process of updating docs and code, and **hope** to have a new formal 3.0 release by March 27, 2020. The new version will include the following changes:
 
-* **Revised Hardware** - The Arduino + motor shield have been eliminated and replaced by the Adafruit Raspberry Pi [Crickit Hat](https://www.adafruit.com/product/3957). This simplifies both hardware and software.
-* **Changed Condition Nodes** - The Float and String Condition nodes have been made easier to use by including dropdowns for the event type
+* **Revised Hardware** - The Arduino + motor shield have been eliminated and replaced by the Adafruit Raspberry Pi [CRICKIT Hat](https://www.adafruit.com/product/3957). This simplifies both [hardware](#hardware) and software.
+* **Changed Condition Nodes** - The Float and String Condition nodes have been made easier to use by adding dropdowns for the event type
+* **New Sensor Capability** - Added the ability to work with more than one sensor at a time, plus added the ability to use [capacitive touch sensing](https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit/recommended-capacitive-touch), usable with alligator clips, copper tape, and conductive paint.
 * **Updated to current version of Watson** - The system is updated to Watson Core SDK 1.2.0 and Watson Unity SDK 4.5
 * **Updated to Unity 2019.3.5** - The system now runs in the current version of Unity
-* **New Startup Process** - The robot now speaks its IP address on boot, and here is also a new script to simplify the start the robot toolkit software
-* **Misc** - Many refinements and improvements have been made
+* **New Startup Process** - The robot now speaks its IP address on boot, and here is also a new script to simplify starting the robot toolkit software
+* **Misc** - Many small refinements and improvements have been made
 
 # Overview
 The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
@@ -62,9 +63,7 @@ The goal of this project is to develop an approach to authoring AI that enables 
   * Raspberry Pi + Adafruit Crikit Hat
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
-Each of these has a codebase here, and include a range of open source libraries.
-
-This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
+Each of these has a codebase here, and include a range of open source libraries. This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by [Siccity](https://github.com/Siccity) as part of this project.
 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
@@ -84,15 +83,13 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 * Better support for IoT (e.g. IFTTT, web-hooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
-* Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
+* Add export for use in AR so designers will be able to place their interactive prototype smart thing in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
 ![system architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
 
 ### Hardware
-The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
-
-Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
+The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and use cloud APIs. The robot RPi communicates with Unity on the computer with the OSC network protocol, over WiFi.
 
 [More details on the hardware](docs/hardware.md).
 
@@ -106,6 +103,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 ### Starting the System Up
 1. **Power the Robot**: Power on the Raspberry Pi (RPi):
      * **RPi**: Connect a 5V 2A AC adapter, or a USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
+     * **IP address**: When the RPi boots, it will speak its IP address twice (to make it easier to connect to)
 
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
