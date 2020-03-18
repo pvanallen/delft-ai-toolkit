@@ -1,15 +1,26 @@
 # Delft AI Toolkit
 # Visual Authoring for AI Prototyping
 
+# UPDATE as of March 18, 2020
+NOTE: We're in the process of updating the system to version 3.0, which means that the documentation and code may be out of sync. We're in the process of updating docs and code, and **hope** to have a new formal 3.0 release by March 27, 2020. The new version will include the following changes:
+
+* **Revised Hardware** - The Arduino + motor shield have been eliminated and replaced by the Adafruit Raspberry Pi [Crickit Hat](https://www.adafruit.com/product/3957). This simplifies both hardware and software.
+* **Changed Condition Nodes** - The Float and String Condition nodes have been made easier to use by including dropdowns for the event type
+* **Updated to current version of Watson** - The system is updated to Watson Core SDK 1.2.0 and Watson Unity SDK 4.5
+* **Updated to Unity 2019.3.5** - The system now runs in the current version of Unity
+* **New Startup Process** - The robot now speaks its IP address on boot, and here is also a new script to simplify the start the robot toolkit software
+* **Misc** - Many refinements and improvements have been made
+
+# Overview
 The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
-DAI-TK enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
+The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
 
 In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
 
 * **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
 
-* **3D/AR simulation** - Because hardware design and implementation can be time consuming, the toolkit simulates the smart thing in 3D within Unity. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of the toolkit, designers will be able to place the smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing.
+* **3D simulation** - Because hardware design and implementation can be time consuming, the toolkit simulates the smart thing in 3D within Unity. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of the toolkit, designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
@@ -73,6 +84,7 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 * Better support for IoT (e.g. IFTTT, web-hooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
+* Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
 ![system architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
