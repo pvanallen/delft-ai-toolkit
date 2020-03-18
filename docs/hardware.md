@@ -10,7 +10,6 @@ ________________
       - [Free Unity Software](#free-unity-software)
       - [Delft AI Toolkit Unity Project](#delft-ai-toolkit-unity-project)
     - [Robot](#robot)
-      - [Arduino - Sketch](#arduino---sketch)
       - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image)
 - [VERSION 2 HARDWARE (2018-2019)](#version-2-hardware-2018-2019)
   - [Description](#description-1)
@@ -21,7 +20,7 @@ ________________
       - [Free Unity Software](#free-unity-software-1)
       - [Delft AI Toolkit Unity Project](#delft-ai-toolkit-unity-project-1)
     - [Robot](#robot-1)
-      - [Arduino - Sketch](#arduino---sketch-1)
+      - [Arduino - Sketch](#arduino---sketch)
       - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image-1)
 <!-- TOC END -->
 
@@ -97,12 +96,9 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
      ```bash
      git clone --recurse-submodules https://github.com/pvanallen/delft-ai-toolkit.git
      ```
-     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) (or other submodules) and download the code yourself. Then place the xNode folder (or other submodules) in the toolkit Unity project at delft-toolkit-v2>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
+     * **Download** - After you download the toolkit from GitHub with the download button, go to the [xNode repo](https://github.com/Siccity/xNode) (or other submodules) and download the code yourself. Then place the xNode folder (or other submodules) in the toolkit Unity project at delft--ai-toolkit>unity>delft-toolkit>Assets>Scripts>delftToolkit>Submodules>xNode
 
 #### Robot
-
-##### Arduino - Sketch
-* Install delftToolkit.ino on your Robot Arduino with the Arduino IDE (you may need to add some libraries, e.g. the [Adafruit Motor Shield V2 Library](https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/install-software))
 
 ##### Raspberry Pi - Disk Image
 * **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI software installed. This means you cannot use the visual desktop on a monitor.
