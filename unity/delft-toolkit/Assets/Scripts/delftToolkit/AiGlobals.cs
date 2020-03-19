@@ -128,11 +128,11 @@ public class AiGlobals : MonoBehaviour {
 	public enum WatsonServices {
 		textToSpeech,
 		speechToText,
-		assistant,
-		vision,
-		personality,
-		tone,
-		discovery
+		// assistant,
+		// vision,
+		// personality,
+		// tone,
+		// discovery
 	}
 
 	public enum Devices {
