@@ -187,8 +187,8 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 * Follow the startup sequence on the [main page](../README.md)
 
 <img src="images/motor-shield.jpg" width="512">
-<img src="images/robot2.jpg" width="512">
-<img src="images/robot3.jpg" width="512">
+<img src="images/robot2old.jpg" width="512">
+<img src="images/robot3old.jpg" width="512">
 
 ### Installing Delft AI Toolkit software
 
