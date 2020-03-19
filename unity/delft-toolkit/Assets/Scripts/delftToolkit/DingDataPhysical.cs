@@ -21,6 +21,12 @@ public class DingDataPhysical : MonoBehaviour {
 
 	private const string OSC_SERVER = "DingDataServer";
 
+	float value0 = 0;
+	float value1 = 0;
+	float value2 = 0;
+	string value = "";
+
+
 	// Script initialization
 	void Awake() {
 		// using awake so that it happens before oscCentral initializes in Start()
@@ -58,21 +64,22 @@ public class DingDataPhysical : MonoBehaviour {
 					//
 					string address = item.Value.packets[msgIndex].Address;
 					if (address.StartsWith("/num/")) {
-						float value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
-						float value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
-						float value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
+						value0 = item.Value.packets[msgIndex].Data.Count > 0 ? float.Parse(item.Value.packets[msgIndex].Data[0].ToString()) : 0.0f;
+						value1 = item.Value.packets[msgIndex].Data.Count > 1 ? float.Parse(item.Value.packets[msgIndex].Data[1].ToString()) : 0.0f;
+						value2 = item.Value.packets[msgIndex].Data.Count > 2 ? float.Parse(item.Value.packets[msgIndex].Data[2].ToString()) : 0.0f;
 						if (DingNumEvent != null)
 							DingNumEvent(address, value0, value1, value2);
 					} else if (address.StartsWith("/str/")) {
 
-						string value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
+						value = item.Value.packets[msgIndex].Data.Count > 0 ? item.Value.packets[msgIndex].Data[0].ToString() : "null";
 						print("sending Event" + address + value);
 						if (DingStrEvent != null)
 							DingStrEvent(address, value);
 					}
-					//print(OSC_SERVER + ": " + address + " " + value0 + " " + value1 + " " + value2);
+					// print(OSC_SERVER + ": " + address + " " + value0 + " " + value1 + " " + value2); // num 
+					// print(OSC_SERVER + ": " + address + " " + value); // str
 				}
-				lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp;
+				lastOscMessageIn = item.Value.packets[item.Value.packets.Count - 1].TimeStamp; 
 			}
 		}
 	}
