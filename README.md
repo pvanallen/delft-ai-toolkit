@@ -23,6 +23,22 @@ In addition, it encourages design strategies that start with simulation and smoo
 
 * **3D simulation** - Because hardware design and implementation can be time consuming, the toolkit simulates the smart thing in 3D within Unity. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of the toolkit, designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
+# Essential Robot Linux Commands
+
+```bash
+# login to the RPi via ethernet
+ssh pi@delftbt0.local
+# get the IP address of the RPi from the wlan0 section
+ifconfig
+# login to the RPi via WiFi, change the example IP to that RPi
+ssh pi@10.4.27.47
+# start the RPi software, change the example IP to that of the computer running Unity
+./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
+# shutdown before disconnecting the power, then wait for 10 seconds
+sudo poweroff
+```
+# Table of Contents
+
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
 - [Description](#description)
@@ -37,7 +53,7 @@ In addition, it encourages design strategies that start with simulation and smoo
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
 - [Getting Started](#getting-started)
   - [Starting the System Up](#starting-the-system-up)
-  - [Essential Robot Linux Commands](#essential-robot-linux-commands)
+  - [Essential Robot Linux Commands](#essential-robot-linux-commands-1)
   - [Installing The Software](#installing-the-software)
 <!-- TOC END -->
 _________________________
