@@ -3,6 +3,7 @@
 
 ### Basic Usage
 * [Toolkit Basics](toolkit-basics.md)
+* [Setting up Watson](watson.md)
 
 ### Nodes
 * [Action](action.md) - Perform actions in a timed sequence
