@@ -158,8 +158,7 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
         * If you are not using the physical robot, leave the IP address set to 127.0.0.1
       * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free for limited use).
         * Sign up for an account - http://cloud.ibm.com
-        * Set up the service(s) you are using
-        * Create credentials for using the service in the API Key format (also called IAM Key).<br><img src="docs/images/watson-credentials.png" width="370">
+        * Set up the service(s) you are using ([instructions here](docs/watson.md))
         * Enter the API Key/IAM Key in the corresponding field in the settings document. Delft AI Toolkit>Show Settings
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
