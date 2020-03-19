@@ -158,6 +158,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -295,7 +299,7 @@ MonoBehaviour:
     messageFilter: /str/recognize/
     messageType: 0
   inputType: 0
-  _value: car
+  _value: bus
 --- !u!114 &114611669769838220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +394,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -591,6 +599,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -729,6 +741,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -774,6 +790,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0

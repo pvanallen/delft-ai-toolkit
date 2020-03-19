@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -30,7 +31,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -38,7 +40,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: 184}
+  position: {x: 824, y: 168}
   ports:
     keys:
     - actions
@@ -93,8 +95,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114149277457162586}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -102,8 +104,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114149277457162586}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -114,6 +116,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -128,6 +131,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -148,13 +155,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -163,6 +168,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -177,6 +183,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -197,13 +207,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -217,7 +225,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -256,7 +265,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -295,7 +305,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -334,7 +345,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -419,8 +431,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114310754902303238}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -428,8 +440,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114310754902303238}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -440,6 +452,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 1
+      source: 0
       time: 2
       speed: 1
       easing: 3
@@ -454,6 +467,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -474,13 +491,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 51
       source: 0
@@ -489,6 +504,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 2
+      source: 0
       time: 2
       speed: 1
       easing: 3
@@ -503,6 +519,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -523,13 +543,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 51
       source: 0
@@ -538,6 +556,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 2
+      source: 0
       time: 2
       speed: 1
       easing: 3
@@ -552,6 +571,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -572,13 +595,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 51
       source: 0
@@ -587,6 +608,7 @@ MonoBehaviour:
     actionType: 7
     moveParams:
       type: 2
+      source: 0
       time: 2
       speed: 1
       easing: 3
@@ -601,6 +623,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -621,13 +647,11 @@ MonoBehaviour:
       type: 0
       duration: 2
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 51
       source: 0
@@ -641,7 +665,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -738,10 +763,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  filter:
-    device: 0
-    source: 1
-    messageFilter: /str/speech2text/
   conditions:
   - compareType: 2
     strVal: hello,hi,hey
@@ -756,12 +777,19 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
+  filter:
+    device: 0
+    source: 1
+    messageFilter: /str/recognize/
+    messageType: 0
+  inputType: 0
   _value: 'testing 1 2 3 '
 --- !u!114 &114376299329961632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -824,8 +852,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114376299329961632}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -833,8 +861,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114376299329961632}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -845,6 +873,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -859,6 +888,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -879,13 +912,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -894,6 +925,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -908,6 +940,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -928,13 +964,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
       source: 0
@@ -948,7 +982,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -956,7 +991,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: -56}
+  position: {x: 824, y: -88}
   ports:
     keys:
     - actions
@@ -1011,8 +1046,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114474645790050000}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1020,8 +1055,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114474645790050000}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1032,6 +1067,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1046,6 +1082,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1066,13 +1106,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1081,6 +1119,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1095,6 +1134,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1115,13 +1158,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1135,7 +1176,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1153,12 +1195,14 @@ MonoBehaviour:
     take a picture, and run the chosen recognition model on the image.
 
 
-    Based on the recognition, the sysrtem reacts, and starts over.'
+    Based
+    on the recognition, the sysrtem reacts, and starts over.'
 --- !u!114 &114729460210787630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1166,7 +1210,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: -184}
+  position: {x: 216, y: -200}
   ports:
     keys:
     - actions
@@ -1223,8 +1267,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114729460210787630}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1232,8 +1276,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114729460210787630}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1241,8 +1285,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114729460210787630}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1250,8 +1294,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114729460210787630}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1262,6 +1306,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1276,6 +1321,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1296,13 +1345,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1311,6 +1358,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1325,6 +1373,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1345,13 +1397,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1360,6 +1410,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1374,6 +1425,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1394,13 +1449,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1409,6 +1462,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1423,6 +1477,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1443,13 +1501,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1463,7 +1519,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1471,7 +1528,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: 104}
+  position: {x: 216, y: 136}
   ports:
     keys:
     - actions
@@ -1528,8 +1585,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114783945668664478}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1537,8 +1594,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114783945668664478}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1546,8 +1603,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114783945668664478}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1555,8 +1612,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 3
       _node: {fileID: 114783945668664478}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1567,6 +1624,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1581,6 +1639,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1601,13 +1663,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1616,6 +1676,7 @@ MonoBehaviour:
     actionType: 1
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1630,6 +1691,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1650,13 +1715,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1665,6 +1728,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1679,6 +1743,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1699,13 +1767,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1714,6 +1780,7 @@ MonoBehaviour:
     actionType: 8
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1728,6 +1795,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1748,13 +1819,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -1768,7 +1837,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1852,10 +1922,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  filter:
-    device: 0
-    source: 1
-    messageFilter: /str/recognize/
   conditions:
   - compareType: 2
     strVal: car,van,vehicle,jeep
@@ -1867,13 +1933,20 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
+  filter:
+    device: 0
+    source: 1
+    messageFilter: /str/recognize/
+    messageType: 0
+  inputType: 0
   _value: 'window shade: 0.28603\lampshade: 0.05021\bannister: 0.03879\spotlight:
     0.03698\crate: 0.02960'
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1881,7 +1954,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: 424}
+  position: {x: 216, y: 472}
   ports:
     keys:
     - actions
@@ -1938,8 +2011,8 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: actions 0
       _node: {fileID: 114943807250311866}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -1950,6 +2023,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 0
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -1964,6 +2038,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -1984,13 +2062,11 @@ MonoBehaviour:
       type: 0
       duration: 1
       source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 0
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -2004,7 +2080,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0

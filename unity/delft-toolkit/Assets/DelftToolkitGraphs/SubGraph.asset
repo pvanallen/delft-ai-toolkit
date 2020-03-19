@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -21,7 +22,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -38,7 +40,7 @@ MonoBehaviour:
     values:
     - _fieldName: message
       _node: {fileID: 114215755815855588}
-      _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
@@ -71,7 +73,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -110,7 +113,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -122,7 +126,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - valueIn
+    - variable
     - enter
     - exit
     - actions 0
@@ -133,15 +137,15 @@ MonoBehaviour:
       _node: {fileID: 114284219324733470}
       _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: valueIn
+    - _fieldName: variable
       _node: {fileID: 114284219324733470}
-      _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
@@ -187,8 +191,8 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 1
       _node: {fileID: 114284219324733470}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
@@ -196,17 +200,19 @@ MonoBehaviour:
       _dynamic: 1
     - _fieldName: actions 2
       _node: {fileID: 114284219324733470}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -224,6 +230,10 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -235,22 +245,26 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello World
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 3
+      source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 1
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 0
+  - variable: 
+    actionType: 0
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -268,6 +282,10 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -279,22 +297,26 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello World
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 3
+      source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 1
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
-  - actionType: 2
+  - variable: 
+    actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -312,6 +334,10 @@ MonoBehaviour:
       type: 0
       interval: 20
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -323,29 +349,32 @@ MonoBehaviour:
       type: 0
       time: 1
       utterance: Hello World
+      source: 0
+      model: 1
     listenParams:
       type: 0
       duration: 3
+      source: 0
+      lang: 0
+      model: 0
     recognizeParams:
       type: 1
       model: 0
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 18
+      source: 0
       time: 0.5
   repeats: 1
   random: 0
   device: 0
   expanded: 1
-  valueIn: 
+  variable: 
 --- !u!114 &114643210153194924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -387,7 +416,8 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -404,7 +434,7 @@ MonoBehaviour:
     values:
     - _fieldName: message
       _node: {fileID: 114818718541239458}
-      _typeQualifiedName: System.String, mscorlib, Version=2.0.0.0, Culture=neutral,
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0

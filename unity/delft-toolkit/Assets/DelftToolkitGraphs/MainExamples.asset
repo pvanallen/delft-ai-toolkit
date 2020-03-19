@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: Action Basics
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -568, y: -264}
+  position: {x: -648, y: -264}
   ports:
     keys: []
     values: []
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: Random Color
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 40, y: 520}
+  position: {x: 40, y: 536}
   ports:
     keys:
     - actions
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Name: Sample Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: -184}
+  position: {x: -504, y: -184}
   ports:
     keys:
     - actions
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -88, y: 520}
+  position: {x: -88, y: 536}
   ports:
     keys:
     - enter
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -632, y: 568}
+  position: {x: -568, y: 552}
   ports:
     keys:
     - enter
@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Name: Parallel Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -696, y: 424}
+  position: {x: -648, y: 408}
   ports:
     keys: []
     values: []
@@ -2430,7 +2430,7 @@ MonoBehaviour:
   m_Name: Random Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -88, y: 392}
+  position: {x: -88, y: 408}
   ports:
     keys: []
     values: []
@@ -2720,7 +2720,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 664}
+  position: {x: 424, y: 680}
   ports:
     keys:
     - actions
@@ -2852,7 +2852,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -568, y: -184}
+  position: {x: -648, y: -184}
   ports:
     keys:
     - enter

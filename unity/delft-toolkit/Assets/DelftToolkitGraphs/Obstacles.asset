@@ -100,7 +100,7 @@ MonoBehaviour:
     floatValB: 919
     inverse: 0
   valueOut: 0
-  _value: 1000
+  _value: 34.679672
 --- !u!114 &114128087606339860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +208,10 @@ MonoBehaviour:
       type: 1
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -253,6 +257,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -562,6 +570,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -610,6 +622,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 1
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -655,6 +671,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
@@ -837,6 +857,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -885,6 +909,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -933,6 +961,10 @@ MonoBehaviour:
       type: 0
       interval: 50
       port: 0
+    touchParams:
+      type: 0
+      interval: 50
+      port: 0
     servoParams:
       type: 0
       time: 1
@@ -978,6 +1010,10 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
+      type: 0
+      interval: 50
+      port: 0
+    touchParams:
       type: 0
       interval: 50
       port: 0
