@@ -440,10 +440,10 @@ def main(_):
                     sensor = crickit.SIGNAL5
                 elif i == 5:
                     sensor = crickit.SIGNAL6
-                analog_value = ss.analog_read(sensor)
-                print("analog read, port:",i,analog_value, "analog interval:",analog_interval)
-
+                analog_value = float(ss.analog_read(sensor))
                 osc_address="/num/analogin/" + str(i) + "/"
+
+                print(osc_address + " :",i,analog_value, "analog interval:",analog_interval)
                 builder = osc_message_builder.OscMessageBuilder(address = osc_address)
                 builder.add_arg(analog_value)
                 builder.add_arg(100)
