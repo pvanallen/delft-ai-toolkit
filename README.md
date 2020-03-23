@@ -2,19 +2,16 @@
 # Visual Authoring for AI Prototyping
 
 # UPDATE as of March 18, 2020
-NOTE: We're in the process of updating the system to version 3.0, which means that the documentation and code may be out of sync. We're in the process of updating docs and code, and **hope** to have a new formal 3.0 release by March 27, 2020. The new version will include the following changes:
+NOTE: We're in the process of updating the system to version 3.0, and documentation and files may be correct for the current 2.1.0 release. The new version will include the following changes:
 
-* **Revised Hardware** - The Arduino + motor shield have been eliminated and replaced by the Adafruit Raspberry Pi [CRICKIT Hat](https://www.adafruit.com/product/3957). This simplifies both [hardware](#hardware) and software.
-* **Changed Condition Nodes** - The Float and String Condition nodes have been made easier to use by adding dropdowns for the event type
-* **New Sensor Capability** - Added the ability to work with more than one sensor at a time, plus added the ability to use [capacitive touch sensing](https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit/recommended-capacitive-touch), usable with alligator clips, copper tape, and conductive paint.
-* **Updated to current version of Watson** - The system is updated to Watson Core SDK 1.2.0 and Watson Unity SDK 4.5
-* **Updated to Unity 2019.3.5** - The system now runs in the current version of Unity
-* **New Startup Process** - The robot now speaks its IP address on boot, and here is also a new script to simplify starting the robot toolkit software
-* **Misc** - Many small refinements and improvements have been made
+* New hardware platform - the 3.0 system will remove the Arduino from the robot platform, replacing it with the Adafruit [CRIKIT Raspberry Pi Hat](https://www.adafruit.com/product/3957). This simplifies powering the robot, and reduces the software complexity.
+* Condition Node changes - the Float and String condition nodes are updated to have dropdown menus set the filters for their associated events.
+* Capacitive Touch Sensing - Up to four capacitive touch sensors are now possible. These allow a user to touch parts of the robot and get a reaction.
+* Multiple analog inputs - The software now supports up to eight simulataneous
 
-# Overview
 The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
+# Overview
 The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
 
 In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
@@ -22,22 +19,6 @@ In addition, it encourages design strategies that start with simulation and smoo
 * **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
 
 * **3D simulation** - Because hardware design and implementation can be time consuming, the toolkit simulates the smart thing in 3D within Unity. This allows the designer/researcher to iteratively experiment with different approaches prior to committing to a particular hardware approach. In a future version of the toolkit, designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
-
-# Essential Robot Linux Commands
-
-```bash
-# login to the RPi via ethernet
-ssh pi@delftbt0.local
-# get the IP address of the RPi from the wlan0 section
-ifconfig
-# login to the RPi via WiFi, change the example IP to that RPi
-ssh pi@10.4.27.47
-# start the RPi software, change the example IP to that of the computer running Unity
-./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
-# shutdown before disconnecting the power, then wait for 10 seconds
-sudo poweroff
-```
-# Table of Contents
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
@@ -53,7 +34,7 @@ sudo poweroff
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
 - [Getting Started](#getting-started)
   - [Starting the System Up](#starting-the-system-up)
-  - [Essential Robot Linux Commands](#essential-robot-linux-commands-1)
+  - [Essential Robot Linux Commands](#essential-robot-linux-commands)
   - [Installing The Software](#installing-the-software)
 <!-- TOC END -->
 _________________________
@@ -79,7 +60,9 @@ The goal of this project is to develop an approach to authoring AI that enables 
   * Raspberry Pi + Adafruit Crikit Hat
   * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
 
-Each of these has a codebase here, and include a range of open source libraries. This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by [Siccity](https://github.com/Siccity) as part of this project.
+Each of these has a codebase here, and include a range of open source libraries.
+
+This system also uses [xNode](https://github.com/Siccity/xNode), which is being enhanced by Siccity as part of this project.
 
 ## Current Features
 * **Action Types** - text2speech, speech2text, camera based object recognition, position servos, move wheels, leds
@@ -99,13 +82,15 @@ Each of these has a codebase here, and include a range of open source libraries.
 * Better support for IoT (e.g. IFTTT, web-hooks)
 * Integrate gesture recognition learning and classification
 * Integrate Unity Reinforcement learning
-* Add export for use in AR so designers will be able to place their interactive prototype smart thing in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
+* Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
 ![system architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
 
 ### Hardware
-The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and use cloud APIs. The robot RPi communicates with Unity on the computer with the OSC network protocol, over WiFi.
+The physical robot is currently based on a simple robot platform from Adafruit, combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity on the computer with the OSC network protocol.
+
+Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
 
 [More details on the hardware](docs/hardware.md).
 
@@ -119,7 +104,6 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
 ### Starting the System Up
 1. **Power the Robot**: Power on the Raspberry Pi (RPi):
      * **RPi**: Connect a 5V 2A AC adapter, or a USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
-     * **IP address**: When the RPi boots, it will speak its IP address twice (to make it easier to connect to)
 
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
@@ -174,7 +158,8 @@ The physical robot is currently based on a simple robot platform from Adafruit, 
         * If you are not using the physical robot, leave the IP address set to 127.0.0.1
       * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free for limited use).
         * Sign up for an account - http://cloud.ibm.com
-        * Set up the service(s) you are using ([instructions here](docs/watson.md))
+        * Set up the service(s) you are using
+        * Create credentials for using the service in the API Key format (also called IAM Key).<br><img src="docs/images/watson-credentials.png" width="370">
         * Enter the API Key/IAM Key in the corresponding field in the settings document. Delft AI Toolkit>Show Settings
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
@@ -189,8 +174,10 @@ ssh pi@delftbt0.local
 ifconfig
 # login to the RPi via WiFi, change the example IP to that RPi
 ssh pi@10.4.27.47
+# change to the toolkit software directory
+cd delft-ai-toolkit
 # start the RPi software, change the example IP to that of the computer running Unity
-./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
+python3 delft_toolkit.py --server_ip 10.4.18.109
 # shutdown before disconnecting the power, then wait for 10 seconds
 sudo poweroff
 ```

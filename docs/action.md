@@ -17,15 +17,15 @@ _________________
   - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
   - [Analogin - Starts or stops values from an analog input sensor](#analogin---starts-or-stops-values-from-an-analog-input-sensor)
   - [Touch - Starts or stops values from a touch input sensor](#touch---starts-or-stops-values-from-a-touch-input-sensor)
-  - [Delay - Pauses the sequence of actions](#delay---pauses-the-sequence-of-actions)
+  - [Delay - Pauses this sequence of actions](#delay---pauses-this-sequence-of-actions)
   - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
   - [Recognize - Perform object recognition from the camera](#recognize---perform-object-recognition-from-the-camera)
-  - [Touch - Starts or stops values from the capacitive touch sensors](#touch---starts-or-stops-values-from-the-capacitive-touch-sensors)
+  - [Touch - Starts or stops values from the capacitive touch sensors (**phys** robot only)](#touch---starts-or-stops-values-from-the-capacitive-touch-sensors-phys-robot-only)
 <!-- TOC END -->
 _________________
 
-<img src="images/ActionNode.jpg" width="271">
+<img src="images/actions-all.jpg" width="271">
 
 ## Creating Actions
 Each action added to the node will perform in sequence.
@@ -42,20 +42,20 @@ The repeats field sets the number of times the entire node sequence will run, to
 
 The Random checkbox changes the behavior of the node to run one random action in the sequence each repeat. So if Repeats is set to 1, a single random action will run, and then control will pass to the next node. If Repeats is set to 5, a new random action in the sequence will run each repeat, for a total of 5 actions run.
 
-Note that this is a standard random function currently, so it is possible for the same action to run twice in a row during random set of repeats.
+**Note**: This is a standard random function, so it is possible for the same action to run twice in a row during random set of repeats.
 
 ## Actions
 ### Move - Causes the device to move
 * *Direction* - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
 * *Virtual or Physical Robot* - Whether the move command is sent to the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
-* *Time* - Number of seconds the movement will run. Zero sets the movement to run until changed, and control passes immediately on the to the next action.
+* *Time* - Number of seconds the movement will run. Zero sets the movement to run forever (don't forget to use a Move Stop action to stop it), and control passes immediately on the to the next action.
 * *Speed* - Speed of the movement
 
 ### Servo - Moves a servo to an angle
-* *Movement* Type - Not yet implemented. In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
-* *Port* - The port the servo is attached to
+* *Movement* Type - Not yet implemented (immediate or varspeed). In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
+* *Port* - The port the servo is attached to - pan or tilt (ports 1 or 2), or Servo ports 3 or 4 on the robot CRICKIT
 * *Time* - Number of seconds the action waits before passing control to the next action
-* *Angle* - The target angle to move the servo to
+* *Angle* - The angle to move the servo to
 
 ### Leds - Sets the color of device LEDs
 * *Type* - Determines how the LEDs will behave
@@ -74,21 +74,21 @@ Note that this is a standard random function currently, so it is possible for th
   * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own.
     * FTP
       * In your FTP program (e.g. CyberDuck) connect to the RPi
-      * Type in the the IP address
-      * Put in the RPi login: pi, adventures
+      * Type in the IP address
+      * Put in the RPi login user:pi, password:adventures
       * Navigate to *delft-ai-toolkit>audio>ui_sounds* and replace the files
     * Mount the RPi as a server (Mac)
       * In the Finder, select Go>Connect to server…
       * Type in the IP address of your RPi in the following way: smb://10.4.17.93
-      * Press Connect, and put in the RPi login: pi, adventures
+      * Press Connect, and put in the RPi login user:pi, password:adventures
       * You will then see the RPi appear in your servers in the left side of the Finder
       * Navigate to *delft-ai-toolkit>audio>ui_sounds* and replace the files
 
 
 ### Analogin - Starts or stops values from an analog input sensor
 * *Action* - Start tells the virtual or physical device to start or stop sending values.
-* *Port* - Specifies the port the sensor is connected to.
-  * It is possible to have the robot send more than one sensor at a time. Plug your sensors into one of the six analog inputs on the Adafruit Crikit Hat (the ultrasonic distance sensor is normally plugged into input 0)
+* *Port* - Specifies the robot hardware port the sensor is connected to (1-8).
+  * It is possible to have the robot send more than one sensor data at a time. Plug your sensors into one of the six analog inputs on the Adafruit Crikit Hat (the ultrasonic distance sensor is normally plugged into input 1)
 * *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
 ### Touch - Starts or stops values from a touch input sensor
@@ -97,16 +97,16 @@ Note that this is a standard random function currently, so it is possible for th
   * It is possible to have the robot send more than one sensor at a time. Connect your sensing wires to one of the four touch inputs on the Adafruit Crikit Hat (labeled 1-4)
 * *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
-### Delay - Pauses the sequence of actions
-* *Time* - Seconds of delay before the next action
+### Delay - Pauses this sequence of actions
+* *Time* - Seconds of delay before the next action (can be fractional)
 
 ### Text To Speech - Convert text to spoken word
 * *Model* - Select the model to perform the TTS, Watson (cloud), Pico (edge, robot only)
 * *Virtual or Physical Robot* - Whether the speech is generated on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Time* - Number of seconds the action waits before passing control to the next action
-* *Voice* - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into make a gender neutral voice available)
+* *Voice* - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into making a gender neutral voice available). Typically, the "1" version is a male voice, and the "2" version is female.
 * *Utterance* - The text to be spoken
-* **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account in the Unity menu Delft AI Toolkit>Show Settings
+* **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account ([more info](../watson.md)) in the Unity menu Delft AI Toolkit>Show Settings
 
 ### Speech To Text - Transcribe spoken words to text
 * *Model* - Only Watson currently, and this option is not shown. In the future, we hope to also implement Snips.ai, which is an edge based system (i.e. no internet connection required).
@@ -118,8 +118,8 @@ Note that this is a standard random function currently, so it is possible for th
 ### Recognize - Perform object recognition from the camera
 * *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. **Note**: Actual object recognition happens on the robot, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. In the Unity virtual environment, the Recognition Model setting has no effect.
 
-### Touch - Starts or stops values from the capacitive touch sensors
+### Touch - Starts or stops values from the capacitive touch sensors (**phys** robot only)
 * *Action* - Start tells the physical device to start sending values. Stop ends the sending of values
-* *Port* - Specifies the port of the touch sensor.
-  * It is possible to have the robot send more than one sensor at a time. Plug your conductive wire (e.g. copper tape - alligator clips) into one of the four touch inputs on the Arduino (the IR distance sensor is normally plugged into input 0)
+* *Port* - Specifies the port of the touch sensor (1-4).
+  * It is possible to have the robot send more than one sensor at a time. Plug your conductive wire (e.g. copper tape, or alligator clips) into one of the four touch inputs on the CRICKIT
 * *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
