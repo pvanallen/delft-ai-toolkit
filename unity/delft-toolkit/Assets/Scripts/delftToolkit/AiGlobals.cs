@@ -74,6 +74,13 @@ public class AiGlobals : MonoBehaviour {
 		varspeed
 	}
 
+	public enum ActionServoPorts {
+		pan,
+		tilt,
+		s3,
+		s4,
+	}
+
 	public enum ActionSpeakTypes {
 		enUS1,
 		enUS2,

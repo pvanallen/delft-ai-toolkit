@@ -47,7 +47,7 @@ namespace DelftToolkit {
 						}
 
 						actions[currentAction].variable = GetInputValue("variable", variable);
-						DingEvent(device, actions[currentAction]);
+						// DingEvent(device, actions[currentAction]);
 
 						switch (actions[currentAction].actionType) {
 							case AiGlobals.ActionTypes.move:
@@ -63,6 +63,15 @@ namespace DelftToolkit {
 								delayTime = actions[currentAction].delayParams.time;
 								break;
 							case AiGlobals.ActionTypes.servo:
+								if (actions[currentAction].servoParams.portLabel == AiGlobals.ActionServoPorts.pan) {
+									actions[currentAction].servoParams.port = 1;
+								} else if (actions[currentAction].servoParams.portLabel == AiGlobals.ActionServoPorts.tilt) {
+									actions[currentAction].servoParams.port = 2;
+								} else if (actions[currentAction].servoParams.portLabel == AiGlobals.ActionServoPorts.s3) {
+									actions[currentAction].servoParams.port = 3;
+								} else if (actions[currentAction].servoParams.portLabel == AiGlobals.ActionServoPorts.s4) {
+									actions[currentAction].servoParams.port = 4;
+								}
 								delayTime = actions[currentAction].servoParams.time;
 								break;
 							case AiGlobals.ActionTypes.textToSpeech:
@@ -72,10 +81,12 @@ namespace DelftToolkit {
 								delayTime = actions[currentAction].playSoundParams.time;
 								break;
 						}
-
+						DingEvent(device, actions[currentAction]);
 						if (delayTime > 0) {
+							// wait for the specified time before going to the next action
 							yield return new WaitForSeconds(delayTime);
 							if (actions[currentAction].actionType == AiGlobals.ActionTypes.move) {
+								// stop the move motors after the time
 								DingEvent(device, actionStopAll);
 							}
 						} else {
@@ -191,7 +202,8 @@ namespace DelftToolkit {
 		public float time = 1;
 		[Tooltip("Angle (Degrees 0-180)")]
 		public int angle = 90; // degrees 0 - 180
-		[Tooltip("Port (Typically 9-10)")]
+		[Tooltip("Port (pan, tilt, s3, s4)")]
+		[NodeEnum] public AiGlobals.ActionServoPorts portLabel = AiGlobals.ActionServoPorts.pan;
 		public int port = 9; // typically 9 & 10
 		[Tooltip("Speed (0-255)")]
 		public int varspeed = 127; // 0-255

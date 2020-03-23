@@ -20,7 +20,6 @@ public class DelftActionDrawer : PropertyDrawer {
 
 		switch ((AiGlobals.ActionTypes) actionType.enumValueIndex) {
 			case AiGlobals.ActionTypes.move:
-				//{}
 				SerializedProperty actionMove = property.FindPropertyRelative("moveParams");
 				DrawNextProperty(ref pos, actionMove, "type", 70, GUIContent.none);
 				DrawNextProperty(ref pos, actionMove, "source", 50, GUIContent.none);
@@ -57,11 +56,17 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.servo:
 				SerializedProperty actionServo = property.FindPropertyRelative("servoParams");
-				DrawNextProperty(ref pos, actionServo, "type", 70, GUIContent.none);
-				DrawNextProperty(ref pos, actionServo, "port", 50, new GUIContent(DelftStyles.portIcon));
+				DrawNextProperty(ref pos, actionServo, "type", 80, GUIContent.none);
+				//DrawNextProperty(ref pos, actionServo, "port", 50, new GUIContent(DelftStyles.portIcon));
+				DrawNextProperty(ref pos, actionServo, "portLabel", 40, new GUIContent(GUIContent.none));
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionServo, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionServo, "angle", 50, new GUIContent(DelftStyles.angleIcon));
+				// SerializedProperty portLabel = actionServo.FindPropertyRelative("portLabel");
+				// // AiGlobals.ActionServoPorts portLabel = actionServo.FindPropertyRelative("portLabel").portLabel;
+				// if ((AiGlobals.ActionServoPorts)portLabel == AiGlobals.ActionServoPorts.pan) {
+
+				// }
 				break;
 			case AiGlobals.ActionTypes.textToSpeech:
 				SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");

@@ -158,10 +158,10 @@ public class DingControlVirtual : DingControlBase {
 				}
 				break;
 			case AiGlobals.ActionTypes.servo:
-				if (action.servoParams.port == 9) { // tilt
+				if (action.servoParams.port == 1) { // pan
 					//yawJoint.localRotation = Quaternion.Euler(0, -180, action.servoParams.angle - 90);
 					yawTarget = Mathf.Clamp(action.servoParams.angle,0,180);
-				} else if (action.servoParams.port == 10) { // pan
+				} else if (action.servoParams.port == 2) { // tilt
 					//pitchJoint.localRotation = Quaternion.Euler(0, action.servoParams.angle + 180, 0);
 					pitchTarget = Mathf.Clamp(action.servoParams.angle + 180,180,359);
 					//pitchTarget = Mathf.Clamp(pitchTarget, 180, 359);
