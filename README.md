@@ -4,12 +4,12 @@
 # UPDATE as of March 18, 2020
 NOTE: We're in the process of updating the system to version 3.0, and documentation and files may be correct for the current 2.1.0 release. The new version will include the following changes:
 
-* New hardware platform - the 3.0 system will remove the Arduino from the robot platform, replacing it with the Adafruit [CRIKIT Raspberry Pi Hat](https://www.adafruit.com/product/3957). This simplifies powering the robot, and reduces the software complexity.
+* New hardware platform - the 3.0 version removes the Arduino from the robot platform, replacing it with the Adafruit [CRIKIT Raspberry Pi Hat](https://www.adafruit.com/product/3957). This simplifies powering the robot and reduces software complexity.
 * Condition Node changes - the Float and String condition nodes are updated to have dropdown menus set the filters for their associated events.
 * Capacitive Touch Sensing - Up to four capacitive touch sensors are now possible. These allow a user to touch parts of the robot and get a reaction.
-* Multiple analog inputs - The software now supports up to eight simulataneous
+* Multiple analog inputs - The software now supports up to eight simultaneous inputs
 
-The Delft AI Toolkit (DAI-TK) is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
+The Delft AI Toolkit is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
 # Overview
 The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
@@ -78,11 +78,11 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 ## Roadmap as of March 2020
 * Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
 * More nodes for processing sensor data and logic
-* More video and written documentation
+* More documentation
 * Better support for IoT (e.g. IFTTT, web-hooks)
-* Integrate gesture recognition learning and classification
+* Integrate learning and classification (vision and gesture recognition)
 * Integrate Unity Reinforcement learning
-* Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
+* AR - Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
 ![system architecture](docs/images/delft-system-diagram.jpg?resize=640%2C350)
