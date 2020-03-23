@@ -77,7 +77,7 @@ ss = crickit.seesaw
 analog_interval = .5
 analog_next_time = time.time() + analog_interval
 # ports to be scanned each interval
-analog_ports = [False,False,False,False,False,False]
+analog_ports = [False,False,False,False,False,False,False,False,False]
 
 
 touch_interval = .5
@@ -308,7 +308,7 @@ def delay_cb(adr, type, time):
 
 def analogin_cb(adr, type, interval, port):
   global analog_ports, analog_interval
-  port = max(0, min(port, 5)) # make sure port is between 0 & 5
+  port = max(1, min(port, 8)) # make sure port is between 1 & 8
   print("analogin: " + type + " interval: " +  str(interval) + " port: " + str(port))
   arduinoStr = '{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
@@ -353,9 +353,9 @@ def servo_cb(adr, type, angle, port, varspeed, easing):
   if not send_serial_command(arduinoStr):
     port = str(port)
     print("CRICKIT SERVO: " + port)
-    if port == "9": # first servo out
+    if port == "1": # first servo out
         realport = crickit.servo_1
-    elif port == "10": # second servo out
+    elif port == "2": # second servo out
         realport = crickit.servo_2
     elif port == "3":
         realport = crickit.servo_3
@@ -428,18 +428,24 @@ def main(_):
         for i, read in enumerate(analog_ports):
             if analog_ports[i] == True:
                 sensor = crickit.SIGNAL1
-                if i == 0:
+                if i == 1:
                     sensor = crickit.SIGNAL1
-                elif i == 1:
-                    sensor = crickit.SIGNAL2
                 elif i == 2:
-                    sensor = crickit.SIGNAL3
+                    sensor = crickit.SIGNAL2
                 elif i == 3:
-                    sensor = crickit.SIGNAL4
+                    sensor = crickit.SIGNAL3
                 elif i == 4:
-                    sensor = crickit.SIGNAL5
+                    sensor = crickit.SIGNAL4
                 elif i == 5:
+                    sensor = crickit.SIGNAL5
+                elif i == 6:
                     sensor = crickit.SIGNAL6
+                elif i == 7:
+                    sensor = crickit.SIGNAL7
+                elif i == 8:
+                    sensor = crickit.SIGNAL8
+                else:
+                    sensor = crickit.SIGNAL8
                 analog_value = float(ss.analog_read(sensor))
                 osc_address="/num/analogin/" + str(i) + "/"
 
@@ -457,7 +463,6 @@ def main(_):
         touch_next_time = time.time() + touch_interval
         for i, read in enumerate(touch_ports):
           if touch_ports[i] == True:
-              sensor = crickit.touch_1
               if i == 1:
                   sensor = crickit.touch_1
               elif i == 2:
@@ -466,6 +471,10 @@ def main(_):
                   sensor = crickit.touch_3
               elif i == 4:
                   sensor = crickit.touch_4
+              else:
+                  sensor = crickit.touch_1
+                  
+              # get the sensor status
               if sensor.value: # check if the touch port is active from a touch
                   touch_value = 1023
               else:
