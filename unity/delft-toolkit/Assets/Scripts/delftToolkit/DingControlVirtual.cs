@@ -237,7 +237,7 @@ public class DingControlVirtual : DingControlBase {
 					//distance = 1023 - (hit.distance * 100); // IR sensor
 					distance = hit.distance * 10; // sonar sensor get lower as it gets closer
 				string url = "/num/analogin/" + analoginPort + "/";
-				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/1/", distance);
+				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, url, distance);
 				if (DelftToolkit.DingSignal.onSignalEvent != null)
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 			}
