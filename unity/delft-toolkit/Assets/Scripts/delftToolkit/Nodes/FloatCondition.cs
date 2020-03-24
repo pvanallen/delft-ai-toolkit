@@ -9,7 +9,7 @@ namespace DelftToolkit {
 	[NodeWidth(270), NodeTint(255, 255, 160), CreateNodeMenu("Conditions/Float")]
 	public class FloatCondition : ConditionBase {
 
-		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.FloatConditionType.analogin, 0);
+		public DingSignalFilter filter = new DingSignalFilter(AiGlobals.Devices.ding1, AiGlobals.SensorSource.virt, AiGlobals.FloatConditionType.analogin, 1);
 		[Tooltip("Read signals matching message signature. (only exact match supported)")]
 		/// <summary> The last signal we received which passed the filter </summary>
 		[NonSerialized] public DingSignal signal;

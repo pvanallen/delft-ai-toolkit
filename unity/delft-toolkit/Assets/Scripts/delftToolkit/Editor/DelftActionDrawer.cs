@@ -42,17 +42,21 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.analogin:
 				SerializedProperty actionAnalogIn = property.FindPropertyRelative("analoginParams");
-				DrawNextProperty(ref pos, actionAnalogIn, "type", 70, GUIContent.none);
+				
 				DrawNextProperty(ref pos, actionAnalogIn, "port", 50, new GUIContent(DelftStyles.portIcon));
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionAnalogIn, "interval", 60, new GUIContent(DelftStyles.timeIcon));
+				DrawNextProperty(ref pos, actionAnalogIn, "type", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionAnalogIn, "source", 50, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.touch:
 				SerializedProperty actionTouch = property.FindPropertyRelative("touchParams");
-				DrawNextProperty(ref pos, actionTouch, "type", 70, GUIContent.none);
+				
 				DrawNextProperty(ref pos, actionTouch, "port", 50, new GUIContent(DelftStyles.portIcon));
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionTouch, "interval", 60, new GUIContent(DelftStyles.timeIcon));
+				DrawNextProperty(ref pos, actionTouch, "type", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionTouch, "source", 50, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.servo:
 				SerializedProperty actionServo = property.FindPropertyRelative("servoParams");
@@ -62,17 +66,11 @@ public class DelftActionDrawer : PropertyDrawer {
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionServo, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionServo, "angle", 50, new GUIContent(DelftStyles.angleIcon));
-				// SerializedProperty portLabel = actionServo.FindPropertyRelative("portLabel");
-				// // AiGlobals.ActionServoPorts portLabel = actionServo.FindPropertyRelative("portLabel").portLabel;
-				// if ((AiGlobals.ActionServoPorts)portLabel == AiGlobals.ActionServoPorts.pan) {
-
-				// }
 				break;
 			case AiGlobals.ActionTypes.textToSpeech:
 				SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
 				DrawNextProperty(ref pos, actionSpeak, "model", 49, GUIContent.none);
-				DrawNextProperty(ref pos, actionSpeak, "source", 37, GUIContent.none);
-				
+				DrawNextProperty(ref pos, actionSpeak, "source", 50, GUIContent.none);
 				DrawNextProperty(ref pos, actionSpeak, "time", 25, GUIContent.none);
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionSpeak, "type", 65, GUIContent.none);
@@ -80,7 +78,7 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.speechToText:
 				SerializedProperty actionListen = property.FindPropertyRelative("listenParams");
-				DrawNextProperty(ref pos, actionListen, "source", 40, GUIContent.none);
+				DrawNextProperty(ref pos, actionListen, "source", 50, GUIContent.none);
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionListen, "lang", 60, GUIContent.none);
 				DrawNextProperty(ref pos, actionListen, "duration", 45, new GUIContent(DelftStyles.timeIcon));

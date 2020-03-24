@@ -179,19 +179,21 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class ActionAnalogIn {
-		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 50; // milliseconds
 		[Tooltip("Port (Typically 0-5)")]
-		public int port = 0;
+		public int port = 1;
+		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 	}
 [Serializable]
 	public class ActionTouch {
-		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 50; // milliseconds
 		[Tooltip("Port (Typically 0-3)")]
-		public int port = 0;
+		public int port = 1;
+		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.phys;
 	}
 
 

@@ -131,17 +131,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -183,17 +186,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -467,17 +473,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0
       angle: 60
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -519,17 +528,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0.5
       angle: 60
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -571,17 +583,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0.5
       angle: 60
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -623,17 +638,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0.5
       angle: 60
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -780,10 +798,10 @@ MonoBehaviour:
   filter:
     device: 0
     source: 1
-    messageFilter: /str/recognize/
+    messageFilter: /str/speech2text/
     messageType: 0
-  inputType: 0
-  _value: 'testing 1 2 3 '
+  inputType: 1
+  _value: tes
 --- !u!114 &114376299329961632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,17 +906,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -940,17 +961,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1082,17 +1106,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1134,17 +1161,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1321,17 +1351,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 60
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1373,17 +1406,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1425,17 +1461,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0
       angle: 60
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1477,17 +1516,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 60
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1639,17 +1681,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -1691,17 +1736,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 0.5
       angle: 120
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -1743,17 +1791,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -1795,17 +1846,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 10
       varspeed: 127
       easing: 3
@@ -1939,8 +1993,7 @@ MonoBehaviour:
     messageFilter: /str/recognize/
     messageType: 0
   inputType: 0
-  _value: 'window shade: 0.28603\lampshade: 0.05021\bannister: 0.03879\spotlight:
-    0.03698\crate: 0.02960'
+  _value: 
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,17 +2091,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3

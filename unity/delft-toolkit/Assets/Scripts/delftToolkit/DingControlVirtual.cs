@@ -149,12 +149,15 @@ public class DingControlVirtual : DingControlBase {
 				break;
 			case AiGlobals.ActionTypes.analogin:
 				string analoginType = action.analoginParams.type.ToString();
-				if (action.analoginParams.type == AiGlobals.ActionAnalogInTypes.start) {
-					analoginPort = action.analoginParams.port;
-					//analoginInterval = action.analoginParams.interval;
-					sendSensors = true;
-				} else {
-					sendSensors = false;
+				if (action.analoginParams.source == AiGlobals.SensorSource.virt 
+				|| action.analoginParams.source == AiGlobals.SensorSource.both) {
+					if (action.analoginParams.type == AiGlobals.ActionAnalogInTypes.start) {
+						analoginPort = action.analoginParams.port;
+						//analoginInterval = action.analoginParams.interval;
+						sendSensors = true;
+					} else {
+						sendSensors = false;
+					}
 				}
 				break;
 			case AiGlobals.ActionTypes.servo:
@@ -233,8 +236,8 @@ public class DingControlVirtual : DingControlBase {
 					// make it similar to what comes out of the arduino
 					//distance = 1023 - (hit.distance * 100); // IR sensor
 					distance = hit.distance * 10; // sonar sensor get lower as it gets closer
-				
-				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/0/", distance);
+				string url = "/num/analogin/" + analoginPort + "/";
+				DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/1/", distance);
 				if (DelftToolkit.DingSignal.onSignalEvent != null)
 					DelftToolkit.DingSignal.onSignalEvent(signal);
 			}

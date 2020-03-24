@@ -106,6 +106,7 @@ MonoBehaviour:
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -120,13 +121,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -145,10 +153,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -157,6 +161,7 @@ MonoBehaviour:
     actionType: 6
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -171,13 +176,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -196,10 +208,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -231,6 +239,7 @@ MonoBehaviour:
     - exit
     - actions 0
     - actions 1
+    - actions 2
     values:
     - _fieldName: actions
       _node: {fileID: 114266994730812140}
@@ -293,62 +302,21 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: actions 2
+      _node: {fileID: 114266994730812140}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
   actions:
   - variable: 
-    actionType: 7
+    actionType: 3
     moveParams:
       type: 1
-      time: 1
-      speed: 1
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      type: 0
-      interval: 50
-      port: 0
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      port: 9
-      varspeed: 127
-      easing: 3
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
       source: 0
-      model: 1
-    listenParams:
-      type: 0
-      duration: 5
-      source: 0
-      lang: 0
-      model: 0
-    recognizeParams:
-      type: 0
-      model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
-    playSoundParams:
-      type: 23
-      source: 0
-      time: 0.5
-  - variable: 
-    actionType: 2
-    moveParams:
-      type: 1
       time: 1
       speed: 1
       easing: 3
@@ -363,13 +331,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -388,10 +363,116 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
+    playSoundParams:
+      type: 23
+      source: 1
+      time: 0.5
+  - variable: 
+    actionType: 7
+    moveParams:
       type: 1
+      source: 0
       time: 1
-      text: Hello
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 5
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+  - variable: 
+    actionType: 2
+    moveParams:
+      type: 1
+      source: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 1
+      time: 0.1
+      ledNum: 2
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 5
+      source: 1
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
     playSoundParams:
       type: 23
       source: 0
@@ -486,10 +567,11 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - variable: what's up?
+  - variable: 'testing for five six '
     actionType: 2
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -504,13 +586,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -529,18 +618,15 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
-  - variable: what's up?
+  - variable: 'testing for five six '
     actionType: 6
     moveParams:
       type: 1
+      source: 0
       time: 1
       speed: 1
       easing: 3
@@ -555,13 +641,20 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
@@ -580,10 +673,6 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
-    chatParams:
-      type: 1
-      time: 1
-      text: Hello
     playSoundParams:
       type: 24
       source: 0
@@ -672,10 +761,6 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-  filter:
-    device: 0
-    source: 0
-    messageFilter: /str/speech2text/
   conditions:
   - compareType: 2
     strVal: "hello,hey,hi,\u4F60\u597D"
@@ -684,7 +769,13 @@ MonoBehaviour:
     strVal: 
     inverse: 0
   valueOut: 
-  _value: what's up?
+  filter:
+    device: 0
+    source: 0
+    messageFilter: /str/speech2text/
+    messageType: 0
+  inputType: 1
+  _value: 'testing for five six '
 --- !u!114 &114567834932035406
 MonoBehaviour:
   m_ObjectHideFlags: 0

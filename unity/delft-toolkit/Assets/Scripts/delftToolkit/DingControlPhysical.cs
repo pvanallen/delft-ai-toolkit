@@ -186,18 +186,24 @@ public class DingControlPhysical : DingControlBase {
 				});
 				break;
 			case AiGlobals.ActionTypes.analogin:
-				oscValues.AddRange(new object[] {
-					action.analoginParams.type.ToString(),
-					action.analoginParams.interval,
-					action.analoginParams.port
-				});
+				if (action.analoginParams.source == AiGlobals.SensorSource.phys 
+				|| action.analoginParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] {
+						action.analoginParams.type.ToString(),
+						action.analoginParams.interval,
+						action.analoginParams.port
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.touch:
-				oscValues.AddRange(new object[] {
-					action.touchParams.type.ToString(),
-					action.touchParams.interval,
-					action.touchParams.port
-				});
+				if (action.touchParams.source == AiGlobals.SensorSource.phys 
+				|| action.touchParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] {
+						action.touchParams.type.ToString(),
+						action.touchParams.interval,
+						action.touchParams.port
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.servo:
 				oscValues.AddRange(new object[] { 

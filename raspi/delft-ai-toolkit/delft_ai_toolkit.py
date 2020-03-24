@@ -473,7 +473,7 @@ def main(_):
                   sensor = crickit.touch_4
               else:
                   sensor = crickit.touch_1
-                  
+
               # get the sensor status
               if sensor.value: # check if the touch port is active from a touch
                   touch_value = 1023
@@ -482,6 +482,7 @@ def main(_):
               # print("touch read, port:",i,touch_value, "touch interval:",touch_interval)
 
               osc_address="/num/touch/" + str(i) + "/"
+              print(osc_address + " :",i,touch_value, "touch interval:",touch_interval)
               builder = osc_message_builder.OscMessageBuilder(address = osc_address)
               builder.add_arg(touch_value)
               builder.add_arg(100)
