@@ -7,6 +7,9 @@ ________________
   - [Description](#description)
   - [Hardware Parts list](#hardware-parts-list)
   - [Hardware Assembly](#hardware-assembly)
+    - [Assemble the robot platform instructions - see also this page for a similar project with details/photos](#assemble-the-robot-platform-instructions---see-also-this-page-for-a-similar-project-with-detailsphotos)
+    - [Prepare the electronics](#prepare-the-electronics)
+    - [Connect parts together](#connect-parts-together)
   - [Installing Delft AI Toolkit software](#installing-delft-ai-toolkit-software)
     - [Computer](#computer)
       - [Free Unity Software](#free-unity-software)
@@ -53,7 +56,9 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 
 ### Hardware Assembly
 
-* [Assemble the robot platform](https://learn.adafruit.com/tri-layer-mini-round-robot-chassis-kit) - see also [this page for a similar project with details/photos](https://learn.adafruit.com/curiebot-arduino-101-mini-robot-rover/assembling-and-wiring-your-robot)
+<img src="images/crickit-board.jpg" width="512"><br>
+
+#### Assemble the robot platform [instructions](https://learn.adafruit.com/tri-layer-mini-round-robot-chassis-kit) - see also [this page for a similar project with details/photos](https://learn.adafruit.com/curiebot-arduino-101-mini-robot-rover/assembling-and-wiring-your-robot)
   * Be sure to mount the motors between the bottom and middle layers
   * Leave off the top (3rd) layer (will be replaced by the plexiglass platform)
   * When screwing on the second layer, mount the metal standoffs in locations that leave an opening in the front so the USB battery can slip in and out
@@ -61,20 +66,22 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
   * Use small metal L brackets to attach the 2"x5" front plate to the top layer
   * If you are using the pan/tilt camera servos, 3D print the "L" mount for them and attach it to the front plate on one side, and mount the pan/tilt on top of the "L" mount
 
-* Prepare the electronics
+#### Prepare the electronics
   * Create a Deflt AI Toolkit SD card for the RPi (see below)
+  * For audio to work correctly on the CRICKIT, you **must** [cut a small trace](https://learn.adafruit.com/adafruit-crickit-hat-for-raspberry-pi-linux-computers/speaker-output) on the bottom of the CRICKIT circuit board
   * Install the CRICKIT on the RPi
   * Mount the assembled RPi on the platform (velcro stick-on-strips are handy for this rather than screws)
 
-* Connect parts together
-  * Solder the connection wire and mount the Neopixel ring, Ultrasonic sensor on the front
+  <br><img src="images/raspberry_pi_crickit_hat_cut_trace.jpg" width="512"><br>
+
+#### Connect parts together
+  * Solder the connection wires and mount the Neopixel ring and Ultrasonic sensor on the front
   * Connect the pan/tilt servos to the servo ports (pan 1, tilt 2) on the CRICKIT
   * Connect the two DC motors to the motor ports on the CRICKIT connect the red wires to the inner pins next to the GND outlet [Diagram](https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit/circuitpython-dc-motors#step-3002673)
-  * Connect the IR sensor to Arduino: analog in port 0, GND, 5V
-  * Connect the NeoPixel: Digital port 6, GND, 3.3V
-  * Lengthen the AA battery holder wires by 3 inches, and attach them to the power input of the motor shield. Put some small rubber feet on the bottom of battery pack so it can be friction fit and slipped between the top and middle layers of the robot.
-  * Attach the speaker to the Seeed Hat
-  * Mount the USB battery pack underneath the main platform with velcro, and attach the short USB A to Micro USB cable to the battery (don't power the RPI until ready)
+  * Connect the Proximity sensor to CRICKIT - I/O port row 1: Signal to Signal, power to 3.3V, Ground to GND
+  * Connect the NeoPixel Ring: NeoPixel connections, 5V, signal, ground
+  * Attach the speaker to CRICKIT Hat
+  * Mount the USB battery pack between the bottom and top platform layers (add stick on fuzzy velcro to make it a tight fit), and attach a short USB A to 2.1mm Male Barrel Jack cable to the battery (don't power the RPI until ready)
 * Follow the startup sequence on the [main page](../README.md)
 
 <img src="images/robot6.jpg" width="512"><br><br>
@@ -89,12 +96,12 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 * **Install [Unity3D](https://store.unity.com)**
 * The toolkit is compatible with Unity3D v2018.2.x and v2018.3.x
 ##### Delft AI Toolkit Unity Project
-* **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and Arduino code
+* **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and documentation
 * Open the toolkit in Unity - use Open from within Unity and select **delft-toolkit-2_0_3>Unity>delft-toolkit**
 * **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode, IBM Watson SDK, and IBM SDK Core as a submodules (i.e. we use the code from the original repos). With a simple clone, the submodule code will be missing from this Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>
      <br>There are several solutions for this:
      * **Download a Release** - At significant version points, we upload a complete version as a [release](../releases/) that includes the appropriate version of xNode. As mentioned above, this is the recommended method.
-     * **Git Clone With Submodules From Command Line** - Use the following terminal command to clone the entire repo with the submodule included:
+     * **Git Clone With Submodules From Command Line** - Use the following terminal command to clone the entire repo with the submodules included:
      ```bash
      git clone --recurse-submodules https://github.com/pvanallen/delft-ai-toolkit.git
      ```
@@ -103,7 +110,7 @@ In addition to the above, the robot uses a couple pieces of plexiglass (or other
 #### Robot
 
 ##### Raspberry Pi - Disk Image
-* **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI software installed. This means you cannot use the visual desktop on a monitor.
+* **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI windows software installed. This means you cannot use the visual desktop on a monitor.
 * Download the 2019-05-16 [RPi disk image](https://www.dropbox.com/s/o62yycnodb7ppho/delft-toolkit-2019-05-16.zip?dl=0)
 * Use a 16GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Ultra](https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE)
 * Copy the disk image to the card ([more info for Mac and Windows](https://thepihut.com/blogs/raspberry-pi-tutorials/17789160-backing-up-and-restoring-your-raspberry-pis-sd-card)). On the Mac Terminal:
