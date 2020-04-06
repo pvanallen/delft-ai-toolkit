@@ -53,4 +53,4 @@ _______________
 
 ## Other notes about OSC messages
 * You can see an incoming message just below the Float Condition type
-* You also accept any incoming message that starts with a particular sequence. For example, if you select the type of "ANY", put in just **/num/** to accept any message sent by another app. Once you've seen the kind of message your app is sending, you can then narrow down what kinds of messages you want to process with this condition.
+* You can also accept any incoming message that starts with a particular sequence. For example, if you select the condition type of "ANY", put in just **/num/** to accept any message sent by another app. Once you've seen the kind of message your app is sending, you can then narrow down what kinds of messages you want to process with this condition.
