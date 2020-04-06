@@ -109,7 +109,7 @@ The Random checkbox changes the behavior of the node to run one random action in
 * **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account ([more info](../watson.md)) in the Unity menu Delft AI Toolkit>Show Settings
 
 ### Speech To Text - Transcribe spoken words to text
-* *Model* - Only Watson currently, and this option is not shown. In the future, we hope to also implement Snips.ai, which is an edge based system (i.e. no internet connection required).
+* *Model* - Only Watson currently (limited to the languages IBM offers), and this option is not shown. In the future, we hope to also implement [DeepSpeech by Mozilla](https://hacks.mozilla.org/2019/12/deepspeech-0-6-mozillas-speech-to-text-engine/), which is an edge based system (i.e. no internet connection required).
 * *Virtual or Physical Robot* - Whether the speech is transcribed on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
 * *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
 * *Language* - Select a language, country combination. Not all languages are available in all models.
