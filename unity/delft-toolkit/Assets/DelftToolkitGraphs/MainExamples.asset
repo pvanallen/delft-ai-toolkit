@@ -32,6 +32,8 @@ MonoBehaviour:
   - {fileID: 114412182002783424}
   - {fileID: 114603270111657486}
   - {fileID: 114728867026376646}
+  - {fileID: 5667515801424711911}
+  - {fileID: 507080377577224154}
 --- !u!114 &114034262261978804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +69,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
@@ -78,6 +80,7 @@ MonoBehaviour:
     - actions 5
     - actions 6
     - actions 7
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114069587484601216}
@@ -89,7 +92,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114069587484601216}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -191,8 +194,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114069587484601216}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -211,20 +224,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -240,11 +257,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -263,20 +283,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -292,11 +316,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -315,20 +342,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -344,11 +375,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -367,20 +401,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -396,11 +434,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -419,20 +460,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -448,11 +493,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -471,20 +519,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -500,11 +552,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -523,20 +578,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -552,11 +611,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -575,20 +637,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -604,6 +670,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -612,7 +680,8 @@ MonoBehaviour:
   random: 1
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114192978095366514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,12 +739,13 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114197308591409166}
@@ -687,7 +757,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114197308591409166}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -744,8 +814,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114197308591409166}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -764,20 +844,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -793,11 +877,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -816,20 +903,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -845,11 +936,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -868,20 +962,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -897,6 +995,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -905,7 +1005,8 @@ MonoBehaviour:
   random: 0
   device: 1
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114199012867470620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,10 +1024,11 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114199012867470620}
@@ -938,7 +1040,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114199012867470620}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -980,8 +1082,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114199012867470620}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -1000,20 +1112,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1029,6 +1145,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -1037,7 +1155,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114237430225727632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,10 +1226,11 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114239333526522506}
@@ -1122,7 +1242,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114239333526522506}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1164,8 +1284,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114239333526522506}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 4
@@ -1184,20 +1314,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1213,6 +1347,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -1221,7 +1357,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114365703743924768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,7 +1376,7 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
@@ -1252,6 +1389,7 @@ MonoBehaviour:
     - actions 7
     - actions 8
     - actions 9
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114365703743924768}
@@ -1263,7 +1401,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114365703743924768}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1383,8 +1521,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114365703743924768}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -1403,20 +1551,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1432,11 +1584,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -1455,20 +1610,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1484,11 +1643,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -1507,20 +1669,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1536,11 +1702,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -1559,20 +1728,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1588,11 +1761,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 3
     moveParams:
       type: 1
@@ -1611,20 +1787,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1640,11 +1820,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.1
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -1663,20 +1846,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1692,11 +1879,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 4
@@ -1715,20 +1905,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1744,11 +1938,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -1767,20 +1964,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1796,11 +1997,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 3
     moveParams:
       type: 2
@@ -1819,20 +2023,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1848,11 +2056,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 47
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 2
@@ -1871,20 +2082,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1900,6 +2115,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 24
       source: 0
@@ -1908,7 +2125,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114385956546319634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,10 +2144,11 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114385956546319634}
@@ -1941,7 +2160,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114385956546319634}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1983,8 +2202,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114385956546319634}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -2003,20 +2232,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2032,6 +2265,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -2040,7 +2275,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114386569591514158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,12 +2417,13 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114650074088641332}
@@ -2198,7 +2435,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114650074088641332}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2255,8 +2492,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114650074088641332}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -2275,20 +2522,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2304,11 +2555,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -2327,20 +2581,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2356,11 +2614,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -2379,20 +2640,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2408,6 +2673,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -2416,7 +2683,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114728867026376646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2453,10 +2721,11 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114773366550339388}
@@ -2468,7 +2737,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114773366550339388}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2510,8 +2779,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114773366550339388}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -2530,20 +2809,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2559,6 +2842,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -2567,7 +2852,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114775135851953510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,7 +2992,7 @@ MonoBehaviour:
     messageFilter: /str/keydown/
     messageType: 0
   inputType: 2
-  _value: R
+  _value: F
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,10 +3010,11 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114859249833087784}
@@ -2739,7 +3026,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114859249833087784}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -2781,8 +3068,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114859249833087784}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 3
     moveParams:
       type: 4
@@ -2801,20 +3098,24 @@ MonoBehaviour:
       type: 0
       time: 1
     analoginParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 0
     touchParams:
-      type: 0
       interval: 50
       port: 0
+      type: 0
+      source: 1
     servoParams:
       type: 0
       time: 1
       angle: 90
+      portLabel: 0
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -2830,6 +3131,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 0
       source: 0
@@ -2838,7 +3141,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114896338245393414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,3 +3183,291 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+--- !u!114 &507080377577224154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: Actions
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 968}
+  ports:
+    keys:
+    - actions
+    - stringIn
+    - floatIn
+    - enter
+    - exit
+    - actions 0
+    values:
+    - _fieldName: actions
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: stringIn
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: floatIn
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: actions 0
+      _node: {fileID: 507080377577224154}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+  actions:
+  - stringIn: 
+    floatIn: 0
+    actionType: 2
+    moveParams:
+      type: 1
+      source: 0
+      time: 1
+      speed: 0.5
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: 15
+      color:
+        serializedVersion: 2
+        rgba: 4280680575
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 1
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+      source: 1
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 10
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+      minDistance: 5
+      source: 0
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+  repeats: 1
+  random: 0
+  device: 0
+  expanded: 1
+  stringIn: 
+  floatIn: 0
+--- !u!114 &5667515801424711911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
+  m_Name: Actions
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 88}
+  ports:
+    keys:
+    - actions
+    - stringIn
+    - floatIn
+    - enter
+    - exit
+    - actions 0
+    values:
+    - _fieldName: actions
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: stringIn
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: floatIn
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: actions 0
+      _node: {fileID: 5667515801424711911}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+  actions:
+  - stringIn: 
+    floatIn: 0
+    actionType: 0
+    moveParams:
+      type: 1
+      source: 1
+      time: 1
+      speed: 0.5
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 1
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+      source: 1
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 10
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+      minDistance: 5
+      source: 0
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+  repeats: 1
+  random: 0
+  device: 0
+  expanded: 1
+  stringIn: 
+  floatIn: 0

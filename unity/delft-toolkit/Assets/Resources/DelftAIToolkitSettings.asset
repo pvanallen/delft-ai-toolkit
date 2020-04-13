@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dings:
   - device: 0
-    robotIP: 192.168.1.30
+    robotIP: 192.168.1.42
     robotOutPort: 5005
     robotInPort: 5006
-    marionetteIP: 127.0.0.1
+    marionetteIP: 192.168.1.8
     marionetteOutPort: 5007
     marionetteInPort: 5008
   - device: 1

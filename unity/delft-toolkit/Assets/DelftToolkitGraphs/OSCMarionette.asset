@@ -93,7 +93,7 @@ MonoBehaviour:
   conditions:
   - compareType: 0
     floatValA: 0
-    floatValB: 0
+    floatValB: 2
     inverse: 0
   valueOut: 0
   _value: 0
@@ -153,16 +153,17 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: 8}
+  position: {x: -40, y: 56}
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
+    - FloatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114377228326472098}
@@ -174,7 +175,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114377228326472098}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -234,8 +235,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: FloatIn
+      _node: {fileID: 114377228326472098}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -290,7 +301,8 @@ MonoBehaviour:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -345,7 +357,8 @@ MonoBehaviour:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -404,7 +417,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  FloatIn: 0
 --- !u!114 &114394093139064816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,14 +528,14 @@ MonoBehaviour:
   filter:
     device: 0
     source: 0
-    messageFilter: /num/1/push2/
+    messageFilter: /num/clean__project_1__button_1/
     messageType: 0
-    port: 2
-  inputType: 2
+    port: 1
+  inputType: 3
   conditions:
   - compareType: 0
     floatValA: 0
-    floatValB: 0
+    floatValB: 2
     inverse: 0
   valueOut: 0
   _value: 0
@@ -542,12 +556,13 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
+    - FloatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114717817919225364}
@@ -559,7 +574,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114717817919225364}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -619,8 +634,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: FloatIn
+      _node: {fileID: 114717817919225364}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -675,7 +700,8 @@ MonoBehaviour:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -730,7 +756,8 @@ MonoBehaviour:
       type: 18
       source: 0
       time: 0.5
-  - variable: 
+  - stringIn: 
+    FloatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -789,7 +816,8 @@ MonoBehaviour:
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  FloatIn: 0
 --- !u!114 &114759910912715250
 MonoBehaviour:
   m_ObjectHideFlags: 0
