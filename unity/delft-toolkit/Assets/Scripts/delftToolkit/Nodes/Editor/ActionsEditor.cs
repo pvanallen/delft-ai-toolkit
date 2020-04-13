@@ -31,15 +31,25 @@ namespace DelftToolkit {
 			node.random = EditorGUILayout.Toggle(node.random);
 			GUILayout.EndHorizontal();
 
-			// Display the valueIn port.
-			NodePort valueInPort = node.GetInputPort("variable");
+			// Display the String valueIn port.
+			NodePort valueInPort = node.GetInputPort("stringIn");
 			if (valueInPort.IsConnected) {
 				// Display an uneditable input value if connected
 				EditorGUI.BeginDisabledGroup(true);
-				EditorGUILayout.TextField(serializedObject.FindProperty("variable").displayName, valueInPort.GetInputValue<string>());
+				EditorGUILayout.TextField(serializedObject.FindProperty("stringIn").displayName, valueInPort.GetInputValue<string>());
 				EditorGUI.EndDisabledGroup();
 				NodeEditorGUILayout.AddPortField(valueInPort);
-			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("variable"), valueInPort, true);
+			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("stringIn"), valueInPort, true);
+
+			// Display the Float valueIn port.
+			NodePort fltValueInPort = node.GetInputPort("floatIn");
+			if (fltValueInPort.IsConnected) {
+				// Display an uneditable input value if connected
+				EditorGUI.BeginDisabledGroup(true);
+				EditorGUILayout.FloatField(serializedObject.FindProperty("floatIn").displayName, fltValueInPort.GetInputValue<float>());
+				EditorGUI.EndDisabledGroup();
+				NodeEditorGUILayout.AddPortField(fltValueInPort);
+			} else NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("floatIn"), fltValueInPort, true);
 
 			// Actions list
 			NodeEditorGUILayout.InstancePortList("actions", typeof(Action), serializedObject, NodePort.IO.Input, Node.ConnectionType.Override, Node.TypeConstraint.Strict, OnCreateReorderableList);
