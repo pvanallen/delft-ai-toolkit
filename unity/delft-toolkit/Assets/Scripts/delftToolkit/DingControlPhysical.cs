@@ -160,7 +160,7 @@ public class DingControlPhysical : DingControlBase {
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
-				Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
+				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
 				if (action.moveParams.source == AiGlobals.SensorSource.phys 
 				|| action.moveParams.source == AiGlobals.SensorSource.both) {
 					oscValues.AddRange(new object[] {
@@ -206,18 +206,21 @@ public class DingControlPhysical : DingControlBase {
 				}
 				break;
 			case AiGlobals.ActionTypes.servo:
-				oscValues.AddRange(new object[] { 
-					action.servoParams.type.ToString(),
-					action.servoParams.angle,
-					action.servoParams.port,
-					action.servoParams.varspeed,
-					action.moveParams.easing.ToString()
-				});
+				if (action.servoParams.source == AiGlobals.SensorSource.phys 
+				|| action.servoParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] { 
+						action.servoParams.type.ToString(),
+						action.servoParams.angle,
+						action.servoParams.port,
+						action.servoParams.varspeed,
+						action.moveParams.easing.ToString()
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.textToSpeech:
 				if (action.speakParams.source == AiGlobals.SensorSource.phys 
 				|| action.speakParams.source == AiGlobals.SensorSource.both) {
-					string utterance = action.speakParams.utterance.Replace("{variable}", action.variable);
+					string utterance = action.speakParams.utterance.Replace("{stringIn}", action.stringIn);
 					oscValues.AddRange(new object[] { 
 						action.speakParams.model.ToString(), // watson, pico
 						action.speakParams.type.ToString(), // voice
@@ -236,10 +239,13 @@ public class DingControlPhysical : DingControlBase {
 				}
 				break;
 			case AiGlobals.ActionTypes.recognize:
-				oscValues.AddRange(new object[] { 
-					action.recognizeParams.type.ToString(),
-					action.recognizeParams.model.ToString()
-				});
+				if (action.recognizeParams.source == AiGlobals.SensorSource.phys 
+				|| action.recognizeParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] { 
+						action.recognizeParams.type.ToString(),
+						action.recognizeParams.model.ToString()
+					});
+				}
 				break;
 			case AiGlobals.ActionTypes.playSound:
 				if (action.playSoundParams.source == AiGlobals.SensorSource.phys 
