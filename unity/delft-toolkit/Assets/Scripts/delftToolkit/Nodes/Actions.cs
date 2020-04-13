@@ -24,8 +24,9 @@ namespace DelftToolkit {
 
 		/// <summary> Used only for storing the expanded state of the actions list. </summary>
 		[SerializeField, HideInInspector] private bool expanded;
-		[Tooltip("This input lets you define a variable to use in your actions. Simply type {value} as part of a text input field to have it be replaced at runtime.")]
-		[Input] public string variable;
+		[Tooltip("This input lets you define a variable to use in your actions. Simply type {stringIn} as part of a text input field to have it be replaced at runtime.")]
+		[Input] public string stringIn;
+		[Input] public float floatIn;
 		private Action actionStopAll = new Action();
 
 		public delegate void DingActionEvent(AiGlobals.Devices device, Action action);
@@ -46,7 +47,8 @@ namespace DelftToolkit {
 							_currentAction = UnityEngine.Random.Range(0, actions.Count);
 						}
 
-						actions[currentAction].variable = GetInputValue("variable", variable);
+						actions[currentAction].stringIn = GetInputValue("stringIn", stringIn);
+						actions[currentAction].floatIn = GetInputValue("floatIn", floatIn);
 						// DingEvent(device, actions[currentAction]);
 
 						switch (actions[currentAction].actionType) {
@@ -130,8 +132,9 @@ namespace DelftToolkit {
 
 	[Serializable]
 	public class Action {
-		/// <summary> Replace {variable} with this value when executing this action </summary>
-		public string variable;
+		/// <summary> Replace {stringIn} with this value when executing this action </summary>
+		public string stringIn;
+		public float floatIn;
 		[NodeEnum] public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.move;
 		public ActionMove moveParams = new ActionMove();
 		public ActionLed ledParams = new ActionLed();
@@ -211,6 +214,7 @@ namespace DelftToolkit {
 		public int varspeed = 127; // 0-255
 		[Tooltip("Easting")]
 		[NodeEnum] public AiGlobals.Easing easing = AiGlobals.Easing.easeInOut;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.phys;
 	}
 
 	[Serializable]
@@ -229,7 +233,7 @@ namespace DelftToolkit {
 	public class ActionListen {
 		[NodeEnum] public AiGlobals.ActionListenTypes type = AiGlobals.ActionListenTypes.timed;
 		[Tooltip("Time Limit (Seconds)")]
-		public float duration = 5;
+		public float duration = 10;
 		[Tooltip("Source")]
 		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 		[NodeEnum] public AiGlobals.ActionLang lang = AiGlobals.ActionLang.enUS;
@@ -249,6 +253,8 @@ namespace DelftToolkit {
 	public class ActionRecognize {
 		[NodeEnum] public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.one;
 		[NodeEnum] public AiGlobals.ActionRecognizeModels model = AiGlobals.ActionRecognizeModels.googlenet;
+		public float minDistance = 5;
+		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 	}
 
 	[Serializable]

@@ -66,6 +66,7 @@ public class DelftActionDrawer : PropertyDrawer {
 				NextLine(ref pos);
 				DrawNextProperty(ref pos, actionServo, "time", 60, new GUIContent(DelftStyles.timeIcon));
 				DrawNextProperty(ref pos, actionServo, "angle", 50, new GUIContent(DelftStyles.angleIcon));
+				DrawNextProperty(ref pos, actionServo, "source", 50, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.textToSpeech:
 				SerializedProperty actionSpeak = property.FindPropertyRelative("speakParams");
@@ -85,8 +86,10 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				SerializedProperty actionRecognize = property.FindPropertyRelative("recognizeParams");
-				//DrawNextProperty(ref pos, actionRecognize, "type", 70, GUIContent.none);
-				DrawNextProperty(ref pos, actionRecognize, "model", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionRecognize, "model", 70, GUIContent.none); // minDistance
+				DrawNextProperty(ref pos, actionRecognize, "source", 50, GUIContent.none);
+				NextLine(ref pos);
+				DrawNextProperty(ref pos, actionRecognize, "minDistance", 20, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.playSound:
 				SerializedProperty actionPlaySound = property.FindPropertyRelative("playSoundParams");
