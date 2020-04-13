@@ -41,7 +41,7 @@ easings = ["none", "easeIn", "easeOut", "easeInOut"]
 speak_task = False
 speak_phrase = "hello world"
 listen_task = False
-listen_duration = 2
+# listen_duration = 2
 
 default_recognize_model = "squeezenet"
 
@@ -56,19 +56,27 @@ motor_1.throttle = 0.0
 motor_2.throttle = 0.0
 
 #NeoPixel
-num_pixels = 16
+num_pixels = 16 # 16 for old robot - change for the number your NeoPixel ring has
 # for blinking
 blink = False
 blink_state = False
-blink_color = (127,0,0,0)
+# blink_color = (127,0,0) #rgb
+blink_color = (127,0,0,0) #rgbw
+# neo_black = (0,0,0) #rgb
+neo_black = (0,0,0,0) #rgbw
 blink_delay = 0.1
 blink_times = 2
 blink_next_time = time.time() + blink_delay
-# bpp=4 is required for RGBW
+# bpp=4 is required for RGBW NeoPixels
 pixels = NeoPixel(crickit.seesaw, 20, num_pixels, brightness=0.02, pixel_order=neopixel.RGBW, bpp=4)
-# black out the LEDs
-pixels.fill((1,2,3,0)) # there's a bug in the neopixel lib that ignores zeros in rgbw
+# bpp=3 is required for RGB NeoPixels
+# pixels = NeoPixel(crickit.seesaw, 20, num_pixels, brightness=0.04, pixel_order=neopixel.RGB, bpp=3)
+
+# black out the LEDs on start
+pixels.fill(neo_black)
+# there was a bug in the neopixel lib that ignores zeros in rgbw
 # https://github.com/adafruit/Adafruit_CircuitPython_seesaw/issues/32
+
 # DEFINE sensors
 # For signal control, we'll chat directly with seesaw, use 'ss' to shorted typing!
 ss = crickit.seesaw
@@ -79,7 +87,6 @@ analog_next_time = time.time() + analog_interval
 # ports to be scanned each interval
 analog_ports = [False,False,False,False,False,False,False,False,False]
 
-
 touch_interval = .5
 touch_next_time = time.time() + touch_interval
 # ports to be scanned each interval
@@ -87,6 +94,8 @@ touch_ports = [False,False,False,False,False]
 
 move_stop_time = time.time()
 move_stop_interval = 10.0 #seconds
+
+watson_timeout = 600 #
 
 def name_val(arr, name):
   if name in arr:
@@ -149,9 +158,8 @@ def listen_loop(q):
         if stt == None:
             iamkey, url = command[2:4]
             watson_lang = "enUS"
-            timeout = -1
               # print("Watson STT initializing key: " + iamkey + " url: " + url)
-            stt = stt_watson.stt_watson(iamkey, url, watson_lang, timeout)
+            stt = stt_watson.stt_watson(iamkey, url, watson_lang, watson_timeout)
             watson_init = True
         else:
           print("Watson STT Already Initialized ")
@@ -159,21 +167,25 @@ def listen_loop(q):
       model, lang, time_limit = command[1:4]
       if model == "watson":
         if stt != None and watson_init and lang == watson_lang:
-          print("request transcript")
+          #print("requesting transcript...")
           watson_lang = lang
-          #print("Watson Transcribing... ")
+          print("Watson Transcribing... ")
           transcription = stt.transcribe(watson_lang, time_limit).replace("'","")
         else:
           # print("Can't transcribe, Watson not initialized...")
-          # transcription = "Watson STT not initialized"
-          print("Watson STT initializing key: " + iamkey + " url: " + url)
-          stt.restart(watson_lang)
-          transcription = stt.transcribe(watson_lang, time_limit).replace("'","")
-          watson_init = True
+          print("Watson STT not initialized...")
+          # print("Watson STT initializing key: " + iamkey + " url: " + url)
+          #print("Watson starting...") ## Need iamkey for this to work
+          # watson_lang = lang
+          # stt = stt_watson.stt_watson(iamkey, url, watson_lang, watson_timeout)
+          # time.sleep(5)
+          # print("Watson Transcribing... ")
+          # transcription = stt.transcribe(watson_lang, time_limit).replace("'","")
+          # watson_init = True
         # transcription = sp.speech2text(duration).replace("'","")
         if (transcription != ""):
+          print("sending final transcription: " + transcription)
           client.send_message("/str/speech2text/", transcription)
-          print("accepted final transcription: " + transcription)
         else:
           print("no transcription")
           client.send_message("/str/speech2text/", "no transcription")
@@ -253,9 +265,9 @@ def move_cb(adr, type, move_time, speed, easing):
 
 
 def leds_cb(adr, type, dly_time, lednum, color):
-  global blink, blink_color, blink_delay, blink_next_time, blink_state, blink_times
+  global blink, blink_color, blink_delay, blink_next_time, blink_state, blink_times, blink_times_total
   dly_time = '%.5f'%(dly_time) # Unity sends very long floats that upset the Arduino
-  #print("leds: " + type + " " +  str(dly_time) + " " + str(lednum) + " " +  color)
+  print("leds: " + type + " " +  str(dly_time) + " " + str(lednum) + " " +  color)
   arduinoStr = '{},{},{},{},{}\n'.format(
     name_val(events, strip_adr(adr)),
     name_val(types, type),
@@ -268,7 +280,8 @@ def leds_cb(adr, type, dly_time, lednum, color):
     green = int(color.split(',')[1])
     blue = int(color.split(',')[2])
     white = 0
-    set_color = (green, red, blue, white) #rgb r& g are reversed
+    #set_color = (green, red, blue) #for rgb neopixels - r& g are reversed
+    set_color = (green, red, blue, white) #for rgbw neopixels r& g are reversed
     #print("led command...",set_color)
 
     #print("type: " + type + " " + str(name_val(types, "set")))
@@ -277,12 +290,12 @@ def leds_cb(adr, type, dly_time, lednum, color):
       if lednum == -1:
         # set all the leds to the same color
         pixels.fill((set_color))
-      elif lednum > 0 and lednum < num_pixels:
+      elif lednum >= 0 and lednum < num_pixels:
         pixels[lednum] = set_color
     #elif type == name_val(types, "allOff"):
     elif type == "allOff":
       print("leds allOff")
-      pixels.fill((0,0,0,0))
+      pixels.fill(neo_black)
     elif type == "blink":
       print("leds set blink...")
       blink_delay = float(dly_time)
@@ -290,7 +303,8 @@ def leds_cb(adr, type, dly_time, lednum, color):
       blink = True
       blink_color = set_color
       blink_state = False
-      blink_times = (lednum  * 2)
+      blink_times_total = (lednum  * 2)
+      blink_times = blink_times_total
 
       #pixels.fill((color))
       #print(blink, blink_color, blink_delay, blink_next_time, blink_state, blink_times)
@@ -304,7 +318,8 @@ def delay_cb(adr, type, time):
     name_val(types, type),
     time
   )
-  if ser != None: ser.write(arduinoStr.encode())
+  if not send_serial_command(arduinoStr):
+      print("no delay fuction on the RPi")
 
 def analogin_cb(adr, type, interval, port):
   global analog_ports, analog_interval
@@ -389,7 +404,7 @@ def recognize_cb(adr, type, model):
   recognize_q.put(model)
 
 def main(_):
-  global ser, blink, blink_state, blink_delay, blink_next_time, blink_color, blink_times
+  global ser, blink, blink_state, blink_delay, blink_next_time, blink_color, blink_times, blink_times_total
   global analogin, analog_ports, analog_interval, analog_next_time, move_stop_time
   global touch_ports, touch_interval, touch_next_time
   count = 0.0;
@@ -408,10 +423,10 @@ def main(_):
         if time.time() > blink_next_time and blink_times > 0:
           #print("blink... times=" + str(blink_times) + " next time=" + str(blink_next_time))
           if blink_state:
-            pixels.fill((0,0,0,0)) #OFF
+            pixels.fill(neo_black) #OFF
             #print("OFF")
           else:
-            print(str(blink_times / 2) + " " + "ON")
+            print(str(blink_times / 2) + " of " + str(blink_times_total / 2) + " ON")
             pixels.fill(blink_color) #ON
           blink_next_time = time.time() + blink_delay
           blink_times = blink_times - 1
@@ -419,7 +434,7 @@ def main(_):
         elif time.time() <= blink_next_time and blink_times < 1:
             #print("blink DONE")
             blink = False
-            pixels.fill((0,0,0,0)) #OFF
+            pixels.fill(neo_black) #OFF
 
       #### ANALOGIN
       # the interval is the same for all ports -- maybe have a separate array for intervals?
@@ -569,6 +584,13 @@ if __name__ == '__main__':
       help='serial port name for the arduino'
   )
 
+  parser.add_argument(
+      '--announce',
+      type=str,
+      default='',
+      help='phrase to say on startup'
+  )
+
   FLAGS, unparsed = parser.parse_known_args()
 
   # set up handlers for incoming OSC messages
@@ -644,10 +666,10 @@ if __name__ == '__main__':
   # wait for model init to finish before waiting for commands
   recognition_ready_e.wait()
 
-  audio_output_q.put(("speak","pico","GB","hello"))
+  audio_output_q.put(("speak","pico","GB",FLAGS.announce))
   print("Delft Toolkit Initialization Complete")
   # blink leds
-  leds_cb("/leds", "blink", 0.1, 10, "0,0,127")
+  leds_cb("/leds", "blink", 0.1, 10, "0,0,127,0")
 
   analogin = False
 

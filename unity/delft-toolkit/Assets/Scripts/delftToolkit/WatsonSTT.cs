@@ -135,6 +135,9 @@ public class WatsonSTT : MonoBehaviour
             case AiGlobals.ActionLang.zhCN:
                 _recognizeModel = "zh-CN_BroadbandModel";
                 break;
+            case AiGlobals.ActionLang.koKR:
+                _recognizeModel = "ko-KR_BroadbandModel";
+                break;
             default:
                 _recognizeModel = "en-US_BroadbandModel";
                 break;
@@ -151,7 +154,7 @@ public class WatsonSTT : MonoBehaviour
     public void StopRecording()
     {
         if (lastTranscription != "") {
-            m_callbackMethod(lastTranscription);
+            //m_callbackMethod(lastTranscription);
         }
         Active = false;
         if (_recordingRoutine != 0)
@@ -235,15 +238,15 @@ public class WatsonSTT : MonoBehaviour
             {
                 foreach (var alt in res.alternatives)
                 {
-                    // string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
-                    // Log.Debug("ExampleStreaming.OnRecognize()", text);
+                    string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
+                    Log.Debug("ExampleStreaming.OnRecognize()", text);
                     if (res.final) {
-                        StopRecording();
                         lastTranscription = "";
                         m_callbackMethod(alt.transcript);
+                        StopRecording();
                     } else {
                         lastTranscription = alt.transcript;
-                        StopRecording();
+                        // StopRecording();
                     }
                 }
             }

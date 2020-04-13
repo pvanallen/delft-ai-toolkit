@@ -71,6 +71,10 @@ class tts_watson(object):
       voice = "de-DE_DieterVoice"
     elif "DE2" in vc:
       voice = "de-DE_BirgitVoice"
+    elif "KO1" in vc:
+      voice = "ko-KR_YoungmiVoice"
+    elif "KO2" in vc:
+      voice = "ko-KR_YunaVoice"
     else:
       voice = "en-US_MichaelVoice"
 
@@ -80,4 +84,4 @@ class tts_watson(object):
       accept='audio/wav; rate=44100',
       voice=voice
     )
-    os.system("play -q -V1 audio/watson.wav") 
+    os.system("play -q -V1 audio/watson.wav")

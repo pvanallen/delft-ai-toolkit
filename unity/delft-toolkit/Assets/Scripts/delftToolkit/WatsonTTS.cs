@@ -143,6 +143,12 @@ public class WatsonTTS : MonoBehaviour
         case "zhCN2":
             voice = "zh-CN_WangWeiVoice";
             break;
+        case "koKO1":
+            voice = "ko-KR_YoungmiVoice";
+            break;
+		case "koKO2":
+            voice = "ko-KR_YunaVoice";
+            break;
         default:
             voice = "en-US_MichaelVoice";
             break;
