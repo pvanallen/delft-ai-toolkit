@@ -24,8 +24,8 @@ _______________
 * In TouchOSC this is under Settings (dot in lower right)>Connections/OSC/Host and Port (outgoing)
 * In CleanOSC this is in Settings under Client Address and Client Port
 
-<img src="images/touchosc1.jpg" width="300"> <img src="images/touchosc2.jpg" width="300">br><br><br>
-<img src="images/cleanosc1.jpg" width="300"> <img src="images/cleanosc2.jpg" width="300">br><br>
+<img src="images/touchosc1.jpg" width="300"> <img src="images/touchosc2.jpg" width="300"><br><br>
+<img src="images/cleanosc1.jpg" width="300"> <img src="images/cleanosc2.jpg" width="300"><br>
 
 ### Set up the Toolkit
 
@@ -36,7 +36,7 @@ _______________
 * Also in the condition node, set up a **Trigger Condition** to capture the value you want to respond to. Typically the app will send a "1" when the button is pressed, and "0" when the button is released. So for example, you can create a trigger condition that looks for a value greater than zero to trigger the action you want taken when the button is pressed.
 * SEE the OSCMarionette example graph in the toolkit for an example
 
-<img src="images/toolkit-marionette-settings.jpg" width="500">br><br><br>
+<img src="images/marionette-ip.gif" width="500"><br><br>
 <img src="images/float-touchosc.gif" width="300"> <img src="images/float-cleanosc.gif" width="300"><br><br>
 
 ## Use your app to send OSC to the toolkit
