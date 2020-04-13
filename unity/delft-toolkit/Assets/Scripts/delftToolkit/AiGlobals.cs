@@ -91,6 +91,8 @@ public class AiGlobals : MonoBehaviour {
 		itIT1,
 		deDE1,
 		deDE2,
+		koKO1, // ko-KR_YoungmiVoice
+		koKO2, // ko-KR_YunaVoice
 		zhCN1, // zh-zh-CN_ZhangJingVoice
 		zhCN2, // zh-CN_WangWeiVoice
 	}
@@ -102,6 +104,7 @@ public class AiGlobals : MonoBehaviour {
 		esES,
 		frFR,
 		itIT,
+		koKR, // ko-KR_BroadbandModel
 		zhCN,
 	}
 
