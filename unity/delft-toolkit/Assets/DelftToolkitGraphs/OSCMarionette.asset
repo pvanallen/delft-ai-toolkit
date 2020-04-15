@@ -1,5 +1,159 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8720773277333209768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1bd68c5b9fb7746bd309dff4e647e0, type: 3}
+  m_Name: Float Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -376, y: 56}
+  ports:
+    keys:
+    - valueOut
+    - enter
+    - exit
+    - conditions 0
+    values:
+    - _fieldName: valueOut
+      _node: {fileID: -8720773277333209768}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -8720773277333209768}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114025086956921662}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -8720773277333209768}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: conditions 0
+      _node: {fileID: -8720773277333209768}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114377228326472098}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  filter:
+    device: 0
+    source: 0
+    messageFilter: /num/1/push2/
+    messageType: 0
+    port: 2
+  inputType: 2
+  conditions:
+  - compareType: 0
+    floatValA: 0
+    floatValB: 2
+    inverse: 0
+  valueOut: 0
+  _value: 0
+--- !u!114 &-7509566128960773359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1bd68c5b9fb7746bd309dff4e647e0, type: 3}
+  m_Name: Float Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -376, y: 760}
+  ports:
+    keys:
+    - valueOut
+    - enter
+    - exit
+    - conditions 0
+    values:
+    - _fieldName: valueOut
+      _node: {fileID: -7509566128960773359}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -7509566128960773359}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exit
+        node: {fileID: 114025086956921662}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7509566128960773359}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: conditions 0
+      _node: {fileID: -7509566128960773359}
+      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 114377228326472098}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  filter:
+    device: 0
+    source: 0
+    messageFilter: /num/clean__project_1__button_2/
+    messageType: 0
+    port: 2
+  inputType: 3
+  conditions:
+  - compareType: 0
+    floatValA: 0
+    floatValB: 2
+    inverse: 0
+  valueOut: 0
+  _value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20,6 +174,9 @@ MonoBehaviour:
   - {fileID: 114025086956921662}
   - {fileID: 114394093139064816}
   - {fileID: 114759910912715250}
+  - {fileID: -8720773277333209768}
+  - {fileID: -7509566128960773359}
+  - {fileID: 6481232677355730564}
 --- !u!114 &114023052582696596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +267,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -600, y: -88}
+  position: {x: -648, y: 232}
   ports:
     keys:
     - enter
@@ -136,6 +293,12 @@ MonoBehaviour:
       - fieldName: enter
         node: {fileID: 114546314532891356}
         reroutePoints: []
+      - fieldName: enter
+        node: {fileID: -8720773277333209768}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: -7509566128960773359}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -153,7 +316,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: 56}
+  position: {x: 104, y: 440}
   ports:
     keys:
     - actions
@@ -163,7 +326,7 @@ MonoBehaviour:
     - actions 0
     - actions 1
     - actions 2
-    - FloatIn
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114377228326472098}
@@ -190,7 +353,10 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: conditions 0
-        node: {fileID: 114546314532891356}
+        node: {fileID: -8720773277333209768}
+        reroutePoints: []
+      - fieldName: conditions 0
+        node: {fileID: -7509566128960773359}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -235,7 +401,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
-    - _fieldName: FloatIn
+    - _fieldName: floatIn
       _node: {fileID: 114377228326472098}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -246,7 +412,7 @@ MonoBehaviour:
       _dynamic: 0
   actions:
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -282,6 +448,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 0.5
@@ -297,12 +464,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -338,6 +507,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -353,12 +523,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -394,6 +566,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -409,6 +582,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -418,7 +593,7 @@ MonoBehaviour:
   device: 0
   expanded: 1
   stringIn: 
-  FloatIn: 0
+  floatIn: 0
 --- !u!114 &114394093139064816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +607,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 322.92294, y: -72.779495}
+  position: {x: 472, y: 312}
   ports:
     keys:
     - enter
@@ -475,7 +650,7 @@ MonoBehaviour:
   m_Name: Float Condition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -376, y: 56}
+  position: {x: -376, y: 440}
   ports:
     keys:
     - valueOut
@@ -519,7 +694,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: 114377228326472098}
+        node: {fileID: 114717817919225364}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -552,7 +727,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: -280}
+  position: {x: 104, y: 104}
   ports:
     keys:
     - actions
@@ -562,7 +737,7 @@ MonoBehaviour:
     - actions 0
     - actions 1
     - actions 2
-    - FloatIn
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114717817919225364}
@@ -590,6 +765,9 @@ MonoBehaviour:
       connections:
       - fieldName: conditions 0
         node: {fileID: 114023052582696596}
+        reroutePoints: []
+      - fieldName: conditions 0
+        node: {fileID: 114546314532891356}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -634,7 +812,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
-    - _fieldName: FloatIn
+    - _fieldName: floatIn
       _node: {fileID: 114717817919225364}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -645,7 +823,7 @@ MonoBehaviour:
       _dynamic: 0
   actions:
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -681,6 +859,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 0.5
@@ -696,12 +875,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -737,6 +918,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -752,12 +934,14 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -793,6 +977,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -808,6 +993,8 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 18
       source: 0
@@ -817,7 +1004,7 @@ MonoBehaviour:
   device: 0
   expanded: 1
   stringIn: 
-  FloatIn: 0
+  floatIn: 0
 --- !u!114 &114759910912715250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,12 +1015,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
-  m_Name: Using OSC
+  m_Name: Using Touch OSC
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: -648, y: -280}
   ports:
     keys: []
     values: []
-  text: 'Uses OSC from the TouchOSC app to trigger simple behaviors in the robot.
-    Works with TouchOSC push buttons sending /1/push1 and /1/push2. '
+  text: "Uses OSC from the TouchOSC app to trigger simple behaviors in the robot.
+    Works with TouchOSC push buttons sending \n\n/1/push1\n\n /1/push2"
+--- !u!114 &6481232677355730564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db4480aadcf4f94eb3bbc694a6c5cb7, type: 3}
+  m_Name: Using Clean OSC
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648, y: 456}
+  ports:
+    keys: []
+    values: []
+  text: "Uses OSC from the CleanOSC app to trigger simple behaviors in the robot.
+    Works with CleanOSC push buttons sending\n /num/clean__project_1__button_1/\n
+    /num/clean__project_1__button_2/"

@@ -32,8 +32,6 @@ MonoBehaviour:
   - {fileID: 114412182002783424}
   - {fileID: 114603270111657486}
   - {fileID: 114728867026376646}
-  - {fileID: 5667515801424711911}
-  - {fileID: 507080377577224154}
 --- !u!114 &114034262261978804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,7 +1220,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 456}
+  position: {x: 424, y: 504}
   ports:
     keys:
     - actions
@@ -2140,7 +2138,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 232}
+  position: {x: 424, y: 264}
   ports:
     keys:
     - actions
@@ -2330,12 +2328,13 @@ MonoBehaviour:
   m_Name: Condition Example w/Keyboard
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: -264}
+  position: {x: 8, y: -280}
   ports:
     keys: []
     values: []
-  text: Shows condition with 5 different triggers. Uses the keyboard as input where
-    F=forward, B=backward, L=turn left, R=turn right
+  text: Shows condition with 5 different triggers. Uses the keyboard in the standard
+    WASD gaming format (+ arrow keys) as input where W=forward, A=turn left, S=backward, 
+    D=turn right
 --- !u!114 &114461412763729870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2717,7 +2716,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 8}
+  position: {x: 424, y: 24}
   ports:
     keys:
     - actions
@@ -2970,17 +2969,17 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 1
   conditions:
-  - compareType: 0
-    strVal: F
+  - compareType: 2
+    strVal: W,UpArrow
     inverse: 0
-  - compareType: 0
-    strVal: B
+  - compareType: 2
+    strVal: S,DownArrow
     inverse: 0
-  - compareType: 0
-    strVal: R
+  - compareType: 2
+    strVal: D,RightArrow
     inverse: 0
-  - compareType: 0
-    strVal: L
+  - compareType: 2
+    strVal: A,LeftArrow
     inverse: 0
   - compareType: 3
     strVal: 
@@ -2992,7 +2991,7 @@ MonoBehaviour:
     messageFilter: /str/keydown/
     messageType: 0
   inputType: 2
-  _value: F
+  _value: UpArrow
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3006,7 +3005,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 424, y: 680}
+  position: {x: 424, y: 744}
   ports:
     keys:
     - actions
@@ -3183,291 +3182,3 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
---- !u!114 &507080377577224154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
-  m_Name: Actions
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 312, y: 968}
-  ports:
-    keys:
-    - actions
-    - stringIn
-    - floatIn
-    - enter
-    - exit
-    - actions 0
-    values:
-    - _fieldName: actions
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: stringIn
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: floatIn
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: enter
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: actions 0
-      _node: {fileID: 507080377577224154}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 2
-      _dynamic: 1
-  actions:
-  - stringIn: 
-    floatIn: 0
-    actionType: 2
-    moveParams:
-      type: 1
-      source: 0
-      time: 1
-      speed: 0.5
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: 15
-      color:
-        serializedVersion: 2
-        rgba: 4280680575
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      interval: 50
-      port: 1
-      type: 0
-      source: 0
-    touchParams:
-      interval: 50
-      port: 1
-      type: 0
-      source: 1
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      portLabel: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-      source: 1
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-      source: 0
-      model: 1
-    listenParams:
-      type: 0
-      duration: 10
-      source: 0
-      lang: 0
-      model: 0
-    recognizeParams:
-      type: 0
-      model: 2
-      minDistance: 5
-      source: 0
-    playSoundParams:
-      type: 23
-      source: 0
-      time: 0.5
-  repeats: 1
-  random: 0
-  device: 0
-  expanded: 1
-  stringIn: 
-  floatIn: 0
---- !u!114 &5667515801424711911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25754cc492994727bd1e1484f4594cd, type: 3}
-  m_Name: Actions
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -200, y: 88}
-  ports:
-    keys:
-    - actions
-    - stringIn
-    - floatIn
-    - enter
-    - exit
-    - actions 0
-    values:
-    - _fieldName: actions
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: System.Collections.Generic.List`1[[DelftToolkit.Action,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: stringIn
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: floatIn
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: enter
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: actions 0
-      _node: {fileID: 5667515801424711911}
-      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 2
-      _dynamic: 1
-  actions:
-  - stringIn: 
-    floatIn: 0
-    actionType: 0
-    moveParams:
-      type: 1
-      source: 1
-      time: 1
-      speed: 0.5
-      easing: 3
-    ledParams:
-      type: 0
-      time: 0
-      ledNum: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278222719
-    delayParams:
-      type: 0
-      time: 1
-    analoginParams:
-      interval: 50
-      port: 1
-      type: 0
-      source: 0
-    touchParams:
-      interval: 50
-      port: 1
-      type: 0
-      source: 1
-    servoParams:
-      type: 0
-      time: 1
-      angle: 90
-      portLabel: 0
-      port: 9
-      varspeed: 127
-      easing: 3
-      source: 1
-    speakParams:
-      type: 0
-      time: 1
-      utterance: Hello World
-      source: 0
-      model: 1
-    listenParams:
-      type: 0
-      duration: 10
-      source: 0
-      lang: 0
-      model: 0
-    recognizeParams:
-      type: 0
-      model: 2
-      minDistance: 5
-      source: 0
-    playSoundParams:
-      type: 23
-      source: 0
-      time: 0.5
-  repeats: 1
-  random: 0
-  device: 0
-  expanded: 1
-  stringIn: 
-  floatIn: 0
