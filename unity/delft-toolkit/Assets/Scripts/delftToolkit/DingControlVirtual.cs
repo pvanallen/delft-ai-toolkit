@@ -19,6 +19,8 @@ namespace DelftToolkit {
 		private float yawTarget;
 		private float pitchTarget;
 		private float servoSpeed = 4;
+		private	bool moveYawNow = false;
+		private bool movePitchNow = false;
 
 		// move motors
 		private AiGlobals.ActionMoveTypes moveType = AiGlobals.ActionMoveTypes.stop;
@@ -111,8 +113,8 @@ namespace DelftToolkit {
 			//	assistant.message("what is machine learning?");
 			//} // else print("Need IamKey to start Watson Text to Speech - See Assets>Resources>DelftAITookitSettings");
 
-			yawTarget = yawJoint.localEulerAngles.z;
-			pitchTarget = pitchJoint.localEulerAngles.y;
+			// yawTarget = yawJoint.localEulerAngles.z;
+			// pitchTarget = pitchJoint.localEulerAngles.y;
 			allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
 		}
 
@@ -165,17 +167,14 @@ namespace DelftToolkit {
 				case AiGlobals.ActionTypes.servo:
 					if ((action.servoParams.source == AiGlobals.SensorSource.virt) 
 					|| (action.servoParams.source == AiGlobals.SensorSource.both)) {
-						//Debug.LogWarning(action.floatIn.ToString());
-						//float newFlt = action.floatIn;
-						//action.servoParams.angle = Mathf.RoundToInt(newFlt);
+						yawTarget = yawJoint.localEulerAngles.z;
+						pitchTarget = pitchJoint.localEulerAngles.y;
 						if (action.servoParams.port == 1) { // pan
-							//yawJoint.localRotation = Quaternion.Euler(0, -180, action.servoParams.angle - 90);
 							yawTarget = Mathf.Clamp(action.servoParams.angle,0,180);
+							moveYawNow = true;
 						} else if (action.servoParams.port == 2) { // tilt
-							//pitchJoint.localRotation = Quaternion.Euler(0, action.servoParams.angle + 180, 0);
 							pitchTarget = Mathf.Clamp(action.servoParams.angle + 180,180,359);
-							//pitchTarget = Mathf.Clamp(pitchTarget, 180, 359);
-							//if (pitchTarget >= 360) pitchTarget = pitchTarget - 360;
+							movePitchNow = true;
 						}
 					}
 					break;
@@ -230,12 +229,6 @@ namespace DelftToolkit {
 			if (sendSensors) {
 				// very crude implementation
 				if (DelftToolkit.DingSignal.onSignalEvent != null) {
-					// float x = transform.position.x * 100.0f;
-					// float y = transform.position.y * 100.0f;
-					// float z = transform.position.z * 100.0f;
-					//print("sending xyz " + z);
-					//DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/vec/analogin/0/", new Vector3(z, x, y));
-					//DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/num/analogin/0/", z);
 					RaycastHit hit;
 					Ray forwardRay = new Ray(transform.position, -Vector3.up);
 
@@ -244,9 +237,9 @@ namespace DelftToolkit {
 					Vector3 fwd = transform.TransformDirection(Vector3.forward);
 					if (Physics.Raycast(transform.position, fwd, out hit))
 						//print("Found an object - distance: " + hit.distance);
-						// make it similar to what comes out of the arduino
+						// make it similar to what comes out of the phycical sensor
 						//distance = 1023 - (hit.distance * 100); // IR sensor
-						distance = hit.distance * 10; // sonar sensor get lower as it gets closer
+						distance = hit.distance * 10; // sonar sensor goes lower as it object gets closer
 					string url = "/num/analogin/" + analoginPort + "/";
 					DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, url, distance);
 					if (DelftToolkit.DingSignal.onSignalEvent != null)
@@ -260,25 +253,18 @@ namespace DelftToolkit {
 					String tag = "Untagged";
 					Transform tilt = FindChildByRecursion(transform,"tilt");
 					RaycastHit hit;
-					// Transform tilt = transform.Find("Cube/Pan-tilt/pan/tilt");
-					//print("Name: " + tilt.name);
-					// foreach (Transform child in transform){
-					// 	print(child.name);
-					// }
-					//Ray forwardRay = new Ray(transform.position, -Vector3.up);
-					//Ray forwardRay = new Ray(Tilt.position, Tilt.forward);
 
-					//Cast a ray straight forwards.
+					//Cast a ray straight forwards from servo tilt/pan head
 					Vector3 fwd = tilt.TransformDirection(Vector3.forward);
 					if (Physics.Raycast(tilt.position, fwd, out hit)) {
 						if (hit.distance < recogDistance) {
 							tag = hit.collider.tag;
 						} else {
 							tag = "far:" + hit.collider.tag;
-							//Debug.LogWarning("recognise: " + tag);
 						}
 					}
-					Debug.DrawRay (tilt.position, fwd, Color.green);
+					//Debug.LogWarning("recognize: " + tag);
+					Debug.DrawRay(tilt.position, fwd * 10, Color.green,2,false );
 					// if (tag != "Untagged") {
 						DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
 						DelftToolkit.DingSignal.onSignalEvent(signal);
@@ -310,14 +296,12 @@ namespace DelftToolkit {
 				ledBlinkNum--;
 			}
 
-
 			// handle servo position
 			moveYaw();
 			movePitch();
 
 			// change this to use separate vars for move and movetype if move active
-			
-			float moveAmount = moveSpeed * speedAdj * Time.deltaTime;
+			float moveAmount = moveSpeed * speedAdj * Time.deltaTime;		
 			switch (moveType) {
 				case AiGlobals.ActionMoveTypes.stop:
 					break;
@@ -328,7 +312,7 @@ namespace DelftToolkit {
 					transform.position -= transform.forward * moveAmount;
 					break;
 				case AiGlobals.ActionMoveTypes.turnRight:
-					transform.Rotate(Vector3.up, 100f * moveAmount);
+					transform.Rotate(Vector3.up, 1 * 100f * moveAmount);
 					break;
 				case AiGlobals.ActionMoveTypes.turnLeft:
 					transform.Rotate(Vector3.up, -1 * 100f * moveAmount);
@@ -406,37 +390,45 @@ namespace DelftToolkit {
 		}
 
 		private void moveYaw() {
-			var yawCurrent = yawJoint.localEulerAngles;
-			float yawChange = servoSpeed;
-			float yawCurrentZNormalized = yawCurrent.z;
-			if (yawCurrentZNormalized != yawTarget) {
-				float yawDiff = yawTarget - yawCurrentZNormalized; 
-				if (yawDiff < 0) {
-					yawChange = -1 * servoSpeed;
-				}
+			if (moveYawNow) {
+				var yawCurrent = yawJoint.localEulerAngles;
+				float yawChange = servoSpeed;
+				float yawCurrentZNormalized = yawCurrent.z;
+				if (yawCurrentZNormalized != yawTarget) {
+					float yawDiff = yawTarget - yawCurrentZNormalized; 
+					if (yawDiff < 0) {
+						yawChange = -1 * servoSpeed;
+					}
 
-				float yawZ = yawCurrentZNormalized + yawChange;
-				if (Mathf.Abs(yawZ - yawTarget) < servoSpeed) {
-					yawZ = yawTarget;
-				}
+					float yawZ = yawCurrentZNormalized + yawChange;
+					if (Mathf.Abs(yawZ - yawTarget) < servoSpeed) {
+						yawZ = yawTarget;
+					}
 
-				//print(yawCurrent.z + " " + yawCurrentZNormalized + " " + yawTarget + " " + yawDiff + " " + yawZ);
-				yawJoint.localRotation = Quaternion.Euler(yawCurrent.x, yawCurrent.y, yawZ);
+					//print(yawCurrent.z + " " + yawCurrentZNormalized + " " + yawTarget + " " + yawDiff + " " + yawZ);
+					yawJoint.localRotation = Quaternion.Euler(yawCurrent.x, yawCurrent.y, yawZ);
+				} else {
+					moveYawNow = false;
+				}
 			}
 		}
 
 		private void movePitch() {
-			var pitchCurrent = pitchJoint.localEulerAngles;
-			float pitchChange = servoSpeed;
-			if (pitchCurrent.y != pitchTarget) {
-				float pitchDiff = pitchTarget - pitchCurrent.y;
-				if (Mathf.Abs(pitchDiff) < servoSpeed) {
-					pitchChange = pitchDiff;
-				} else if (pitchDiff < 0) {
-					pitchChange = -1 * servoSpeed;
+			if (movePitchNow) {
+				var pitchCurrent = pitchJoint.localEulerAngles;
+				float pitchChange = servoSpeed;
+				if (pitchCurrent.y != pitchTarget) {
+					float pitchDiff = pitchTarget - pitchCurrent.y;
+					if (Mathf.Abs(pitchDiff) < servoSpeed) {
+						pitchChange = pitchDiff;
+					} else if (pitchDiff < 0) {
+						pitchChange = -1 * servoSpeed;
+					}
+					float pitchY = Mathf.Clamp(pitchCurrent.y + pitchChange, 0,359);
+					pitchJoint.localRotation = Quaternion.Euler(pitchCurrent.x, pitchY, pitchCurrent.z);
+				} else {
+					movePitchNow = false;
 				}
-				float pitchY = Mathf.Clamp(pitchCurrent.y + pitchChange, 0,359);
-				pitchJoint.localRotation = Quaternion.Euler(pitchCurrent.x, pitchY, pitchCurrent.z);
 			}
 		}
 
