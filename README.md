@@ -1,17 +1,23 @@
 # Delft AI Toolkit
 # Visual Authoring for AI Prototyping
 
-# UPDATE as of March 18, 2020
-NOTE: We're in the process of updating the system to version 3.0, and documentation and files may be correct for the current 2.1.0 release. The new version will include the following changes:
+# UPDATE as of April 15, 2020
+NOTE: We've just release version 3.0.3. The new version includes the following changes:
 
-* New hardware platform - the 3.0 version removes the Arduino from the robot platform, replacing it with the Adafruit [CRIKIT Raspberry Pi Hat](https://www.adafruit.com/product/3957). This simplifies powering the robot and reduces software complexity.
-* Condition Node changes - the Float and String condition nodes are updated to have dropdown menus set the filters for their associated events.
-* Capacitive Touch Sensing - Up to four capacitive touch sensors are now possible. These allow a user to touch parts of the robot and get a reaction.
-* Multiple analog inputs - The software now supports up to eight simultaneous inputs
+* **New hardware platform** - the 3.0 version removes the Arduino from the robot platform, replacing it with the Adafruit [CRIKIT Raspberry Pi Hat](https://www.adafruit.com/product/3957). This simplifies powering the robot and reduces software complexity.
+* **Condition Node changes** - the Float and String condition nodes are updated to include dropdown menus set the filters for their associated events.
+* **Capacitive Touch Sensing** - Up to four capacitive touch sensors are now possible. These allow a user to touch parts of the robot and get a reaction.
+* **Multiple analog inputs** - The software now supports up to eight simultaneous inputs on the CRICKIT.
+* **New language support** - Chinese and Korean have been added to IBM Watson Speech to Text and Text to Speech.
+* **Documentation** - Documentation is updated and improved in many areas
+* **Interaction Refinements** - Many small improvements have been made in the UX of the Node Graph system. More are planned - please [make suggestions](https://github.com/pvanallen/delft-ai-toolkit/issues) in the Issue Tracker.
 
-The Delft AI Toolkit is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
+Issues:
+* **Robot Speech to Text** - Sometimes, the Watson Speech to Text process fails, due to a disconnection from Watson.
 
 # Overview
+The Delft AI Toolkit is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
+
 The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
 
 In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
@@ -23,12 +29,12 @@ In addition, it encourages design strategies that start with simulation and smoo
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
 - [Description](#description)
-- [Documents](#documents)
+- [Documentation](#documentation)
 - [System Components](#system-components)
   - [Visual Authoring & Control System running on a computer](#visual-authoring--control-system-running-on-a-computer)
   - [Robot/Device](#robotdevice)
 - [Current Features](#current-features)
-- [Roadmap as of March 2020](#roadmap-as-of-march-2020)
+- [Roadmap as of April 2020](#roadmap-as-of-april-2020)
 - [System Architecture](#system-architecture)
   - [Hardware](#hardware)
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
@@ -48,17 +54,18 @@ The Delft AI Toolkit a system for designing smart things. It provides a visual a
 
 The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively prototype smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
-## Documents
+## Documentation
 * [Toolkit Documentation](docs/README.md)
 * [ACM Interactions Article on Project](http://www.philvanallen.com/articles/PrototypingWaysOfPrototypingAI-ACM-Interactions.pdf)
 * [Short Project description](http://www.philvanallen.com/portfolio/delft-ai-toolkit/)
 
 ## System Components
 ### Visual Authoring & Control System running on a computer
-  * Visual Authoring with nodes in the Unity3D authoring environment
+  * Visual Authoring by connecting nodes in Unity3D
+
 ### Robot/Device
   * Raspberry Pi + Adafruit Crikit Hat
-  * Motors, servos, sensors, LEDs, microphone, speaker, camera, etc.
+  * Motors, servos, sensors, LEDs, microphone, speaker, camera, battery
 
 Each of these has a codebase here, and include a range of open source libraries.
 
@@ -75,13 +82,12 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 
 <img src="docs/images/speak-recognize-graph.png" width="700">
 
-## Roadmap as of March 2020
+## Roadmap as of April 2020
 * Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
 * More nodes for processing sensor data and logic
 * More documentation
 * Better support for IoT (e.g. IFTTT, web-hooks)
-* Integrate learning and classification (vision and gesture recognition)
-* Integrate Unity Reinforcement learning
+* Integrate learning and classification (vision recognition, for example using teachable Machine or RunwayML) and possibly Unity Reinforcement learning
 * AR - Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
@@ -153,14 +159,15 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
       * **Open Scene** - In the Project, open the the scene that matches the toolkit graph you are using (e.g. Assets>Scenes>MainExamples)
       * **Open a Visual Graph** - In the Unity Project Assets>DelftToolkitGraphs directory, double click on the toolkit visual graph you are currently using (e.g. Assets>DelftToolkitGraphs>MainExamples)
       * **Physical Robot** - If you are using the physical robot (the Unity toolkit will work fine without the robot):
-        * From the Unity menubar, select Delft AI Toolkit>Show Settings. This will select the central settings document (Assets>Resources>DelftAIToolkitSettings) and you can make changes in the Inspector.<br><img src="docs/images/settings.png" width="310">
+        * From the Unity menubar, select **Delft AI Toolkit>Show Settings**. This will select the central settings document (Assets>Resources>DelftAIToolkitSettings) and you can make changes in the Inspector panel.<br><img src="docs/images/settings.png" width="310">
         * In the inspector for "ding1", paste in the IP address of the robot where it says "Robot IP"
-        * If you are not using the physical robot, leave the IP address set to 127.0.0.1
-      * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these run on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free for limited use).
+        * If you are **not** using the physical robot, leave the Ding IP address set to 127.0.0.1
+      * **IBM Watson** - If you are using any of the Watson services (e.g. TextToSpeech or SpeechToText), these are usable on both the computer and on the robot (selectable). To use these services, you'll need an IBM Cloud account (free for limited use).
         * Sign up for an account - http://cloud.ibm.com
-        * Set up the service(s) you are using
+        * Set up the service(s) you want to use in the toolkit
         * Create credentials for using the service in the API Key format (also called IAM Key).<br><img src="docs/images/watson-credentials.png" width="370">
-        * Enter the API Key/IAM Key in the corresponding field in the settings document. Delft AI Toolkit>Show Settings
+        * Enter the API Key/IAM Key in the corresponding field in the toolkit settings asset. **Delft AI Toolkit>Show Settings**, then open the inspector panel in Unity: **Window>General>Inspector**
+      * **Start Robot Software** - If you are using the robot, you need to start the software running on the robot before starting up the graph in Unity. This allows Unity to initialize the Watson software on the robot.
       * **Play** - Click on the Unity **Play** button
       * **Start Graph** - In the xNode Toolkit graph pane, click on the "Start" node Trigger button to run the whole graph, or use Trigger on any individual node
         * **For keyboard or OSC** - Click on the Game pane (this is to ensure Unity is receiving all commands -- if you find it is not responding to the keyboard or OSC, click this pane)
@@ -174,10 +181,8 @@ ssh pi@delftbt0.local
 ifconfig
 # login to the RPi via WiFi, change the example IP to that RPi
 ssh pi@10.4.27.47
-# change to the toolkit software directory
-cd delft-ai-toolkit
 # start the RPi software, change the example IP to that of the computer running Unity
-python3 delft_toolkit.py --server_ip 10.4.18.109
+* python3 delft-ai-toolkit/delft_ai_toolkit.py --server_ip 192.168.1.21 —announce hello
 # shutdown before disconnecting the power, then wait for 10 seconds
 sudo poweroff
 ```

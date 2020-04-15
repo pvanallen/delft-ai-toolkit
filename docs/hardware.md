@@ -7,8 +7,8 @@ ________________
   - [Description](#description)
   - [Hardware Parts list](#hardware-parts-list)
   - [Hardware Assembly](#hardware-assembly)
-    - [Assemble the robot platform instructions - see also this page for a similar project with details/photos](#assemble-the-robot-platform-instructions---see-also-this-page-for-a-similar-project-with-detailsphotos)
     - [Prepare the electronics](#prepare-the-electronics)
+    - [Assemble the robot platform - see also this page for a similar project with details/photos](#assemble-the-robot-platform---see-also-this-page-for-a-similar-project-with-detailsphotos)
     - [Connect parts together](#connect-parts-together)
   - [Installing Delft AI Toolkit software](#installing-delft-ai-toolkit-software)
     - [Computer](#computer)
@@ -33,56 +33,60 @@ ________________
 
 ## VERSION 3 HARDWARE (2020)
 ### Description
-The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi uses a "hat" for sensors, LEDs, DC wheel motors and camera positioning Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
+The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi uses a "hat" for working with sensors, LEDs, DC wheel motors and camera positioning Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
 
 ### Hardware Parts list
-* [Robot Platform Kit](https://www.adafruit.com/product/3244)
+* [Robot Platform](https://www.adafruit.com/product/3796)
+  * [2 motors for wheels](https://www.adafruit.com/product/3777)
+  * [2 wheels](https://www.adafruit.com/product/3757)
+  * [ball caster](https://www.adafruit.com/product/1200)
 * [Raspberry Pi 3 B+](https://www.adafruit.com/product/3775) - we're still testing the Pi 4
 * [CRICKIT Hat](https://www.adafruit.com/product/3957)
-* [Pi Camera](https://www.adafruit.com/product/3099) & [8" camera cable](https://www.adafruit.com/product/1647)
+* [Pi Camera](https://www.adafruit.com/product/3099)
+  * [8" camera cable](https://www.adafruit.com/product/1647)
+  * [camera case](https://www.adafruit.com/product/3253)
 * [USB Mic](https://www.adafruit.com/product/3367)
 * [Speaker](https://www.adafruit.com/product/3351)
 * [NeoPixel 12 Light Ring](https://www.adafruit.com/product/1643)
 * [Ultrasonic Proximity Sensor](https://www.adafruit.com/product/172)
-* [Pan/Tilt Servo Kit](https://www.adafruit.com/product/1967)
+* [Pan/Tilt Servo Kit as camera mount](https://www.adafruit.com/product/1967)
 * [USB 5V 2A Rechargeable Battery for RPi](https://www.adafruit.com/product/1565)
-* [USB to 2.1mm Male Barrel Jack Cable](https://www.adafruit.com/product/2697) (connects batt to CRIKIT)
+* [USB to 2.1mm Male Barrel Jack Cable](https://www.adafruit.com/product/2697) (connects battery to CRIKIT to power both CRICKIT and RPi)
 
-In addition to the above, the robot uses a couple pieces of plexiglass (or other appropriate material) for mounting all the components. It also uses a 3D printed "L" bracket to mount the pan/tilt servos, and a 3D printed light diffuser to cover the NeoPixel ring
-* 6"x5" / 15.2cm x 12.7cm main platform - mounted as the top layer instead of the circular metal plate supplied with the Adafruit robot kit
-* 2"x5" / 5cm x 12.7cm front plate - used to mount the camera-pan/tilt, NeoPixel, and IR sensor
-* ["L" bracket](https://www.tinkercad.com/things/ikA8s2YAOyl) - 3D printed part used to mount the pan/tilt servos
+In addition to the above, the robot uses screws and [velcro](https://www.amazon.com/Monoprice-Hook-Loop-Fastening-0-75-inch/dp/B004AF9II6/) for mounting all the components, and a 3D printed light diffuser to cover the NeoPixel ring
+* ["L" bracket](https://www.tinkercad.com/things/ikA8s2YAOyl) - optional 3D printed part used to mount the camera pan/tilt servos
 * [NeoPixel Diffuser](https://www.tinkercad.com/things/hJRIqCVGwtZ) - fits over the NeoPixel Ring and helps diffuse the light
 
 ### Hardware Assembly
 
 <img src="images/crickit-board.jpg" width="512"><br>
 
-#### Assemble the robot platform [instructions](https://learn.adafruit.com/tri-layer-mini-round-robot-chassis-kit) - see also [this page for a similar project with details/photos](https://learn.adafruit.com/curiebot-arduino-101-mini-robot-rover/assembling-and-wiring-your-robot)
-  * Be sure to mount the motors between the bottom and middle layers
-  * Leave off the top (3rd) layer (will be replaced by the plexiglass platform)
-  * When screwing on the second layer, mount the metal standoffs in locations that leave an opening in the front so the USB battery can slip in and out
-  * Attach the 6"x5" plexiglass platform as the top layer
-  * Use small metal L brackets to attach the 2"x5" front plate to the top layer
-  * If you are using the pan/tilt camera servos, 3D print the "L" mount for them and attach it to the front plate on one side, and mount the pan/tilt on top of the "L" mount
-
 #### Prepare the electronics
   * Create a Deflt AI Toolkit SD card for the RPi (see below)
-  * For audio to work correctly on the CRICKIT, you **must** [cut a small trace](https://learn.adafruit.com/adafruit-crickit-hat-for-raspberry-pi-linux-computers/speaker-output) on the bottom of the CRICKIT circuit board
-  * Install the CRICKIT on the RPi
-  * Mount the assembled RPi on the platform (velcro stick-on-strips are handy for this rather than screws)
+  * For audio to work correctly on the CRICKIT, you **must [cut a small trace](https://learn.adafruit.com/adafruit-crickit-hat-for-raspberry-pi-linux-computers/speaker-output)** on the bottom of the CRICKIT circuit board (see photo below)
+  * Install the camera ribbon cable, feeding it through the CRIKIT camera cable hole, to connect to the RPi (blue side facing the Ethernet jack), then connect the cable to the Camera
+  * Carefully install the CRICKIT on the RPi using the included extension pins while keeping the camera cable plugged in
+  * Plug the mic into the RPi upper right USB plug
+
 
   <br><img src="images/raspberry_pi_crickit_hat_cut_trace.jpg" width="512"><br>
 
+#### Assemble the robot platform - see also [this page for a similar project with details/photos](https://learn.adafruit.com/circuitpython-ble-crickit-rover/build-the-rover)
+  1. Mount the motors, then attach the wheels to the motors
+  1. Attach the ball caster to the bottom front of the platform
+  1. Use double faced tape to mount the pan/tilt servos to the front top of the Platform
+  1. Mount the RPi with CRICKIT installed onto the top of the platform using velcro - mount it sideways so the USB plugs face toward the right wheel - be sure mount it so an ethernet cable can be plugged in next to the wheel
+  1. Mount the speaker underneath the platform, facing down, with velcro or double faced tape
+
 #### Connect parts together
-  * Solder the connection wires and mount the Neopixel ring and Ultrasonic sensor on the front
+  * Solder the connection wires and mount the Neopixel ring and Ultrasonic sensor on the front, then connect the wires to the CRICKIT, routing them through the platform
   * Connect the pan/tilt servos to the servo ports (pan 1, tilt 2) on the CRICKIT
-  * Connect the two DC motors to the motor ports on the CRICKIT connect the red wires to the inner pins next to the GND outlet [Diagram](https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit/circuitpython-dc-motors#step-3002673)
+  * Connect the two DC motors to the motor ports on the CRICKIT - connect the red wires to the inner pins next to the GND outlet - [Diagram](https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit/circuitpython-dc-motors#step-3002673)
   * Connect the Proximity sensor to CRICKIT - I/O port row 1: Signal to Signal, power to 3.3V, Ground to GND
-  * Connect the NeoPixel Ring: NeoPixel connections, 5V, signal, ground
+  * Connect the NeoPixel Ring to the CRICKIT NeoPixel connections, 5V, signal, ground
   * Attach the speaker to CRICKIT Hat
-  * Mount the USB battery pack between the bottom and top platform layers (add stick on fuzzy velcro to make it a tight fit), and attach a short USB A to 2.1mm Male Barrel Jack cable to the battery (don't power the RPI until ready)
-* Follow the startup sequence on the [main page](../README.md)
+  * Mount the USB battery pack to the back side of the platform using Velcro, and attach a short USB A to 2.1mm Male Barrel Jack cable from the battery to the CRICKIT
+  * Follow the startup sequence on the [main page](../README.md)
 
 <img src="images/robot6.jpg" width="512"><br><br>
 <img src="images/robot4.jpg" width="512"><br><br>

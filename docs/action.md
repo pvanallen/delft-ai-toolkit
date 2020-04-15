@@ -116,7 +116,9 @@ The Random checkbox changes the behavior of the node to run one random action in
 * **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu: Delft AI Toolkit>Show Settings
 
 ### Recognize - Perform object recognition from the camera
-* *Recognition Model* - Select the machine learning model to be used. The models are well known models, where they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. **Note**: Actual object recognition happens on the robot, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. In the Unity virtual environment, the Recognition Model setting has no effect.
+* *Recognition Model* - Select the machine learning model to be used. The models are well known models - they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. In the Unity virtual environment, the Recognition Model setting has no effect.
+  * **Note**: True object recognition happens on the robot through its camera, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. Whatever the robot is pointed at will return the tag name applied to the object it "sees." Note also that the pan/tilt on the virt robot affects what it "sees" and the direction of the higher tilt surface is what it is pointing at.
+  * **Minimum distance** - In the virtual environment, the number in the action determines if the recognition returns the tag of the object it is "seeing"/pointing at. If it is close enough (i.e. )
 
 ### Touch - Starts or stops values from the capacitive touch sensors (**phys** robot only)
 * *Action* - Start tells the physical device to start sending values. Stop ends the sending of values
