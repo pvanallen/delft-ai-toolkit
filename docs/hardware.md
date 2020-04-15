@@ -47,7 +47,7 @@ The physical robot is currently based on a simple metal robot platform from Adaf
   * [camera case](https://www.adafruit.com/product/3253)
 * [USB Mic](https://www.adafruit.com/product/3367)
 * [Speaker](https://www.adafruit.com/product/3351)
-* [NeoPixel 12 Light Ring](https://www.adafruit.com/product/1643)
+* [NeoPixel 16 Light Ring](https://www.adafruit.com/product/2854)
 * [Ultrasonic Proximity Sensor](https://www.adafruit.com/product/172)
 * [Pan/Tilt Servo Kit as camera mount](https://www.adafruit.com/product/1967)
 * [USB 5V 2A Rechargeable Battery for RPi](https://www.adafruit.com/product/1565)
