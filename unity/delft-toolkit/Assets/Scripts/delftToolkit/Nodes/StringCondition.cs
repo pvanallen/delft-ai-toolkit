@@ -96,23 +96,25 @@ namespace DelftToolkit {
 
 			private bool EvaluateInternal(string test, bool priorConditionMatch, bool priorMatchAll ) {
 				test = test.ToLower();
+				string strComp = strVal.ToLower();
 				switch (compareType) {
 					case CompareType.StartsWith:
-						return test.StartsWith(strVal.ToLower());
+						return test.StartsWith(strComp);
 					case CompareType.EndsWith:
-						return test.EndsWith(strVal.ToLower());
+						return test.EndsWith(strComp);
 					case CompareType.Contains:
 						if (strVal.Contains(",")) {
-							// check for multiple strings, any of which must be in target
+							// check for multiple strings, any of which may be in target
 							bool comparison = false;
-							string[] theStrings = strVal.Split(',');
+							//string[] theStrings = strVal.Split(',');
+							var theStrings = strVal.Split(',');
 							foreach (string item in theStrings) {
-								comparison = test.Contains(item.ToLower());
+								comparison = test == (item.ToLower().Trim());
 								if (comparison)
 									break;
 							}
 							return comparison;
-						} else return test.Contains(strVal.ToLower());
+						} else return test.Contains(strComp);
 					case CompareType.Otherwise:
 						// if NONE of the prior conditions are true, this is true
 						return !priorConditionMatch;
