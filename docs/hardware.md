@@ -16,17 +16,6 @@ ________________
       - [Delft AI Toolkit Unity Project](#delft-ai-toolkit-unity-project)
     - [Robot](#robot)
       - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image)
-- [VERSION 2 HARDWARE (2018-2019)](#version-2-hardware-2018-2019)
-  - [Description](#description-1)
-  - [Hardware Parts list](#hardware-parts-list-1)
-  - [Hardware Assembly](#hardware-assembly-1)
-  - [Installing Delft AI Toolkit software](#installing-delft-ai-toolkit-software-1)
-    - [Computer](#computer-1)
-      - [Free Unity Software](#free-unity-software-1)
-      - [Delft AI Toolkit Unity Project](#delft-ai-toolkit-unity-project-1)
-    - [Robot](#robot-1)
-      - [Arduino - Sketch](#arduino---sketch)
-      - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image-1)
 <!-- TOC END -->
 
 <br><img src="images/robot2020-2.jpg" width="512">
