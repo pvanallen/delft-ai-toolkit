@@ -135,7 +135,7 @@ namespace DelftToolkit {
 		/// <summary> Replace {stringIn} with this value when executing this action </summary>
 		public string stringIn;
 		public float floatIn;
-		[NodeEnum] public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.move;
+		[NodeEnum] public AiGlobals.ActionTypes actionType = AiGlobals.ActionTypes.leds;
 		public ActionMove moveParams = new ActionMove();
 		public ActionLed ledParams = new ActionLed();
 		public ActionDelay delayParams = new ActionDelay();
