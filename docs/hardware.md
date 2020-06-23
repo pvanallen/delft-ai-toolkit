@@ -117,7 +117,7 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
   diskutil unmountDisk /dev/diskN
   # write the image (change the .dmg filename to the current version
   # change "N" at in rdiskN to the correct number from diskutil)
-  sudo dd if=delft-ai-toolkit-2020-04-16.dmg of=/dev/rdiskN bs=5m
+  sudo dd if=delft-toolkit-2020-04-16.dmg of=/dev/rdiskN bs=5m
   ```
 * Plug the SD card into the RPI, and then power the RPi up
 * Setup the WiFi: Connect your computer to the RPI with ethernet and login:

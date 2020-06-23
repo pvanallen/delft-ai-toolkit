@@ -16,13 +16,16 @@ ________________
       - [Raspberry Pi - Disk Image](#raspberry-pi---disk-image)
 <!-- TOC END -->
 
-<br><img src="images/robot2020-2.jpg" width="512">
+<br><img src="images/robot1.jpg" width="512">
 
 ## VERSION 2 HARDWARE (2018-2019)
 ### Description
-The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
 
-Note: The next hardware version planned will eliminate the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This will simplify hardware and software, and make a more compact robot.
+**Go [here: to the v3 hardware](../hardware.md) for the most recent hardware config.**
+
+The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of IBM Watson cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
+
+Note: The [next](../hardware.md) 2020 hardware version eliminates the Arduino and replace it with the Adafruit [Crickit Hat](https://www.adafruit.com/product/3957) for the RPi. This simplifies hardware and software, and makes a more compact robot.
 
 ### Hardware Parts list
 * [Robot Platform Kit](https://www.adafruit.com/product/3244)
