@@ -21,7 +21,7 @@ ________________
 ## VERSION 2 HARDWARE (2018-2019)
 ### Description
 
-**Go [here: to the v3 hardware](../hardware.md) for the most recent hardware config.**
+**Go [here: to the v3 hardware](hardware.md) for the most recent hardware config.**
 
 The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of IBM Watson cloud APIs. The RPi talks over serial to an Arduino with a motor hat for the DC motors and Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
 

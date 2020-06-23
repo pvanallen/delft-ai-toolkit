@@ -116,7 +116,7 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
   # unmound the disk (change "N" at the end to the correct number)
   diskutil unmountDisk /dev/diskN
   # write the image (change the .dmg filename to the current version
-  # change "N" at in rdiskN to the correct number from diskutil)
+  # change "N" in rdiskN to the correct number from diskutil)
   sudo dd if=delft-toolkit-2020-04-16.dmg of=/dev/rdiskN bs=5m
   ```
 * Plug the SD card into the RPI, and then power the RPi up
