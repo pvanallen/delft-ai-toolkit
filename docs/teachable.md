@@ -1,10 +1,11 @@
 # Training for Teachable Machine Object Detection
 
-In the toolkit, it is possible to use a custom, user created object detection model to be used with the [recognize action](action.md#recognize---perform-object-recognition-from-the-robot-camera-or-by-tag-in-the-unity-virtual-environment).
+In the toolkit version 3.1.0, it is possible to use a custom, user created object detection model with the [recognize action](action.md#recognize---perform-object-recognition-from-the-robot-camera-or-by-tag-in-the-unity-virtual-environment). This model is created in the easy-to-use [Teachable Machine](https://teachablemachine.withgoogle.com) web tool, and then installed on the robot for "edge" execution using TensorFlow Lite.
 _________________
 <!-- TOC START min:2 max:4 link:true asterisk:false update:true -->
 - [Object Detection/Recognition Overview](#object-detectionrecognition-overview)
 - [OVERVIEW: Model creation and implementation process](#overview-model-creation-and-implementation-process)
+- [Identify categories/classes](#identify-categoriesclasses)
 - [Capture and Archive](#capture-and-archive)
   - [Creating a high quality dataset](#creating-a-high-quality-dataset)
     - [Image quality](#image-quality)
@@ -21,17 +22,16 @@ _________________
 <!-- TOC END -->
 _________________
 ## Object Detection/Recognition Overview
-Choosing an appropriate model for machine learning is crucial for the success of your project. The Toolkit provides several pre-built models that are trained with generic image datasets (such as [ImageNet](http://www.image-net.org)). These include the mobilenet, squeezenet, and two inception models. While these work fine for certain applications, your project may require a model trained specifically for the kinds of objects you need detected. For example, your application might require that the robot recognize when a person gives a "thumbs up" sign such as:
+Choosing an appropriate model for machine learning is crucial for the success of your project. The Toolkit provides several pre-built models that are trained with generic image datasets, such as [ImageNet](http://www.image-net.org). These include the mobilenet, squeezenet, and two inception models. While these work fine for certain applications, your project may require a model trained specifically for the kinds of objects you need detected. For example, your application might require that the robot recognize when a person gives a "thumbs up" hand signal such as:
 
 <img src="images/recognize_capture.jpg" width="254"><br>
 
-The off-the-shelf models identified this hand everything from a "can opener" to a "syringe" so they would not be a good choice. Building your own model is a great chance to learn about the process of collecting a quality dataset, training a model, testing the machine learning model, and seeing the model perform in the real world. In this way, you can better understand and design for the particular characteristics of machine learning.
+The off-the-shelf models identified this hand signal as everything from a "can opener" to a "syringe", so they would not be a good choice. Rather than using a pre-built model, creating your own ML model is a great chance to learn about the process of collecting a quality dataset, training a model, testing the model, and experience the model perform in the real world. In this way, you can better understand and design for the particular characteristics of machine learning.
 
-The Toolkit provides a simple way for you to create and use such a custom model. To do this, we utilize the free [Teachable Machine](https://teachablemachine.withgoogle.com) system built with Google, and optimized for TensorFlow Lite, which the toolkit uses on the robot.
+The Toolkit provides a simple way for you to create and use such a custom model. To do this, we utilize the free [Teachable Machine](https://teachablemachine.withgoogle.com) system built with Google.
 
 ## OVERVIEW: Model creation and implementation process
-1. ***Define each different Category*** - Compile a list of each different category of object you want to recognize and gather examples of the objects to capture. Give each category a different name. E.g. For hand signals, thumbsUp,thumbsDown, etc. For tools, cutters, needlenose, etc.
-1. ***Define a None Category*** - It is helpful to create a ***none*** category, especially in the case of only two different categories (e.g. thumbsUp and thumbsDown). It helps the ML model to have other categories to make better identifications. For the none category, capture blank, blurry, or other "wrong" images that should be considered to be unimportant. The reason for this is that if you don't have a "none" category, the model may decide that a flat hand is a thumbsUp, since it has no other options to pick from.
+1. ***Define each different Category*** - Compile a list of each different category of object you want to recognize.
 1. ***Capture and Archive*** - Capture a series of prototypical images from the Raspberry Pi camera for each category of object to be detected, then archive the category image sets (e.g. 15 or more varied images of the thumbs up) on your computer
 1. ***Create the Model by Uploading & Training on Teachable Machine*** - Using the [Teachable Machine](https://teachablemachine.withgoogle.com) website
   1. ***Create each Category*** - Select and upload a subset of the images for each category to use as a training dataset
@@ -41,18 +41,22 @@ The Toolkit provides a simple way for you to create and use such a custom model.
 1. ***Install the Model*** - Download the new model and install it on the Raspberry Pi
 1. ***Test on the RPi*** - Run the toolkit and test out the new model in real world
 
+## Identify categories/classes
+1. ***Define Category Names*** - Compile a list of each different category of object you want to recognize. and gather examples of the objects to capture. Give each category a unique name. E.g. For hand signals: thumbsUp,thumbsDown, etc. For tools: cutters, needlenose, etc.
+1. ***Define a None Category*** - It is important to create a ***none*** category, especially in the case where there are only two categories (e.g. thumbsUp and thumbsDown). It helps the ML model to have other categories to make better identifications. For the none category, capture blank, blurry, or other "wrong" images that should be considered to be unimportant. The reason for this is that if you don't have a "none" category, the model may decide that a flat hand is a thumbsUp, since it has no other options to pick from.
+
 ## Capture and Archive
 ### Creating a high quality dataset
-It's important to understand that the machine learning model you create is only as good as the data you train it with. As the old saying goes, **garbage in, garbage out**.
+The machine learning model you create is only as good as the data you train it with. As the old saying goes, **garbage in, garbage out**.
 #### Image quality
 * ***Focus*** - Be sure to create a few test images and keep in mind that the Raspberry Pi camera is not perfect. In particular, the focus is fixed and is adjusted mechanically -- there is **no auto-focus!**. So the better focused your images are the better the model will be. Note that by default, the Pi Camera is focused far away - i.e. at infinity. Check this [Pi forum discussion](https://www.raspberrypi.org/forums/viewtopic.php?t=46637) for more information about changing the focus.
 * ***Lighting*** - The image quality can be significantly affected by poor lighting. Be sure your subject has enough light on it. Also think about the lighting conditions that will be in play when the application is in use. Indoor or outdoor lighting? Incandescent, LED or florescent lights (which all have different color balances)
 * ***Composition*** - The images you capture do not have to be artistic, but they do need to cover the entire object to be detected. So check to see if the thing is too small or cut off because it is too big.
 
 #### Image Diversity
-The machine learning model needs to be trained on a range of different examples of each object it will be expected to detect. For example, in our above "thumbs up example", what different hands will be used?
+The machine learning model needs to be trained on a range of different examples of each object it will be expected to detect. For example, in our above "thumbs up example", what different hands will be used in your application?
 
-**Consider**:
+**For hands, CONSIDER**:
 * What skin tone do they have?
 * What gender or other characteristics do the hands have?
 * How aged are the hands?
@@ -60,17 +64,17 @@ The machine learning model needs to be trained on a range of different examples 
 * What different positions, orientations and "postures" of the hands make sense for each different hand signal?
 * What does a "thumbs up" look like to different people or cultures?
 
-**In the case of objects (say tools), consider**:
+**In the case of objects (say tools), CONSIDER**:
 * What different colors are valid?
-* What orientations will the tools be placed in?
+* What orientation (e.g. left, right rotation) or states (e.g. open/closed) will the tools be in?
 * What surface will they be on?
-* What will be in the background?
+* What's in the background?
 
-Given these different considerations, try to anticipate all the different variations that your project can expect to encounter in the "real world" - and be sure to capture a diverse range of examples.
+Try to anticipate all the different variations that your project can expect to encounter in the "real world" - and be sure to capture a diverse range of examples that match this diversity.
 
 ### Use the TRAIN action to capture multiple images
 <img src="images/train-action.gif" width="254"><br>
-When you initiate the [train](action.md#train---collects-a-series-of-images-from-the-robot-camera-phys-robot-only) action (best to run it by itself), it will begin a process of capturing images on the RPi into a directory with the name you enter for the category. The first number (e.g. 2.5) specifies the number of seconds it waits between each image. The second number (e.g. 5), specifies how many images to capture (the number you choose depends on how many different variations you need, as discussed above). You could start with 15, and then keep out 5 for testing.
+When you initiate the [train](action.md#train---collects-a-series-of-images-from-the-robot-camera-phys-robot-only) action, it will begin a process of capturing images on the RPi into a directory with the name you enter for the category. The first number (e.g. 2.5) specifies the number of seconds it waits between each image. The second number (e.g. 5), specifies how many images to capture (the number you choose depends on how many different variations you need for this category, as discussed above). You could start with capturing 15, and set aside 3 of those for testing.
 
 For each image, the robot will turn on its LEDs, announce which image out of the total it is about to capture, and then count down. E.g. "thumbs up four of five, 3, 2, 1", "thumbs up three of five, 3, 2, 1"
 
@@ -121,6 +125,6 @@ Be sure your robot is properly set up and communicating with the toolkit in Unit
 <img src="images/teachable-capture-image.gif" width="250"><br>
 1. The message from robot after running the model is composed of a series of categories paired with their confidence number. Each category pair, in order of confidence, is separated by a "\\". For instance, here is a response using our example model:
 
-  `thumbsUp 0.529412\\thumbsDown 0.203922\\needlenose 0.133333\\none 0.121569\\cutters 0.015686\`
+  `thumbsUp 0.529412\thumbsDown 0.203922\needlenose 0.133333\none 0.121569\cutters 0.015686\`
 
 1. To limit the number of category/confidence pairs, set the threshold in the recognize action between 0.0 to 1.0. Only categories with a confidence greater than this number will be included.
