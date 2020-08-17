@@ -26,16 +26,16 @@ Choosing an appropriate model for machine learning is crucial for the success of
 
 <img src="images/recognize_capture.jpg" width="254"><br>
 
-The off-the-shelf models identified this hand signal as everything from a "can opener" to a "syringe", so they would not be a good choice. Rather than using a pre-built model, creating your own ML model is a great chance to learn about the process of collecting a quality dataset, training a model, testing the model, and experience the model perform in the real world. In this way, you can better understand and design for the particular characteristics of machine learning.
+The off-the-shelf models identified this hand signal as everything from a "can opener" to a "syringe", so they would not be a good choice. Rather than using a pre-built model, creating your own ML model is a great chance to learn about the process of collecting a quality dataset, using the dataset to train a model, testing the model, and experience the model perform in the real world. In this way, you can better understand and design for the particular characteristics of machine learning.
 
 The Toolkit provides a simple way for you to create and use such a custom model. To do this, we utilize the free [Teachable Machine](https://teachablemachine.withgoogle.com) system built with Google.
 
 ## OVERVIEW: Model creation and implementation process
-1. ***Define each different Category*** - Compile a list of each different category of object you want to recognize.
-1. ***Capture and Archive*** - Capture a series of prototypical images from the Raspberry Pi camera for each category of object to be detected, then archive the category image sets (e.g. 15 or more varied images of the thumbs up) on your computer
+1. ***Define each different Category*** - Compile a list of each different category (or class) of object you want to recognize.
+1. ***Capture and Archive*** - Capture a series of prototypical images from the Raspberry Pi camera for each category of object to be detected, then archive the category image sets on your computer
 1. ***Create the Model by Uploading & Training on Teachable Machine*** - Using the [Teachable Machine](https://teachablemachine.withgoogle.com) website
   1. ***Create each Category*** - Select and upload a subset of the images for each category to use as a training dataset
-  1. ***Train the Model*** - After uploading images for all categories, having the Teachable Machine website process the images and use them to train the model
+  1. ***Train the Model*** - After uploading images for all categories, use the Teachable Machine website to process the images and train the model
   1. ***Test the Model*** - Once the model is created, test the model with some category images NOT used for training
   1. ***Export & Download the Model*** - Convert the new model to TensorFlow Lite, quantized format
 1. ***Install the Model*** - Download the new model and install it on the Raspberry Pi
@@ -99,8 +99,8 @@ The [Teachable Machine website](https://teachablemachine.withgoogle.com) allows 
 
 <img src="images/teachable-train.jpg" width="500"><br>
 ### Test the model
-1. At this point, your model is created and in the cloud. You can test the model by giving it images that were not used for training - you should have separated out a subset of your original captured images to use for testing.
-1. In the interface, select "File" (vs. Webcam) as the source of your test image, and a few test images and see how your model does<br>
+1. At this point, your model is created and in the cloud. You can test the model by giving it images that were not used for training - you should have separated out a subset of your original captured images to use for testing vs. training. Testing with training data is not a valid testing approach.
+1. In the Teachable interface, select "File" (vs. Webcam) as the source of your test image, and upload a few test images and see how your model does<br>
 
 <img src="images/teachable-all.gif" width="700"><br>
 ### Export & Download the Model
@@ -109,22 +109,22 @@ The [Teachable Machine website](https://teachablemachine.withgoogle.com) allows 
 <img src="images/teachable-export.jpg" width="500"><br>
 1. Click on "Download my model" to create a local copy of the model. This may take several minutes to convert the model to TensorFlow Lite, quantized format - be patient and don't click away from the browser tab.
 ### Install the Model
-1. Once you've un-zipped the model files, you'll have a folder (converted_tflite_quantized) with two files:<br>
+1. Once you've un-zipped the downloaded model files, you'll have a folder (converted_tflite_quantized) with two files:<br>
 <img src="images/teachable-model.gif" width="180"><br>
 1. To install your custom model on the robot, you'll need to transfer these files to the Raspberry Pi using SFTP or file sharing (delftbt0.local, pi, adventures)
-1. On the RPi, you'll find a folder delft-ai-toolkit/models where each supported model has it's associated files. There are three "teachable" folders, that allow you to have three different custom models. Place the new files you just downloaded into one of these folders, replacing what's there.<br>
+1. On the RPi, you'll find a folder /home/pi/delft-ai-toolkit/models where each toolkit model has it's associated files. There are three "teachable" folders, that allow you to have three different custom models. Place the new model files into one of these folders, replacing what's there.<br>
 <img src="images/teachable-rpi-files.gif" width="250"><br>
-1. Note which folder you place the files in, as this will determine how you invoke the model in the toolkit action. For example, teachable1 will be run using the "teach1" model, teachable2 is "teach2" etc.<br>
+1. Note which folder you place the files in, as this will determine how you invoke the model in the toolkit [recognize action](action.md#recognize---perform-object-recognition-from-the-robot-camera-or-by-tag-in-the-unity-virtual-environment). For example, the model in teachable1 will be run using the "teach1" model, teachable2 is "teach2" etc.<br>
 
 ### Test on the RPi
 Be sure your robot is properly set up and communicating with the toolkit in Unity<br>
 
-1. On any toolkit graph in Unity, create an **Action** node, and connect it's output to a **String Condition** node. Set one of the actions to Recognize, and set the model to your custom teachable model, e.g. "teach1". Set both nodes to "phys" to ensure they interact with the physical robot<br>
+1. On any toolkit graph in Unity, create an **Action** node, and connect it's output to a **String Condition** node. Set one of the actions to Recognize, and set the model to your custom teachable model, e.g. "teach1". Set the Action and String Condition nodes to "phys" to ensure they interact with the physical robot<br>
 <img src="images/teachable-graph.gif" width="400"><br>
 1. Point the camera at the object you are testing on and initiate the recognize action. Check the resulting image to make sure lighting and camera direction are okay. To check the image, connect to the Raspberry Pi and find the image in /home/pi/delft-ai-toolkit/recognize_capture.jpg<br>
 <img src="images/teachable-capture-image.gif" width="250"><br>
-1. The message from robot after running the model is composed of a series of categories paired with their confidence number. Each category pair, in order of confidence, is separated by a "\\". For instance, here is a response using our example model:
+1. The message from robot after running the model is composed of a series of categories paired with their confidence number. Each category pair, in order of confidence, is separated by a "\\". For instance, here is a response using our example model: 
 
-  `thumbsUp 0.529412\thumbsDown 0.203922\needlenose 0.133333\none 0.121569\cutters 0.015686\`
+   `thumbsUp 0.529412\thumbsDown 0.203922\needlenose 0.133333\none 0.121569\cutters 0.015686\`
 
 1. To limit the number of category/confidence pairs, set the threshold in the recognize action between 0.0 to 1.0. Only categories with a confidence greater than this number will be included.
