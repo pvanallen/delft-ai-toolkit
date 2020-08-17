@@ -31,7 +31,7 @@ The off-the-shelf models identified this hand signal as everything from a "can o
 The Toolkit provides a simple way for you to create and use such a custom model. To do this, we utilize the free [Teachable Machine](https://teachablemachine.withgoogle.com) system built with Google.
 
 ## OVERVIEW: Model creation and implementation process
-1. ***Define each different Category*** - Compile a list of each different category (or class) of object you want to recognize.
+1. ***Define each different Category*** - Compile a list of each different category/class of object you want to recognize.
 1. ***Capture and Archive*** - Capture a series of prototypical images from the Raspberry Pi camera for each category of object to be detected, then archive the category image sets on your computer
 1. ***Create the Model by Uploading & Training on Teachable Machine*** - Using the [Teachable Machine](https://teachablemachine.withgoogle.com) website
   1. ***Create each Category*** - Select and upload a subset of the images for each category to use as a training dataset
@@ -42,8 +42,8 @@ The Toolkit provides a simple way for you to create and use such a custom model.
 1. ***Test on the RPi*** - Run the toolkit and test out the new model in real world
 
 ## Identify categories/classes
-1. ***Define Category Names*** - Compile a list of each different category of object you want to recognize. and gather examples of the objects to capture. Give each category a unique name. E.g. For hand signals: thumbsUp,thumbsDown, etc. For tools: cutters, needlenose, etc.
-1. ***Define a None Category*** - It is important to create a ***none*** category, especially in the case where there are only two categories (e.g. thumbsUp and thumbsDown). It helps the ML model to have other categories to make better identifications. For the none category, capture blank, blurry, or other "wrong" images that should be considered to be unimportant. The reason for this is that if you don't have a "none" category, the model may decide that a flat hand is a thumbsUp, since it has no other options to pick from.
+1. ***Define Category Names*** - Compile a list of each different category/class of object you want to recognize. and gather examples of the objects to capture. Give each category a unique name. For example, Hand signals: "thumbsUp", "thumbsDown", etc., Tools: "cutters", "needlenose", etc.
+1. ***Define a None Category*** - It is important to create a ***none*** category, especially in the case where there are only two categories (e.g. thumbsUp and thumbsDown). It helps the ML model to have other categories to make better identifications. For the none category, capture blank, blurry, or other "wrong" images that should be considered to be unimportant. The reason for this is that if you don't have a "none" category, the model may incorrectly decide that a flat hand (or something other than what's wanted) is a thumbsUp, since it has no other options to pick from.
 
 ## Capture and Archive
 ### Creating a high quality dataset
@@ -123,7 +123,7 @@ Be sure your robot is properly set up and communicating with the toolkit in Unit
 <img src="images/teachable-graph.gif" width="400"><br>
 1. Point the camera at the object you are testing on and initiate the recognize action. Check the resulting image to make sure lighting and camera direction are okay. To check the image, connect to the Raspberry Pi and find the image in /home/pi/delft-ai-toolkit/recognize_capture.jpg<br>
 <img src="images/teachable-capture-image.gif" width="250"><br>
-1. The message from robot after running the model is composed of a series of categories paired with their confidence number. Each category pair, in order of confidence, is separated by a "\\". For instance, here is a response using our example model: 
+1. The message from robot after running the model is composed of a series of categories paired with their confidence number. Each category pair, in order of confidence, is separated by a "\\". For instance, here is a response using our example model:
 
    `thumbsUp 0.529412\thumbsDown 0.203922\needlenose 0.133333\none 0.121569\cutters 0.015686\`
 
