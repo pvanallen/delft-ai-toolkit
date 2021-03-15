@@ -107,17 +107,17 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
 
 ##### Raspberry Pi - Disk Image
 * **Command Line Only** - NOTE: This disk image is derived from the "Lite" version of Raspbian, and therefor does not have the GUI windows software installed. This means you cannot use the visual desktop on a monitor.
-* Download the 2020-04-16 [RPi disk image](https://www.dropbox.com/s/1v74yv2dfjgt2hn/delft-toolkit-2020-04-16.zip?dl=0)
-* Use a 16GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Ultra](https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE)
+* Download the 2021-03-10 [RPi disk image](https://www.dropbox.com/s/u28213ondujpf0k/delft-toolkit-2021-03-10.dmg?dl=0)
+* Use a 32GB Micro SD card, ideally it should be a Class 10 for optimal speed. We've had good luck with the [SanDisk Evo Plus 32](https://www.amazon.com/Samsung-Class-Micro-Adapter-MB-MC32GA/dp/B07NP96DX5/ref=sr_1_14)
 * Copy the disk image to the card ([more info for Mac and Windows](https://thepihut.com/blogs/raspberry-pi-tutorials/17789160-backing-up-and-restoring-your-raspberry-pis-sd-card)). On the Mac Terminal:
   ```bash
-  # get the name of the correct drive (look for one that is Windows_FAT_32 and 15.9 GB)
+  # get the name of the correct drive (look for one that is Windows_FAT_32 and 31.9 GB)
   diskutil list
   # unmound the disk (change "N" at the end to the correct number)
   diskutil unmountDisk /dev/diskN
   # write the image (change the .dmg filename to the current version
   # change "N" in rdiskN to the correct number from diskutil)
-  sudo dd if=delft-toolkit-2020-04-16.dmg of=/dev/rdiskN bs=5m
+  sudo dd if=delft-toolkit-2021-03-10.dmg of=/dev/rdiskN bs=5m
   ```
 * Plug the SD card into the RPI, and then power the RPi up
 * Setup the WiFi: Connect your computer to the RPI with ethernet and login:
