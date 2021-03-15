@@ -146,7 +146,7 @@ namespace DelftToolkit {
 						default:
 							break;
 					}
-					//Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.ledParams.type.ToString());
+					Debug.LogWarning("DING-VIRTUAL LED Action: " + action.actionType + " " + action.ledParams.type.ToString());
 					break;
 				case AiGlobals.ActionTypes.delay:
 					//Debug.LogWarning("DING-VIRTUAL: " + action.actionType + " " + action.delayParams.type.ToString());
@@ -264,7 +264,7 @@ namespace DelftToolkit {
 						}
 					}
 					//Debug.LogWarning("recognize: " + tag);
-					Debug.DrawRay(tilt.position, fwd * 10, Color.green,2,false );
+					Debug.DrawRay(tilt.position, fwd * 10, Color.green,4,false );
 					// if (tag != "Untagged") {
 						DelftToolkit.DingSignal signal = new DelftToolkit.DingSignal(thisDevice, AiGlobals.SensorSource.virt, "/str/recognize/", tag);
 						DelftToolkit.DingSignal.onSignalEvent(signal);

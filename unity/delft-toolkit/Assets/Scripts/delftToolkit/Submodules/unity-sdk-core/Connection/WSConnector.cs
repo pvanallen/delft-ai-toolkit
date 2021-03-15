@@ -16,7 +16,7 @@
 */
 
 //! Uncomment to enable message debugging
-//#define ENABLE_MESSAGE_DEBUGGING
+// #define ENABLE_MESSAGE_DEBUGGING
 
 using IBM.Cloud.SDK.Logging;
 using IBM.Cloud.SDK.Utilities;
@@ -255,6 +255,7 @@ namespace IBM.Cloud.SDK.Connection
             //  platforms.
             else if (URL.StartsWith("https://stream-tls10."))
             {
+                Log.Warning("WSConnector", "Deprecated: Support for TLS 1.0 will be removed in the next major release of the SDK. Update to Unity version 2018.2 or later to support TLS 1.2.");
                 URL = URL.Replace("https://stream-tls10.", "wss://stream-tls10.");
             }
             //  Germany
@@ -283,7 +284,7 @@ namespace IBM.Cloud.SDK.Connection
                 Log.Warning("WSConnector", "No case for URL for wss://. Replacing https:// with wss://.");
             }
 #else
-            //  Use TLS 1.0 endpoint if user is on .NET 3.5. US South is the 
+            //  Use TLS 1.0 endpoint if user is on .NET 3.5. US South is the
             //  only region that supports this endpoint.
             if (URL.StartsWith("https://stream."))
             {
@@ -305,10 +306,12 @@ namespace IBM.Cloud.SDK.Connection
             //  US South is the only region that supports this endpoint.
             if (URL.StartsWith("https://stream."))
             {
+                Log.Warning("WSConnector", "Deprecated: Support for TLS 1.0 will be removed in the next major release of the SDK. Update to Unity version 2018.2 or later to support TLS 1.2.");
                 URL = URL.Replace("https://stream.", "wss://stream-tls10.");
             }
             else if (URL.StartsWith("https://stream-tls10."))
             {
+                Log.Warning("WSConnector", "Deprecated: Support for TLS 1.0 will be removed in the next major release of the SDK. Update to Unity version 2018.2 or later to support TLS 1.2.");
                 URL = URL.Replace("https://stream-tls10.", "wss://stream-tls10.");
             }
             else
@@ -360,7 +363,7 @@ namespace IBM.Cloud.SDK.Connection
         {
 #if ENABLE_MESSAGE_DEBUGGING
             Log.Debug( "WSConnector.Send()", "Sending {0} message: {1}",
-                msg is TextMessage ? "TextMessage" : "BinaryMessage", 
+                msg is TextMessage ? "TextMessage" : "BinaryMessage",
                 msg is TextMessage ? ((TextMessage)msg).Text : ((BinaryMessage)msg).Data.Length.ToString() + " bytes" );
 #endif
             lock (_sendQueue)
@@ -388,7 +391,7 @@ namespace IBM.Cloud.SDK.Connection
             }
 #endif
 
-            // Run our receiver as a co-routine so it can invoke functions 
+            // Run our receiver as a co-routine so it can invoke functions
             // on the main thread.
             if (_receiverRoutine == 0)
                 _receiverRoutine = Runnable.Run(ProcessReceiveQueue());
@@ -423,7 +426,7 @@ namespace IBM.Cloud.SDK.Connection
                             Message msg = _receiveQueue.Dequeue();
 #if ENABLE_MESSAGE_DEBUGGING
                             Log.Debug( "WSConnector.ProcessReceiveQueue()", "Received {0} message: {1}",
-                                msg is TextMessage ? "TextMessage" : "BinaryMessage", 
+                                msg is TextMessage ? "TextMessage" : "BinaryMessage",
                                 msg is TextMessage ? ((TextMessage)msg).Text : ((BinaryMessage)msg).Data.Length.ToString() + " bytes" );
 #endif
                             if (OnMessage != null)

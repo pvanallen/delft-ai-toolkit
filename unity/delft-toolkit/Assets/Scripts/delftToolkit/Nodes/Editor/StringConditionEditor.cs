@@ -13,7 +13,7 @@ namespace DelftToolkit {
 		protected override string description { get { return "An arbitrary condition taking a string argument"; } }
 		private StringCondition node { get { return _node != null ? _node : _node = target as StringCondition; } }
 		private StringCondition _node;
-		private bool expandLastSignal = false;
+		// private bool expandLastSignal = false;
 
 		public override void OnBodyGUI() {
 			GUI.color = Color.white;

@@ -13,7 +13,7 @@ public class DelftActionDrawer : PropertyDrawer {
 		EditorGUI.BeginProperty(position, label, property);
 
 		SerializedProperty actionType = property.FindPropertyRelative("actionType");
-		Rect pos = new Rect(position.x, position.y, 85, EditorGUIUtility.singleLineHeight);
+		Rect pos = new Rect(position.x, position.y, 82, EditorGUIUtility.singleLineHeight);
 		EditorGUI.PropertyField(pos, actionType, new GUIContent());
 		pos.x += pos.width + 2;
 		EditorGUIUtility.labelWidth = 20;
@@ -86,9 +86,10 @@ public class DelftActionDrawer : PropertyDrawer {
 				break;
 			case AiGlobals.ActionTypes.recognize:
 				SerializedProperty actionRecognize = property.FindPropertyRelative("recognizeParams");
-				DrawNextProperty(ref pos, actionRecognize, "model", 70, GUIContent.none); // minDistance
+				DrawNextProperty(ref pos, actionRecognize, "model", 76, GUIContent.none); // minDistance
 				DrawNextProperty(ref pos, actionRecognize, "source", 50, GUIContent.none);
 				NextLine(ref pos);
+				DrawNextProperty(ref pos, actionRecognize, "threshold", 30, GUIContent.none);
 				DrawNextProperty(ref pos, actionRecognize, "minDistance", 20, GUIContent.none);
 				break;
 			case AiGlobals.ActionTypes.playSound:
@@ -105,6 +106,12 @@ public class DelftActionDrawer : PropertyDrawer {
 			// 	NextLine(ref pos);
 			// 	DrawNextProperty(ref pos, actionChat, "text", position.width, GUIContent.none);
 			// 	break;
+			case AiGlobals.ActionTypes.train:
+				SerializedProperty actionTrain = property.FindPropertyRelative("trainParams");
+				DrawNextProperty(ref pos, actionTrain, "catName", 70, GUIContent.none);
+				DrawNextProperty(ref pos, actionTrain, "interval", 25, GUIContent.none);
+				DrawNextProperty(ref pos, actionTrain, "numPics", 25, GUIContent.none);
+				break;
 			default:
 				EditorGUI.LabelField(pos, "ActionType not supported: " + (AiGlobals.ActionTypes) actionType.enumValueIndex);
 				break;

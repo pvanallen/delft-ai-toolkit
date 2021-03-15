@@ -20,9 +20,11 @@ from pythonosc import udp_client
 from threading import Thread
 import multiprocessing
 import socket
+import signal
 
 # import my libraries
-import classify_pic_once as rec
+import label_image as rec
+import gather_teachable_dataset as train
 import text_to_speech_pico as tts_pico
 import text_to_speech_watson as tts_watson
 import speech_to_text_watson as stt_watson
@@ -33,6 +35,7 @@ from adafruit_seesaw.neopixel import NeoPixel
 
 FLAGS = None
 MCU = "CRICKIT"
+# camera = picamera.PiCamera()
 
 events = ["move","leds","delay", "analogin", "servo", "speak", "listen", "chat"]
 types = ["stop", "forward", "backward", "turnRight", "turnLeft", "set", "blink", "allOff", "pause", "start", "immediate", "varspeed", "male", "female", "timed", "auto", "standard"]
@@ -43,7 +46,7 @@ speak_phrase = "hello world"
 listen_task = False
 # listen_duration = 2
 
-default_recognize_model = "squeezenet"
+default_recognize_model = "teachable1"
 
 #CRICKET setup
 
@@ -68,7 +71,7 @@ blink_delay = 0.1
 blink_times = 2
 blink_next_time = time.time() + blink_delay
 # bpp=4 is required for RGBW NeoPixels
-pixels = NeoPixel(crickit.seesaw, 20, num_pixels, brightness=0.02, pixel_order=neopixel.RGBW, bpp=4)
+pixels = NeoPixel(crickit.seesaw, 20, num_pixels, brightness=0.02, pixel_order=(1, 0, 2, 3), bpp=4)
 # bpp=3 is required for RGB NeoPixels
 # pixels = NeoPixel(crickit.seesaw, 20, num_pixels, brightness=0.04, pixel_order=neopixel.RGB, bpp=3)
 
@@ -93,7 +96,7 @@ touch_next_time = time.time() + touch_interval
 touch_ports = [False,False,False,False,False]
 
 move_stop_time = time.time()
-move_stop_interval = 10.0 #seconds
+move_stop_interval = 4.0 #seconds
 
 watson_timeout = 600 #
 
@@ -191,17 +194,19 @@ def listen_loop(q):
           client.send_message("/str/speech2text/", "no transcription")
 
 
-def reconize_loop(q, e, FLAGS, model):
+def recognize_loop(q, e, FLAGS, model):
+  global camera
   #obj.take_picture_recognize.picture_being_taken= False
-  camera = picamera.PiCamera()
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)
   print("server: " + FLAGS.server_ip)
   print("initializing recognition model...")
-  rec.init(camera, model)
+  rec.init(None, model)
   e.set() # notify main process that model intialization is done
   while True:
-    new_model = q.get()
-    match_results = rec.run_inference_on_image(new_model)
+    new_model, threshold = q.get().split()
+
+    print("running inference...", new_model, threshold)
+    match_results = rec.run_inference_on_image(new_model, float(threshold))
     time.sleep(0.08)
     client.send_message("/str/recognize/", match_results)
     print("Obj recognition: " + match_results)
@@ -231,7 +236,12 @@ def move_cb(adr, type, move_time, speed, easing):
   )
   if not send_serial_command(arduinoStr):
     # make sure the motor timeout is set before we start the motors
-    move_stop_time = time.time() + move_stop_interval
+    if float(move_time) > move_stop_time:
+        # set a max time of movement
+        move_stop_time = time.time() + move_stop_interval
+    else:
+        move_stop_time = time.time() + float(move_time)
+
     speed = float(speed)
     speed = max(-1, min(speed, 1)) # make sure the motor speed is between -1 and 1
     print("CRICKIT MOTOR speed: " + str(speed))
@@ -281,7 +291,7 @@ def leds_cb(adr, type, dly_time, lednum, color):
     blue = int(color.split(',')[2])
     white = 0
     #set_color = (green, red, blue) #for rgb neopixels - r& g are reversed
-    set_color = (green, red, blue, white) #for rgbw neopixels r& g are reversed
+    set_color = (red, green, blue, white)
     #print("led command...",set_color)
 
     #print("type: " + type + " " + str(name_val(types, "set")))
@@ -399,9 +409,15 @@ def speak_cb(adr, model, voice, utterance):
 def inittts_cb(adr, model, iamkey, url):
   audio_output_q.put(("init", model, iamkey, url))
 
-def recognize_cb(adr, type, model):
-  print("received cmd recognize: " + adr + " " + type + " " + model)
-  recognize_q.put(model)
+def recognize_cb(adr, type, model, threshold):
+  print("received cmd: " + adr + " " + type + " " + model + " " + str(threshold))
+  recognize_q.put(model + " " + str(threshold))
+
+def train_cb(adr, category, interval, num_pics):
+  print("received cmd: " + adr + category + " " + str(interval) + " " + str(num_pics))
+  # train.init()
+  train.start_capture(category, interval, num_pics)
+
 
 def main(_):
   global ser, blink, blink_state, blink_delay, blink_next_time, blink_color, blink_times, blink_times_total
@@ -412,7 +428,7 @@ def main(_):
       # print("touch",touch_ports,touch_next_time, check_touch())
       # shut down any motor moves after move_stop_time
       if time.time() > move_stop_time:
-          if motor_1.throttle > 0 or motor_2.throttle > 0:
+          if motor_1.throttle != 0 or motor_2.throttle != 0:
               motor_1.throttle = 0
               motor_2.throttle = 0
               print("#########TIMEOUT -- STOPPING MOTORS")
@@ -565,6 +581,11 @@ def send_serial_command(str_arg):
   else:
     return False
 
+def KillHandler(signal, frame):
+    print("closing Delft Toolkit...")
+    # camera.close()
+    sys.exit(0)
+
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
 
@@ -607,6 +628,7 @@ if __name__ == '__main__':
   dispatcher.map("/initstt/", initstt_cb)
   dispatcher.map("/recognize/", recognize_cb)
   dispatcher.map("/playSound/", play_sound_cb)
+  dispatcher.map("/train/", train_cb)
 
   # setup USB Port for connection to Arduino
   if MCU == "ARDUINO":
@@ -656,7 +678,7 @@ if __name__ == '__main__':
                                args=(listen_q,))
 
   recognize_process = multiprocessing.Process(name='recognize_process',
-                               target=reconize_loop,
+                               target=recognize_loop,
                                args=(recognize_q,recognition_ready_e,FLAGS, default_recognize_model))
 
   recognize_process.start()
@@ -672,6 +694,9 @@ if __name__ == '__main__':
   leds_cb("/leds", "blink", 0.1, 10, "0,0,127,0")
 
   analogin = False
+
+  for sig in ('TERM', 'HUP', 'INT'):
+    signal.signal(getattr(signal, 'SIG' + sig), KillHandler);
 
   # set up OSC client
   client = udp_client.SimpleUDPClient(FLAGS.server_ip, 5006)

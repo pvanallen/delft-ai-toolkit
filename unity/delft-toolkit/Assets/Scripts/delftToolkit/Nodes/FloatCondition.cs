@@ -62,15 +62,19 @@ namespace DelftToolkit {
 		protected override void CheckConditions() {
 			// Store the active state because we want to evaluate all conditions, not just the first one
 			bool activeCache = active;
+			bool conditionMatch = false;
 			for (int i = 0; i < conditions.Length; i++) {
 				// We evaluate first because we want the lastState in the condition to update regardless of 'active'
-				if (conditions[i].Evaluate(value) && activeCache) {
-					NodePort triggerPort = GetOutputPort("conditions " + i);
-					if (triggerPort.IsConnected) {
-						for (int k = 0; k < triggerPort.ConnectionCount; k++) {
-							StateNodeBase nextNode = triggerPort.GetConnection(k).node as StateNodeBase;
-							active = false;
-							if (nextNode != null) nextNode.Enter();
+				if (conditions[i].Evaluate(value, conditionMatch)) {
+					conditionMatch = true; // track condition matches for "otherwise" condition
+					if (activeCache) {
+						NodePort triggerPort = GetOutputPort("conditions " + i);
+						if (triggerPort.IsConnected) {
+							for (int k = 0; k < triggerPort.ConnectionCount; k++) {
+								StateNodeBase nextNode = triggerPort.GetConnection(k).node as StateNodeBase;
+								active = false;
+								if (nextNode != null) nextNode.Enter();
+							}
 						}
 					}
 				}
@@ -78,18 +82,18 @@ namespace DelftToolkit {
 		}
 
 		[Serializable] public struct Condition {
-			public enum CompareType { GT, LT, Range }
+			public enum CompareType { GT, LT, Range, Otherwise }
 			[NodeEnum] public CompareType compareType;
 			public float floatValA;
 			public float floatValB;
 			public bool inverse;
 			[NonSerialized] public bool lastState;
 
-			public bool Evaluate(float test) {
-				return lastState = EvaluateInternal(test) != inverse;
+			public bool Evaluate(float test, bool priorConditionMatch) {
+				return lastState = EvaluateInternal(test, priorConditionMatch) != inverse;
 			}
 
-			private bool EvaluateInternal(float test) {
+			private bool EvaluateInternal(float test, bool priorConditionMatch ) {
 				switch (compareType) {
 					case CompareType.GT: // greater than or equal to
 						return test >= floatValA;
@@ -97,6 +101,9 @@ namespace DelftToolkit {
 						return test < floatValA;
 					case CompareType.Range:
 						return test >= floatValA && test <= floatValB;
+					case CompareType.Otherwise:
+						// if NONE of the prior conditions are true, this is true
+						return !priorConditionMatch;
 					default:
 						return false;
 				}

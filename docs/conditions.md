@@ -1,10 +1,8 @@
 # Condition Nodes
 
-The condition nodes (String/Text and Float/Numbers) wait for conditions to be met, and then pass control to the next node associated with the met conditions. They only act on new data received from it's input.
+The condition nodes (String/Text and Float/Numbers) wait for incoming data to trigger conditions, and then pass control to the next nodes connected to the met conditions. They only act when new data is received from their input.
 
-For example, if a sensor on the robot is reading distance, a condition can be set up to pass control to an action node that turns the robot when the distance indicates the robot is close to an object in front of it. If the robot is far enough away, another condition trigger can connect to a node the moves the robot straight forward.
-
-Note that the interface for these nodes is still rough, and we hope to make them easier to use in the near future.
+For example, if a proximity sensor on the robot is reading distance, a condition can be set up to pass control to an action node that turns the robot when the distance indicates the robot is close to an object in front of it.
 _______________
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Using the String and Float Condition Nodes](#using-the-string-and-float-condition-nodes)
@@ -34,7 +32,7 @@ You can manually test the condition by changing the incoming value. To do this, 
 There are several things you need to set for the node receive the data it will evaluate
 * **Robot ID** - The robot you are listening to (e.g. Ding 1)
 * **Virtual or Physical Robot** - Whether the incoming data is from the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
-* **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of input source you want. Use the following:
+* **Data Source** - The "Incoming Signal Filter" dropdown is used to specify the specific incoming data that the condition will evaluate. The dropdown sets the URL to match the OSC input source you want. The following are supported:
 
 ``` bash
 Speech2Text - from "Phys" (robot) or "Virt" (inside Unity), converting speech to text
@@ -68,39 +66,40 @@ The ! checkbox will invert the condition you set up. So for example, if the cond
 ### Setting the input data source
 To select what data the condition node listens to, set the Incoming signal filter.
 
-* **Robot ID** - The robot you are listening to (e.g. Ding 1)
+* **Robot ID** - The physical or virtual robot you are listening to (Ding1-Ding4)
 * **Virtual or Physical Robot** - Whether the incoming data is from the Physical robot (**Phys**) or the Unity Virtual robot (**Virt**)
-* **port** - Set the port the data is coming from -- in the case of analogin or touch, this is which physical port. In the case of an OSC message, this affects the button or other control being listened to
-* **Data Source** - The "Incoming Signal Filter" to specify the specific incoming data that the condition will evaluate. Set the URL to match the type of input source you want. Use the following:
+* **Port #** - The port the data is coming from - in the case of analogin or touch, this is the physical port on the robot. In the case of an OSC message (e.g. from TouchOSC or CleanOSC), this specifies the button or other control to listen for
+* **Data Source** - The "Incoming Signal Filter" dropdown is used to specify the incoming data that the condition will evaluate, by setting the OSC message "URL" to listen to. The following are supported:
 
 ``` bash
 # values from a sensor, set the the port used
-Analogin -- /num/analogin/0/ #get the value from an analog sensor, from "Phys" or "Virt"
-Touch -- /num/touch/0/ #get the value from a touch sensor, from "Phys"
+Analogin -- /num/analogin/0/ #get the value from an analog sensor, "Phys" or "Virt"
+Touch -- /num/touch/0/ #get the value from a touch sensor, "Phys" only
 # receive data from an OSC marionette device
 # OSC from the TouchOSC app -- node must be set to "Virt"
-TouchOSC  -- /num/1/push1/ # change port number for a different button /num/1/push1/
+TouchOSC  -- /num/1/push1/ # change port number for a different button
 # OSC from the CleanOSC app -- node must be set to "Virt"
-CleanOsc -- /num/clean_button_2/ # change port number for a different button   /num/clean__project_1__button_1/
+CleanOsc -- /num/clean_button_2/ # change port number for a different button   
 # any other OSC message - the node only pays attention to a match with the beginning of the message
-Any # paste in any OSC message to match, prefixed with /num/
+Any # type in any OSC message to match, prefixed with /num/
 ```
 * [TouchOSC](https://hexler.net/products/touchosc) $5
 * [CleanOSC](https://cleanosc.app) Free
 
-Note that for OSC to be received, the sending device (e.g. a phone) must send to the IP of the computer running Unity (by default, on port 5008). In addition the IP address of the sending device should be set in the DingControlVirtual IP setting in the Unity inspector for the robot game object.
+**Note:** For OSC to be received, the sending device (e.g. a phone/tablet) must send to the IP of the computer running Unity (by default, on port 5008). In addition, the IP address of the sending device should be set in the Marionette IP setting in the Unity inspector for the Toolkit settings.
 
 ### Creating Trigger Conditions
-The trigger conditions determine which node(s) will run next. If the trigger condition is met, the node connected (from the green dot) to that condition will run next. Multiple conditions are possible, and more than one can trigger at the same time.
+The trigger conditions determine which node(s) will run next. If a trigger condition is met, the node connected (from the green dot) to that condition will run next. Multiple conditions are possible, and more than one condition can trigger at the same time.
 
 * **Add** - To add a condition, click on the "+" button
 * **Reorder** - Drag the "=" symbol to reorder them
-* **Delete** - To delete a condition, select the condition and click the "-" button
+* **Delete** - To delete a condition, select the condition so it is highlighted and click the "-" button
 
 ### Three kinds of conditions
-* **Gtr** - If the incoming value is **greater** than the setting value, the attached node will run
-* **Lss** - If the incoming value is **less** than the setting value, the attached node will run
-* **Range** - If the incoming value within the range set by the two setting values (low and high), the attached node will run. For example, if the range is set to 100-200, any value equal to 100 and greater, up to and including 200, will trigger the next node.
+* **GT** - If the incoming value is **Greater Than** the setting value, the attached node will be triggered
+* **LT** - If the incoming value is **Less Than** the setting value, the attached node will be triggered
+* **Range** - If the incoming value within the range set by the two setting values (low and high), the attached node will be triggered. For example, if the range is set to 100-200, any value equal to 100 and greater, up to and including 200, will trigger the next node.
+* **Otherwise** - If the incoming value does not match any of the above conditions, the attached node will be triggered
 
 ### The ! Not Checkbox
-The ! checkbox will invert the condition you set up. So for example, if the condition is `Range` with a setting of `100` and `200` and with the `! checkbox` checked, then any value less than 100 **OR** greater than 200 will trigger the next node.
+The ! checkbox will invert the condition you set up. So for example, if the condition is `Range` with a setting of `100` and `200` and with the `! checkbox` checked, then any value less than 100 **OR** greater than 200 will trigger the node attached to this condition.

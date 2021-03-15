@@ -34,7 +34,7 @@ In addition, it encourages design strategies that start with simulation and smoo
   - [Visual Authoring & Control System running on a computer](#visual-authoring--control-system-running-on-a-computer)
   - [Robot/Device](#robotdevice)
 - [Current Features](#current-features)
-- [Roadmap as of April 2020](#roadmap-as-of-april-2020)
+- [Roadmap as of April 2021](#roadmap-as-of-april-2021)
 - [System Architecture](#system-architecture)
   - [Hardware](#hardware)
   - [Raspberry Pi Disk Image](#raspberry-pi-disk-image)
@@ -82,12 +82,12 @@ This system also uses [xNode](https://github.com/Siccity/xNode), which is being 
 
 <img src="docs/images/speak-recognize-graph.png" width="700">
 
-## Roadmap as of April 2020
-* Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
+## Roadmap as of April 2021
 * More nodes for processing sensor data and logic
 * More documentation
 * Better support for IoT (e.g. IFTTT, web-hooks)
-* Integrate learning and classification (vision recognition, for example using teachable Machine or RunwayML) and possibly Unity Reinforcement learning
+* Possibly integrate Unity reinforcement learning
+* Add additional Watson services (e.g. Assistant, Emotion, Sentiment, etc.)
 * AR - Designers will be able to place their prototype smart thing 3D simulation in the real world with AR, as well as add AR features to the smart thing (e.g. extra information "projected" above the device as an augmentation of it).
 
 ## System Architecture
@@ -109,7 +109,7 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
 
 ### Starting the System Up
 1. **Power the Robot**: Power on the Raspberry Pi (RPi):
-     * **RPi**: Connect a 5V 2A AC adapter, or a USB battery to the barrel jack on the CRICKIT -- this will power the RPi as well
+     * **RPi**: Connect a 5V 2A AC adapter or a USB battery to the **barrel jack on the CRICKIT** -- this will also power the RPi
 
 1. **Get the WiFi IP address of the Robot**
      * **Your RPI must already connect by WiFi** - If you haven't already, [set up your RPI to connect to your local WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) using an ethernet cable.
@@ -143,9 +143,9 @@ Note: The next hardware version planned will eliminate the Arduino and replace i
      * **Start the robot software** - After logging in, type the below command, putting the IP address of your Unity computer at the end (get the IP address of your computer by opening the Network Preferences panel)
 
      ```bash
-     ./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21
+     ./delft-ai-toolkit/start-delft-toolkit.sh 192.168.1.21 hello
      ```
-     * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "Hello"
+     * **Startup Sequence** - The software will take a little time to start up. When it finishes, the robot will say "hello" (or whatever text you put at the end of the line)
 
      * **IMPORTANT: Powering off the RPi Procedure**: Before you disconnect the power from the RPi, to prevent harm to the SD storage, **you must properly shut it down with the following command**. Wait for 10 seconds after the poweroff command, then it is safe to unplug the power from the RPi.
 

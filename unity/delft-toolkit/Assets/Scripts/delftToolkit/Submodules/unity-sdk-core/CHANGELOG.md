@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/IBM/unity-sdk-core/compare/v1.2.0...v1.2.1) (2020-06-16)
+
+
+### Bug Fixes
+
+* allow '=' character in environment config values ([89db5eb](https://github.com/IBM/unity-sdk-core/commit/89db5eb00b51467fd80a4bc72d50576bf222307c))
+* assign an empty dictionary to RESTConnector's resp.headers if null ([81c3ebe](https://github.com/IBM/unity-sdk-core/commit/81c3ebe7460c62161214001e44309796f94ee7d4))
+
 # [1.2.0](https://github.com/IBM/unity-sdk-core/compare/v1.1.1...v1.2.0) (2019-12-11)
 
 

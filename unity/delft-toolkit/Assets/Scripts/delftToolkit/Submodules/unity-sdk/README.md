@@ -111,7 +111,7 @@ Some services use token-based Identity and Access Management (IAM) authenticatio
 You supply either an IAM service **API key** or an **access token**:
 
 - Use the API key to have the SDK manage the lifecycle of the access token. The SDK requests an access token, ensures that the access token is valid, and refreshes it if necessary.
-- Use the access token if you want to manage the lifecycle yourself. For details, see [Authenticating with IAM tokens](https://cloud.ibm.com/docs/services/watson?topic=watson-iam). If you want to switch to API key, in a coroutine, override your stored IAM credentials with an IAM API key and yield until the credentials object `HasIamTokenData()` returns `true`.
+- Use the access token if you want to manage the lifecycle yourself. For details, see [Authenticating with IAM tokens](https://cloud.ibm.com/docs/watson?topic=watson-iam). If you want to switch to API key, in a coroutine, override your stored IAM credentials with an IAM API key and yield until the credentials object `HasIamTokenData()` returns `true`.
 
 #### Supplying the IAM API key
 ```cs
@@ -483,9 +483,7 @@ You can view Getting Started videos for the IBM Watson SDK for Unity on [YouTube
 
 ## Questions
 
-If you are having difficulties using the APIs or have a question about the IBM Watson Services, please ask a question on
-[dW Answers](https://developer.ibm.com/answers/questions/ask/?topics=watson)
-or [Stack Overflow](http://stackoverflow.com/questions/ask?tags=ibm-watson).
+If you have issues with the APIs or have a question about the Watson services, see [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-watson+unity).
 
 ## Open Source @ IBM
 Find more open source projects on the [IBM Github Page](http://ibm.github.io/).

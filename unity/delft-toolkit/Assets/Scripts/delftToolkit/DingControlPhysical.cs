@@ -156,11 +156,11 @@ public class DingControlPhysical : DingControlBase {
 		List<object> oscValues = new List<object>();
 
 		string oscString = "/" + action.actionType + "/";
-	
+		// Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.actionType.ToString());
 		//base.handleAction();
 		switch (action.actionType) {
 			case AiGlobals.ActionTypes.move:
-				//Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString());
+				// Debug.LogWarning("DING-PHYSICAL: " + thisDevice.ToString() + " " + action.actionType + " " + action.moveParams.type.ToString() + action.actionType.ToString());
 				if (action.moveParams.source == AiGlobals.SensorSource.phys 
 				|| action.moveParams.source == AiGlobals.SensorSource.both) {
 					oscValues.AddRange(new object[] {
@@ -172,6 +172,7 @@ public class DingControlPhysical : DingControlBase {
 				}
 				break;
 			case AiGlobals.ActionTypes.leds:
+				// Debug.LogWarning("DING-PHYSICAL: leds");
 				oscValues.AddRange(new object[] {
 					action.ledParams.type.ToString(),
 					action.ledParams.time,
@@ -243,7 +244,8 @@ public class DingControlPhysical : DingControlBase {
 				|| action.recognizeParams.source == AiGlobals.SensorSource.both) {
 					oscValues.AddRange(new object[] { 
 						action.recognizeParams.type.ToString(),
-						action.recognizeParams.model.ToString()
+						action.recognizeParams.model.ToString(),
+						action.recognizeParams.threshold
 					});
 				}
 				break;
@@ -256,13 +258,25 @@ public class DingControlPhysical : DingControlBase {
 					});
 				}
 				break;
+			case AiGlobals.ActionTypes.train:
+				// if (action.playSoundParams.source == AiGlobals.SensorSource.phys 
+				// || action.playSoundParams.source == AiGlobals.SensorSource.both) {
+					oscValues.AddRange(new object[] {
+						//action.trainParams.type.ToString(),
+						action.trainParams.catName,
+						action.trainParams.interval,
+						action.trainParams.numPics,
+					});
+					Debug.LogWarning("DING-PHYSICAL train: " + action.actionType);
+				// }
+				break;
 			default:
 				Debug.LogWarning("DING-PHYSICAL unknown type: " + action.actionType);
 				break;
 		}
 		if (oscValues != null && oscValues.Count != 0 && OSCInit) {
-			// print(oscString);
-			// print(oscValues[1]);
+			print(oscString);
+			print(oscValues);
 			// print(oscValues[2]);
 			OSCHandler.Instance.SendMessageToClient(serverClientID, oscString, oscValues);
 		}

@@ -1,5 +1,5 @@
 /**
-* Copyright 2018, 2019 IBM Corp. All Rights Reserved.
+* (C) Copyright IBM Corp. 2018, 2020.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -49,11 +49,6 @@ namespace IBM.Watson.Assistant.V2.Model
         [JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
         public string Text { get; set; }
         /// <summary>
-        /// Optional properties that control how the assistant responds.
-        /// </summary>
-        [JsonProperty("options", NullValueHandling = NullValueHandling.Ignore)]
-        public MessageInputOptions Options { get; set; }
-        /// <summary>
         /// Intents to use when evaluating the user input. Include intents from the previous response to continue using
         /// those intents rather than trying to recognize intents in the new input.
         /// </summary>
@@ -70,5 +65,10 @@ namespace IBM.Watson.Assistant.V2.Model
         /// </summary>
         [JsonProperty("suggestion_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SuggestionId { get; set; }
+        /// <summary>
+        /// Optional properties that control how the assistant responds.
+        /// </summary>
+        [JsonProperty("options", NullValueHandling = NullValueHandling.Ignore)]
+        public MessageInputOptions Options { get; set; }
     }
 }

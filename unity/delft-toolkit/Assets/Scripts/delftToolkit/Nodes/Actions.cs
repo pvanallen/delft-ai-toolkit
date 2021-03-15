@@ -54,9 +54,12 @@ namespace DelftToolkit {
 						switch (actions[currentAction].actionType) {
 							case AiGlobals.ActionTypes.move:
 								delayTime = actions[currentAction].moveParams.time;
+								// if (actions[currentAction].moveParams.source == AiGlobals.SensorSource.both || actions[currentAction].moveParams.source == AiGlobals.SensorSource.virt) {
 								actionStopAll.moveParams.time = 0;
 								actionStopAll.moveParams.type = AiGlobals.ActionMoveTypes.stop;
 								actionStopAll.moveParams.source = actions[currentAction].moveParams.source;
+								actionStopAll.actionType = AiGlobals.ActionTypes.move;
+								// }
 								break;
 							case AiGlobals.ActionTypes.leds:
 								delayTime = actions[currentAction].ledParams.time;
@@ -147,6 +150,7 @@ namespace DelftToolkit {
 		public ActionRecognize recognizeParams = new ActionRecognize();
 		//public ActionChat chatParams = new ActionChat();
 		public ActionPlaySound playSoundParams = new ActionPlaySound();
+		public ActionTrain trainParams = new ActionTrain();
 
 	}
 
@@ -193,7 +197,7 @@ namespace DelftToolkit {
 	public class ActionTouch {
 		[Tooltip("Interval (Milliseconds)")]
 		public int interval = 50; // milliseconds
-		[Tooltip("Port (Typically 0-3)")]
+		[Tooltip("Port (Typically 1-4)")]
 		public int port = 1;
 		[NodeEnum] public AiGlobals.ActionAnalogInTypes type = AiGlobals.ActionAnalogInTypes.start;
 		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.phys;
@@ -252,7 +256,8 @@ namespace DelftToolkit {
 	[Serializable]
 	public class ActionRecognize {
 		[NodeEnum] public AiGlobals.ActionRecognizeTypes type = AiGlobals.ActionRecognizeTypes.one;
-		[NodeEnum] public AiGlobals.ActionRecognizeModels model = AiGlobals.ActionRecognizeModels.googlenet;
+		[NodeEnum] public AiGlobals.ActionRecognizeModels model = AiGlobals.ActionRecognizeModels.mobilenet;
+		public float threshold = 0.3f;
 		public float minDistance = 5;
 		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 	}
@@ -263,5 +268,15 @@ namespace DelftToolkit {
 		[NodeEnum] public AiGlobals.SensorSource source = AiGlobals.SensorSource.virt;
 		[Tooltip("Time (Seconds)")]
 		public float time = 0.5f;
+	}
+
+	[Serializable]
+	public class ActionTrain {
+		[Tooltip("Delay Time (Seconds)")]
+		public float interval = 2.5f;
+		[Tooltip("Number of images to capture")]
+		public int numPics = 5;
+		[Tooltip("Category name")]
+		public String catName = "category1";
 	}
 }

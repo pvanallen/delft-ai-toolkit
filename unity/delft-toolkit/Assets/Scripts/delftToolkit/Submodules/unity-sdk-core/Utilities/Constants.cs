@@ -55,7 +55,7 @@ namespace IBM.Cloud.SDK
             /// <summary>
             /// The version of the Unity SDK Core
             /// </summary>
-            public const string CORE_VERSION = "v1.2.0";
+            public const string CORE_VERSION = "v1.2.1";
         }
 
         /// <summary>

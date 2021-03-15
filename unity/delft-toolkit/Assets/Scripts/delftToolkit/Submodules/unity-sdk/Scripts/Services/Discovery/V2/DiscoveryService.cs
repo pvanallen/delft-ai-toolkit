@@ -155,7 +155,7 @@ namespace IBM.Watson.Discovery.V2
         /// Query a project.
         ///
         /// By using this method, you can construct queries. For details, see the [Discovery
-        /// documentation](https://cloud.ibm.com/docs/services/discovery-data?topic=discovery-data-query-concepts).
+        /// documentation](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-concepts).
         /// </summary>
         /// <param name="callback">The callback function that is invoked when the operation completes.</param>
         /// <param name="projectId">The ID of the project. This information can be found from the deploy page of the
@@ -758,6 +758,9 @@ namespace IBM.Watson.Discovery.V2
         ///
         /// **Note:** This operation only works on collections created to accept direct file uploads. It cannot be used
         /// to modify a collection that connects to an external source such as Microsoft SharePoint.
+        ///
+        /// **Note:** If an uploaded document is segmented, all segments will be overwritten, even if the updated
+        /// version of the document has fewer segments.
         /// </summary>
         /// <param name="callback">The callback function that is invoked when the operation completes.</param>
         /// <param name="projectId">The ID of the project. This information can be found from the deploy page of the
@@ -858,6 +861,9 @@ namespace IBM.Watson.Discovery.V2
         ///
         /// **Note:** This operation only works on collections created to accept direct file uploads. It cannot be used
         /// to modify a collection that connects to an external source such as Microsoft SharePoint.
+        ///
+        /// **Note:** Segments of an uploaded document cannot be deleted individually. Delete all segments by deleting
+        /// using the `parent_document_id` of a segment result.
         /// </summary>
         /// <param name="callback">The callback function that is invoked when the operation completes.</param>
         /// <param name="projectId">The ID of the project. This information can be found from the deploy page of the

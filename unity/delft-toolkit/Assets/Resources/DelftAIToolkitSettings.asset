@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dings:
   - device: 0
-    robotIP: 192.168.1.42
+    robotIP: 192.168.1.48
     robotOutPort: 5005
     robotInPort: 5006
     marionetteIP: 192.168.1.8

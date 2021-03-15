@@ -95,7 +95,7 @@ namespace DelftToolkit {
 			}
 
 			private bool EvaluateInternal(string test, bool priorConditionMatch, bool priorMatchAll ) {
-				test = test.ToLower();
+				test = test.ToLower().Trim();
 				string strComp = strVal.ToLower();
 				switch (compareType) {
 					case CompareType.StartsWith:
@@ -107,9 +107,13 @@ namespace DelftToolkit {
 							// check for multiple strings, any of which may be in target
 							bool comparison = false;
 							//string[] theStrings = strVal.Split(',');
+							// Debug.LogWarning("STRING Condition contains " + strVal);
 							var theStrings = strVal.Split(',');
 							foreach (string item in theStrings) {
+								Debug.LogWarning("STRING Condition contains " + item + " COMPARED TO: " + test);
+
 								comparison = test == (item.ToLower().Trim());
+								Debug.LogWarning("STRING Condition: " + comparison.ToString());
 								if (comparison)
 									break;
 							}

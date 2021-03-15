@@ -631,7 +631,7 @@ namespace IBM.Cloud.SDK.Connection
                     resp.Error = error;
                 }
 
-                resp.Headers = unityWebRequest.GetResponseHeaders();
+                resp.Headers = unityWebRequest.GetResponseHeaders() ?? new Dictionary<string, string>();
 
                 resp.ElapsedTime = (float)(DateTime.Now - startTime).TotalSeconds;
 

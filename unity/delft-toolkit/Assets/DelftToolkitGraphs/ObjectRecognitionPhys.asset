@@ -176,12 +176,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 2
@@ -235,12 +240,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -537,12 +547,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 51
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 1
@@ -596,12 +611,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 51
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 6
@@ -655,12 +675,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 51
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 7
@@ -714,12 +739,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 51
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -997,12 +1027,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 6
@@ -1056,12 +1091,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -1216,12 +1256,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 6
@@ -1275,12 +1320,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -1300,7 +1350,7 @@ MonoBehaviour:
   m_Name: Physical Object Recognition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -536, y: -184}
+  position: {x: -520, y: -184}
   ports:
     keys: []
     values: []
@@ -1490,12 +1540,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 2
@@ -1549,12 +1604,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 1
@@ -1608,12 +1668,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 1
@@ -1667,12 +1732,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 5
@@ -1726,12 +1796,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -1906,12 +1981,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 1
@@ -1965,12 +2045,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 6
@@ -2024,12 +2109,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 8
@@ -2083,12 +2173,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 1
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -2201,8 +2296,8 @@ MonoBehaviour:
     messageFilter: /str/recognize/
     messageType: 0
   inputType: 0
-  _value: 'moving van: 0.29485\golfcart: 0.19296\recreational vehicle: 0.12616\minibus:
-    0.05702\minivan: 0.02859'
+  _value: pool table, billiard table, snooker table 0.234743\dining table, board
+    0.213854\photocopier 0.199414\projector 0.198147\toilet seat 0.166075\
 --- !u!114 &114943807250311866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2354,12 +2449,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 5
@@ -2413,12 +2513,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 0
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -2609,12 +2714,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0

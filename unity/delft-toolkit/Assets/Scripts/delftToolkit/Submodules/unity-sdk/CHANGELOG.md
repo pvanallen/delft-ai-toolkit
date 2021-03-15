@@ -1,3 +1,37 @@
+## [4.7.1](https://github.com/watson-developer-cloud/unity-sdk/compare/v4.7.0...v4.7.1) (2020-06-17)
+
+
+### Bug Fixes
+
+* **TTS:** update TTS example to play music and using normal synthesize ([9006680](https://github.com/watson-developer-cloud/unity-sdk/commit/90066801dca6200e7dcc802c421ce2e94e50f26e))
+
+# [4.7.0](https://github.com/watson-developer-cloud/unity-sdk/compare/v4.6.1...v4.7.0) (2020-06-03)
+
+
+### Features
+
+* **AssistantV1:** add support for spelling suggestions ([7e5ea7c](https://github.com/watson-developer-cloud/unity-sdk/commit/7e5ea7c0a91284adc47b17f8df6a9e697e0b3985))
+* **AssistantV2:** add support for stateless messages ([9998de9](https://github.com/watson-developer-cloud/unity-sdk/commit/9998de97ef415ed2ffaf49ce1643fa9deb5df430))
+* **VisualRecognitionV4:** add support for download model file ([f9dede3](https://github.com/watson-developer-cloud/unity-sdk/commit/f9dede3172cc0f6e2b8b1948576382aaeccb30d0))
+* Regenerate the services based on current API def ([deb0f5e](https://github.com/watson-developer-cloud/unity-sdk/commit/deb0f5ec536bac0ac2dbf951c2c2cd61be4cfefb))
+
+## [4.6.1](https://github.com/watson-developer-cloud/unity-sdk/compare/v4.6.0...v4.6.1) (2020-05-22)
+
+
+### Bug Fixes
+
+* **Speech to Text:** Revise SpeechRecognitionAlternative model ([01f0627](https://github.com/watson-developer-cloud/unity-sdk/commit/01f06279a242d740b4abe5256449a6dac900740e))
+
+# [4.6.0](https://github.com/watson-developer-cloud/unity-sdk/compare/v4.5.0...v4.6.0) (2020-04-24)
+
+
+### Features
+
+* **AssistantV1:** add support for runtime entity alternatives ([cd3a592](https://github.com/watson-developer-cloud/unity-sdk/commit/cd3a592dbe9cd016a7ddf579c719cf8430993366))
+* **LanguageTranslator:** add support for language detection ([ccca1da](https://github.com/watson-developer-cloud/unity-sdk/commit/ccca1da16685d26d1f1a52f445941b0409555db4))
+* **SpeechToText:** add support for speech detector sensitivity and background supression ([4e0e358](https://github.com/watson-developer-cloud/unity-sdk/commit/4e0e35816a7bbb187cd751759da4f1eb4a30be74))
+* regenerate services based on current api def ([53460d2](https://github.com/watson-developer-cloud/unity-sdk/commit/53460d215f512b15e742bf26bd5586bd68af4e25))
+
 # [4.5.0](https://github.com/watson-developer-cloud/unity-sdk/compare/v4.4.0...v4.5.0) (2020-02-25)
 
 

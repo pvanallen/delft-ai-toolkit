@@ -12,7 +12,7 @@ _________________
 - [Random](#random)
 - [Actions](#actions)
   - [Move - Causes the device to move](#move---causes-the-device-to-move)
-  - [Servo - Moves a servo to an angle](#servo---moves-a-servo-to-an-angle)
+  - [Servo - Moves a pan-tilt servo to an angle](#servo---moves-a-pan-tilt-servo-to-an-angle)
   - [Leds - Sets the color of device LEDs](#leds---sets-the-color-of-device-leds)
   - [Play Sound - Plays a sound effect](#play-sound---plays-a-sound-effect)
   - [Analogin - Starts or stops values from an analog input sensor](#analogin---starts-or-stops-values-from-an-analog-input-sensor)
@@ -20,17 +20,18 @@ _________________
   - [Delay - Pauses this sequence of actions](#delay---pauses-this-sequence-of-actions)
   - [Text To Speech - Convert text to spoken word](#text-to-speech---convert-text-to-spoken-word)
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
-  - [Recognize - Perform object recognition from the camera](#recognize---perform-object-recognition-from-the-camera)
-  - [Touch - Starts or stops values from the capacitive touch sensors (**phys** robot only)](#touch---starts-or-stops-values-from-the-capacitive-touch-sensors-phys-robot-only)
+  - [Recognize - Perform object recognition from the robot camera or by tag in the Unity virtual environment](#recognize---perform-object-recognition-from-the-robot-camera-or-by-tag-in-the-unity-virtual-environment)
+  - [Touch - Get values from the capacitive touch sensors (**phys** robot only)](#touch---get-values-from-the-capacitive-touch-sensors-phys-robot-only)
+  - [Train - Collects a series of images from the robot camera (**phys** robot only)](#train---collects-a-series-of-images-from-the-robot-camera-phys-robot-only)
 <!-- TOC END -->
 _________________
 
-<img src="images/actions-all.jpg" width="271">
+<img src="images/actions-all.gif" width="270">
 
 ## Creating Actions
 Each action added to the node will perform in sequence.
 
-* **Add** - To add an action, click on the "+" button, which add a duplicate of the last action as a starting point
+* **Add** - To add an action, click on the "+" button in the lower righty, which add a duplicate of the last action
 * **Reorder** - Drag the "=" symbol to reorder them
 * **Delete** - To delete a condition, select the condition row and click the "-" button
 
@@ -46,30 +47,30 @@ The Random checkbox changes the behavior of the node to run one random action in
 
 ## Actions
 ### Move - Causes the device to move
-* *Direction* - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
-* *Virtual or Physical Robot* - Whether the move command is sent to the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
-* *Time* - Number of seconds the movement will run. Zero sets the movement to run forever (don't forget to use a Move Stop action to stop it), and control passes immediately on the to the next action.
-* *Speed* - Speed of the movement
+* ***Direction*** - Forward or Backward, or turn Left or Right in place (i.e. the two wheels turn in opposite directions)
+* ***Virtual or Physical Robot*** - Whether the move command is sent to the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
+* ***Time*** - Number of seconds the movement will run. Zero sets the movement to run forever (don't forget to use a Move Stop action to stop it), and control passes immediately on the to the next action.
+* ***Speed*** - Speed of the movement
 
-### Servo - Moves a servo to an angle
-* *Movement* Type - Not yet implemented (immediate or varspeed). In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
-* *Port* - The port the servo is attached to - pan or tilt (ports 1 or 2), or Servo ports 3 or 4 on the robot CRICKIT
-* *Time* - Number of seconds the action waits before passing control to the next action
-* *Angle* - The angle to move the servo to
+### Servo - Moves a pan-tilt servo to an angle
+* ***Movement*** Type - Not yet implemented (immediate or varspeed). In the future will enable control of the speed of the servo motion. Currently moves at maximum speed.
+* ***Port*** - The port the servo is attached to - pan or tilt (ports 1 or 2), or Servo ports 3 or 4 on the robot CRICKIT
+* ***Time*** - Number of seconds the action waits before passing control to the next action
+* ***Angle*** - The angle to move the servo to
 
 ### Leds - Sets the color of device LEDs
-* *Type* - Determines how the LEDs will behave
+* ***Type*** - Determines how the LEDs will behave
   * Set - Sets the color of the LEDs
   * Blink - Blinks the LEDs, using the "port" setting for the number of blinks, and the "time" for the amount of time for each "on" period in seconds
   * All Off - Turns all the LEDs off regardless of port/color settings
-* *Port* - Sets the LED to be set (0-12). If -1, all LEDs will be set
-* *Time* - Number of seconds the action waits before passing control to the next action
-* *Color* - Opens a color picker to set the color the LEDs will be set to
+* ***Port*** - Sets the LED to be set (0-12). If -1, all LEDs will be set
+* ***Time*** - Number of seconds the action waits before passing control to the next action
+* ***Color*** - Opens a color picker to set the color the LEDs will be set to
 
 ### Play Sound - Plays a sound effect
-* *Sound* - Sets the sound to be played
-* *Time* - Number of seconds the action waits before passing control to the next action
-* *User Sounds* - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
+* ***Sound*** - Sets the sound to be played
+* ***Time*** - Number of seconds the action waits before passing control to the next action
+* ***User Sounds*** - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
   * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound#.wav files with your own.
   * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own.
     * FTP
@@ -86,42 +87,52 @@ The Random checkbox changes the behavior of the node to run one random action in
 
 
 ### Analogin - Starts or stops values from an analog input sensor
-* *Action* - Start tells the virtual or physical device to start or stop sending values.
-* *Port* - Specifies the robot hardware port the sensor is connected to (1-8).
+* ***Action*** - Start tells the virtual or physical device to start or stop sending values.
+* ***Port*** - Specifies the robot hardware port the sensor is connected to (1-8).
   * It is possible to have the robot send more than one sensor data at a time. Plug your sensors into one of the six analog inputs on the Adafruit Crikit Hat (the ultrasonic distance sensor is normally plugged into input 1)
-* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+* ***Interval*** - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
 ### Touch - Starts or stops values from a touch input sensor
-* *Action* - Start tells the physical device to start or stop sending values.
-* *Port* - Specifies the port the touch wire is connected to.
+* ***Action*** - Start tells the physical device to start or stop sending values.
+* ***Port*** - Specifies the port the touch wire is connected to.
   * It is possible to have the robot send more than one sensor at a time. Connect your sensing wires to one of the four touch inputs on the Adafruit Crikit Hat (labeled 1-4)
-* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+* ***Interval*** - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
 ### Delay - Pauses this sequence of actions
-* *Time* - Seconds of delay before the next action (can be fractional)
+* ***Time*** - Seconds of delay before the next action (can be fractional)
 
 ### Text To Speech - Convert text to spoken word
-* *Model* - Select the model to perform the TTS, Watson (cloud), Pico (edge, robot only)
-* *Virtual or Physical Robot* - Whether the speech is generated on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
-* *Time* - Number of seconds the action waits before passing control to the next action
-* *Voice* - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into making a gender neutral voice available). Typically, the "1" version is a male voice, and the "2" version is female.
-* *Utterance* - The text to be spoken
-* **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account ([more info](../watson.md)) in the Unity menu Delft AI Toolkit>Show Settings
+* ***Model*** - Select the model to perform the TTS, Watson (cloud), Pico (edge, robot only)
+  * **Note**: - To use the Watson model, you must enter the API Key/IAM key obtained from your Watson account ([more info](../watson.md)) in the Unity menu Delft AI Toolkit>Show Settings
+* ***Virtual or Physical Robot*** - Whether the speech is generated on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
+* ***Time*** - Number of seconds the action waits before passing control to the next action
+* ***Voice*** - Select a language, country, voice combination. Not all voices are available in all models. (Note: we are looking into making a gender neutral voice available). Typically, the "1" version is a male voice, and the "2" version is female.
+* ***Utterance*** - The text to be spoken
+
 
 ### Speech To Text - Transcribe spoken words to text
-* *Model* - Only Watson currently (limited to the languages IBM offers), and this option is not shown. In the future, we hope to also implement [DeepSpeech by Mozilla](https://hacks.mozilla.org/2019/12/deepspeech-0-6-mozillas-speech-to-text-engine/), which is an edge based system (i.e. no internet connection required).
-* *Virtual or Physical Robot* - Whether the speech is transcribed on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
-* *Length* - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
-* *Language* - Select a language, country combination. Not all languages are available in all models.
-* **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu: Delft AI Toolkit>Show Settings
+* ***Model*** - Only Watson currently (limited to the languages IBM offers), and this option is not shown. In the future, we hope to also implement [DeepSpeech by Mozilla](https://hacks.mozilla.org/2019/12/deepspeech-0-6-mozillas-speech-to-text-engine/), which is an edge based system (i.e. no internet connection required).
+  * **Note**: - To use the Watson model, you must enter the iamkey obtained from your Watson account in the Unity menu: Delft AI Toolkit>Show Settings
+* ***Virtual or Physical Robot*** - Whether the speech is transcribed on the Physical robot (**Phys**), the Unity Virtual robot (**Virt**), or both (**Both**)
+* ***Length*** - Seconds the device listens before turning off microphone and transcribing. Control passes immediately on to the next action regardless of setting
+* ***Language*** - Select a language, country combination. Not all languages are available in all models.
 
-### Recognize - Perform object recognition from the camera
-* *Recognition Model* - Select the machine learning model to be used. The models are well known models - they are simple and fast at the top of the list, and more accurate and slower at the bottom of the list. In the Unity virtual environment, the Recognition Model setting has no effect.
-  * **Note**: True object recognition happens on the robot through its camera, but in the virtual environment "recognition" occurs by putting a Unity tag on the gameobject in the scene. Whatever the robot is pointed at will return the tag name applied to the object it "sees." Note also that the pan/tilt on the virt robot affects what it "sees" and the direction of the higher tilt surface is what it is pointing at.
-  * **Minimum distance** - In the virtual environment, the number in the action determines if the recognition returns the tag of the object it is "seeing"/pointing at. If it is close enough (i.e. )
 
-### Touch - Starts or stops values from the capacitive touch sensors (**phys** robot only)
-* *Action* - Start tells the physical device to start sending values. Stop ends the sending of values
-* *Port* - Specifies the port of the touch sensor (1-4).
+### Recognize - Perform object recognition from the robot camera or by tag in the Unity virtual environment
+* ***Recognition Model*** - If you are doing "phys" recognition with the robot camera, select the machine learning model to be used. In the Unity virtual environment, the Recognition Model setting has no effect. The models listed include several well-known models such as [mobilenet](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md) and [squeezenet](https://en.wikipedia.org/wiki/SqueezeNet). These models are based on different datasets (image databases), and use different machine learning techniques. They vary in speed and accuracy - the user is encouraged to experiment with different models to experience how well they work for the user's application.
+  * **Create a custom [Teachable Machine](https://teachablemachine.withgoogle.com) model**: The action's models begin with "teachable1" through "teachable3", which allow the user to install up to three custom models from the Google's Teachable Machine). See the ["teachable" documentation](teachable.md) to understand how to create and install a custom model trained on your own images and categories.
+  * **Note**: True object recognition happens on the robot through its actual camera. Be sure to check that the camera is taking an adequate photo -- the image is on the Raspberry Pi: /home/pi/delft-ai-toolkit/delft-image.jpg. In the "virt" Unity environment "recognition" occurs by putting a Unity tag on any gameobject in the scene. Whatever the virtual robot gameobject is pointed at, will return the tag name on the object it "sees." Note also that the pan/tilt on the "virt" robot affects what it "sees" and the direction forward from the upper "tilt" surface is what it is pointing at.
+* ***Threshold*** - For "phys" recognition with the camera, this sets the minimum confidence level of categories recognized by the model. For example, the recognition model will return up to five top objects recognized in the camera image. Each category recognized has a value (0-1) that is the model's confidence level. By setting this, the model will only return categories with confidence higher than this amount.
+* ***Minimum distance*** - In the virtual environment, this number determines if the recognition returns the tag of the object it is pointing at. If the tagged object is close enough (i.e. within this minimum distance), the action returns the tag on the nearby object.
+
+### Touch - Get values from the capacitive touch sensors (**phys** robot only)
+* ***Action*** - **Start** tells the robot to start sending values. **Stop** ends the sending of values
+* ***Port*** - Specifies the port of the touch sensor (1-4).
   * It is possible to have the robot send more than one sensor at a time. Plug your conductive wire (e.g. copper tape, or alligator clips) into one of the four touch inputs on the CRICKIT
-* *Interval* - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+* ***Interval*** - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
+
+### Train - Collects a series of images from the robot camera (**phys** robot only)
+* **Note**: - It may be best to use this long running (several minutes) action without any other actions to prevent conflicts or distractions. The robot will turn on it's LEDs, and use voice to count down before each image is captured. See the ["Teachable Machine" documentation](teachable.md) for more information on the use of this action
+* ***Category Name*** - Sets the name of the directory where the series of images are stored on the robot.
+* ***Delay*** - Sets the amount of time in seconds between each photo captured
+* ***Number of Images to Capture*** - Specifies how many images to capture for training this category

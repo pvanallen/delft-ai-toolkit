@@ -43,6 +43,7 @@ public class AiGlobals : MonoBehaviour {
 		speechToText,
 		recognize,
 		touch,
+		train,
 		//chat,
 	}
 
@@ -122,12 +123,24 @@ public class AiGlobals : MonoBehaviour {
 		one,
 		multiple
 	}
+	// public enum ActionRecognizeModels {
+	// 	squeezenet,
+	// 	alexnet,
+	// 	googlenet,
+	// 	inception,
+	// 	rcnn
+	// }
+
 	public enum ActionRecognizeModels {
+		teach1,
+		teach2,
+		teach3,
 		squeezenet,
-		alexnet,
-		googlenet,
-		inception,
-		rcnn
+		mobilenet,
+		cocoMobilenet,
+		incept1,
+		mnasnet,
+		incept4,
 	}
 
 	public enum  VoiceModels {

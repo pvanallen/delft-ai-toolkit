@@ -1,5 +1,5 @@
 ﻿/**
-* Copyright 2018, 2019 IBM Corp. All Rights Reserved.
+* (C) Copyright IBM Corp. 2018, 2020.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -155,7 +155,9 @@ namespace IBM.Watson.Tests
                 },
                 audio: audio,
                 model: usBroadbandModel,
-                contentType: "audio/wav"
+                contentType: "audio/wav",
+                speechDetectorSensitivity: 1,
+                backgroundAudioSuppression: 0
             );
 
             while (recognizeResponse == null)
