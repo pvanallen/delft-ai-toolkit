@@ -153,7 +153,7 @@ MonoBehaviour:
     floatValB: 2
     inverse: 0
   valueOut: 0
-  _value: 1
+  _value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 440}
+  position: {x: 280, y: 216}
   ports:
     keys:
     - actions
@@ -464,12 +464,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 2
@@ -523,12 +528,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 0
@@ -582,12 +592,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -607,7 +622,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 472, y: 312}
+  position: {x: 648, y: 88}
   ports:
     keys:
     - enter
@@ -727,7 +742,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 104, y: 104}
+  position: {x: 280, y: -120}
   ports:
     keys:
     - actions
@@ -875,12 +890,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 2
@@ -934,12 +954,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 0
@@ -993,12 +1018,17 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 18
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
@@ -1018,7 +1048,7 @@ MonoBehaviour:
   m_Name: Using Touch OSC
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -648, y: -280}
+  position: {x: -712, y: -280}
   ports:
     keys: []
     values: []
@@ -1037,10 +1067,9 @@ MonoBehaviour:
   m_Name: Using Clean OSC
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -648, y: 456}
+  position: {x: -712, y: 440}
   ports:
     keys: []
     values: []
   text: "Uses OSC from the CleanOSC app to trigger simple behaviors in the robot.
-    Works with CleanOSC push buttons sending\n /num/clean__project_1__button_1/\n
-    /num/clean__project_1__button_2/"
+    Works with CleanOSC push buttons sending\n /num/clean__project_1__button_1/\n/num/clean__project_1__button_2/"

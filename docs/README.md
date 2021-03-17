@@ -12,5 +12,5 @@
 * [Graph Control](graph-control.md) - Control the flow through the graph
 
 ### Hardware
-* [Hardware V2 - 2020 version](hardware.md) - Parts list, hardware assembly and software installation
+* [Hardware V3 - 2020+ version](hardware.md) - Parts list, hardware assembly and software installation
 * [Hardware V2 - 2018/19](hardware2019.md) - Parts list, hardware assembly and software installation

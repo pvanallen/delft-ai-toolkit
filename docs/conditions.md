@@ -14,7 +14,7 @@ _______________
 - [Float Condition Node](#float-condition-node)
   - [Setting the input data source](#setting-the-input-data-source-1)
   - [Creating Trigger Conditions](#creating-trigger-conditions-1)
-  - [Three kinds of conditions](#three-kinds-of-conditions)
+  - [Condition Types](#condition-types-1)
   - [The ! Not Checkbox](#the--not-checkbox-1)
 <!-- TOC END -->
 ________________
@@ -95,7 +95,7 @@ The trigger conditions determine which node(s) will run next. If a trigger condi
 * **Reorder** - Drag the "=" symbol to reorder them
 * **Delete** - To delete a condition, select the condition so it is highlighted and click the "-" button
 
-### Three kinds of conditions
+### Condition Types
 * **GT** - If the incoming value is **Greater Than** the setting value, the attached node will be triggered
 * **LT** - If the incoming value is **Less Than** the setting value, the attached node will be triggered
 * **Range** - If the incoming value within the range set by the two setting values (low and high), the attached node will be triggered. For example, if the range is set to 100-200, any value equal to 100 and greater, up to and including 200, will trigger the next node.

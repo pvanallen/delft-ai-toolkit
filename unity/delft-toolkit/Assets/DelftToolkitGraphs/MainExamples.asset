@@ -3151,7 +3151,7 @@ MonoBehaviour:
     messageFilter: /str/keydown/
     messageType: 0
   inputType: 2
-  _value: S
+  _value: UpArrow
 --- !u!114 &114859249833087784
 MonoBehaviour:
   m_ObjectHideFlags: 0

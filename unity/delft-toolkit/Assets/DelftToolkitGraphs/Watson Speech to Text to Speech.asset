@@ -42,7 +42,7 @@ MonoBehaviour:
     - exit
     - actions 0
     - actions 1
-    - FloatIn
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114257323827988600}
@@ -102,7 +102,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
-    - _fieldName: FloatIn
+    - _fieldName: floatIn
       _node: {fileID: 114257323827988600}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -113,7 +113,7 @@ MonoBehaviour:
       _dynamic: 0
   actions:
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -165,14 +165,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -224,18 +229,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
   expanded: 1
   stringIn: 
-  FloatIn: 0
+  floatIn: 0
 --- !u!114 &114266994730812140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +267,7 @@ MonoBehaviour:
     - enter
     - exit
     - actions 0
-    - FloatIn
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114266994730812140}
@@ -311,7 +321,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
-    - _fieldName: FloatIn
+    - _fieldName: floatIn
       _node: {fileID: 114266994730812140}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -322,7 +332,7 @@ MonoBehaviour:
       _dynamic: 0
   actions:
   - stringIn: 
-    FloatIn: 0
+    floatIn: 0
     actionType: 7
     moveParams:
       type: 1
@@ -374,18 +384,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
   expanded: 1
   stringIn: 
-  FloatIn: 0
+  floatIn: 0
 --- !u!114 &114419075400698750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +423,7 @@ MonoBehaviour:
     - exit
     - actions 0
     - actions 1
-    - FloatIn
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114419075400698750}
@@ -471,7 +486,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
-    - _fieldName: FloatIn
+    - _fieldName: floatIn
       _node: {fileID: 114419075400698750}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -481,8 +496,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   actions:
-  - stringIn: one
-    FloatIn: 0
+  - stringIn: 'hello going to Disneyland '
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -534,14 +549,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
-  - stringIn: one
-    FloatIn: 0
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 'hello going to Disneyland '
+    floatIn: 0
     actionType: 6
     moveParams:
       type: 1
@@ -593,18 +613,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
       minDistance: 5
       source: 0
     playSoundParams:
       type: 24
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
   expanded: 1
   stringIn: 
-  FloatIn: 0
+  floatIn: 0
 --- !u!114 &114490679615533056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,7 +723,7 @@ MonoBehaviour:
     messageFilter: /str/speech2text/
     messageType: 0
   inputType: 1
-  _value: one
+  _value: 'hello going to Disneyland '
 --- !u!114 &114567834932035406
 MonoBehaviour:
   m_ObjectHideFlags: 0

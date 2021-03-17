@@ -3,7 +3,7 @@
 [BACK TO MAIN DOCUMENTATION TOC](README.md)
 ________________
 <!-- TOC START min:2 max:5 link:true asterisk:false update:true -->
-- [VERSION 3 HARDWARE (2020)](#version-3-hardware-2020)
+- [VERSION 3 HARDWARE (2020+)](#version-3-hardware-2020)
   - [Description](#description)
   - [Hardware Parts list](#hardware-parts-list)
   - [Hardware Assembly](#hardware-assembly)
@@ -20,30 +20,35 @@ ________________
 
 <br><img src="images/robot2020-2.jpg" width="512">
 
-## VERSION 3 HARDWARE (2020)
+## VERSION 3 HARDWARE (2020+)
 ### Description
-The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and make use of cloud APIs. The RPi uses a "hat" for working with sensors, LEDs, DC wheel motors and camera positioning Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
+The physical robot is currently based on a simple metal robot platform from Adafruit combined with a Raspberry Pi to perform the local edge AI, local text-to-speech, and to make use of cloud APIs. The RPi uses a "hat" for working with sensors, actuators, LEDs (Neopixels), DC wheel motors and Servos. The robot RPi communicates with Unity running on a computer with the OSC network protocol over WiFi.
 
 ### Hardware Parts list
-* [Robot Platform](https://www.adafruit.com/product/3796)
+* **BODY**
+  * [Metal Robot Platform](https://www.adafruit.com/product/3796)
   * [2 motors for wheels](https://www.adafruit.com/product/3777)
   * [2 wheels](https://www.adafruit.com/product/3757)
-  * [ball caster](https://www.adafruit.com/product/1200)
-* [Raspberry Pi 3 B+](https://www.adafruit.com/product/3775) - we're still testing the Pi 4
-* [CRICKIT Hat](https://www.adafruit.com/product/3957)
-* [Pi Camera](https://www.adafruit.com/product/3099)
-  * [8" camera cable](https://www.adafruit.com/product/1647)
+  * [ball caster](https://www.adafruit.com/product/3948)
+* **CPU**
+  * [Raspberry Pi 4 B+, 2GB](https://www.adafruit.com/product/4292)
+  * [Adafruit CRICKIT Hat](https://www.adafruit.com/product/3957)
+* **CAMERA**
+  * [Pi Camera](https://www.adafruit.com/product/3099)
+  * [8" camera cable](https://www.adafruit.com/product/1647) (the standard cable is not long enough)
   * [camera case](https://www.adafruit.com/product/3253)
-* [USB Mic](https://www.adafruit.com/product/3367)
-* [Speaker](https://www.adafruit.com/product/3351)
-* [NeoPixel 16 Light Ring](https://www.adafruit.com/product/2854)
-* [Ultrasonic Proximity Sensor](https://www.adafruit.com/product/172)
-* [Pan/Tilt Servo Kit as camera mount](https://www.adafruit.com/product/1967)
-* [USB 5V 2A Rechargeable Battery for RPi](https://www.adafruit.com/product/1565)
-* [USB to 2.1mm Male Barrel Jack Cable](https://www.adafruit.com/product/2697) (connects battery to CRIKIT to power both CRICKIT and RPi)
+  * [camera focus tool](https://www.adafruit.com/product/3518)
+* **SENSORS/ACTUATORS**
+  * [USB Mic](https://www.adafruit.com/product/3367)
+  * [Speaker](https://www.adafruit.com/product/3351)
+  * [NeoPixel 16 Light Ring](https://www.adafruit.com/product/2854)
+  * [Ultrasonic Proximity Sensor](https://www.adafruit.com/product/172)
+  * [Pan/Tilt Servo Kit as camera mount](https://www.adafruit.com/product/1967)
+* **POWER**
+  * [USB 5V 2A Rechargeable Battery for RPi](https://www.amazon.com/Anker-Upgraded-Candy-Bar-High-Speed-Technology/dp/B06XS9RMWS/ref=sr_1_20)
+  * [USB to 2.1mm Male Barrel Jack Cable](https://www.adafruit.com/product/2697) (connects battery to CRIKIT which powers both CRICKIT and RPi)
 
-In addition to the above, the robot uses screws and [velcro](https://www.amazon.com/Monoprice-Hook-Loop-Fastening-0-75-inch/dp/B004AF9II6/) for mounting all the components, and a 3D printed light diffuser to cover the NeoPixel ring
-* ["L" bracket](https://www.tinkercad.com/things/ikA8s2YAOyl) - optional 3D printed part used to mount the camera pan/tilt servos
+In addition to the above, the robot uses screws, standoffs, and [velcro](https://www.amazon.com/Monoprice-Hook-Loop-Fastening-0-75-inch/dp/B004AF9II6/) for mounting all the components
 * [NeoPixel Diffuser](https://www.tinkercad.com/things/hJRIqCVGwtZ) - fits over the NeoPixel Ring and helps diffuse the light
 
 ### Hardware Assembly
@@ -52,13 +57,11 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
 
 #### Prepare the electronics
   * Create a Deflt AI Toolkit SD card for the RPi (see below)
-  * For audio to work correctly on the CRICKIT, you **must [cut a small trace](https://learn.adafruit.com/adafruit-crickit-hat-for-raspberry-pi-linux-computers/speaker-output)** on the bottom of the CRICKIT circuit board (see photo below)
-  * Install the camera ribbon cable, feeding it through the CRIKIT camera cable hole, to connect to the RPi (blue side facing the Ethernet jack), then connect the cable to the Camera
-  * Carefully install the CRICKIT on the RPi using the included extension pins while keeping the camera cable plugged in
-  * Plug the mic into the RPi upper right USB plug
-
-
+  * For audio to work correctly on on older CRICKIT boards, you **[may need to cut a small trace](https://learn.adafruit.com/adafruit-crickit-hat-for-raspberry-pi-linux-computers/speaker-output)** on the bottom of the CRICKIT circuit board (see photo below)
   <br><img src="images/raspberry_pi_crickit_hat_cut_trace.jpg" width="512"><br>
+  * Install the camera ribbon cable, feeding it through the CRIKIT camera cable cable hole. Connect to the RPi camera connector (blue side of the cable facing the Ethernet jack - watch [this video](https://www.youtube.com/watch?v=lAbpDRy-gc0)), then connect the cable to the Camera
+  * Carefully install the CRICKIT on the RPi using the included extension pins while keeping the camera cable plugged in
+  * Plug the mic into the RPi upper left USB plug
 
 #### Assemble the robot platform
   1. see also [this page for a similar project with details/photos](https://learn.adafruit.com/circuitpython-ble-crickit-rover/build-the-rover)
@@ -78,8 +81,7 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
   * Mount the USB battery pack to the back side of the platform using Velcro, and attach a short USB A to 2.1mm Male Barrel Jack cable from the battery to the CRICKIT
   * Follow the startup sequence on the [main page](../README.md)
 
-<img src="images/robot2020-1.jpg" width="512">
-<br>Hardware version 3 - 2020<br><br>
+<img src="images/robot2020-1.jpg" width="512"><br><br>
 <img src="images/robot2020-5.jpg" width="512"><br><br>
 <img src="images/robot2020-6.jpg" width="512"><br><br>
 <img src="images/robot2020-3.jpg" width="512"><br><br>
@@ -90,9 +92,9 @@ In addition to the above, the robot uses screws and [velcro](https://www.amazon.
 
 #### Computer
 ##### Free Unity Software
-* **Install [Unity3D](https://store.unity.com)** The toolkit is compatible with Unity3D v2019.3.x
+* **Install [Unity3D](https://store.unity.com)** The toolkit is tested with Unity3D v2019.3.x
 ##### Delft AI Toolkit Unity Project
-* **Download the toolkit software** from our [Releases](../releases/), and place on your computer. This includes the Unity project, RPi code, and documentation
+* **Download the toolkit software** .zip file from our [Releases](../releases/) page, uncompress, and place on your computer. This includes the Unity project, RPi code, and documentation
 * Open the toolkit in Unity - use Open from within Unity and select **delft-toolkit-2_0_3>Unity>delft-toolkit**
 * **NOTE**: If you chose to clone or download the software from the main GitHub page, note that we use xNode, IBM Watson SDK, and IBM SDK Core as a submodules (i.e. we use the code from the original repos). With a simple clone, the submodule code will be missing from this Unity project directory: delft-toolkit>Assets>Scripts>delftToolkit>Submodules>
      <br>There are several solutions for this:

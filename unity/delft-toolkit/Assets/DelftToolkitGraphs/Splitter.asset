@@ -34,17 +34,18 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: 344}
+  position: {x: -56, y: 408}
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
     - actions 3
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114168946626156416}
@@ -56,7 +57,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114168946626156416}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -125,8 +126,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114168946626156416}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -162,6 +173,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -177,11 +189,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 4
@@ -217,6 +237,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -232,11 +253,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 3
@@ -272,6 +301,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -287,11 +317,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 4
@@ -327,6 +365,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -342,15 +381,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114307971871305322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +411,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -392, y: -40}
+  position: {x: -456, y: -40}
   ports:
     keys:
     - enter
@@ -404,7 +451,7 @@ MonoBehaviour:
   m_Name: Restart
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: 8}
+  position: {x: 344, y: 8}
   ports:
     keys:
     - enter
@@ -453,7 +500,7 @@ MonoBehaviour:
   m_Name: Splitter
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: -40}
+  position: {x: -344, y: -40}
   ports:
     keys:
     - enter
@@ -462,7 +509,6 @@ MonoBehaviour:
     - out1
     - out3
     - out2
-    - out4
     values:
     - _fieldName: enter
       _node: {fileID: 114485060710568810}
@@ -533,17 +579,8 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-    - _fieldName: out4
-      _node: {fileID: 114485060710568810}
-      _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  outlets: 5
-  lastOutlets: 5
+  outlets: 4
+  lastOutlets: 4
   nextOutletNum: 3
   splitType: 0
 --- !u!114 &114549503075050822
@@ -559,17 +596,18 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: 680}
+  position: {x: -56, y: 776}
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
     - actions 3
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114549503075050822}
@@ -581,7 +619,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114549503075050822}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -650,8 +688,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114549503075050822}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 4
@@ -687,6 +735,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -702,11 +751,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 1
@@ -742,6 +799,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -757,11 +815,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 3
@@ -797,6 +863,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -812,11 +879,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 0
     moveParams:
       type: 2
@@ -852,6 +927,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -867,15 +943,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 2
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114617687678129236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,13 +977,14 @@ MonoBehaviour:
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
     - actions 3
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114617687678129236}
@@ -911,7 +996,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114617687678129236}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -980,8 +1065,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114617687678129236}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 1
     moveParams:
       type: 1
@@ -1017,6 +1112,7 @@ MonoBehaviour:
       port: 1
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1032,11 +1128,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 1
     moveParams:
       type: 1
@@ -1072,6 +1176,7 @@ MonoBehaviour:
       port: 1
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1087,11 +1192,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 1
     moveParams:
       type: 1
@@ -1127,6 +1240,7 @@ MonoBehaviour:
       port: 1
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1142,11 +1256,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 1
     moveParams:
       type: 1
@@ -1182,6 +1304,7 @@ MonoBehaviour:
       port: 1
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1197,15 +1320,23 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 2
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0
 --- !u!114 &114764880941207908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,17 +1370,18 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: 8}
+  position: {x: -56, y: 40}
   ports:
     keys:
     - actions
-    - variable
+    - stringIn
     - enter
     - exit
     - actions 0
     - actions 1
     - actions 2
     - actions 3
+    - floatIn
     values:
     - _fieldName: actions
       _node: {fileID: 114852539658500648}
@@ -1261,7 +1393,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: variable
+    - _fieldName: stringIn
       _node: {fileID: 114852539658500648}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -1330,8 +1462,18 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 1
+    - _fieldName: floatIn
+      _node: {fileID: 114852539658500648}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   actions:
-  - variable: 
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -1367,6 +1509,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1382,11 +1525,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 5
     moveParams:
       type: 1
@@ -1422,6 +1573,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1437,11 +1589,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 2
     moveParams:
       type: 1
@@ -1477,6 +1637,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1492,11 +1653,19 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
-  - variable: 
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
     actionType: 5
     moveParams:
       type: 1
@@ -1532,6 +1701,7 @@ MonoBehaviour:
       port: 9
       varspeed: 127
       easing: 3
+      source: 1
     speakParams:
       type: 0
       time: 1
@@ -1547,12 +1717,20 @@ MonoBehaviour:
     recognizeParams:
       type: 0
       model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
     playSoundParams:
       type: 23
       source: 0
       time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   repeats: 1
   random: 0
   device: 0
   expanded: 1
-  variable: 
+  stringIn: 
+  floatIn: 0

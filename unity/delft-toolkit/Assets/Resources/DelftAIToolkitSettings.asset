@@ -17,7 +17,7 @@ MonoBehaviour:
     robotIP: 192.168.1.48
     robotOutPort: 5005
     robotInPort: 5006
-    marionetteIP: 192.168.1.8
+    marionetteIP: 192.168.1.2
     marionetteOutPort: 5007
     marionetteInPort: 5008
   - device: 1
