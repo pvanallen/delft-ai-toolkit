@@ -110,10 +110,15 @@ namespace DelftToolkit {
 							// Debug.LogWarning("STRING Condition contains " + strVal);
 							var theStrings = strVal.Split(',');
 							foreach (string item in theStrings) {
-								Debug.LogWarning("STRING Condition contains " + item + " COMPARED TO: " + test);
+								string word = item.ToLower().Trim();
+								// Debug.LogWarning("STRING Condition contains " + word + " COMPARED TO: " + test);
 
-								comparison = test == (item.ToLower().Trim());
-								Debug.LogWarning("STRING Condition: " + comparison.ToString());
+								if (test.Contains(word)) {
+									comparison = true;
+								} else {
+									comparison = false;
+								}
+								// Debug.LogWarning("STRING Condition result: " + comparison.ToString());
 								if (comparison)
 									break;
 							}

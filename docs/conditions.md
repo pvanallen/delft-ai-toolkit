@@ -40,6 +40,7 @@ Recognize - from "Phys" (robot) or "Virt" (inside Unity), visual object classifi
 Keydown - from "Virt" any keyboard key pressed
 ```
 &nbsp;
+KEYDOWN NOTE: when listening for a keydown press from the keyboard, you must have Unity in Play Mode and have clicked on the Game pane so that Unity will receive the keyboard clicks. Keydown will not work otherwise.
 
  <img src="images/StringCondition-objectRecognition.jpg" width="254">&nbsp;&nbsp;<img src="images/StringCondition-speech2text.jpg" width="254">&nbsp;&nbsp;<img src="images/StringCondition-keydown.jpg" width="254">
 
@@ -72,16 +73,16 @@ To select what data the condition node listens to, set the Incoming signal filte
 * **Data Source** - The "Incoming Signal Filter" dropdown is used to specify the incoming data that the condition will evaluate, by setting the OSC message "URL" to listen to. The following are supported:
 
 ``` bash
-# values from a sensor, set the the port used
-Analogin -- /num/analogin/0/ #get the value from an analog sensor, "Phys" or "Virt"
-Touch -- /num/touch/0/ #get the value from a touch sensor, "Phys" only
+# values from a sensor, set the port used
+Analogin -- /num/analogin/1/ #get the value from an analog sensor, "Phys" (ports 1-8) or "Virt"
+Touch -- /num/touch/1/ #get the value from a touch sensor, "Phys" (ports 1-4) only
 # receive data from an OSC marionette device
 # OSC from the TouchOSC app -- node must be set to "Virt"
 TouchOSC  -- /num/1/push1/ # change port number for a different button
 # OSC from the CleanOSC app -- node must be set to "Virt"
 CleanOsc -- /num/clean_button_2/ # change port number for a different button   
 # any other OSC message - the node only pays attention to a match with the beginning of the message
-Any # type in any OSC message to match, prefixed with /num/
+Any # type in any OSC url message to match, prefixed with /num/
 ```
 * [TouchOSC](https://hexler.net/products/touchosc) $5
 * [CleanOSC](https://cleanosc.app) Free

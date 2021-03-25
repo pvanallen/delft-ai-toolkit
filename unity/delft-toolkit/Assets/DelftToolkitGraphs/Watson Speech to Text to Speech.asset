@@ -268,6 +268,8 @@ MonoBehaviour:
     - exit
     - actions 0
     - floatIn
+    - actions 1
+    - actions 2
     values:
     - _fieldName: actions
       _node: {fileID: 114266994730812140}
@@ -330,7 +332,153 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: actions 1
+      _node: {fileID: 114266994730812140}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: actions 2
+      _node: {fileID: 114266994730812140}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
   actions:
+  - stringIn: 
+    floatIn: 0
+    actionType: 6
+    moveParams:
+      type: 1
+      source: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 1
+    analoginParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+      source: 1
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Say a brief sentence
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 10
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
+    actionType: 5
+    moveParams:
+      type: 1
+      source: 0
+      time: 1
+      speed: 1
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 3
+    analoginParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 0
+      type: 0
+      source: 0
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+      source: 1
+    speakParams:
+      type: 0
+      time: 1
+      utterance: Hello World
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 10
+      source: 0
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 2
+      threshold: 0.3
+      minDistance: 5
+      source: 0
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
   - stringIn: 
     floatIn: 0
     actionType: 7
@@ -496,7 +644,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   actions:
-  - stringIn: 'hello going to Disneyland '
+  - stringIn: 'one more sentence '
     floatIn: 0
     actionType: 2
     moveParams:
@@ -560,7 +708,7 @@ MonoBehaviour:
       interval: 2.5
       numPics: 5
       catName: category1
-  - stringIn: 'hello going to Disneyland '
+  - stringIn: 'one more sentence '
     floatIn: 0
     actionType: 6
     moveParams:
@@ -601,7 +749,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 3
-      utterance: You said {stringIn}
+      utterance: You said, {stringIn}
       source: 0
       model: 0
     listenParams:
@@ -723,7 +871,7 @@ MonoBehaviour:
     messageFilter: /str/speech2text/
     messageType: 0
   inputType: 1
-  _value: 'hello going to Disneyland '
+  _value: 'one more sentence '
 --- !u!114 &114567834932035406
 MonoBehaviour:
   m_ObjectHideFlags: 0

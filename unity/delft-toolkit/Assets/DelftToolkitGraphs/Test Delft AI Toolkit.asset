@@ -297,10 +297,7 @@ MonoBehaviour:
       _node: {fileID: -7523816052225850721}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 952067995980772124}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -315,11 +312,11 @@ MonoBehaviour:
   valueOut: 
   filter:
     device: 0
-    source: 1
+    source: 0
     messageFilter: /str/speech2text/
     messageType: 0
   inputType: 1
-  _value: 'by '
+  _value: 'one more sentence '
 --- !u!114 &-7052728039383624650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +440,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 1
-      utterance: okay, bye bye
+      utterance: okay, goodbye
       source: 0
       model: 1
     listenParams:
@@ -1529,7 +1526,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -552, y: 2104}
+  position: {x: -488, y: 2104}
   ports:
     keys:
     - actions
@@ -1574,10 +1571,7 @@ MonoBehaviour:
       _node: {fileID: -6117901948481444139}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: conditions 1
-        node: {fileID: 6673612596459937634}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1601,8 +1595,9 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - stringIn: pill bottle 0.560784\pencil sharpener 0.533333\matchstick 0.521569\lipstick,
-      lip rouge 0.517647\lighter, light, igniter, ignitor 0.513725\
+  - stringIn: vacuum, vacuum cleaner 0.650980\sewing machine 0.580392\hand blower,
+      blow dryer, blow drier, hair dryer, hair drier 0.576471\power drill 0.572549\tripod
+      0.549020\
     floatIn: 0
     actionType: 6
     moveParams:
@@ -2639,7 +2634,7 @@ MonoBehaviour:
       source: 1
     speakParams:
       type: 0
-      time: 1
+      time: 8
       utterance: analog input test
       source: 0
       model: 1
@@ -2860,6 +2855,9 @@ MonoBehaviour:
         reroutePoints: []
       - fieldName: exit
         node: {fileID: 952067995980772124}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -3195784516646667984}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3116,7 +3114,7 @@ MonoBehaviour:
   m_Name: Actions
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 616, y: 728}
+  position: {x: 616, y: 760}
   ports:
     keys:
     - actions
@@ -3141,7 +3139,10 @@ MonoBehaviour:
       _node: {fileID: -3195784516646667984}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: valueOut
+        node: {fileID: 3292168937828740115}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -3173,7 +3174,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enter
-        node: {fileID: -1769191244355413771}
+        node: {fileID: -4312687353686370260}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -3198,7 +3199,7 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
   actions:
-  - stringIn: 
+  - stringIn: 'one more sentence '
     floatIn: 0
     actionType: 6
     moveParams:
@@ -3239,7 +3240,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 1
-      utterance: sorry, can you repeat?
+      utterance: I think you said {stringIn}
       source: 0
       model: 1
     listenParams:
@@ -3262,7 +3263,7 @@ MonoBehaviour:
       interval: 2.5
       numPics: 5
       catName: category1
-  - stringIn: 
+  - stringIn: 'one more sentence '
     floatIn: 0
     actionType: 5
     moveParams:
@@ -3280,7 +3281,7 @@ MonoBehaviour:
         rgba: 4278222719
     delayParams:
       type: 0
-      time: 2
+      time: 3
     analoginParams:
       interval: 50
       port: 1
@@ -3748,7 +3749,7 @@ MonoBehaviour:
   m_Name: SPEECH to TEXT
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 248, y: 440}
+  position: {x: 248, y: 392}
   ports:
     keys:
     - actions
@@ -3760,6 +3761,7 @@ MonoBehaviour:
     - actions 1
     - actions 2
     - actions 3
+    - actions 4
     values:
     - _fieldName: actions
       _node: {fileID: -1769191244355413771}
@@ -3793,10 +3795,7 @@ MonoBehaviour:
       _node: {fileID: -1769191244355413771}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: exit
-        node: {fileID: -3195784516646667984}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -3841,6 +3840,15 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 1
     - _fieldName: actions 3
+      _node: {fileID: -1769191244355413771}
+      _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: actions 4
       _node: {fileID: -1769191244355413771}
       _typeQualifiedName: DelftToolkit.Action, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -3932,7 +3940,7 @@ MonoBehaviour:
         rgba: 4278222719
     delayParams:
       type: 0
-      time: 2.5
+      time: 1.5
     analoginParams:
       interval: 50
       port: 1
@@ -4019,13 +4027,77 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 1
-      utterance: speak hello
+      utterance: speak a brief sentence
       source: 0
       model: 1
     listenParams:
       type: 0
       duration: 10
       source: 1
+      lang: 0
+      model: 0
+    recognizeParams:
+      type: 0
+      model: 4
+      threshold: 0.3
+      minDistance: 5
+      source: 0
+    playSoundParams:
+      type: 23
+      source: 0
+      time: 0.5
+    trainParams:
+      interval: 2.5
+      numPics: 5
+      catName: category1
+  - stringIn: 
+    floatIn: 0
+    actionType: 5
+    moveParams:
+      type: 1
+      source: 0
+      time: 1
+      speed: 0.5
+      easing: 3
+    ledParams:
+      type: 0
+      time: 0
+      ledNum: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278222719
+    delayParams:
+      type: 0
+      time: 2
+    analoginParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 0
+    touchParams:
+      interval: 50
+      port: 1
+      type: 0
+      source: 1
+    servoParams:
+      type: 0
+      time: 1
+      angle: 90
+      portLabel: 0
+      port: 9
+      varspeed: 127
+      easing: 3
+      source: 1
+    speakParams:
+      type: 0
+      time: 10
+      utterance: speak a brief sentence
+      source: 0
+      model: 1
+    listenParams:
+      type: 0
+      duration: 10
+      source: 0
       lang: 0
       model: 0
     recognizeParams:
@@ -4082,14 +4154,14 @@ MonoBehaviour:
       source: 1
     speakParams:
       type: 0
-      time: 1
-      utterance: start speech to text test
+      time: 10
+      utterance: speak a brief sentence
       source: 0
       model: 1
     listenParams:
       type: 0
       duration: 10
-      source: 1
+      source: 0
       lang: 0
       model: 0
     recognizeParams:
@@ -5069,7 +5141,10 @@ MonoBehaviour:
       _node: {fileID: -211732975132205860}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 6673612596459937634}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -5253,10 +5328,7 @@ MonoBehaviour:
       _node: {fileID: 952067995980772124}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: conditions 1
-        node: {fileID: -7523816052225850721}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -5517,15 +5589,15 @@ MonoBehaviour:
   inputType: 0
   conditions:
   - compareType: 1
+    floatValA: 30
+    floatValB: 263
+    inverse: 0
+  - compareType: 3
     floatValA: 35
     floatValB: 263
     inverse: 0
-  - compareType: 1
-    floatValA: 35
-    floatValB: 263
-    inverse: 1
   valueOut: 0
-  _value: 49
+  _value: 130
 --- !u!114 &3292168937828740115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5552,7 +5624,10 @@ MonoBehaviour:
       _node: {fileID: 3292168937828740115}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: stringIn
+        node: {fileID: -3195784516646667984}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -5612,11 +5687,11 @@ MonoBehaviour:
   valueOut: 
   filter:
     device: 0
-    source: 1
+    source: 0
     messageFilter: /str/speech2text/
     messageType: 0
   inputType: 1
-  _value: 'by '
+  _value: 'one more sentence '
 --- !u!114 &4137539490390365924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5986,7 +6061,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 0
-      utterance: test servos, set pan 0, 90, 180
+      utterance: test servos, set pan 20, 90, 170
       source: 0
       model: 1
     listenParams:
@@ -6105,7 +6180,7 @@ MonoBehaviour:
     servoParams:
       type: 0
       time: 1
-      angle: 0
+      angle: 20
       portLabel: 0
       port: 1
       varspeed: 127
@@ -6306,7 +6381,7 @@ MonoBehaviour:
     speakParams:
       type: 0
       time: 0
-      utterance: set tilt 0, 90, 180
+      utterance: set tilt 30, 90, 130
       source: 0
       model: 1
     listenParams:
@@ -6425,7 +6500,7 @@ MonoBehaviour:
     servoParams:
       type: 0
       time: 1
-      angle: 0
+      angle: 30
       portLabel: 1
       port: 2
       varspeed: 127
@@ -6553,7 +6628,7 @@ MonoBehaviour:
     servoParams:
       type: 0
       time: 1
-      angle: 120
+      angle: 140
       portLabel: 1
       port: 2
       varspeed: 127
@@ -6994,7 +7069,10 @@ MonoBehaviour:
       _node: {fileID: 6673612596459937634}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: -211732975132205860}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -7024,10 +7102,7 @@ MonoBehaviour:
       _node: {fileID: 6673612596459937634}
       _typeQualifiedName: DelftToolkit.StateNodeBase+Empty, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: -6117901948481444139}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -7046,8 +7121,8 @@ MonoBehaviour:
     messageFilter: /str/recognize/
     messageType: 0
   inputType: 0
-  _value: screwdriver 0.650980\modem 0.592157\printer 0.545098\syringe 0.541176\photocopier
-    0.533333\
+  _value: screwdriver 0.607843\power drill 0.564706\spatula 0.545098\paintbrush 0.501961\carpenter's
+    kit, tool kit 0.486275\
 --- !u!114 &7951934392670103042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7516,7 +7591,7 @@ MonoBehaviour:
       ledNum: -1
       color:
         serializedVersion: 2
-        rgba: 4278222719
+        rgba: 4286513171
     delayParams:
       type: 0
       time: 15

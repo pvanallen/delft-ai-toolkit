@@ -19,9 +19,9 @@ Issues:
 # Overview
 The Delft AI Toolkit is a system for designing and researching smart things. It provides a visual authoring environment that simplifies the use of machine learning, cognitive APIs, and other AI approaches. The node-and-connection visual graphs combine the advantages of behavior trees and dataflow models to create smart behavior in autonomous devices.
 
-The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition.  
+The Delft AI Toolkit enables quick prototyping, experimentation and iteration of AI interactions with powerful nodes that support behavioral sequences, sensing, decision making, state management, and the simple invocation of AI techniques such as speech to text, text to speech, and visual object recognition. In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
 
-In addition, it encourages design strategies that start with simulation and smoothly progress toward a working prototypes of machine learning and hardware.
+The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively sketch working smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
 * **Marionetting** - This approach allows the designer/researcher to control the smart thing in real time, responding to people and other contexts as if they were the AI being designed (e.g. reacting to user interactions by triggering voice responses or movements as it they were coming from an AI system). This remote control can happen wirelessly (e.g. using a tablet or phone), and provide a rapid feedback loop from testing to design.
 
@@ -29,7 +29,7 @@ In addition, it encourages design strategies that start with simulation and smoo
 
 <!-- TOC START min:2 max:3 link:true asterisk:false update:true -->
 - [Video Introduction](#video-introduction)
-- [Description](#description)
+- [System Diagram](#system-diagram)
 - [Documentation](#documentation)
 - [System Components](#system-components)
   - [Visual Authoring & Control System running on a computer](#visual-authoring--control-system-running-on-a-computer)
@@ -48,12 +48,8 @@ _________________________
 ## Video Introduction
 [<img src="docs/images/toolkitintro.jpg" width="700">](http://www.youtube.com/watch?v=BjsFq0DOrgQ "Delft AI Toolkit Introduction")
 
-## Description
+## System Diagram
 ![system diagram](https://www.philvanallen.com/wp-content/uploads/2018/01/Pasted_Image_1_16_18__3_50_PM.jpg?resize=640%2C350)
-
-The **Delft AI Toolkit** is a system for designing, sketching, and prototyping smart things. It provides a visual authoring environment that incorporates machine learning, cognitive APIs, and other AI approaches such as behavior trees, and data flow to create smart behavior in autonomous devices.
-
-The goal of this project is to develop an approach to authoring AI that enables designers to easily and iteratively sketch working smart things. This approach includes the ability to Wizard-of-Oz AI behaviors and simulate physical hardware in 3D, and then migrate these simulations to working prototypes that use machine learning and real hardware.
 
 ## Documentation
 * [Toolkit Documentation](docs/README.md)
