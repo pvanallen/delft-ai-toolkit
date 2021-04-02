@@ -129,7 +129,8 @@ In addition to the above, the robot uses screws, standoffs, and [velcro](https:/
   # once logged in, edit the RPi WiFi configuration with your WiFi credentials
   sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
   # reboot for the new WiFi to take effect
-  sudo reboot
+  sudo poweroff
+  # disconnect the Ethernet cable and remove and replace the power to boot
   # log back in, and confirm the WiFi has connected on wlan0
   ssh pi@delftbt0.local
   # on RPI, check the IP address for wlan0

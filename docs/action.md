@@ -70,7 +70,9 @@ The Random checkbox changes the behavior of the node to run one random action in
 ### Play Sound - Plays a sound effect
 * ***Sound*** - Sets the sound to be played
 * ***Time*** - Number of seconds the action waits before passing control to the next action
-* ***User Sounds*** - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files - 16bit/stereo/44.1K/.wav format.
+* ***User Sounds*** - Note that there are five placeholder sound files (UserSound1.wav - UserSound5.wav) built into the system which can be replaced by the user with their own sound files
+
+  File format: **16bit/stereo/44.1K/.wav**
   * Unity - To change the sounds in Unity, go to the folder *Assets>Resources>ui_sounds* and replace any of the UserSound#.wav files with your own.
   * Robot - To change the sounds on the robot, Use FTP or mount the RPi as a server, and replace any of the UserSound#.wav files with your own.
     * FTP
