@@ -22,7 +22,7 @@ _________________
   - [Speech To Text - Transcribe spoken words to text](#speech-to-text---transcribe-spoken-words-to-text)
   - [Recognize - Perform object recognition from the robot camera or by tag in the Unity virtual environment](#recognize---perform-object-recognition-from-the-robot-camera-or-by-tag-in-the-unity-virtual-environment)
   - [Touch - Get values from the capacitive touch sensors (**phys** robot only)](#touch---get-values-from-the-capacitive-touch-sensors-phys-robot-only)
-  - [Train - Collects a series of images from the robot camera (**phys** robot only)](#train---collects-a-series-of-images-from-the-robot-camera-phys-robot-only)
+  - [Train - Collects a series of images from the robot camera for Teachable Machine (**phys** robot only)](#train---collects-a-series-of-images-from-the-robot-camera-for-teachable-machine-phys-robot-only)
 <!-- TOC END -->
 _________________
 
@@ -133,7 +133,7 @@ The Random checkbox changes the behavior of the node to run one random action in
   * It is possible to have the robot send more than one sensor at a time. Plug your conductive wire (e.g. copper tape, or alligator clips) into one of the four touch inputs on the CRICKIT
 * ***Interval*** - Milliseconds of delay between each sensor value sent. E.g. 50ms means that values will be sent 20 times per second
 
-### Train - Collects a series of images from the robot camera (**phys** robot only)
+### Train - Collects a series of images from the robot camera for Teachable Machine (**phys** robot only)
 * **Note**: - It may be best to use this long running (several minutes) action without any other actions to prevent conflicts or distractions. The robot will turn on it's LEDs, and use voice to count down before each image is captured. See the ["Teachable Machine" documentation](teachable.md) for more information on the use of this action
 * ***Category Name*** - Sets the name of the directory where the series of images are stored on the robot.
 * ***Delay*** - Sets the amount of time in seconds between each photo captured
